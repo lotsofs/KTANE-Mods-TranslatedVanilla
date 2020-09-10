@@ -17,8 +17,8 @@
     <LangVersion>8.0</LangVersion>
     <PreBuildEvent>rem These variables in NotVanillaModulesLib.csproj must be changed to match your Unity and KTaNE installation. See readme.md for more info.
 exit 1</PreBuildEvent>
-    <UnityInstallPath Condition=" '$(UnityInstallPath)' == '' ">D:/Program Files/Unity/2017.4.40f1</UnityInstallPath>
-    <GameInstallPath Condition=" '$(GameInstallPath)' == '' ">C:/Program Files (x86)/Steam/steamapps/common/Keep Talking and Nobody Explodes</GameInstallPath>
+    <UnityInstallPath Condition=" '$(UnityInstallPath)' == '' ">D:\Programs\Game Engines\Unity\2017.4.40f1</UnityInstallPath>
+    <GameInstallPath Condition=" '$(GameInstallPath)' == '' ">D:\Programs\Game Launchers\Steam\steamapps\common\Keep Talking and Nobody Explodes - Mod Building</GameInstallPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
