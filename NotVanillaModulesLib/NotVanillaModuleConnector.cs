@@ -36,41 +36,6 @@ namespace NotVanillaModulesLib {
 #endif
 
 		public virtual void Awake() {
-			Config config;
-			var modSettings = this.GetComponent<KMModSettings>();
-			if (!string.IsNullOrEmpty(modSettings.SettingsPath)) {
-				bool rewriteFile;
-				if (!File.Exists(modSettings.SettingsPath)) {
-					config = new Config();
-					rewriteFile = true;
-				} else {
-					try {
-						using var reader = new StreamReader(modSettings.SettingsPath);
-						config = new JsonSerializer().Deserialize<Config>(new JsonTextReader(reader));
-						if (config == null) {
-							config = new Config();
-							rewriteFile = true;
-						} else
-							rewriteFile = false;
-					} catch (Exception ex) {
-						this.LogError("Could not read the mod settings file.");
-						Debug.LogException(ex, this);
-						config = new Config();
-						rewriteFile = true;
-					}
-				}
-				if (rewriteFile) {
-					try {
-						using var writer = new StreamWriter(modSettings.SettingsPath);
-						new JsonSerializer() { Formatting = Formatting.Indented }.Serialize(writer, config);
-					} catch (Exception ex) {
-						this.LogError("Could not write the mod settings file.");
-						Debug.LogException(ex, this);
-					}
-				}
-			} else
-				config = new Config();
-
 			string moduleType;
 			this.KMBombModule = this.GetComponent<KMBombModule>();
 			if (this.KMBombModule != null) moduleType = this.KMBombModule.ModuleType;
@@ -91,8 +56,7 @@ namespace NotVanillaModulesLib {
 			this.Log("Assembly was compiled in debug mode. Activating test model.");
 #else
 			var aprilFools = DateTime.Now.Month == 4 && DateTime.Now.Day == 1;  // Yes, the whole day.
-			var chance = aprilFools ? config.AprilFoolsTestModelChance : config.TestModelChance;
-			if (!(chance > 0) || UnityEngine.Random.Range(0f, 1f) >= chance) {
+			if (!aprilFools) {
 				try {
 					this.AwakeLive();
 					this.TestModel?.SetActive(false);
@@ -101,8 +65,7 @@ namespace NotVanillaModulesLib {
 					this.LogError("Can't load BombGenerator. Activating test model.");
 				}
 			} else {
-				if (aprilFools) this.Log("This is a defective module. April Fools! Activating test model.");
-				else this.Log("This is a defective module. Activating test model.");
+				this.Log("This is a defective module. April Fools! Activating test model.");
 			}
 #endif
 			this.TestMode = true;
