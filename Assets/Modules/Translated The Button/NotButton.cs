@@ -21,11 +21,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public bool Mashing { get; private set; }
 	public float InteractionTime { get; private set; }
 
-	public ButtonAction SolutionAction { get; private set; }
+	public bool ShouldBeHeld { get; private set; }
 
-	const ButtonAction Press = ButtonAction.Press;
-	const ButtonAction Hold = ButtonAction.Hold;
-	private static readonly ButtonAction[,] defaultActionTable = new[,] {
+	const bool Press = false;
+	const bool Hold = true;
+	private static readonly bool[,] defaultActionTable = new[,] {
 		{ Press, Press , Hold , Press, Hold , Hold , Press, Press , Press },
 		{ Press , Press, Press, Hold , Press , Press , Press , Press , Press  },
 		{ Hold , Press, Press , Press , Press, Hold , Press, Press, Hold  },
@@ -54,10 +54,10 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	private KMBombInfo bombInfo;
 	private Coroutine animationCoroutine;
 
-	private static string SolutionActionPastTense(ButtonAction action) {
+	private static string SolutionActionPastTense(bool action) {
 		switch (action) {
-			case ButtonAction.Press: return "pressed";
-			case ButtonAction.Hold: return "held";
+			case false: return "pressed";
+			case true: return "held";
 			default: throw new ArgumentException();
 		}
 	}
@@ -74,8 +74,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		this.Log("Colour is " + this.Colour);
 		this.Connector.SetLabel(this.Label = (ButtonLabel) Random.Range(0, 9));
 		this.Log("Label is " + this.Label);
-		this.SolutionAction = defaultActionTable[(int) this.Colour, (int) this.Label];
-		this.Log("The button should be " + SolutionActionPastTense(this.SolutionAction) + ".");
+		this.ShouldBeHeld = defaultActionTable[(int) this.Colour, (int) this.Label];
+		this.Log("The button should be " + SolutionActionPastTense(this.ShouldBeHeld) + ".");
 
 		this.Connector.Held += this.Button_Held;
 		this.Connector.Released += this.Button_Released;
@@ -112,12 +112,12 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 		else {
 			this.InteractionTime += Time.deltaTime;
-			if (this.SolutionAction == ButtonAction.Press) {
+			if (this.ShouldBeHeld == false) {
 				this.Log("The button was pressed. That was correct.");
 				this.Disarm();
 			}
 			else {
-				this.Log(string.Format("The button was pressed. That was incorrect: it should have been {0}.", SolutionActionPastTense(this.SolutionAction)));
+				this.Log(string.Format("The button was pressed. That was incorrect: it should have been {0}.", SolutionActionPastTense(this.ShouldBeHeld)));
 				this.Connector.KMBombModule.HandleStrike();
 			}
 		}
@@ -158,12 +158,12 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			}
 
 			var timeString = this.GetComponent<KMBombInfo>().GetFormattedTime();
-			if (this.SolutionAction == ButtonAction.Hold) {
+			if (this.ShouldBeHeld == true) {
 				var time = this.GetComponent<KMBombInfo>().GetTime();
 					this.Log(string.Format("The button was held and released at {0}. That was correct.", timeString));
 					this.Disarm();
 			} else {
-				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been {1}.", timeString, SolutionActionPastTense(this.SolutionAction)));
+				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been {1}.", timeString, SolutionActionPastTense(this.ShouldBeHeld)));
 				this.Connector.KMBombModule.HandleStrike();
 			}
 		}
@@ -176,8 +176,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		} else {
 			this.SetLightColour((ButtonLightColour) (Random.Range(0, 15) + 1));
 			this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
-			this.Log(string.Format(this.SolutionAction == ButtonAction.Hold ? "The button is being held. The light is {0}. The button should be released." :
-				"The button is being held. The light is {0}.", this.LightColour));
+			this.Log(string.Format(this.ShouldBeHeld == true ? "The button is being held. That is correct. The light is {0}." :
+				"The button is being held. That is incorrect. The light is {0}.", this.LightColour));
 		}
 	}
 
@@ -294,7 +294,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 					this.Connector.TwitchRelease();
 					if (!wasHolding) {
 						// The button was held so briefly it didn't count as such... Not sure this is actually possible.
-						yield return this.SolutionAction == ButtonAction.Press ? "solve" : "strike";
+						yield return this.ShouldBeHeld == false ? "solve" : "strike";
 					}
 				}
 			}
@@ -318,13 +318,13 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	public IEnumerator TwitchHandleForcedSolve() {
 		this.Connector.OpenCover();
-		switch (this.SolutionAction) {
-			case ButtonAction.Press:
+		switch (this.ShouldBeHeld) {
+			case false:
 				this.Connector.TwitchPress();
 				yield return new WaitForSeconds(1 / 12f);
 				this.Connector.TwitchRelease();
 				break;
-			case ButtonAction.Hold:
+			case true:
 				this.Connector.TwitchPress();
 				yield return new WaitForSeconds(1);
 				this.Connector.TwitchRelease();
