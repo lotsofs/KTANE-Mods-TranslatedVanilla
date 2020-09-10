@@ -165,8 +165,6 @@ namespace NotVanillaModulesLib {
 			var material = (this.ColourblindMode ? this.ColourblindMaterials : this.Materials)[(int) colour];
 			var lightText = colour switch {
 				ButtonColour.Yellow => false,
-				ButtonColour.Cyan => false,
-				ButtonColour.Pink => false,
 				ButtonColour.White => false,
 				_ => true
 			};
@@ -187,11 +185,6 @@ namespace NotVanillaModulesLib {
 						case ButtonColour.Yellow: buttonComponent.SetColor(BombGame.ButtonColor.yellow); return;
 						case ButtonColour.Blue: buttonComponent.SetColor(BombGame.ButtonColor.blue); return;
 						case ButtonColour.White: buttonComponent.SetColor(BombGame.ButtonColor.white); return;
-						case ButtonColour.Green:
-							buttonComponent.SetColor(BombGame.ButtonColor.red);
-							buttonComponent.Button_Top_Red.SetActive(false);
-							buttonComponent.Button_Top_Green.SetActive(true);
-							return;
 					}
 				}
 				buttonComponent.SetColor(BombGame.ButtonColor.white);
@@ -230,13 +223,10 @@ namespace NotVanillaModulesLib {
 #endif
 			} else {
 				var text = colour switch {
-					ButtonLightColour.White => "W", ButtonLightColour.Red => "R", ButtonLightColour.Yellow => "Y",
-					ButtonLightColour.Green => "G", ButtonLightColour.Blue => "B",
-					ButtonLightColour.WhiteRed => "W\nR\nW\nR", ButtonLightColour.WhiteYellow => "W\nY\nW\nY",
-					ButtonLightColour.WhiteGreen => "W\nG\nW\nG", ButtonLightColour.WhiteBlue => "W\nB\nW\nB",
-					ButtonLightColour.RedYellow => "R\nY\nR\nY", ButtonLightColour.RedGreen => "R\nG\nR\nG", ButtonLightColour.RedBlue => "R\nB\nR\nB",
-					ButtonLightColour.YellowGreen => "Y\nG\nY\nG", ButtonLightColour.YellowBlue => "Y\nB\nY\nB",
-					ButtonLightColour.GreenBlue => "G\nB\nG\nB",
+					ButtonLightColour.Red => "R", 
+					ButtonLightColour.Yellow => "Y",
+					ButtonLightColour.Blue => "B",
+					ButtonLightColour.White => "W", 
 					_ => ""
 				};
 				if (this.TestMode) {
