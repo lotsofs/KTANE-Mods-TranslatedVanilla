@@ -50,18 +50,6 @@ namespace NotVanillaModulesLib {
 			this.button = Instantiate(buttonPrefab, this.transform);
 			this.lidAnimator = this.button.transform.Find("Opening_LID").GetComponent<Animator>();
 
-			this.button.transform.localPosition = new Vector3(0.008f, 0.001f, -0.006f);
-			this.button.transform.localScale = new Vector3(-0.9f, 0.9f, 0.9f);
-			// We mirror the button in the x direction so that the very faint 'border' around the light
-			// (which is part of the same model as the button base) doesn't go off the module surface.
-			// We must also mirror the text to compensate for this.
-			var textScale = this.button.text.transform.localScale;
-			textScale.x = -textScale.x;
-			this.button.text.transform.localScale = textScale;
-
-			// Remove the vanilla LED since we're replacing it with our own.
-			Destroy(this.button.transform.Find("parts/LED_Off").gameObject);
-
 			var buttonEventConnector = new ButtonEventConnector();
 			buttonEventConnector.Held += this.ButtonEventConnector_Held;
 			buttonEventConnector.Released += this.ButtonEventConnector_Released;
