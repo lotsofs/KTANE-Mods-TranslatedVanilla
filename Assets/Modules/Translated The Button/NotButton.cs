@@ -276,62 +276,12 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		} else {
 			foreach (var light in this.Lights)
 				light.gameObject.SetActive(true);
-			for (int i = 0; i < this.Lights.Length; i += 2) {
+			for (int i = 0; i < this.Lights.Length; i += 1) {
 				switch (colour) {
-					case ButtonLightColour.White:
-					case ButtonLightColour.WhiteRed:
-					case ButtonLightColour.WhiteYellow:
-					case ButtonLightColour.WhiteGreen:
-					case ButtonLightColour.WhiteBlue:
-						this.Lights[i].color = Color.white;
-						break;
-					case ButtonLightColour.Red:
-					case ButtonLightColour.RedYellow:
-					case ButtonLightColour.RedGreen:
-					case ButtonLightColour.RedBlue:
-						this.Lights[i].color = Color.red;
-						break;
-					case ButtonLightColour.Yellow:
-					case ButtonLightColour.YellowGreen:
-					case ButtonLightColour.YellowBlue:
-						this.Lights[i].color = Color.yellow;
-						break;
-					case ButtonLightColour.Green:
-					case ButtonLightColour.GreenBlue:
-						this.Lights[i].color = Color.green;
-						break;
-					case ButtonLightColour.Blue:
-						this.Lights[i].color = Color.blue;
-						break;
-				}
-			}
-			for (int i = 1; i < this.Lights.Length; i += 2) {
-				switch (colour) {
-					case ButtonLightColour.White:
-						this.Lights[i].color = Color.white;
-						break;
-					case ButtonLightColour.Red:
-					case ButtonLightColour.WhiteRed:
-						this.Lights[i].color = Color.red;
-						break;
-					case ButtonLightColour.Yellow:
-					case ButtonLightColour.WhiteYellow:
-					case ButtonLightColour.RedYellow:
-						this.Lights[i].color = Color.yellow;
-						break;
-					case ButtonLightColour.Green:
-					case ButtonLightColour.WhiteGreen:
-					case ButtonLightColour.RedGreen:
-					case ButtonLightColour.YellowGreen:
-						this.Lights[i].color = Color.green;
-						break;
-					case ButtonLightColour.Blue:
-					case ButtonLightColour.WhiteBlue:
-					case ButtonLightColour.RedBlue:
-					case ButtonLightColour.YellowBlue:
-					case ButtonLightColour.GreenBlue:
-						this.Lights[i].color = Color.blue;
-						break;
+					case ButtonLightColour.Red: this.Lights[i].color = Color.red; break;
+					case ButtonLightColour.Yellow: this.Lights[i].color = Color.yellow; break;
+					case ButtonLightColour.Blue: this.Lights[i].color = Color.blue; break;
+					case ButtonLightColour.White: this.Lights[i].color = Color.white; break;
 				}
 			}
 		}
@@ -353,16 +303,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	}
 
 	private IEnumerator LightShowCoroutine() {
-		var roll = Random.Range(0, 6);
-		ButtonLightColour[] colours;
-		switch (roll) {
-			case 0: colours = new[] { ButtonLightColour.White, ButtonLightColour.Red, ButtonLightColour.Yellow, ButtonLightColour.Green, ButtonLightColour.Blue }; break;
-			case 1: colours = new[] { ButtonLightColour.White, ButtonLightColour.WhiteRed, ButtonLightColour.WhiteYellow, ButtonLightColour.WhiteGreen, ButtonLightColour.WhiteBlue }; break;
-			case 2: colours = new[] { ButtonLightColour.WhiteRed, ButtonLightColour.Red, ButtonLightColour.RedYellow, ButtonLightColour.RedGreen, ButtonLightColour.RedBlue }; break;
-			case 3: colours = new[] { ButtonLightColour.WhiteYellow, ButtonLightColour.RedYellow, ButtonLightColour.Yellow, ButtonLightColour.YellowGreen, ButtonLightColour.YellowBlue }; break;
-			case 4: colours = new[] { ButtonLightColour.WhiteGreen, ButtonLightColour.RedGreen, ButtonLightColour.YellowGreen, ButtonLightColour.Green, ButtonLightColour.GreenBlue }; break;
-			default: colours = new[] { ButtonLightColour.WhiteBlue, ButtonLightColour.RedBlue, ButtonLightColour.YellowBlue, ButtonLightColour.GreenBlue, ButtonLightColour.Blue }; break;
-		}
+		ButtonLightColour[] colours = new[] { ButtonLightColour.White, ButtonLightColour.Red, ButtonLightColour.Yellow, ButtonLightColour.Red, ButtonLightColour.Blue };
 		while (true) {
 			var time = this.bombInfo.GetTime();
 			this.SetLightColour(colours[(int) time % 5]);
