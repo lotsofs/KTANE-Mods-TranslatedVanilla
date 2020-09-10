@@ -9,8 +9,6 @@ using Random = UnityEngine.Random;
 public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public delegate int MashCountFormula(int a, int b, int c, int d, int e, int f, int g);
 
-	public Transform DisplayBase;
-	public TextMesh DisplayText;
 	public Light[] Lights;
 	public bool OpenCoverOnSelection;
 
@@ -146,7 +144,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			moduleSelectable.OnDefocus = () => this.Connector.CloseCover();
 		}
 
-		this.DisplayBase.gameObject.SetActive(false);
 	}
 
 	public void OpenCover() { this.Connector.OpenCover(); }
@@ -164,7 +161,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			if (this.InteractionTime >= (this.MashCount > 1 ? 3 : 0.7f)) {
 				if (this.Solved) {
 					this.mashAnimationEnumerator = null;
-					this.DisplayBase.localScale = Vector3.one;
 				} else if (this.MashCount == 1) {
 					if (this.SolutionAction == ButtonAction.Press) {
 						this.Log("The button was pressed. That was correct.");
@@ -188,7 +184,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 					}
 				}
 				this.MashCount = 0;
-				this.DisplayBase.gameObject.SetActive(false);
 			}
 		}
 	}
@@ -217,7 +212,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 				++this.MashCount;
 				if (this.MashCount == 1) {
 					this.mashAnimationEnumerator = this.DisplayShowCoroutine();
-					this.DisplayBase.gameObject.SetActive(true);
 				}
 				this.mashAnimationEnumerator.MoveNext();
 			}
@@ -249,8 +243,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		} else {
 			++this.MashCount;
 			if (this.MashCount > 1) {
-				this.DisplayText.text = (this.MashCount % 100).ToString();
-				this.DisplayBase.gameObject.SetActive(true);
 			}
 		}
 	}
@@ -317,62 +309,23 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		switch (roll) {
 			case 0:
 				while (true) {
-					this.DisplayText.text = (this.MashCount % 100).ToString();
 					yield return null;
 				}
 			case 1:
 				while (true) {
-					this.DisplayText.text = "_!"; yield return null;
-					this.DisplayText.text = "_"; yield return null;
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayBase.localScale = new Vector3(1, -1, 1);
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayText.text = "_"; yield return null;
-					this.DisplayText.text = "_!"; yield return null;
-					this.DisplayBase.localScale = new Vector3(-1, -1, 1);
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayBase.localScale = new Vector3(-1, 1, 1);
 					yield return null;
-					this.DisplayBase.localScale = Vector3.one;
 				}
 			case 2:
 				while (true) {
-					this.DisplayText.text = "_!"; yield return null;
-					this.DisplayText.text = "_"; yield return null;
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayText.text = "-"; yield return null;
-					this.DisplayText.text = "-!"; yield return null;
-					this.DisplayBase.localScale = new Vector3(-1, -1, 1);
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayText.text = "_"; yield return null;
-					this.DisplayBase.localScale = new Vector3(1, -1, 1);
 					yield return null;
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayBase.localScale = new Vector3(1, 1, 1);
-					this.DisplayText.text = "-"; yield return null;
-					this.DisplayText.text = "-!"; yield return null;
-					this.DisplayBase.localScale = new Vector3(-1, 1, 1);
-					this.DisplayText.text = "i"; yield return null;
-					this.DisplayBase.localScale = Vector3.one;
 				}
 			default:
 				while (true) {
-					this.DisplayText.text = "o";
 					for (int i = 0; i < 4; ++i) {
-						this.DisplayBase.localScale = Vector3.one; yield return null;
-						this.DisplayBase.localScale = new Vector3(-1, 1, 1); yield return null;
-						this.DisplayBase.localScale = new Vector3(-1, -1, 1); yield return null;
-						this.DisplayBase.localScale = new Vector3(1, -1, 1); yield return null;
 					}
-					this.DisplayText.text = "oo";
 					for (int i = 0; i < 4; ++i) {
-						this.DisplayBase.localScale = Vector3.one; yield return null;
-						this.DisplayBase.localScale = new Vector3(1, -1, 1); yield return null;
 					}
-					this.DisplayBase.localScale = Vector3.one;
 					for (int i = 0; i < 4; ++i) {
-						this.DisplayText.text = "8"; yield return null;
-						this.DisplayText.text = "8!"; yield return null;
 					}
 				}
 		}
@@ -443,7 +396,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 						if (this.TwitchShouldCancelCommand) {
 							// Undo the input if the command is cancelled, to prevent sabotage.
 							this.MashCount = 0;
-							this.DisplayBase.gameObject.SetActive(false);
 							yield return "sendtochat The mash command was not completed due to a request to cancel.";
 							yield return "cancelled";
 							yield break;
