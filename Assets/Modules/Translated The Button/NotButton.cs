@@ -22,7 +22,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public float InteractionTime { get; private set; }
 
 	public ButtonAction SolutionAction { get; private set; }
-	public TimerCondition SolutionTimerCondition { get; private set; }
 
 	const ButtonAction Press = ButtonAction.Press;
 	const ButtonAction Hold = ButtonAction.Hold;
@@ -38,7 +37,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		{ Press, Press , Press, Hold , Press , Press, Press, Press, Hold  },
 		{ Hold , Hold , Press , Press , Press, Press , Hold , Press , Press  }
 	};
-	private TimerCondition[] defaultTimerConditions;
 	private static readonly MashCountFormula[] defaultMashCountFormulas = new MashCountFormula[] {
 		(a, b, c, d, e, f, g) => a + 2 * b - d,
 		(a, b, c, d, e, f, g) => 2 * b + 1 - g,
@@ -71,24 +69,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		// Fix lights.
 		var lightScale = this.transform.lossyScale.x;
 		foreach (var light in this.Lights) light.range *= lightScale;
-
-		this.defaultTimerConditions = new[] {
-			/* W  */ new TimerCondition((t, s) => true, "any time"),
-			/* R  */ TimerCondition.SecondsDigitIs(1),
-			/* Y  */ TimerCondition.Contains('4'),
-			/* G  */ TimerCondition.SecondsDigitsAddTo(7),
-			/* B  */ TimerCondition.TensDigitIsPrimeOrZero(),
-			/* WR */ TimerCondition.Contains('9'),
-			/* WY */ TimerCondition.Contains((char) ('0' + Math.Min(9, this.bombInfo.GetBatteryCount()))),
-			/* WG */ TimerCondition.SecondsDigitsMatch(),
-			/* WB */ TimerCondition.SecondsDigitIsNot(7),
-			/* RY */ TimerCondition.Contains((char) ('0' + this.bombInfo.GetSerialNumberNumbers().LastOrDefault())),
-			/* RG */ TimerCondition.SecondsDigitIsPrimeOrZero(),
-			/* RB */ TimerCondition.SecondsDigitMatchesLeftDigit(),
-			/* YG */ TimerCondition.SecondsDigitsDifferBy(4),
-			/* YB */ TimerCondition.Contains('6'),
-			/* GB */ TimerCondition.TensDigitIsNot(2)
-		};
 
 		this.Connector.SetColour(this.Colour = (ButtonColour) Random.Range(0, 10));
 		this.Log("Colour is " + this.Colour);
@@ -180,19 +160,12 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			var timeString = this.GetComponent<KMBombInfo>().GetFormattedTime();
 			if (this.SolutionAction == ButtonAction.Hold) {
 				var time = this.GetComponent<KMBombInfo>().GetTime();
-				if (this.SolutionTimerCondition.Invoke(time, timeString)) {
 					this.Log(string.Format("The button was held and released at {0}. That was correct.", timeString));
 					this.Disarm();
-				} else {
-					this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been released {1}.", timeString, this.SolutionTimerCondition.Description));
-					this.Connector.KMBombModule.HandleStrike();
-				}
 			} else {
 				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been {1}.", timeString, SolutionActionPastTense(this.SolutionAction)));
 				this.Connector.KMBombModule.HandleStrike();
 			}
-		} else {
-
 		}
 	}
 
@@ -203,9 +176,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		} else {
 			this.SetLightColour((ButtonLightColour) (Random.Range(0, 15) + 1));
 			this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
-			this.SolutionTimerCondition = this.defaultTimerConditions[(int) this.LightColour - 1];
-			this.Log(string.Format(this.SolutionAction == ButtonAction.Hold ? "The button is being held. The light is {0}. The button should be released {1}." :
-				"The button is being held. The light is {0}.", this.LightColour, this.SolutionTimerCondition.Description));
+			this.Log(string.Format(this.SolutionAction == ButtonAction.Hold ? "The button is being held. The light is {0}. The button should be released." :
+				"The button is being held. The light is {0}.", this.LightColour));
 		}
 	}
 
@@ -355,7 +327,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			case ButtonAction.Hold:
 				this.Connector.TwitchPress();
 				yield return new WaitForSeconds(1);
-				yield return new WaitUntil(() => this.SolutionTimerCondition.Invoke(this.bombInfo.GetTime(), this.bombInfo.GetFormattedTime()));
 				this.Connector.TwitchRelease();
 				break;
 			default:

@@ -1647,8 +1647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a642e20990b9d8b4d92882abfbf1d7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayBase: {fileID: 0}
-  DisplayText: {fileID: 0}
   Lights:
   - {fileID: 108541908091344744}
   - {fileID: 108413882233900190}
