@@ -19,27 +19,24 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public bool Down { get; private set; }
 	public bool Holding { get; private set; }
 	public bool Mashing { get; private set; }
-	public int MashCount { get; private set; }
 	public float InteractionTime { get; private set; }
 
 	public ButtonAction SolutionAction { get; private set; }
 	public TimerCondition SolutionTimerCondition { get; private set; }
-	public int SolutionMashCount { get; private set; }
 
 	const ButtonAction Press = ButtonAction.Press;
 	const ButtonAction Hold = ButtonAction.Hold;
-	const ButtonAction Mash = ButtonAction.Mash;
 	private static readonly ButtonAction[,] defaultActionTable = new[,] {
-		{ Press, Mash , Hold , Press, Hold , Hold , Press, Mash , Press },
-		{ Mash , Press, Press, Hold , Mash , Mash , Mash , Mash , Mash  },
-		{ Hold , Press, Mash , Mash , Press, Hold , Press, Press, Hold  },
-		{ Press, Hold , Press, Mash , Mash , Hold , Press, Press, Press },
-		{ Hold , Mash , Mash , Press, Hold , Press, Hold , Press, Mash  },
-		{ Press, Hold , Press, Mash , Press, Hold , Mash , Hold , Press },
-		{ Mash , Hold , Hold , Press, Mash , Mash , Hold , Mash , Hold  },
-		{ Mash , Press, Hold , Press, Press, Press, Mash , Hold , Mash  },
-		{ Press, Mash , Press, Hold , Mash , Press, Press, Press, Hold  },
-		{ Hold , Hold , Mash , Mash , Press, Mash , Hold , Mash , Mash  }
+		{ Press, Press , Hold , Press, Hold , Hold , Press, Press , Press },
+		{ Press , Press, Press, Hold , Press , Press , Press , Press , Press  },
+		{ Hold , Press, Press , Press , Press, Hold , Press, Press, Hold  },
+		{ Press, Hold , Press, Press , Press , Hold , Press, Press, Press },
+		{ Hold , Press , Press , Press, Hold , Press, Hold , Press, Press  },
+		{ Press, Hold , Press, Press , Press, Hold , Press , Hold , Press },
+		{ Press , Hold , Hold , Press, Press , Press , Hold , Press , Hold  },
+		{ Press , Press, Hold , Press, Press, Press, Press , Hold , Press  },
+		{ Press, Press , Press, Hold , Press , Press, Press, Press, Hold  },
+		{ Hold , Hold , Press , Press , Press, Press , Hold , Press , Press  }
 	};
 	private TimerCondition[] defaultTimerConditions;
 	private static readonly MashCountFormula[] defaultMashCountFormulas = new MashCountFormula[] {
@@ -58,13 +55,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	private KMSelectable button;
 	private KMBombInfo bombInfo;
 	private Coroutine animationCoroutine;
-	private IEnumerator mashAnimationEnumerator;
 
 	private static string SolutionActionPastTense(ButtonAction action) {
 		switch (action) {
 			case ButtonAction.Press: return "pressed";
 			case ButtonAction.Hold: return "held";
-			case ButtonAction.Mash: return "mashed";
 			default: throw new ArgumentException();
 		}
 	}
@@ -102,28 +97,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		this.SolutionAction = defaultActionTable[(int) this.Colour, (int) this.Label];
 		this.Log("The button should be " + SolutionActionPastTense(this.SolutionAction) + ".");
 
-		if (this.SolutionAction == ButtonAction.Mash) {
-			var a = this.bombInfo.GetBatteryCount();
-			var b = this.bombInfo.GetPorts().Distinct().Count();
-			var c = this.bombInfo.GetSolvableModuleNames().Count;
-			var d = this.bombInfo.GetIndicators().Count();
-			var e = this.bombInfo.GetSerialNumberNumbers().LastOrDefault();
-			var f = this.bombInfo.GetSerialNumberLetters().ElementAtOrDefault(1) - ('A' - 1);
-			if (f < 0) f = 0;  // Fewer than two letters; never happens in vanilla.
-			var g = this.Label.ToString().Length;
-			this.SolutionMashCount = defaultMashCountFormulas[(int) this.Colour](a, b, c, d, e, f, g);
-			// If the result is outside the range 10~99, subtract or add 7 until it's within the range.
-			if (this.SolutionMashCount < 10) {
-				var rem = (this.SolutionMashCount % 7 + 7) % 7;
-				this.SolutionMashCount = rem + (rem >= 3 ? 7 : 14);
-			} else if (this.SolutionMashCount > 99) {
-				var rem = this.SolutionMashCount % 7;
-				this.SolutionMashCount = rem + (rem >= 2 ? 91 : 98);
-			}
-			this.Log(string.Format("Pronumerals: a = {0}; b = {1}; c = {2}; d = {3}; e = {4}; f = {5}; g = {6}", a, b, c, d, e, f, g));
-			this.Log(string.Format("The button should be pressed {0} times.", this.SolutionMashCount));
-		}
-
 		this.Connector.Held += this.Button_Held;
 		this.Connector.Released += this.Button_Released;
 
@@ -150,40 +123,22 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	public void Update() {
 		if (this.Down) {
-			if (!this.Holding && this.MashCount == 0) {  // Can't change your mind and start holding the button when you're already mashing...
+			if (!this.Holding) {
 				this.InteractionTime += Time.deltaTime;
 				if (this.InteractionTime >= 0.7f) {
 					this.StartedHolding();
 				}
 			}
-		} else if (this.MashCount > 0) {
+		}
+		else {
 			this.InteractionTime += Time.deltaTime;
-			if (this.InteractionTime >= (this.MashCount > 1 ? 3 : 0.7f)) {
-				if (this.Solved) {
-					this.mashAnimationEnumerator = null;
-				} else if (this.MashCount == 1) {
-					if (this.SolutionAction == ButtonAction.Press) {
-						this.Log("The button was pressed. That was correct.");
-						this.Disarm();
-					} else {
-						this.Log(string.Format("The button was pressed. That was incorrect: it should have been {0}.", SolutionActionPastTense(this.SolutionAction)));
-						this.Connector.KMBombModule.HandleStrike();
-					}
-				} else {
-					if (this.SolutionAction == ButtonAction.Mash) {
-						if (this.MashCount == this.SolutionMashCount) {
-							this.Log(string.Format("The button was mashed {0} times. That was correct.", this.MashCount));
-							this.Disarm();
-						} else {
-							this.Log(string.Format("The button was mashed {0} times. That was incorrect: it should have been mashed {1} times.", this.MashCount, this.SolutionMashCount));
-							this.Connector.KMBombModule.HandleStrike();
-						}
-					} else {
-						this.Log(string.Format("The button was mashed {0} times. That was incorrect: it should have been {1}.", this.MashCount, SolutionActionPastTense(this.SolutionAction)));
-						this.Connector.KMBombModule.HandleStrike();
-					}
-				}
-				this.MashCount = 0;
+			if (this.SolutionAction == ButtonAction.Press) {
+				this.Log("The button was pressed. That was correct.");
+				this.Disarm();
+			}
+			else {
+				this.Log(string.Format("The button was pressed. That was incorrect: it should have been {0}.", SolutionActionPastTense(this.SolutionAction)));
+				this.Connector.KMBombModule.HandleStrike();
 			}
 		}
 	}
@@ -209,11 +164,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 					this.animationCoroutine = null;
 				}
 			} else {
-				++this.MashCount;
-				if (this.MashCount == 1) {
-					this.mashAnimationEnumerator = this.DisplayShowCoroutine();
-				}
-				this.mashAnimationEnumerator.MoveNext();
+
 			}
 			return;
 		}
@@ -241,9 +192,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 				this.Connector.KMBombModule.HandleStrike();
 			}
 		} else {
-			++this.MashCount;
-			if (this.MashCount > 1) {
-			}
+
 		}
 	}
 
@@ -377,39 +326,17 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 					}
 				}
 			}
-		} else if (this.Down)
+		} 
+		else if (this.Down)
 			yield return "sendtochaterror The button is already being held.";
 		else {
-			if (tokens[0].Equals("press", StringComparison.InvariantCultureIgnoreCase) || tokens[0].Equals("mash", StringComparison.InvariantCultureIgnoreCase) ||
-				tokens[0].Equals("tap", StringComparison.InvariantCultureIgnoreCase)) {
-				int count;
-				if (tokens.Length == 2) int.TryParse(tokens[1], out count);  // Sets count to 0 on error.
-				else count = tokens.Length == 1 && !tokens[0].Equals("mash", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0;
-				if (count > 0 && count < 100) {
-					if (count <= this.MashCount) {
-						yield return "sendtochaterror Please wait for the previous command to be submitted.";
-						yield break;
-					}
-					yield return null;
-					if (count - this.MashCount > 60) yield return "waiting music";
-					while (this.MashCount < count) {
-						if (this.TwitchShouldCancelCommand) {
-							// Undo the input if the command is cancelled, to prevent sabotage.
-							this.MashCount = 0;
-							yield return "sendtochat The mash command was not completed due to a request to cancel.";
-							yield return "cancelled";
-							yield break;
-						}
-						this.Connector.TwitchPress();
-						yield return new WaitForSeconds(1 / 12f);
-						this.Connector.TwitchRelease();
-						yield return new WaitForSeconds(1 / 12f);
-					}
-					yield return new WaitForSeconds(1);
-					yield return (this.MashCount == 1 ? (this.SolutionAction == ButtonAction.Press) : (this.SolutionAction == ButtonAction.Mash && this.SolutionMashCount == this.MashCount))
-						? "solve" : "strike";
-				}
-			} else if (tokens[0].Equals("hold", StringComparison.InvariantCultureIgnoreCase)) {
+			if (tokens[0].Equals("press", StringComparison.InvariantCultureIgnoreCase) || tokens[0].Equals("tap", StringComparison.InvariantCultureIgnoreCase)) {
+				this.Connector.TwitchPress();
+				yield return new WaitForSeconds(1 / 12f);
+				this.Connector.TwitchRelease();
+				yield return new WaitForSeconds(1 / 12f);
+			}
+			else if (tokens[0].Equals("hold", StringComparison.InvariantCultureIgnoreCase)) {
 				yield return null;
 				this.Connector.TwitchPress();
 				yield return new WaitForSeconds(1);
@@ -424,14 +351,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 				this.Connector.TwitchPress();
 				yield return new WaitForSeconds(1 / 12f);
 				this.Connector.TwitchRelease();
-				break;
-			case ButtonAction.Mash:
-				for (int i = 0; i < this.SolutionMashCount; ++i) {
-					this.Connector.TwitchPress();
-					yield return new WaitForSeconds(1 / 12f);
-					this.Connector.TwitchRelease();
-					yield return new WaitForSeconds(1 / 12f);
-				}
 				break;
 			case ButtonAction.Hold:
 				this.Connector.TwitchPress();
