@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public delegate int MashCountFormula(int a, int b, int c, int d, int e, int f, int g);
 
-	public Light[] Lights;
 	public bool OpenCoverOnSelection;
 
 	public ButtonColour Colour { get; set; }
@@ -25,15 +24,10 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	private KMSelectable button;
 	private KMBombInfo bombInfo;
-	private Coroutine animationCoroutine;
 
 	public override void Start () {
 		base.Start();
 		this.bombInfo = this.GetComponent<KMBombInfo>();
-
-		// Fixes lights.
-		var lightScale = this.transform.lossyScale.x;
-		foreach (var light in this.Lights) light.range *= lightScale;
 
 		// Sets the appearance of the button
 		this.Connector.SetColour(this.Colour = (ButtonColour) Random.Range(0, 4));
@@ -99,15 +93,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		if (!this.Down) return;
 		
 		this.Down = false;
-		this.SetLightColour(ButtonLightColour.Off);
+		this.Connector.SetLightColour(ButtonLightColour.Off); 
 
 		if (this.Holding) {
 			this.Holding = false;
 			this.InteractionTime = 0;
-			if (this.animationCoroutine != null) {
-				this.StopCoroutine(this.animationCoroutine);
-				this.animationCoroutine = null;
-			}
 
 			var timeString = this.GetComponent<KMBombInfo>().GetFormattedTime();
 			if (this.ShouldBeHeld) {
@@ -136,56 +126,9 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	/// </summary>
 	private void StartedHolding() {
 		this.Holding = true;
-		this.SetLightColour((ButtonLightColour)(Random.Range(0, 4) + 1));
-		this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
+		this.Connector.SetLightColour(this.LightColour = (ButtonLightColour)(Random.Range(0, 4) + 1));
 		this.Log(string.Format(this.ShouldBeHeld == true ? "The button is being held. That is correct. The light is {0}." :
 			"The button is being held. That is incorrect. The light is {0}.", this.LightColour));
-	}
-
-	/// <summary>
-	/// Turn on the colored strip
-	/// </summary>
-	/// <param name="colour"></param>
-	private void SetLightColour(ButtonLightColour colour) {
-		this.Connector.SetLightColour(this.LightColour = colour);
-		if (colour == ButtonLightColour.Off) {
-			foreach (var light in this.Lights)
-				light.gameObject.SetActive(false);
-		} 
-		else {
-			foreach (var light in this.Lights) { 
-				light.gameObject.SetActive(true);
-				switch (colour) {
-					case ButtonLightColour.Red: light.color = Color.red; break;
-					case ButtonLightColour.Yellow: light.color = Color.yellow; break;
-					case ButtonLightColour.Blue: light.color = Color.blue; break;
-					case ButtonLightColour.White: light.color = Color.white; break;
-				}
-			}
-		}
-	}
-
-	/// <summary>
-	/// Change the brightness of the strip
-	/// </summary>
-	/// <param name="brightness"></param>
-	private void SetLightBrightness(float brightness) {
-		this.Connector.SetLightBrightness(brightness);
-		foreach (var light in this.Lights) light.intensity = brightness * 2;
-	}
-
-	/// <summary>
-	/// Animate the strip brightness
-	/// </summary>
-	/// <returns></returns>
-	private IEnumerator LightAnimationCoroutine() {
-		float time = 0;
-		while (true) {
-			var r = time % 1.4f;
-			this.SetLightBrightness(0.79f + 0.3f * Math.Abs(r - 0.7f));
-			yield return null;
-			time += Time.deltaTime;
-		}
 	}
 
 	#region twitch plays

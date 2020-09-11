@@ -13,7 +13,8 @@ namespace NotVanillaModulesLib {
 		public Transform TestModelCover;
 		public MeshRenderer TestModelCap;
 		public TextMesh TestModelText;
-		public MeshRenderer LightRenderer;
+		public MeshRenderer TestLightRenderer;
+		public Light[] TestLights;
 		public TextMesh TestModelColourblindLightText;
 
 		public Material[] Materials;
@@ -29,6 +30,8 @@ namespace NotVanillaModulesLib {
 		private bool buttonBeingPushed;
 		public TextMeshPro ColourblindLightText;
 #endif
+
+		private Coroutine animationCoroutine;
 
 		public event EventHandler Held;
 		public event EventHandler Released;
@@ -55,7 +58,7 @@ namespace NotVanillaModulesLib {
 			buttonEventConnector.Released += this.ButtonEventConnector_Released;
 			buttonEventConnector.Attach(this.button);
 
-			var text = Instantiate(GetComponentPrefab<PasswordComponent>().transform.Find("Layout_DEFAULT").GetComponent<PasswordLayout>().Spinners[0].Display, this.LightRenderer.transform.parent, false);
+			var text = Instantiate(GetComponentPrefab<PasswordComponent>().transform.Find("Layout_DEFAULT").GetComponent<PasswordLayout>().Spinners[0].Display, this.TestLightRenderer.transform.parent, false);
 			this.ColourblindLightText = text;
 			text.enableAutoSizing = false;
 			text.transform.localPosition = new Vector3(0, 0.001f, 0);
@@ -71,6 +74,11 @@ namespace NotVanillaModulesLib {
 		public override void Start() {
 			base.Start();
 			this.KMAudio = this.GetComponent<KMAudio>();
+
+			if (this.TestMode) {
+				var lightScale = this.transform.lossyScale.x;
+				foreach (var light in this.TestLights) light.range *= lightScale;
+			}
 		}
 
 		protected override void StartLive() {
@@ -215,13 +223,30 @@ namespace NotVanillaModulesLib {
 
 		public void SetLightColour(ButtonLightColour colour) {
 			this.lightColour = colour;
-			this.LightRenderer.material = this.LightMaterials[(int) colour];
 			if (colour == ButtonLightColour.Off) {
-				if (this.TestMode) this.TestModelColourblindLightText.gameObject.SetActive(false);
+				if (this.TestMode) {
+					this.TestModelColourblindLightText.gameObject.SetActive(false);
+					this.TestLightRenderer.material = this.LightMaterials[(int) colour];
+					foreach (var light in this.TestLights)
+						light.gameObject.SetActive(false);
+
+					if (this.animationCoroutine != null) {
+						this.StopCoroutine(this.animationCoroutine);
+						this.animationCoroutine = null;
+					}
+				}
 #if (!DEBUG)
-				else this.ColourblindLightText.gameObject.SetActive(false);
+				else {
+					this.ColourblindLightText.gameObject.SetActive(false);
+					this.button.transform.Find("parts/LED_Blue").gameObject.SetActive(false);
+					this.button.transform.Find("parts/LED_Red").gameObject.SetActive(false);
+					this.button.transform.Find("parts/LED_Yellow").gameObject.SetActive(false);
+					this.button.transform.Find("parts/LED_White").gameObject.SetActive(false);
+					this.button.transform.Find("parts/LED_Off").gameObject.SetActive(true);
+				}
 #endif
-			} else {
+			} 
+			else {
 				var text = colour switch {
 					ButtonLightColour.Red => "R", 
 					ButtonLightColour.Yellow => "Y",
@@ -230,6 +255,17 @@ namespace NotVanillaModulesLib {
 					_ => ""
 				};
 				if (this.TestMode) {
+					this.TestLightRenderer.material = this.LightMaterials[(int)colour];
+					foreach (var light in this.TestLights) {
+						light.gameObject.SetActive(true);
+						switch (colour) {
+							case ButtonLightColour.Red: light.color = Color.red; break;
+							case ButtonLightColour.Yellow: light.color = Color.yellow; break;
+							case ButtonLightColour.Blue: light.color = Color.blue; break;
+							case ButtonLightColour.White: light.color = Color.white; break;
+						}
+					}
+					this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
 					this.TestModelColourblindLightText.text = text;
 					this.TestModelColourblindLightText.gameObject.SetActive(this.ColourblindMode);
 				}
@@ -237,16 +273,42 @@ namespace NotVanillaModulesLib {
 				else {
 					this.ColourblindLightText.text = text;
 					this.ColourblindLightText.gameObject.SetActive(this.ColourblindMode);
+					var ledName = colour switch
+					{
+						ButtonLightColour.Red => "parts/LED_Red",
+						ButtonLightColour.Yellow => "parts/LED_Yellow",
+						ButtonLightColour.Blue => "parts/LED_Blue",
+						ButtonLightColour.White => "parts/LED_White",
+						_ => "parts/LED_Off"
+					};
+					this.button.transform.Find("parts/LED_Off").gameObject.SetActive(false);
+					this.button.transform.Find(ledName).gameObject.SetActive(true);
 				}
 #endif
-				if (this.ColourblindMode) {
-					this.LightRenderer.material.mainTextureScale = new Vector2(0.5f, 0.5f);
-					this.LightRenderer.material.mainTextureOffset = new Vector2(0, 0.5f);
-				}
+				//if (this.ColourblindMode) {
+				//	this.TestLightRenderer.material.mainTextureScale = new Vector2(0.5f, 0.5f);
+				//	this.TestLightRenderer.material.mainTextureOffset = new Vector2(0, 0.5f);
+				//}
 			}
 		}
-		public void SetLightBrightness(float brightness) =>
-			this.LightRenderer.material.SetFloat("_Blend", brightness);
+		public void SetLightBrightness(float brightness) {
+			this.TestLightRenderer.material.SetFloat("_Blend", brightness);
+			foreach (var light in this.TestLights) light.intensity = brightness * 2;
+		}
+
+		/// <summary>
+		/// Animate the strip brightness
+		/// </summary>
+		/// <returns></returns>
+		private IEnumerator LightAnimationCoroutine() {
+			float time = 0;
+			while (true) {
+				var r = time % 1.4f;
+				this.SetLightBrightness(0.79f + 0.3f * Math.Abs(r - 0.7f));
+				yield return null;
+				time += Time.deltaTime;
+			}
+		}
 
 		public void TwitchPress() {
 			if (this.TestMode) TwitchExtensions.Press(this.testModelButton);
