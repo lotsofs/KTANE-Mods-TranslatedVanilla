@@ -23,33 +23,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	public bool ShouldBeHeld { get; private set; }
 
-	const bool Press = false;
-	const bool Hold = true;
-	private static readonly bool[,] defaultActionTable = new[,] {
-		{ Press, Press , Hold , Press, Hold , Hold , Press, Press , Press },
-		{ Press , Press, Press, Hold , Press , Press , Press , Press , Press  },
-		{ Hold , Press, Press , Press , Press, Hold , Press, Press, Hold  },
-		{ Press, Hold , Press, Press , Press , Hold , Press, Press, Press },
-		{ Hold , Press , Press , Press, Hold , Press, Hold , Press, Press  },
-		{ Press, Hold , Press, Press , Press, Hold , Press , Hold , Press },
-		{ Press , Hold , Hold , Press, Press , Press , Hold , Press , Hold  },
-		{ Press , Press, Hold , Press, Press, Press, Press , Hold , Press  },
-		{ Press, Press , Press, Hold , Press , Press, Press, Press, Hold  },
-		{ Hold , Hold , Press , Press , Press, Press , Hold , Press , Press  }
-	};
-	private static readonly MashCountFormula[] defaultMashCountFormulas = new MashCountFormula[] {
-		(a, b, c, d, e, f, g) => a + 2 * b - d,
-		(a, b, c, d, e, f, g) => 2 * b + 1 - g,
-		(a, b, c, d, e, f, g) => 2 * a + d - c,
-		(a, b, c, d, e, f, g) => d + 2 * f - b,
-		(a, b, c, d, e, f, g) => e + f + g - b,
-		(a, b, c, d, e, f, g) => 2 * c + d - 1,
-		(a, b, c, d, e, f, g) => 2 * (f - a) + d,
-		(a, b, c, d, e, f, g) => 3 * g - a - 3,
-		(a, b, c, d, e, f, g) => (f + a * c) * (e + d),
-		(a, b, c, d, e, f, g) => a * b + c * d - g * (e - f)
-	};
-
 	private KMSelectable button;
 	private KMBombInfo bombInfo;
 	private Coroutine animationCoroutine;
@@ -70,11 +43,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		var lightScale = this.transform.lossyScale.x;
 		foreach (var light in this.Lights) light.range *= lightScale;
 
-		this.Connector.SetColour(this.Colour = (ButtonColour) Random.Range(0, 10));
+		this.Connector.SetColour(this.Colour = (ButtonColour) Random.Range(0, 4));
 		this.Log("Colour is " + this.Colour);
-		this.Connector.SetLabel(this.Label = (ButtonLabel) Random.Range(0, 9));
+		this.Connector.SetLabel(this.Label = (ButtonLabel) Random.Range(0, 4));
 		this.Log("Label is " + this.Label);
-		this.ShouldBeHeld = defaultActionTable[(int) this.Colour, (int) this.Label];
+		this.ShouldBeHeld = this.Label != ButtonLabel.Detonate;
 		this.Log("The button should be " + SolutionActionPastTense(this.ShouldBeHeld) + ".");
 
 		this.Connector.Held += this.Button_Held;
