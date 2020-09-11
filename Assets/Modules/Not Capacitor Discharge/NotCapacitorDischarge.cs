@@ -11,8 +11,8 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 	public bool Down { get; private set; }
 	public bool PressedIncorrectly { get; private set; }
 
-	public TimerCondition PressCondition { get; private set; }
-	public TimerCondition ReleaseCondition { get; private set; }
+	//public TimerCondition PressCondition { get; private set; }
+	//public TimerCondition ReleaseCondition { get; private set; }
 
 	private bool needyActive;
 	private bool exploded;
@@ -64,16 +64,16 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 
 	private void Connector_LeverPressed(object sender, EventArgs e) {
 		this.Down = true;
-		if (this.PressCondition == null) return;
+		//if (this.PressCondition == null) return;
 
 		var formattedTime = this.GetComponent<KMBombInfo>().GetFormattedTime();
-		if (this.PressCondition.Invoke(this.GetComponent<KMBombInfo>().GetTime(), formattedTime)) {
+		//if (this.PressCondition.Invoke(this.GetComponent<KMBombInfo>().GetTime(), formattedTime)) {
 			this.Connector.SetLight(true);
 			var bombInfo = this.GetComponent<KMBombInfo>();
 			var j = (this.Number - 1) / 20;
 			if (bombInfo.GetSerialNumberNumbers().LastOrDefault() % 2 == 0) {
 				var i = bombInfo.GetSolvedModuleNames().Count / 3;
-				this.ReleaseCondition = i > 5 ? TimerCondition.SecondsDigitIs(9) : TimerCondition.SecondsDigitIs(defaultEvenSerialReleaseDigits[i, j]);
+				//this.ReleaseCondition = i > 5 ? TimerCondition.SecondsDigitIs(9) : TimerCondition.SecondsDigitIs(defaultEvenSerialReleaseDigits[i, j]);
 			} else {
 				var serialNumber = bombInfo.GetSerialNumber();
 				var i = ContainsAny(serialNumber, 'A', 'E', 'I', 'O', 'U') ? 0 :
@@ -82,14 +82,14 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 					ContainsAny(serialNumber, 'X', 'Y', 'K') ? 3 :
 					ContainsAny(serialNumber, 'O', 'A', 'T') ? 4 :
 					ContainsAny(serialNumber, 'D', 'I', 'E') ? 5 : 6;
-				this.ReleaseCondition = i > 5 ? TimerCondition.SecondsDigitIs(0) : TimerCondition.SecondsDigitIs(defaultOddSerialReleaseDigits[i, j]);
+				//this.ReleaseCondition = i > 5 ? TimerCondition.SecondsDigitIs(0) : TimerCondition.SecondsDigitIs(defaultOddSerialReleaseDigits[i, j]);
 			}
-			this.Log(string.Format("The lever was pressed at {0}. That was correct. Release the lever {1}.", formattedTime, this.ReleaseCondition));
-		} else {
+			//this.Log(string.Format("The lever was pressed at {0}. That was correct. Release the lever {1}.", formattedTime, this.ReleaseCondition));
+		//} else {
 			this.Log(string.Format("The lever was pressed at {0}. That was incorrect.", formattedTime));
 			this.MistakePenalty();
 			this.PressedIncorrectly = true;
-		}
+		//}
 	}
 
 	private void Connector_LeverReleased(object sender, EventArgs e) {
@@ -99,19 +99,19 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 			this.PressedIncorrectly = false;
 			return;
 		}
-		if (this.ReleaseCondition == null) return;
+		//if (this.ReleaseCondition == null) return;
 
 		var formattedTime = this.GetComponent<KMBombInfo>().GetFormattedTime();
-		if (this.ReleaseCondition.Invoke(this.GetComponent<KMBombInfo>().GetTime(), formattedTime)) {
+		//if (this.ReleaseCondition.Invoke(this.GetComponent<KMBombInfo>().GetTime(), formattedTime)) {
 			this.Log(string.Format("The lever was released at {0}. That was correct.", formattedTime));
 			this.Connector.KMNeedyModule.HandlePass();
 			// OnNeedyDeactivation doesn't seem to fire in the live game, though it does in the test harness... Oops.
 			this.KMNeedyModule_OnNeedyDeactivation();
-		} else {
+		//} else {
 			this.Log(string.Format("The lever was released at {0}. That was incorrect.", formattedTime));
 			this.MistakePenalty();
 			this.PressedIncorrectly = true;
-		}
+		//}
 	}
 
 	private void MistakePenalty() {
@@ -132,14 +132,14 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 		if (bombInfo.GetSerialNumberNumbers().Last() % 2 == 0) {
 			var batteryCount = bombInfo.GetBatteryCount();
 			if (batteryCount > 5) {
-				switch (j) {
-					case 0: this.PressCondition = TimerCondition.SecondsDigitIs(this.Number % 10); break;
-					case 1: this.PressCondition = TimerCondition.SecondsDigitIs(GeneralExtensions.DigitalRoot(this.Number)); break;
-					case 2: this.PressCondition = TimerCondition.SecondsDigitIsNotPrime(); break;
-					case 3: this.PressCondition = TimerCondition.SecondsDigitsMatch(); break;
-					case 4: this.PressCondition = TimerCondition.AnyTime(); break;
+				//switch (j) {
+					//case 0: this.PressCondition = TimerCondition.SecondsDigitIs(this.Number % 10); break;
+					//case 1: this.PressCondition = TimerCondition.SecondsDigitIs(GeneralExtensions.DigitalRoot(this.Number)); break;
+					//case 2: this.PressCondition = TimerCondition.SecondsDigitIsNotPrime(); break;
+					//case 3: this.PressCondition = TimerCondition.SecondsDigitsMatch(); break;
+					//case 4: this.PressCondition = TimerCondition.AnyTime(); break;
 				}
-			} else this.PressCondition = TimerCondition.SecondsDigitIs(defaultEvenSerialPressDigits[batteryCount, j]);
+			//} else this.PressCondition = TimerCondition.SecondsDigitIs(defaultEvenSerialPressDigits[batteryCount, j]);
 		} else {
 			var i = !bombInfo.IsPortPresent(Port.Parallel) ? 0 :
 				!bombInfo.IsPortPresent(Port.Serial) ? 1 :
@@ -148,23 +148,23 @@ public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
 				!bombInfo.IsPortPresent(Port.PS2) ? 4 :
 				!bombInfo.IsPortPresent(Port.RJ45) ? 5 : -1;
 			if (i < 0) {
-				switch (j) {
-					case 0: this.PressCondition = TimerCondition.AnyTime(); break;
-					case 1: this.PressCondition = TimerCondition.SecondsDigitIsPrimeOrZero(); break;
-					case 2: this.PressCondition = TimerCondition.SecondsDigitIsEven(); break;
-					case 3: this.PressCondition = TimerCondition.SecondsDigitIsOdd(); break;
-					case 4: this.PressCondition = TimerCondition.SecondsDigitIs(bombInfo.GetSerialNumberNumbers().FirstOrDefault()); break;
+				//switch (j) {
+					//case 0: this.PressCondition = TimerCondition.AnyTime(); break;
+					//case 1: this.PressCondition = TimerCondition.SecondsDigitIsPrimeOrZero(); break;
+					//case 2: this.PressCondition = TimerCondition.SecondsDigitIsEven(); break;
+					//case 3: this.PressCondition = TimerCondition.SecondsDigitIsOdd(); break;
+					//case 4: this.PressCondition = TimerCondition.SecondsDigitIs(bombInfo.GetSerialNumberNumbers().FirstOrDefault()); break;
 				}
-			} else this.PressCondition = TimerCondition.SecondsDigitIs(defaultOddSerialPressDigits[i, j]);
+			//} else this.PressCondition = TimerCondition.SecondsDigitIs(defaultOddSerialPressDigits[i, j]);
 		}
 
-		this.Log(string.Format("Module active. The number is {0:D2}. Press the lever {1}.", this.Number, this.PressCondition.Description));
+		//this.Log(string.Format("Module active. The number is {0:D2}. Press the lever {1}.", this.Number, this.PressCondition.Description));
 	}
 
 	private void KMNeedyModule_OnNeedyDeactivation() {
 		this.needyActive = false;
-		this.PressCondition = null;
-		this.ReleaseCondition = null;
+		//this.PressCondition = null;
+		//this.ReleaseCondition = null;
 		this.Connector.ClearDisplay();
 		this.Connector.SetLight(false);
 		if (!this.exploded) this.Connector.SetDeathBar(0);

@@ -10,8 +10,8 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	[ReadOnlyWhenPlaying]
 	public char MissingLetter;
 	public PasswordSolutionAction SolutionAction { get; private set; }
-	public TimerCondition PressCondition { get; private set; }
-	public TimerCondition ReleaseCondition { get; private set; }
+	//public TimerCondition PressCondition { get; private set; }
+	//public TimerCondition ReleaseCondition { get; private set; }
 	public int SolutionCount { get; private set; }
 	public int SolutionDelay { get; private set; }
 
@@ -58,22 +58,22 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 		switch (this.MissingLetter) {
 			case 'A':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.Contains('5');
+				//this.PressCondition = TimerCondition.Contains('5');
 				this.SolutionCount = 1;
 				break;
 			case 'B':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.SecondsDigitIsNotPrime();
+				//this.PressCondition = TimerCondition.SecondsDigitIsNotPrime();
 				this.SolutionCount = 1;
 				break;
 			case 'C':
 				this.SolutionAction = PasswordSolutionAction.HoldCondition;
-				this.PressCondition = TimerCondition.Contains('7');
-				this.ReleaseCondition = TimerCondition.Contains('2');
+				//this.PressCondition = TimerCondition.Contains('7');
+				//this.ReleaseCondition = TimerCondition.Contains('2');
 				break;
 			case 'D':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.SecondsDigitIsPrimeOrZero();
+				//this.PressCondition = TimerCondition.SecondsDigitIsPrimeOrZero();
 				this.SolutionCount = 1;
 				break;
 			case 'E':
@@ -86,7 +86,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'G':
 				this.SolutionAction = PasswordSolutionAction.HoldIndefinitely;
-				this.PressCondition = TimerCondition.Contains('6');
+				//this.PressCondition = TimerCondition.Contains('6');
 				this.SolutionDelay = Random.Range(4, 13);
 				break;
 			case 'H':
@@ -95,7 +95,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'I':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.Contains('1');
+				//this.PressCondition = TimerCondition.Contains('1');
 				this.SolutionCount = 1;
 				break;
 			case 'J':
@@ -108,12 +108,12 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'L':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.MinutesIsEven();
+				//this.PressCondition = TimerCondition.MinutesIsEven();
 				this.SolutionCount = 1;
 				break;
 			case 'M':
 				this.SolutionAction = PasswordSolutionAction.HoldCondition;
-				this.ReleaseCondition = TimerCondition.Contains('3');
+				//this.ReleaseCondition = TimerCondition.Contains('3');
 				break;
 			case 'N':
 				this.SolutionAction = PasswordSolutionAction.HoldTime;
@@ -125,7 +125,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'P':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.Contains('7');
+				//this.PressCondition = TimerCondition.Contains('7');
 				this.SolutionCount = 1;
 				break;
 			case 'Q':
@@ -138,12 +138,12 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'S':
 				this.SolutionAction = PasswordSolutionAction.HoldCondition;
-				this.PressCondition = TimerCondition.Contains('4');
-				this.ReleaseCondition = TimerCondition.Contains('3');
+				//this.PressCondition = TimerCondition.Contains('4');
+				//this.ReleaseCondition = TimerCondition.Contains('3');
 				break;
 			case 'T':
 				this.SolutionAction = PasswordSolutionAction.HoldIndefinitely;
-				this.PressCondition = TimerCondition.Contains('3');
+				//this.PressCondition = TimerCondition.Contains('3');
 				this.SolutionDelay = Random.Range(4, 13);
 				break;
 			case 'U':
@@ -156,7 +156,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case 'W':
 				this.SolutionAction = PasswordSolutionAction.Press;
-				this.PressCondition = TimerCondition.Contains('2');
+				//this.PressCondition = TimerCondition.Contains('2');
 				this.SolutionCount = 1;
 				break;
 			case 'X':
@@ -262,15 +262,15 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 		var bombInfo = this.GetComponent<KMBombInfo>();
 		switch (this.SolutionAction) {
 			case PasswordSolutionAction.Press:
-				if (this.PressCondition != null) {
-					if (this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()))
-						this.Log("The button was pressed at {0}. That was correct.", bombInfo.GetFormattedTime());
-					else {
-						this.Log("The button was pressed at {0}. That was incorrect: it should have been pressed {1}.", bombInfo.GetFormattedTime(), this.PressCondition);
+				//if (this.PressCondition != null) {
+					//if (this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()))
+						//this.Log("The button was pressed at {0}. That was correct.", bombInfo.GetFormattedTime());
+					//else {
+						//this.Log("The button was pressed at {0}. That was incorrect: it should have been pressed {1}.", bombInfo.GetFormattedTime(), this.PressCondition);
 						this.Strike();
 						this.PressedIncorrectly = true;
-					}
-				}
+					//}
+				//}
 				break;
 			case PasswordSolutionAction.PressTwice:
 				break;
@@ -283,15 +283,15 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			case PasswordSolutionAction.HoldCondition:
 			case PasswordSolutionAction.HoldIndefinitely:
 			case PasswordSolutionAction.HoldTime:
-				if (this.PressCondition != null && this.MashCount == 0) {
-					if (this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime())) {
+				//if (this.PressCondition != null && this.MashCount == 0) {
+				//	if (this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime())) {
 						this.Log("The button was pressed at {0}. That was correct.", bombInfo.GetFormattedTime());
-					} else {
+					//} else {
 						this.Log("The button was pressed at {0}. That was incorrect.", bombInfo.GetFormattedTime());
 						this.Strike();
 						this.PressedIncorrectly = true;
-					}
-				}
+					//}
+				//}
 				break;
 		}
 	}
@@ -312,12 +312,12 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 
 			switch (this.SolutionAction) {
 				case PasswordSolutionAction.HoldCondition:
-					if (this.ReleaseCondition == null || this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime())) {
+					//if (this.ReleaseCondition == null || this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime())) {
 						this.Log("The button was released at {0}. That was correct.", bombInfo.GetFormattedTime());
 						this.Disarm();
 						break;
-					}
-					goto default;
+					//}
+					//goto default;
 				case PasswordSolutionAction.HoldTime:
 					if (this.InteractionTickCount == this.SolutionDelay) {
 						this.Log("The button was held for {0} ticks. That was correct.", this.InteractionTickCount);
@@ -336,12 +336,12 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			if (this.SolutionAction == PasswordSolutionAction.HoldCondition) {
 				// For these rules, we won't require the button to be held for any specific length of time.
 				// Tapping it when both conditions are met is enough.
-				if (!this.PressedIncorrectly && this.MashCount == 0 &&
-					(this.ReleaseCondition == null || this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()))) {
+				//if (!this.PressedIncorrectly && this.MashCount == 0 &&
+					//(this.ReleaseCondition == null || this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()))) {
 					this.Log("The button was released at {0}. That was correct.", bombInfo.GetFormattedTime());
 					this.Disarm();
 					return;
-				}
+				//}
 			}
 			if (this.SolutionAction == PasswordSolutionAction.PressTwice) {
 				if (this.WasPressed) {
@@ -590,7 +590,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 					this.Holding = false;  // Cheat
 					this.InteractionTime = 0;
 				} else if (!this.Down) {
-					if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
+					//if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
 					this.Connector.TwitchPressSubmit();
 				}
 				this.Connector.TwitchReleaseSubmit();
@@ -603,14 +603,14 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			case PasswordSolutionAction.HoldCondition:
 				if (!this.Holding) {
 					if (!this.Down) {
-						if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
+						//if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
 						this.Connector.TwitchPressSubmit();
 					}
-					if (this.PressCondition != null && this.ReleaseCondition != null) {
+					//if (this.PressCondition != null && this.ReleaseCondition != null) {
 						while (!this.Holding) yield return null;
-					}
+					//}
 				}
-				if (this.ReleaseCondition != null) yield return new WaitUntil(() => this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
+				//if (this.ReleaseCondition != null) yield return new WaitUntil(() => this.ReleaseCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
 				this.Connector.TwitchReleaseSubmit();
 				break;
 			case PasswordSolutionAction.HoldTime:
@@ -624,7 +624,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				break;
 			case PasswordSolutionAction.HoldIndefinitely:
 				if (!this.Down) {
-					if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
+					//if (this.PressCondition != null) yield return new WaitUntil(() => this.PressCondition.Invoke(bombInfo.GetTime(), bombInfo.GetFormattedTime()));
 					this.Connector.TwitchPressSubmit();
 				}
 				while (!this.Solved) yield return null;
