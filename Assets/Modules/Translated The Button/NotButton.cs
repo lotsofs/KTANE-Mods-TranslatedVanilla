@@ -27,14 +27,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	private KMBombInfo bombInfo;
 	private Coroutine animationCoroutine;
 
-	private static string SolutionActionPastTense(bool action) {
-		switch (action) {
-			case false: return "pressed";
-			case true: return "held";
-			default: throw new ArgumentException();
-		}
-	}
-
 	public override void Start () {
 		base.Start();
 		this.bombInfo = this.GetComponent<KMBombInfo>();
@@ -48,7 +40,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		this.Connector.SetLabel(this.Label = (ButtonLabel) Random.Range(0, 4));
 		this.Log("Label is " + this.Label);
 		this.ShouldBeHeld = this.Label != ButtonLabel.Detonate;
-		this.Log("The button should be " + SolutionActionPastTense(this.ShouldBeHeld) + ".");
+		this.Log("The button should be " + (ShouldBeHeld ? "Held." : "Pressed."));
 
 		this.Connector.Held += this.Button_Held;
 		this.Connector.Released += this.Button_Released;
@@ -85,13 +77,13 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 		else {
 			this.InteractionTime += Time.deltaTime;
-			if (this.ShouldBeHeld == false) {
-				this.Log("The button was pressed. That was correct.");
-				this.Disarm();
+			if (this.ShouldBeHeld) {
+				this.Log(string.Format("The button was pressed. That was incorrect: it should have been held."));
+				this.Connector.KMBombModule.HandleStrike();
 			}
 			else {
-				this.Log(string.Format("The button was pressed. That was incorrect: it should have been {0}.", SolutionActionPastTense(this.ShouldBeHeld)));
-				this.Connector.KMBombModule.HandleStrike();
+				this.Log("The button was pressed. That was correct.");
+				this.Disarm();
 			}
 		}
 	}
@@ -136,7 +128,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 					this.Log(string.Format("The button was held and released at {0}. That was correct.", timeString));
 					this.Disarm();
 			} else {
-				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been {1}.", timeString, SolutionActionPastTense(this.ShouldBeHeld)));
+				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been pressed.", timeString));
 				this.Connector.KMBombModule.HandleStrike();
 			}
 		}
