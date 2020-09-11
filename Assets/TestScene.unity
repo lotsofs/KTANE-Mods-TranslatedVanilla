@@ -478,118 +478,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1047761524
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1047761526}
-  - component: {fileID: 1047761525}
-  m_Layer: 0
-  m_Name: Not Wiresword Dictionary Tester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1047761525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1047761524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08ac2b99b9631de42b5a21a51bc9a674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NoVowelTable:
-  - QKCXLBOFH
-  - GPGMNTWES
-  - AUNRTDVEY
-  - SDAHIEXOI
-  - JKLMRIJFO
-  - UBVWYACQP
-  VowelTable:
-  - AKIOTJHVX
-  - LPVCNTUGG
-  - EOBDQANYK
-  - IERXHOIDW
-  - SPMCJBLUM
-  - QYESAFRFW
-  Words:
-  - almost
-  - answer
-  - around
-  - assert
-  - bother
-  - bundle
-  - cancel
-  - choose
-  - course
-  - demand
-  - easily
-  - expert
-  - facade
-  - family
-  - faulty
-  - health
-  - hollow
-  - inform
-  - inject
-  - insert
-  - inside
-  - jacket
-  - jockey
-  - kindly
-  - ladder
-  - latent
-  - magnet
-  - manual
-  - market
-  - nickel
-  - notice
-  - number
-  - occult
-  - octave
-  - paddle
-  - parent
-  - parsec
-  - patent
-  - person
-  - policy
-  - public
-  - racket
-  - random
-  - search
-  - second
-  - should
-  - tackle
-  - tangle
-  - topple
-  - tricky
-  - undone
-  - unisex
-  - verbal
-  - victor
-  - within
-  - worded
-  Dictionary: {fileID: 0}
---- !u!4 &1047761526
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1047761524}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000323534, y: -0.057128906, z: 0.020355225}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1466655508
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,3 +543,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &2091315717
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388002967487990, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+  m_IsPrefabParent: 0
