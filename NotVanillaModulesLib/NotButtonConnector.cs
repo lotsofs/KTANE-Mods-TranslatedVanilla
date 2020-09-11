@@ -67,7 +67,7 @@ namespace NotVanillaModulesLib {
 			text.alignment = TextAlignmentOptions.Center;
 			text.color = new Color(0, 0, 0, 0.8f);
 			text.lineSpacing = -12;
-			text.transform.parent = text.transform.parent.parent;
+			text.transform.SetParent(text.transform.parent.parent, true);
 #endif
 		}
 
