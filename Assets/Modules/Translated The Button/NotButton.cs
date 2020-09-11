@@ -121,12 +121,12 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 		else {
 			if (this.ShouldBeHeld) {
-				this.Log(string.Format("The button was pressed and immediately released. That was correct."));
-				this.Disarm();
-			}
-			else {
 				this.Log(string.Format("The button was pressed and immediately released. That was incorrect: It should have been held."));
 				this.Connector.KMBombModule.HandleStrike();
+			}
+			else {
+				this.Log(string.Format("The button was pressed and immediately released. That was correct."));
+				this.Disarm();
 			}
 		}
 	}
