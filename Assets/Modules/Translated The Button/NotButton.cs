@@ -75,17 +75,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 				}
 			}
 		}
-		else {
-			this.InteractionTime += Time.deltaTime;
-			if (this.ShouldBeHeld) {
-				this.Log(string.Format("The button was pressed. That was incorrect: it should have been held."));
-				this.Connector.KMBombModule.HandleStrike();
-			}
-			else {
-				this.Log("The button was pressed. That was correct.");
-				this.Disarm();
-			}
-		}
 	}
 
 	/// <summary>
@@ -185,6 +174,10 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		foreach (var light in this.Lights) light.intensity = brightness * 2;
 	}
 
+	/// <summary>
+	/// Animate the strip brightness
+	/// </summary>
+	/// <returns></returns>
 	private IEnumerator LightAnimationCoroutine() {
 		float time = 0;
 		while (true) {
