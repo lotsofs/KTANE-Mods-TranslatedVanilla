@@ -672,13 +672,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453853830079812}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.000000029802322}
   m_LocalPosition: {x: 0, y: 0.02, z: 0}
   m_LocalScale: {x: 0.1, y: 0.005, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4023173564183402}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!4 &4765270940299140
 Transform:
   m_ObjectHideFlags: 1
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114294900926208988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1529,7 +1529,12 @@ MonoBehaviour:
   TestModelCover: {fileID: 4014846020308656}
   TestModelCap: {fileID: 23019422860080806}
   TestModelText: {fileID: 102731327905905118}
-  LightRenderer: {fileID: 23742665149165744}
+  TestLightRenderer: {fileID: 23742665149165744}
+  TestLights:
+  - {fileID: 108541908091344744}
+  - {fileID: 108413882233900190}
+  - {fileID: 108877066749867556}
+  - {fileID: 108106343023660984}
   TestModelColourblindLightText: {fileID: 102092453308170868}
   Materials:
   - {fileID: 2100000, guid: 0504d149263b8bf4db72388cf3816a78, type: 2}
@@ -1537,10 +1542,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 10e5922399a4d4f45a776daad0d73875, type: 2}
   - {fileID: 2100000, guid: 6321d2e5c6e18f84ca2815b1dbf021b7, type: 2}
   ColourblindMaterials:
-  - {fileID: 2100000, guid: 29584c070dfbf924f8abdecd0ade3b24, type: 2}
+  - {fileID: 2100000, guid: 43292bba3e529a446ba26d82023ab4b7, type: 2}
   - {fileID: 2100000, guid: 003cfb01d9929924583ba2bb6121722f, type: 2}
   - {fileID: 2100000, guid: 0c086051628514e45a6d3d4a2c791519, type: 2}
-  - {fileID: 2100000, guid: 6321d2e5c6e18f84ca2815b1dbf021b7, type: 2}
+  - {fileID: 2100000, guid: efb8039e173aee6428b89188250c8325, type: 2}
   LightMaterials:
   - {fileID: 2100000, guid: aacf28b956eab8c418aaa4515f99784f, type: 2}
   - {fileID: 2100000, guid: 97b4c7e5e1ba1cc48b56486094514821, type: 2}
@@ -1599,7 +1604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Blend Unlit
+  - Unlit/Color
 --- !u!114 &114444589732886140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1624,11 +1629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a642e20990b9d8b4d92882abfbf1d7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lights:
-  - {fileID: 108541908091344744}
-  - {fileID: 108413882233900190}
-  - {fileID: 108877066749867556}
-  - {fileID: 108106343023660984}
   OpenCoverOnSelection: 0
 --- !u!114 &114578335166072060
 MonoBehaviour:
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorblindMode: 0
+  _colorblindMode: 1
 --- !u!114 &114976002606991788
 MonoBehaviour:
   m_ObjectHideFlags: 1

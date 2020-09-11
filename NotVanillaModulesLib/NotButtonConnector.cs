@@ -58,14 +58,16 @@ namespace NotVanillaModulesLib {
 			buttonEventConnector.Released += this.ButtonEventConnector_Released;
 			buttonEventConnector.Attach(this.button);
 
-			var text = Instantiate(GetComponentPrefab<PasswordComponent>().transform.Find("Layout_DEFAULT").GetComponent<PasswordLayout>().Spinners[0].Display, this.TestLightRenderer.transform.parent, false);
+			var text = Instantiate(GetComponentPrefab<PasswordComponent>().transform.Find("Layout_DEFAULT").GetComponent<PasswordLayout>().Spinners[0].Display, this.button.transform.Find("parts/LED_Off"), false);
 			this.ColourblindLightText = text;
 			text.enableAutoSizing = false;
-			text.transform.localPosition = new Vector3(0, 0.001f, 0);
+			text.transform.localRotation = Quaternion.Euler(90, 180, 0);
+			text.transform.localPosition = new Vector3(0.015f, 0.001f, 0.05f);
 			text.transform.localScale = new Vector3(0.005f, 0.005f, 1);
 			text.alignment = TextAlignmentOptions.Center;
 			text.color = new Color(0, 0, 0, 0.8f);
 			text.lineSpacing = -12;
+			text.transform.parent = text.transform.parent.parent;
 #endif
 		}
 
@@ -183,7 +185,9 @@ namespace NotVanillaModulesLib {
 				// Colourblind materials use a high texture scale so that they will appear correctly on the vanilla button model.
 				// This needs to be changed in the test harness.
 				material.mainTextureScale = Vector2.one;
-			} else {
+				material.mainTextureOffset = Vector2.zero;
+			}
+			else {
 #if (!DEBUG)
 				var buttonComponent = this.button.GetComponent<PressableButton>();
 				if (!lightText) buttonComponent.text.GetComponent<Renderer>().enabled = true;
@@ -194,6 +198,11 @@ namespace NotVanillaModulesLib {
 						case ButtonColour.Blue: buttonComponent.SetColor(BombGame.ButtonColor.blue); return;
 						case ButtonColour.White: buttonComponent.SetColor(BombGame.ButtonColor.white); return;
 					}
+				}
+				else {
+					// centers the colorblind textures
+					material.mainTextureScale = Vector2.one * 25;
+					material.mainTextureOffset = new Vector2(0.41f, 0.47f);
 				}
 				buttonComponent.SetColor(BombGame.ButtonColor.white);
 				var cap = this.button.transform.Find("ButtonTop").Find("Button_Top_White").GetComponent<MeshRenderer>();
