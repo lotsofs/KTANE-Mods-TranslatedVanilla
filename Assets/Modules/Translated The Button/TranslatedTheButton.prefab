@@ -1533,43 +1533,20 @@ MonoBehaviour:
   TestModelColourblindLightText: {fileID: 102092453308170868}
   Materials:
   - {fileID: 2100000, guid: 0504d149263b8bf4db72388cf3816a78, type: 2}
-  - {fileID: 2100000, guid: 8938ba118da43534bb3a39ec148c99c1, type: 2}
   - {fileID: 2100000, guid: b7b2a8110f30529449ef972e9e8ccafb, type: 2}
-  - {fileID: 2100000, guid: 08f0f1d702f06894ebc2ebbd3889cb64, type: 2}
-  - {fileID: 2100000, guid: 8f712c9cd203a4c4fb1a8e51f8e7fa33, type: 2}
   - {fileID: 2100000, guid: 10e5922399a4d4f45a776daad0d73875, type: 2}
-  - {fileID: 2100000, guid: a7af2db4f0b4ea8429144c827798f1f6, type: 2}
-  - {fileID: 2100000, guid: 3bead2e3a84be0a4ebf974e183ee4a28, type: 2}
   - {fileID: 2100000, guid: 6321d2e5c6e18f84ca2815b1dbf021b7, type: 2}
-  - {fileID: 2100000, guid: 5b8cf6d129ee26b4598ea7c4bcaa081f, type: 2}
   ColourblindMaterials:
   - {fileID: 2100000, guid: 29584c070dfbf924f8abdecd0ade3b24, type: 2}
-  - {fileID: 2100000, guid: 94a405057ff591f41963e6ccdd8b7e66, type: 2}
   - {fileID: 2100000, guid: 003cfb01d9929924583ba2bb6121722f, type: 2}
-  - {fileID: 2100000, guid: 8cb65718a012a4c46b359db2b8a70ee3, type: 2}
-  - {fileID: 2100000, guid: f8337985039a18346bf027d1381e38eb, type: 2}
   - {fileID: 2100000, guid: 0c086051628514e45a6d3d4a2c791519, type: 2}
-  - {fileID: 2100000, guid: 21bc5e8defa92964dba325cd7f176b21, type: 2}
-  - {fileID: 2100000, guid: 4013d4da6dff2ce4787a3a50cb6740a5, type: 2}
   - {fileID: 2100000, guid: 6321d2e5c6e18f84ca2815b1dbf021b7, type: 2}
-  - {fileID: 2100000, guid: 5b8cf6d129ee26b4598ea7c4bcaa081f, type: 2}
   LightMaterials:
   - {fileID: 2100000, guid: aacf28b956eab8c418aaa4515f99784f, type: 2}
-  - {fileID: 2100000, guid: e7762edcc61c15646bd83575386f3a99, type: 2}
   - {fileID: 2100000, guid: 97b4c7e5e1ba1cc48b56486094514821, type: 2}
   - {fileID: 2100000, guid: b3e3e3cbbe5eb914299b774dcc4b1f88, type: 2}
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
   - {fileID: 2100000, guid: ded80a96b528a1c41b3d5b7f3ad454a3, type: 2}
-  - {fileID: 2100000, guid: d00ec28d60ac9d84a92f9478675e5365, type: 2}
-  - {fileID: 2100000, guid: f35c244e27ed4234e8658a3ec55492db, type: 2}
-  - {fileID: 2100000, guid: c612962adaf723e498ff9d6a9d134de0, type: 2}
-  - {fileID: 2100000, guid: f84a866f81e6d784993f2d4246361bed, type: 2}
-  - {fileID: 2100000, guid: 47dd563131962d044ac61d670a836ace, type: 2}
-  - {fileID: 2100000, guid: a56c61b1aa64dd643a8ef684e681c2ad, type: 2}
-  - {fileID: 2100000, guid: d35712f25b9de9a4882e4bf0e86c00e2, type: 2}
-  - {fileID: 2100000, guid: 8be7bf1ca282e4d4a80f7719b8ef8ce2, type: 2}
-  - {fileID: 2100000, guid: e5ffd24cb0b26424f9c81877efb2999b, type: 2}
-  - {fileID: 2100000, guid: e8f136940bce987458871504bd8db8d3, type: 2}
+  - {fileID: 2100000, guid: e7762edcc61c15646bd83575386f3a99, type: 2}
 --- !u!114 &114319122792386522
 MonoBehaviour:
   m_ObjectHideFlags: 1
