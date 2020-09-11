@@ -31,20 +31,23 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		base.Start();
 		this.bombInfo = this.GetComponent<KMBombInfo>();
 
-		// Fix lights.
+		// Fixes lights.
 		var lightScale = this.transform.lossyScale.x;
 		foreach (var light in this.Lights) light.range *= lightScale;
 
+		// Sets the appearance of the button
 		this.Connector.SetColour(this.Colour = (ButtonColour) Random.Range(0, 4));
 		this.Log("Colour is " + this.Colour);
 		this.Connector.SetLabel(this.Label = (ButtonLabel) Random.Range(0, 4));
 		this.Log("Label is " + this.Label);
 		this.ShouldBeHeld = this.Label != ButtonLabel.Detonate;
-		this.Log("The button should be " + (ShouldBeHeld ? "Held." : "Pressed."));
+		this.Log("The button should be " + (ShouldBeHeld ? "Held." : "Pressed."));		// todo: Actual puzzle logic
 
-		this.Connector.Held += this.Button_Held;
-		this.Connector.Released += this.Button_Released;
+		// Register button hold and released events
+		this.Connector.Held += this.Button_In;
+		this.Connector.Released += this.Button_Out;
 
+		// Stuff regarding the cover
 		var moduleSelectable = this.GetComponent<KMSelectable>();
 		this.button = moduleSelectable.Children[0];
 		moduleSelectable.OnHighlight = () => { if (this.OpenCoverOnSelection) this.Connector.OpenCover(); };
@@ -61,14 +64,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			moduleSelectable.OnFocus = () => { if (!this.OpenCoverOnSelection) this.Connector.OpenCover(); };
 			moduleSelectable.OnDefocus = () => this.Connector.CloseCover();
 		}
-
 	}
 
-	public void OpenCover() { this.Connector.OpenCover(); }
-
 	public void Update() {
-		if (this.Down) {
-			if (!this.Holding) {
+		if (this.Down) {	// button being pressed
+			if (!this.Holding) {	// button not counted as held yet
 				this.InteractionTime += Time.deltaTime;
 				if (this.InteractionTime >= 0.7f) {
 					this.StartedHolding();
@@ -88,31 +88,29 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 	}
 
-	private void Button_Held(object sender, EventArgs e) {
+	/// <summary>
+	/// Done as soon as the button is pressed in.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void Button_In(object sender, EventArgs e) {
 		this.Down = true;
 		this.InteractionTime = 0;
 		this.GetComponent<KMSelectable>().AddInteractionPunch(0.5f);
 	}
 
-	private void Button_Released(object sender, EventArgs e) {
+	/// <summary>
+	/// Done as soon as the button is released
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void Button_Out(object sender, EventArgs e) {
 		this.GetComponent<KMSelectable>().AddInteractionPunch(-0.35f);
 		// There's an issue with the test harness whereby pressing Enter to select the module raises this event.
 		if (!this.Down) return;
+		
 		this.Down = false;
 		this.SetLightColour(ButtonLightColour.Off);
-		if (this.Solved) {
-			if (this.Holding) {
-				this.Holding = false;
-				this.InteractionTime = 0;
-				if (this.animationCoroutine != null) {
-					this.StopCoroutine(this.animationCoroutine);
-					this.animationCoroutine = null;
-				}
-			} else {
-
-			}
-			return;
-		}
 
 		if (this.Holding) {
 			this.Holding = false;
@@ -123,48 +121,65 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 			}
 
 			var timeString = this.GetComponent<KMBombInfo>().GetFormattedTime();
-			if (this.ShouldBeHeld == true) {
+			if (this.ShouldBeHeld) {
 				var time = this.GetComponent<KMBombInfo>().GetTime();
 					this.Log(string.Format("The button was held and released at {0}. That was correct.", timeString));
 					this.Disarm();
 			} else {
-				this.Log(string.Format("The button was held and released at {0}. That was incorrect: it should have been pressed.", timeString));
+				this.Log(string.Format("The button was held and released at {0}. That was incorrect: It should have been pressed.", timeString));
+				this.Connector.KMBombModule.HandleStrike();
+			}
+		}
+		else {
+			if (this.ShouldBeHeld) {
+				this.Log(string.Format("The button was pressed and immediately released. That was correct."));
+				this.Disarm();
+			}
+			else {
+				this.Log(string.Format("The button was pressed and immediately released. That was incorrect: It should have been held."));
 				this.Connector.KMBombModule.HandleStrike();
 			}
 		}
 	}
 
+	/// <summary>
+	/// The button is being held instead of immediately released
+	/// </summary>
 	private void StartedHolding() {
 		this.Holding = true;
-		if (this.Solved) {
-			this.animationCoroutine = this.StartCoroutine(this.LightShowCoroutine());
-		} else {
-			this.SetLightColour((ButtonLightColour) (Random.Range(0, 15) + 1));
-			this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
-			this.Log(string.Format(this.ShouldBeHeld == true ? "The button is being held. That is correct. The light is {0}." :
-				"The button is being held. That is incorrect. The light is {0}.", this.LightColour));
-		}
+		this.SetLightColour((ButtonLightColour)(Random.Range(0, 4) + 1));
+		this.animationCoroutine = this.StartCoroutine(this.LightAnimationCoroutine());
+		this.Log(string.Format(this.ShouldBeHeld == true ? "The button is being held. That is correct. The light is {0}." :
+			"The button is being held. That is incorrect. The light is {0}.", this.LightColour));
 	}
 
+	/// <summary>
+	/// Turn on the colored strip
+	/// </summary>
+	/// <param name="colour"></param>
 	private void SetLightColour(ButtonLightColour colour) {
 		this.Connector.SetLightColour(this.LightColour = colour);
 		if (colour == ButtonLightColour.Off) {
 			foreach (var light in this.Lights)
 				light.gameObject.SetActive(false);
-		} else {
-			foreach (var light in this.Lights)
+		} 
+		else {
+			foreach (var light in this.Lights) { 
 				light.gameObject.SetActive(true);
-			for (int i = 0; i < this.Lights.Length; i += 1) {
 				switch (colour) {
-					case ButtonLightColour.Red: this.Lights[i].color = Color.red; break;
-					case ButtonLightColour.Yellow: this.Lights[i].color = Color.yellow; break;
-					case ButtonLightColour.Blue: this.Lights[i].color = Color.blue; break;
-					case ButtonLightColour.White: this.Lights[i].color = Color.white; break;
+					case ButtonLightColour.Red: light.color = Color.red; break;
+					case ButtonLightColour.Yellow: light.color = Color.yellow; break;
+					case ButtonLightColour.Blue: light.color = Color.blue; break;
+					case ButtonLightColour.White: light.color = Color.white; break;
 				}
 			}
 		}
 	}
 
+	/// <summary>
+	/// Change the brightness of the strip
+	/// </summary>
+	/// <param name="brightness"></param>
 	private void SetLightBrightness(float brightness) {
 		this.Connector.SetLightBrightness(brightness);
 		foreach (var light in this.Lights) light.intensity = brightness * 2;
@@ -180,44 +195,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 	}
 
-	private IEnumerator LightShowCoroutine() {
-		ButtonLightColour[] colours = new[] { ButtonLightColour.White, ButtonLightColour.Red, ButtonLightColour.Yellow, ButtonLightColour.Red, ButtonLightColour.Blue };
-		while (true) {
-			var time = this.bombInfo.GetTime();
-			this.SetLightColour(colours[(int) time % 5]);
-			this.SetLightBrightness(this.ZenModeActive ? time - (float) Math.Floor(time) : (float) Math.Ceiling(time) - time);
-			yield return null;
-		}
-	}
+	#region twitch plays
 
-	private IEnumerator DisplayShowCoroutine() {
-		var roll = Random.Range(0, 4);
-		switch (roll) {
-			case 0:
-				while (true) {
-					yield return null;
-				}
-			case 1:
-				while (true) {
-					yield return null;
-				}
-			case 2:
-				while (true) {
-					yield return null;
-				}
-			default:
-				while (true) {
-					for (int i = 0; i < 4; ++i) {
-					}
-					for (int i = 0; i < 4; ++i) {
-					}
-					for (int i = 0; i < 4; ++i) {
-					}
-				}
-		}
-	}
-
-	// Twitch Plays support
 	public static readonly string TwitchHelpMessage = "!{0} tap | !{0} hold | !{0} release 1:13 1:23 | !{0} mash 50";
 	[NonSerialized]
 	public bool ZenModeActive;
@@ -300,4 +279,6 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		}
 		this.Connector.CloseCover();
 	}
+
+	#endregion
 }
