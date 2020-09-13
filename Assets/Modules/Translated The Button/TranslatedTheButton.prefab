@@ -29,6 +29,104 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1061158143636358
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4507753706578196}
+  - component: {fileID: 114662179366027638}
+  m_Layer: 0
+  m_Name: Esperanto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1062099591328566
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4376596451925656}
+  - component: {fileID: 114766344719401604}
+  m_Layer: 0
+  m_Name: Norwegian
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1077104252539198
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4284311048350522}
+  - component: {fileID: 114803461098417346}
+  m_Layer: 0
+  m_Name: Hebrew
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1110413387978336
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4163522837794352}
+  - component: {fileID: 23397115953016624}
+  - component: {fileID: 102955476950821324}
+  - component: {fileID: 114334311515654766}
+  m_Layer: 0
+  m_Name: StickerLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1110896969596104
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4308135361127624}
+  - component: {fileID: 114494628380428060}
+  m_Layer: 0
+  m_Name: German
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1122740797348440
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4322416017677676}
+  - component: {fileID: 114624347551878980}
+  m_Layer: 0
+  m_Name: English
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1132219344710880
 GameObject:
   m_ObjectHideFlags: 1
@@ -39,6 +137,22 @@ GameObject:
   - component: {fileID: 4257952750087516}
   m_Layer: 0
   m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1157905887830070
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4339966926642626}
+  - component: {fileID: 114627516694124256}
+  m_Layer: 0
+  m_Name: Spanish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +191,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1190978122527702
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4819736653157068}
+  - component: {fileID: 114917834471228738}
+  m_Layer: 0
+  m_Name: Danish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1272220760546826
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +237,101 @@ GameObject:
   - component: {fileID: 114275134508780520}
   m_Layer: 0
   m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1285431232489640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4940755174612858}
+  m_Layer: 0
+  m_Name: Languages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1293024106495318
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4908375715621392}
+  - component: {fileID: 114966381795949418}
+  m_Layer: 0
+  m_Name: French
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1335500302779302
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4868791412754794}
+  - component: {fileID: 114174478993128318}
+  m_Layer: 0
+  m_Name: Polish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1363120708729536
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4031594223128472}
+  - component: {fileID: 114542301631201016}
+  m_Layer: 0
+  m_Name: Chinese
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1363342981402750
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4493618561759822}
+  - component: {fileID: 114054697641548924}
+  m_Layer: 0
+  m_Name: Russian
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1422158762887108
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4678722383744586}
+  - component: {fileID: 114778707921472844}
+  m_Layer: 0
+  m_Name: Swedish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,6 +388,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1470700434880252
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4985364322016080}
+  - component: {fileID: 114913837411540514}
+  m_Layer: 0
+  m_Name: Dutch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1497271530371080
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4850176208066776}
+  - component: {fileID: 114405603537812694}
+  m_Layer: 0
+  m_Name: Portuguese
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1498200271813856
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4039954838174306}
+  - component: {fileID: 114640615694859482}
+  m_Layer: 0
+  m_Name: Japanese
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1539122189430724
 GameObject:
   m_ObjectHideFlags: 1
@@ -181,6 +454,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1574548711403180
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4785041248100024}
+  - component: {fileID: 114063907102235532}
+  m_Layer: 0
+  m_Name: Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1610767849298858
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4008338353636908}
+  - component: {fileID: 114522260866573960}
+  m_Layer: 0
+  m_Name: Korean
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1621013585799956
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4200370724403628}
+  - component: {fileID: 114856343932669456}
+  m_Layer: 0
+  m_Name: Finnish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1632485358397952
 GameObject:
   m_ObjectHideFlags: 1
@@ -192,6 +513,22 @@ GameObject:
   - component: {fileID: 114718113586957980}
   m_Layer: 0
   m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1647417143750844
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4522672732377338}
+  - component: {fileID: 114601955472805136}
+  m_Layer: 0
+  m_Name: Thai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,6 +619,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1704416673261824
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4199177106757294}
+  - component: {fileID: 23900129134536424}
+  - component: {fileID: 102849911924236448}
+  - component: {fileID: 114620792357422138}
+  m_Layer: 0
+  m_Name: StickerID
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1707567129555140
 GameObject:
   m_ObjectHideFlags: 1
@@ -298,6 +653,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1718514404737602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4083787391459438}
+  - component: {fileID: 33122188109031830}
+  - component: {fileID: 65456537565235758}
+  - component: {fileID: 114184262881831760}
+  - component: {fileID: 23282194823367602}
+  - component: {fileID: 114737748994904450}
+  - component: {fileID: 114572164547043006}
+  m_Layer: 0
+  m_Name: Sticker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1720395537285724
 GameObject:
   m_ObjectHideFlags: 1
@@ -311,6 +687,22 @@ GameObject:
   - component: {fileID: 114422486959049728}
   m_Layer: 0
   m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1723967188292324
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4502450031719880}
+  - component: {fileID: 114230534214018568}
+  m_Layer: 0
+  m_Name: Estonian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,8 +741,8 @@ GameObject:
   - component: {fileID: 65065796984675958}
   - component: {fileID: 114835436380170924}
   - component: {fileID: 114161330509457418}
-  - component: {fileID: 114879952995033730}
   - component: {fileID: 114956671293027526}
+  - component: {fileID: 114424529933858232}
   m_Layer: 0
   m_Name: TranslatedTheButton
   m_TagString: Untagged
@@ -371,6 +763,22 @@ GameObject:
   - component: {fileID: 114078268719774934}
   m_Layer: 0
   m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1810161782041906
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4832207527221540}
+  - component: {fileID: 114440067410241410}
+  m_Layer: 0
+  m_Name: Italian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,6 +833,48 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1993458256973746
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4013716412233640}
+  - component: {fileID: 114466271002950646}
+  m_Layer: 0
+  m_Name: Czech
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4008338353636908
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610767849298858}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4013716412233640
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993458256973746}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4014846020308656
 Transform:
   m_ObjectHideFlags: 1
@@ -492,6 +942,32 @@ Transform:
   m_Father: {fileID: 4963175615714318}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4031594223128472
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363120708729536}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4039954838174306
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498200271813856}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4064984249083230
 Transform:
   m_ObjectHideFlags: 1
@@ -505,6 +981,34 @@ Transform:
   m_Father: {fileID: 4020293458958610}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4083787391459438
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -0.0101, y: 0.0152, z: 0.0674}
+  m_LocalScale: {x: 0.02974983, y: 0.01784988, z: 0.00002974981}
+  m_Children:
+  - {fileID: 4199177106757294}
+  - {fileID: 4163522837794352}
+  m_Father: {fileID: 4388002967487990}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 270, y: 180, z: 0}
+--- !u!4 &4163522837794352
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110413387978336}
+  m_LocalRotation: {x: -0.00000044483625, y: 1, z: -0.0000008344649, w: -0.000000018779046}
+  m_LocalPosition: {x: 0, y: -0.19551979, z: 2.904202}
+  m_LocalScale: {x: 0.044855837, y: 0.07475999, z: 44.855972}
+  m_Children: []
+  m_Father: {fileID: 4083787391459438}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4166523852838916
 Transform:
   m_ObjectHideFlags: 1
@@ -517,6 +1021,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4020293458958610}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4199177106757294
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704416673261824}
+  m_LocalRotation: {x: -0.00000044483625, y: 1, z: -0.0000008344649, w: -0.000000018779046}
+  m_LocalPosition: {x: 0, y: 0.357, z: 3}
+  m_LocalScale: {x: 0.052906625, y: 0.08817768, z: 52.90661}
+  m_Children: []
+  m_Father: {fileID: 4083787391459438}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
+--- !u!4 &4200370724403628
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621013585799956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4224759684587248
 Transform:
@@ -558,6 +1088,19 @@ Transform:
   m_Father: {fileID: 4963175615714318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4284311048350522
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077104252539198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4305261593361196
 Transform:
   m_ObjectHideFlags: 1
@@ -571,6 +1114,58 @@ Transform:
   m_Father: {fileID: 4014846020308656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4308135361127624
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110896969596104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4322416017677676
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122740797348440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4339966926642626
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157905887830070}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4376596451925656
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062099591328566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4388002967487990
 Transform:
   m_ObjectHideFlags: 1
@@ -582,9 +1177,11 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4523273335697124}
+  - {fileID: 4083787391459438}
   - {fileID: 4980728241516854}
   - {fileID: 4503322629469064}
   - {fileID: 4963175615714318}
+  - {fileID: 4940755174612858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,6 +1211,32 @@ Transform:
   m_Father: {fileID: 4014846020308656}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4493618561759822
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363342981402750}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4502450031719880
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723967188292324}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4503322629469064
 Transform:
   m_ObjectHideFlags: 1
@@ -625,7 +1248,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4388002967487990}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4507753706578196
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061158143636358}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4514251720967846
 Transform:
@@ -640,6 +1276,19 @@ Transform:
   m_Father: {fileID: 4023173564183402}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!4 &4522672732377338
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647417143750844}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4523273335697124
 Transform:
   m_ObjectHideFlags: 1
@@ -665,6 +1314,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4014846020308656}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4678722383744586
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422158762887108}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4728306720237024
 Transform:
@@ -692,6 +1354,71 @@ Transform:
   m_Father: {fileID: 4023173564183402}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4785041248100024
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574548711403180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4819736653157068
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190978122527702}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4832207527221540
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810161782041906}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4850176208066776
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497271530371080}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4868791412754794
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335500302779302}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4902142884142986
 Transform:
   m_ObjectHideFlags: 1
@@ -704,6 +1431,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4014846020308656}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4908375715621392
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293024106495318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4940755174612858
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285431232489640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4785041248100024}
+  - {fileID: 4013716412233640}
+  - {fileID: 4819736653157068}
+  - {fileID: 4308135361127624}
+  - {fileID: 4322416017677676}
+  - {fileID: 4507753706578196}
+  - {fileID: 4339966926642626}
+  - {fileID: 4502450031719880}
+  - {fileID: 4200370724403628}
+  - {fileID: 4908375715621392}
+  - {fileID: 4284311048350522}
+  - {fileID: 4832207527221540}
+  - {fileID: 4039954838174306}
+  - {fileID: 4008338353636908}
+  - {fileID: 4985364322016080}
+  - {fileID: 4376596451925656}
+  - {fileID: 4868791412754794}
+  - {fileID: 4850176208066776}
+  - {fileID: 4493618561759822}
+  - {fileID: 4678722383744586}
+  - {fileID: 4522672732377338}
+  - {fileID: 4031594223128472}
+  m_Father: {fileID: 4388002967487990}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4963175615714318
 Transform:
@@ -719,7 +1494,7 @@ Transform:
   - {fileID: 4257952750087516}
   - {fileID: 4027032132392854}
   m_Father: {fileID: 4388002967487990}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4969093696749244
 Transform:
@@ -758,8 +1533,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4388002967487990}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &4985364322016080
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470700434880252}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4940755174612858}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23019422860080806
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -896,6 +1684,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23282194823367602
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 279bc92471e4f304e9d6e19bcfc3ffea, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23302626663144848
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -953,6 +1775,40 @@ MeshRenderer:
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23397115953016624
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110413387978336}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4eb6893e63529ab43aa06c4930b4d871, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
@@ -1100,6 +1956,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23900129134536424
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704416673261824}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 4eb6893e63529ab43aa06c4930b4d871, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23919887266094824
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1147,6 +2037,13 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885379864892380}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33122188109031830
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33141843528571562
 MeshFilter:
@@ -1223,6 +2120,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.05, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65456537565235758
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65604423884898846
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1242,13 +2151,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673964304297008}
-  m_Text: 'G
-
-    B
-
-    G
-
-    B'
+  m_Text: C
   m_OffsetZ: 0
   m_CharacterSize: 0.006
   m_LineSpacing: 1.1
@@ -1283,6 +2186,48 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!102 &102849911924236448
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704416673261824}
+  m_Text: TLM436F66.ABCDE.LANG1231
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_TabSize: 4
+  m_FontSize: 22
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: ba5875af45922064dbe13d575a145fe4, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4292401368
+--- !u!102 &102955476950821324
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110413387978336}
+  m_Text: LANG
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 172
+  m_FontStyle: 1
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: ba5875af45922064dbe13d575a145fe4, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4281545523
 --- !u!108 &108106343023660984
 Light:
   m_ObjectHideFlags: 1
@@ -1427,6 +2372,112 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114054697641548924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363342981402750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Russian
+  NativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+  Iso639: ru
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\u041D\u0410\u0416\u0410\u0422\u042C"
+  Hold: "\u0414\u0415\u0420\u0416\u0410\u0422\u042C"
+  Abort: "\u0421\u0422\u041E\u041F"
+  Detonate: "\u0412\u0417\u041E\u0420\u0412\u0410\u0422\u042C"
+  LogPress: "\u041D\u0430\u0436\u0430\u0442\u044C"
+  LogHold: "\u0414\u0435\u0440\u0436\u0430\u0442\u044C"
+  LogAbort: "\u0421\u0442\u043E\u043F"
+  LogDetonate: "\u0412\u0437\u043E\u0440\u0432\u0430\u0442\u044C"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114063907102235532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574548711403180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 1
+  Name: Default
+  NativeName: English
+  Iso639: '-'
+  SwapButtons: 0
+  Version: 0
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: PRESS
+  Hold: HOLD
+  Abort: ABORT
+  Detonate: DETONATE
+  LogPress: Press
+  LogHold: Hold
+  LogAbort: Abort
+  LogDetonate: Detonate
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114078268719774934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1451,6 +2502,73 @@ MonoBehaviour:
   m_Script: {fileID: 2144496390, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114174478993128318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335500302779302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Polish
+  NativeName: Polski
+  Iso639: pl
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "PRZYCI\u015ANIJ"
+  Hold: PRZYTRZYMAJ
+  Abort: ANULUJ
+  Detonate: ZDETONUJ
+  LogPress: "Przyci\u015Bnij"
+  LogHold: Przytrzymaj
+  LogAbort: Anuluj
+  LogDetonate: Zdetonuj
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114184262881831760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4997048a7983244a1d940c3a34dcff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bigLabel: {fileID: 102955476950821324}
+  _blackBar: {fileID: 102849911924236448}
+  _PeriodicTableCode: B
 --- !u!114 &114197335743765004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1464,6 +2582,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Standard
+--- !u!114 &114230534214018568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723967188292324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Estonian
+  NativeName: Eesti
+  Iso639: et
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: VAJUTA
+  Hold: HOIA
+  Abort: KATKESTA
+  Detonate: "\xD5HKA"
+  LogPress: Vajuta
+  LogHold: Hoia
+  LogAbort: Katkesta
+  LogDetonate: "\xD5hka"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114274752103312740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1565,6 +2736,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Standard
+--- !u!114 &114334311515654766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110413387978336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - GUI/KT 3D Text
 --- !u!114 &114377249257923490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1578,6 +2762,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114405603537812694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497271530371080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Portuguese
+  NativeName: "Portugu\xEAs"
+  Iso639: pt
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: APERTAR
+  Hold: SEGURAR
+  Abort: ABORTAR
+  Detonate: DETONAR
+  LogPress: Apertar
+  LogHold: Segurar
+  LogAbort: Abortar
+  LogDetonate: Detonar
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114417150608629104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1590,7 +2827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModuleType: BigButtonTranslated
-  ModuleDisplayName: Big Button Translated
+  ModuleDisplayName: The Button Translated
   RequiresTimerVisibility: 1
 --- !u!114 &114422486959049728
 MonoBehaviour:
@@ -1605,6 +2842,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Unlit/Color
+--- !u!114 &114424529933858232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758559113600360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6133ffd9186ebc41b6e4148760a6fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _languagesHolder: {fileID: 1285431232489640}
+  KMModule: {fileID: 114294900926208988}
+  _sticker: {fileID: 114184262881831760}
+  _settingsFileName: Translated-TheButton-Settings
+  _oldSettingsFiles: []
+  Override: {fileID: 0}
+--- !u!114 &114440067410241410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810161782041906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Italian
+  NativeName: Italiano
+  Iso639: it
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: PREMI
+  Hold: TIENI\nPREMUTO
+  Abort: ANNULLA
+  Detonate: DETONA
+  LogPress: Premi
+  LogHold: Tieni premuto
+  LogAbort: Annulla
+  LogDetonate: Detona
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114444589732886140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,6 +2925,218 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114466271002950646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993458256973746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Czech
+  NativeName: "\u010Ce\u0161tina"
+  Iso639: cs
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: STISKNOUT
+  Hold: "DR\u017DET"
+  Abort: "ZRU\u0160IT"
+  Detonate: "ODP\xC1LIT"
+  LogPress: Stisknout
+  LogHold: "Dr\u017Eet"
+  LogAbort: "Zru\u0161it"
+  LogDetonate: "Odp\xE1lit"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114494628380428060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110896969596104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: German
+  NativeName: Deutsch
+  Iso639: de
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "DR\xDCCKEN"
+  Hold: "GEDR\xDCCKT\\nHALTEN"
+  Abort: ABBRECHEN
+  Detonate: "Z\xDCNDEN"
+  LogPress: "Dr\xFCcken"
+  LogHold: "Gedr\xFCckt halten"
+  LogAbort: Abbrechen
+  LogDetonate: "Z\xFCnden"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114522260866573960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610767849298858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Korean
+  NativeName: "\uD55C\uAD6D\uC5B4"
+  Iso639: ko
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\uB204\uB974\uC2DC\uC624"
+  Hold: "\uB204\uB978\uCC44 \uC720\uC9C0"
+  Abort: "\uC811\uADFC\uAE08\uC9C0"
+  Detonate: "\uD3ED\uD30C"
+  LogPress: "\uB204\uB974\uC2DC\uC624"
+  LogHold: "\uB204\uB978\uCC44 \uC720\uC9C0"
+  LogAbort: "\uC811\uADFC\uAE08\uC9C0"
+  LogDetonate: "\uD3ED\uD30C"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114542301631201016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363120708729536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Chinese
+  NativeName: "\u4E2D\u6587"
+  Iso639: zh
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\u6309\u4E0B"
+  Hold: "\u6309\u4F4F"
+  Abort: "\u89E3\u9664"
+  Detonate: "\u5F15\u7206"
+  LogPress: "\u6309\u4E0B"
+  LogHold: "\u6309\u4F4F"
+  LogAbort: "\u89E3\u9664"
+  LogDetonate: "\u5F15\u7206"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114557487774857414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1630,6 +3149,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpenCoverOnSelection: 0
+--- !u!114 &114572164547043006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff1ffa71107cf042aedcbece34006da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Positions:
+  - {x: -0.0007, y: 0.0152, z: 0.0768}
+  - {x: -0.0327, y: 0.0152, z: 0.0726}
+  - {x: -0.0188, y: 0.0152, z: 0.0696}
+  Rotations:
+  - {x: 270, y: 180, z: -3.549988}
+  - {x: 270, y: 180, z: 7.3}
+  - {x: 270, y: 180, z: 2.24}
 --- !u!114 &114578335166072060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1643,6 +3181,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 0, y: 0, z: 0}
   OutlineAmount: 0
+--- !u!114 &114601955472805136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647417143750844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
+  Iso639: th
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\u0E01\u0E14"
+  Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  Abort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  Detonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  LogPress: "\u0E01\u0E14"
+  LogHold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  LogAbort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  LogDetonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114614922644392264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1667,6 +3258,231 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
+--- !u!114 &114620792357422138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704416673261824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - GUI/KT 3D Text
+--- !u!114 &114624347551878980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1122740797348440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: English
+  NativeName: English
+  Iso639: en
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: PRESS
+  Hold: HOLD
+  Abort: ABORT
+  Detonate: DETONATE
+  LogPress: Press
+  LogHold: Hold
+  LogAbort: Abort
+  LogDetonate: Detonate
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114627516694124256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157905887830070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Spanish
+  NativeName: "Espa\xF1ol"
+  Iso639: es
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: PRESIONAR
+  Hold: MANTENER
+  Abort: ABORTAR
+  Detonate: DETONAR
+  LogPress: Presionar
+  LogHold: Mantener
+  LogAbort: Abortar
+  LogDetonate: Detonar
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114640615694859482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498200271813856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Japanese
+  NativeName: "\u65E5\u672C\u8A9E"
+  Iso639: ja
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\u62BC\u3059"
+  Hold: "\u9577\u62BC\u3057"
+  Abort: "\u4E2D\u6B62"
+  Detonate: "\u7206\u7834"
+  LogPress: "\u62BC\u3059"
+  LogHold: "\u9577\u62BC\u3057"
+  LogAbort: "\u4E2D\u6B62"
+  LogDetonate: "\u7206\u7834"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114662179366027638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061158143636358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Esperanto
+  NativeName: Esperanto
+  Iso639: eo
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "PU\u015CU"
+  Hold: TENU
+  Abort: HALTU
+  Detonate: EKSPLODIGU
+  LogPress: "Pu\u015Du"
+  LogHold: Tenu
+  LogAbort: Haltu
+  LogDetonate: Eksplodigu
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114718113586957980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1690,6 +3506,178 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
+--- !u!114 &114737748994904450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718514404737602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
+--- !u!114 &114766344719401604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062099591328566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Norwegian
+  NativeName: Norsk
+  Iso639: no
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: TRYKK
+  Hold: HOLD\nINNE
+  Abort: AVBRYT
+  Detonate: DETONER
+  LogPress: Trykk
+  LogHold: Hold inne
+  LogAbort: Avbryt
+  LogDetonate: Detoner
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114778707921472844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422158762887108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Swedish
+  NativeName: Svenska
+  Iso639: sv
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: TRYCK
+  Hold: "H\xC5LL NED"
+  Abort: AVBRYT
+  Detonate: DETONERA
+  LogPress: Tryck
+  LogHold: "H\xE5ll ned"
+  LogAbort: Avbryt
+  LogDetonate: Detonera
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114803461098417346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077104252539198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Hebrew
+  NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
+  Iso639: he
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: "\u05E5\u05D7\u05DC"
+  Hold: "\u05E7\u05D6\u05D7\u05D4"
+  Abort: "\u05DC\u05D8\u05D1"
+  Detonate: "\u05E5\u05E6\u05D5\u05E4"
+  LogPress: "\u05DC\u05D7\u05E5"
+  LogHold: "\u05D4\u05D7\u05D6\u05E7"
+  LogAbort: "\u05D1\u05D8\u05DC"
+  LogDetonate: "\u05E4\u05D5\u05E6\u05E5"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114835436380170924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1714,6 +3702,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - GUI/KT 3D Text Diffuse
+--- !u!114 &114856343932669456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621013585799956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Finnish
+  NativeName: Suomi
+  Iso639: fi
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: PAINA
+  Hold: "PID\xC4"
+  Abort: "KESKEYT\xC4"
+  Detonate: "R\xC4J\xC4YT\xC4"
+  LogPress: Paina
+  LogHold: "Pid\xE4"
+  LogAbort: "Keskeyt\xE4"
+  LogDetonate: "R\xE4j\xE4yt\xE4"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114879911310364572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1727,19 +3768,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/Diffuse
---- !u!114 &114879952995033730
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758559113600360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -289456416, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Settings: 
-  SettingsPath: 
 --- !u!114 &114902188889889508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1753,6 +3781,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
+--- !u!114 &114913837411540514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470700434880252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Dutch
+  NativeName: Nederlands
+  Iso639: nl
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: INDRUKKEN
+  Hold: VASTHOUDEN
+  Abort: AFBREKEN
+  Detonate: ONTSTEKEN
+  LogPress: Indrukken
+  LogHold: Vasthouden
+  LogAbort: Afbreken
+  LogDetonate: Ontsteken
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
+--- !u!114 &114917834471228738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190978122527702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Danish
+  NativeName: Dansk
+  Iso639: da
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: TRYK
+  Hold: HOLD
+  Abort: AFBRYD
+  Detonate: "SPR\xC6NG"
+  LogPress: Red
+  LogHold: Yellow
+  LogAbort: Green
+  LogDetonate: "Spr\xE6ng"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114956671293027526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1764,7 +3898,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorblindMode: 1
+  _colorblindMode: 0
+--- !u!114 &114966381795949418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293024106495318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1415a27a10db5624987892e9b81fab98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: French
+  NativeName: "Fran\xE7ais"
+  Iso639: fr
+  SwapButtons: 0
+  Version: 1
+  ManualAvailable: 1
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  Press: POUSSER
+  Hold: MAINTENIR
+  Abort: "ARR\xCATER"
+  Detonate: "D\xC9CLENCHER"
+  LogPress: Pousser
+  LogHold: Maintenir
+  LogAbort: "Arr\xEAter"
+  LogDetonate: "D\xE9clencher"
+  UseSprites: 0
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.
 --- !u!114 &114976002606991788
 MonoBehaviour:
   m_ObjectHideFlags: 1

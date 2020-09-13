@@ -27,6 +27,7 @@ public abstract class NotVanillaModule<TConnector> : MonoBehaviour where TConnec
 	}
 
 	public void Log(string message) { this.Connector.Log(message); }
+	public void LogFormat(string message, params string[] args) { this.Connector.LogFormat(message, args); }
 	[StringFormatMethod("format")]
 	public void Log(string format, params object[] args) { this.Connector.Log(format, args); }
 }

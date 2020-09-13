@@ -125,6 +125,13 @@ namespace NotVanillaModulesLib {
 			string name = this.KMBombModule?.ModuleDisplayName ?? this.KMNeedyModule?.ModuleDisplayName ?? this.GetType().Name;
 			Debug.Log($"[{name} #{this.ModuleID}] {message}");
 		}
+		/// <summary>
+		/// Writes the specified message to the log file with a prefix identifying this module.
+		/// </summary>
+		public void LogFormat(string message, params string[] args) {
+			string name = this.KMBombModule?.ModuleDisplayName ?? this.KMNeedyModule?.ModuleDisplayName ?? this.GetType().Name;
+			Debug.LogFormat($"[{name} #{this.moduleID}] {message}", args);
+		}
 		/// <summary>Writes the specified message to the log file with a prefix identifying this module.</summary>
 		/// <seealso cref="string.Format(string, object)"/>
 		[StringFormatMethod("format")]

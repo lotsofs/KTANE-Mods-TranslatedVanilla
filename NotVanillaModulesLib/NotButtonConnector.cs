@@ -217,16 +217,19 @@ namespace NotVanillaModulesLib {
 					The vanilla PressableButton does the same thing...
 				*/
 				buttonComponent.text.GetComponent<HideOnLightsChange>().enabled = lightText;
+				// todo: This does not currently work when the button's label has to resort to the 'FallBackMaterial' (OstrichSans-Heavy SDF Material)
+				// [TMP_SubMesh] FallbackMaterial (OstrichSans-Heavy SDF Material) is being used for game object ButtonInstruction with text "長押し"
 #endif
 			}
 		}
 
-		public void SetLabel(ButtonLabel label) {
+		public void SetLabel(string label) {
+			label = label.Replace(@"\n", Environment.NewLine);
 			if (this.TestMode)
-				this.TestModelText.text = label.ToString().ToUpper();
+				this.TestModelText.text = label;
 #if (!DEBUG)
 			else
-				this.button.GetComponent<PressableButton>().text.text = label.ToString().ToUpper();
+				this.button.GetComponent<PressableButton>().text.text = label;
 #endif
 		}
 
