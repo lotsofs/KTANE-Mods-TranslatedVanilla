@@ -217,8 +217,6 @@ namespace NotVanillaModulesLib {
 					The vanilla PressableButton does the same thing...
 				*/
 				buttonComponent.text.GetComponent<HideOnLightsChange>().enabled = lightText;
-				// todo: This does not currently work when the button's label has to resort to the 'FallBackMaterial' (OstrichSans-Heavy SDF Material)
-				// [TMP_SubMesh] FallbackMaterial (OstrichSans-Heavy SDF Material) is being used for game object ButtonInstruction with text "長押し"
 #endif
 			}
 		}
@@ -297,15 +295,20 @@ namespace NotVanillaModulesLib {
 					this.button.transform.Find(ledName).gameObject.SetActive(true);
 				}
 #endif
-				//if (this.ColourblindMode) {
-				//	this.TestLightRenderer.material.mainTextureScale = new Vector2(0.5f, 0.5f);
-				//	this.TestLightRenderer.material.mainTextureOffset = new Vector2(0, 0.5f);
-				//}
 			}
 		}
 		public void SetLightBrightness(float brightness) {
 			this.TestLightRenderer.material.SetFloat("_Blend", brightness);
 			foreach (var light in this.TestLights) light.intensity = brightness * 2;
+		}
+
+		public void ToggleLabel(bool on) {
+			if (!this.TestMode) {
+#if (!DEBUG)
+				var buttonComponent = this.button.GetComponent<PressableButton>();
+				buttonComponent.text.enabled = on;
+#endif
+			}
 		}
 
 		/// <summary>

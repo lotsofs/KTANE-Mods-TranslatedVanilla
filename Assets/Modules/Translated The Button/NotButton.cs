@@ -19,6 +19,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	KMSelectable _buttonSelectable;
 	KMBombInfo _bombInfo;
+	KMGameInfo _gameInfo;
 	TranslatedModule _translation;
 
 	public bool ShouldBeHeld () {
@@ -33,6 +34,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	public override void Start () {
 		base.Start();
+		_gameInfo = GetComponent<KMGameInfo>();
 		_bombInfo = GetComponent<KMBombInfo>();
 		_translation = GetComponent<TranslatedModule>();
 		Translation language = _translation.Language;
@@ -49,6 +51,14 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		// Register button hold and released events
 		Connector.Held += Button_In;
 		Connector.Released += Button_Out;
+
+		// If the game uses a fallback font, the label will shine in the dark. So we do it manually.
+		if (!_translation.Language.LatinScript) {
+			if (_color == ButtonColour.Blue || _color == ButtonColour.Red) {
+				_gameInfo.OnLightsChange += Connector.ToggleLabel;
+				Connector.ToggleLabel(false);
+			}
+		}
 
 		// Stuff regarding the cover
 		var moduleSelectable = GetComponent<KMSelectable>();

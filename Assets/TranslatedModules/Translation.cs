@@ -22,6 +22,8 @@ public class Translation : MonoBehaviour {
 	[Tooltip("Leave null to use the standard font for the module.")]
 	public Material FontMaterial;
 	public float VerticalOffset = 0f;
+	[Tooltip("Untick if TMP_SubMesh throws a log stating a FallBackMaterial is being used.")]
+	public bool LatinScript = true;
 
 	[Space]
 	[Header("Module Text")]
