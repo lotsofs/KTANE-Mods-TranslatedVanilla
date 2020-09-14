@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -434690030, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: TableOfContents
+  m_EditorClassIdentifier: 
+  Title: Translated The Button Test Missions
+  Sections:
+  - Title: 11 Tharagon Originals
+    MissionIDs:
+    - TheButton_11CS
+    - TheButton_11DA
+    - TheButton_11DE
+    - TheButton_11EN
+    - TheButton_11EO
+    - TheButton_11ES
+    - TheButton_11ET
+    - TheButton_11FI
+    - TheButton_11FR
+    - TheButton_11HE
+    - TheButton_11IT
+    - TheButton_11JA
+    - TheButton_11KO
+    - TheButton_11NL
+    - TheButton_11NO
+    - TheButton_11PL
+    - TheButton_11PT
+    - TheButton_11RU
+    - TheButton_11SV
+    - TheButton_11TH
+    - TheButton_11ZH
+  - Title: Test Missions
+    MissionIDs:
+    - TheButton_5Fixed6Random
+    - TheButton_15FixedButOnly11Modules
+    - TheButton_Nonsense
