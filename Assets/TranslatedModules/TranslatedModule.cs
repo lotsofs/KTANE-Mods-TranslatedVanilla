@@ -34,8 +34,16 @@ public class TranslatedModule : MonoBehaviour {
 		SelectLanguage();
 	}
 
-	public TranslationSettings ReadConfig() {
+	void Start() {
+		TheButtonMissionSettings.pool = null;
+		TheButtonMissionSettings.status = TheButtonMissionSettings.Status.SelectingFinished;
+	}
 
+	/// <summary>
+	/// Reads the settings from the configuration file in the mod settings folder
+	/// </summary>
+	/// <returns></returns>
+	public TranslationSettings ReadConfig() {
 		Configuration<TranslationSettings> config = new Configuration<TranslationSettings>(_settingsFileName);
 		TranslationSettings settings = config.Settings;
 
@@ -54,12 +62,165 @@ public class TranslatedModule : MonoBehaviour {
 		return settings;
 	}
 
+	/// <summary>
+	/// Looks for extended mission settings in the current mission and returns these if found, otherwise returns null.
+	/// </summary>
+	/// <returns></returns>
+	public TheButtonMissionSettings ReadExtendedMissionSettings() {
+		TheButtonMissionSettings settings;
+		EMSRResults result = ExtendedMissionSettingsReader<TheButtonMissionSettings>.ReadMissionSettings(out settings);
+		switch (result) {
+			case EMSRResults.NotInstalled:
+			case EMSRResults.Empty:
+				break;
+			case EMSRResults.Error:
+				KMModule.LogFormat("An exception occured when trying to read extended mission settings.");
+				break;
+			case EMSRResults.ReceivedNull:
+				KMModule.LogFormat("There was an issue with the extended mission settings service.");
+				break;
+			case EMSRResults.Success:
+				KMModule.LogFormat("Received extended mission settings. Checking it first for determining language.");
+				return settings;
+		}
+		return null;
+	}
+
+	/// <summary>
+	/// Finds a specific language and marks it as used for this module.
+	/// </summary>
+	/// <param name="iso">the iso code of the language</param>
+	/// <returns>Whether it succesfully found something</returns>
+	public bool ChooseFixedLanguage(string iso) {
+		for (int i = 0; i < _languagesHolder.transform.childCount; i++) {
+			Translation t = _languagesHolder.transform.GetChild(i).GetComponent<Translation>();
+			if (!t.Disabled && t.Iso639 == iso) {
+				Language = t;
+				KMModule.LogFormat("Selecting language with ISO-639 code '{0}' from extended mission settings.", t.Iso639);
+				t.Choose();
+				return true;
+			}
+		}
+		KMModule.LogFormat("Could not find language with ISO-639 code '{0}' from extended mission settings.", iso);
+		return false;
+	}
+
+	/// <summary>
+	/// Select a language for this module.
+	/// </summary>
 	public void SelectLanguage() {
+		// debug
+		if (Override != null) {
+			KMModule.LogFormat("DEBUG: Language overridden to {0}.", Override.Iso639);
+			Language = Override;
+			Override.Choose();
+			goto Finalize;
+		}
+		
+		// First check the EMS for languages to pick
+		TheButtonMissionSettings ems = ReadExtendedMissionSettings();
+		if (ems == null) goto ConfigFile;	// No EMS used on this mission.
+
+		List<string> invalidRandomPoolEntries = new List<string>();
+		// Only one module per mission needs to record these settings. A null pool indicates no other module has processed it yet, otherwise it would be empty instead.
+		// Status = Finished could be a leftover from previous bomb.
+		if (TheButtonMissionSettings.pool == null || TheButtonMissionSettings.status == TheButtonMissionSettings.Status.SelectingFinished) {
+			TheButtonMissionSettings.status = TheButtonMissionSettings.Status.FixedPool;
+			TheButtonMissionSettings.pool = ems.BigButtonTranslated_FixedLanguages != null ? ems.BigButtonTranslated_FixedLanguages.ToList() : new List<string>();
+		}
+
+		if (TheButtonMissionSettings.status == TheButtonMissionSettings.Status.RandomPool) goto PreRandomPool;
+		if (TheButtonMissionSettings.status == TheButtonMissionSettings.Status.ConfigFile) goto PreConfigFile;
+
+
+
+		// --------------------------------------------------------------------------------
+		// Check the extended mission settings fixed pool for languages to use. Keeps looping until it is depleted, or if none is provided, then it will move on.
+		// --------------------------------------------------------------------------------
+		KMModule.Log("Checking fixed pool from extended mission settings.");
+	FixedPool:
+		// check if pool even was provided
+		if (ems.BigButtonTranslated_FixedLanguages == null || ems.BigButtonTranslated_FixedLanguages.Length == 0) {
+			KMModule.Log("No fixed pool provided.");
+			goto PreRandomPool;
+		}
+
+		// check if pool's depleted
+		if (TheButtonMissionSettings.pool.Count == 0) {
+			KMModule.Log("Fixed pool depleted.");
+			goto PreRandomPool;
+		}
+
+		// pick from pool
+		int indexF = ems.BigButtonTranslated_ShuffleFixedLanguages ? UnityEngine.Random.Range(0, TheButtonMissionSettings.pool.Count) : 0;
+		string isoF = TheButtonMissionSettings.pool[indexF];
+		bool chosenF = ChooseFixedLanguage(isoF);
+		TheButtonMissionSettings.pool.RemoveAt(indexF);
+		if (chosenF) {
+			KMModule.Log("Succesfully picked module from extended mission settings fixed pool.");
+			goto Finalize;
+		}
+		else goto FixedPool;
+
+
+		// --------------------------------------------------------------------------------
+		// Checked the extended mission settings random pool. Keeps looping through it if it is provided and valid, otherwise it moves on.
+		// --------------------------------------------------------------------------------
+	PreRandomPool:
+		TheButtonMissionSettings.status = TheButtonMissionSettings.Status.RandomPool;
+		KMModule.Log("Checking random pool from extended mission settings.");
+	RandomPool:
+		// check if pool even was provided
+		if (ems.BigButtonTranslated_RandomLanguages == null || ems.BigButtonTranslated_RandomLanguages.Length == 0) {
+			KMModule.Log("No random pool provided.");
+			goto PreConfigFile;
+		}
+
+		// check if the entire pool is invalid
+		if (invalidRandomPoolEntries.Count >= ems.BigButtonTranslated_RandomLanguages.Length) {
+			KMModule.Log("There are no valid entries in the random pool.");
+			goto PreConfigFile;
+		}
+
+		// check if working pool has been depleted
+		if (TheButtonMissionSettings.pool.Count == 0) {
+			KMModule.Log("Random pool depleted. Refilling.");
+			TheButtonMissionSettings.pool = ems.BigButtonTranslated_RandomLanguages.ToList();
+			invalidRandomPoolEntries.Clear();	// Have to clear this too to ensure it loops through the entire random pool array at least once.
+			goto RandomPool;
+		}
+
+		// pick from pool
+		int indexR = UnityEngine.Random.Range(0, TheButtonMissionSettings.pool.Count);
+		string isoR = TheButtonMissionSettings.pool[indexR];
+		bool chosenR = ChooseFixedLanguage(isoR);
+		if (ems.BigButtonTranslated_AvoidDuplicates) {
+			TheButtonMissionSettings.pool.RemoveAt(indexR);
+		}
+		if (chosenR) {
+			KMModule.Log("Succesfully picked module from extended mission settings random pool.");
+			goto Finalize;
+		}
+		else {
+			TheButtonMissionSettings.pool.RemoveAt(indexR);
+			invalidRandomPoolEntries.Add(isoR);
+			goto RandomPool;
+		}
+
+	// --------------------------------------------------------------------------------
+	// If no extended mission settings are provided, or the fixed pool is depleted and there's no random pool, then use the player's own config
+	// --------------------------------------------------------------------------------
+	PreConfigFile:
+		TheButtonMissionSettings.status = TheButtonMissionSettings.Status.ConfigFile;
+		KMModule.Log("Resorting to player's personal config file to determine the remaining modules' languages.");
+		KMModule.Log("--------------------------");
+	ConfigFile:
+
 		_settings = ReadConfig();
 
-		string includedSelection = "Languages available for selection: ";
 		string excludedNotInPool = "Languages ignored because the configuration file does not include them: ";
 		string excludedNoManual = "Languages ignored because the configuration file dictates modules with manuals only: ";
+		string includedSelection = "Languages available for selection: ";
 		Translation transl;
 		List<Translation> availableTranslations = new List<Translation>();
 		for (int i = _languagesHolder.transform.childCount - 1; i >= 0; i--) {
@@ -92,23 +253,25 @@ public class TranslatedModule : MonoBehaviour {
 			KMModule.Log("Configuration file allows for the use of languages without a dedicated manual.");
 		KMModule.Log(includedSelection);
 
+		Translation selected;
 		if (availableTranslations.Count == 0) {
 			KMModule.Log("There were no languages available to be chosen for this module in accordance with the configuration file.");
-			Language = _languagesHolder.transform.Find("Default").GetComponent<Translation>();
+			selected = _languagesHolder.transform.Find("Default").GetComponent<Translation>();
 		}
 		else {
 			int index = UnityEngine.Random.Range(0, availableTranslations.Count);
-			Language = availableTranslations[index];
+			selected = availableTranslations[index];
 		}
+		selected.Choose();
+		Language = selected;
 
-		// debug
-		if (Override != null) {
-			KMModule.LogFormat("DEBUG: Language overridden to {0}.", Override.Iso639);
-			Language = Override;
-		}
+		// --------------------------------------------------------------------------------
+		// Final steps
+		// --------------------------------------------------------------------------------
+	Finalize:
+		KMModule.Log("--------------------------");
 
 		// finalize selection
-		Language.Choose();
 		KMModule.LogFormat("Selected Language: {0}, {1} ({2})\n", Language.NativeName, Language.Name, Language.Iso639);
 
 		_sticker.GenerateText(Language.Iso639, Language.Version);
