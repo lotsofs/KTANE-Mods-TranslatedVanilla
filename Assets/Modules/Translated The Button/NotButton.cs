@@ -20,7 +20,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	KMSelectable _buttonSelectable;
 	KMBombInfo _bombInfo;
 	KMGameInfo _gameInfo;
-	TranslatedModule _translation;
+	TranslatedTheButton _translation;
 
 	public bool ShouldBeHeld () {
 		if (_color == ButtonColour.Blue && _label == ButtonLabel.Abort) return true;
@@ -36,8 +36,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		base.Start();
 		_gameInfo = GetComponent<KMGameInfo>();
 		_bombInfo = GetComponent<KMBombInfo>();
-		_translation = GetComponent<TranslatedModule>();
-		Translation language = _translation.Language;
+		_translation = GetComponent<TranslatedTheButton> ();
+		LanguageTheButton language = _translation.Language;
 
 		// Sets the appearance of the button
 		Connector.SetColour(_color = (ButtonColour) Random.Range(0, 4));

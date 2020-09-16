@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68768987c3414114c9287191ba11d404, type: 3}
+  m_Name: SV
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: 
+  NativeName: 
+  Iso639: 
+  Version: 1
+  ManualAvailable: 0
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  LatinScript: 1
+  UseSprites: 0
+  Press: PRESS
+  Hold: HOLD
+  Abort: ABORT
+  Detonate: DETONATE
+  LogPress: Press
+  LogHold: Hold
+  LogAbort: Abort
+  LogDetonate: Detonate
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.

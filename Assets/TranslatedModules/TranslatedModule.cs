@@ -4,20 +4,20 @@ using System.Linq;
 using UnityEngine;
 using NotVanillaModulesLib;
 
-public class TranslatedModule : MonoBehaviour {
+public class TranslatedModule<LanguageModule> : MonoBehaviour where LanguageModule : Language {
 
-	const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-	[SerializeField] GameObject _languagesHolder;
+	[SerializeField] LanguageModule[] _languages;
+	//[SerializeField] GameObject _languagesHolder;
 
 	public NotVanillaModuleConnector KMModule;
 	[SerializeField] Sticker _sticker;
 	[SerializeField] string _settingsFileName;
 	[SerializeField] string[] _oldSettingsFiles;
 
-	[NonSerialized] public Translation Language;
+	[NonSerialized] public LanguageModule Language;
+	[SerializeField] LanguageModule _fallback;
 	[Header("Debug")]
-	public Translation Override;
+	public LanguageModule Override;
 
 	TranslationSettings _settings;
 
@@ -92,8 +92,8 @@ public class TranslatedModule : MonoBehaviour {
 	/// <param name="iso">the iso code of the language</param>
 	/// <returns>Whether it succesfully found something</returns>
 	public bool ChooseFixedLanguage(string iso) {
-		for (int i = 0; i < _languagesHolder.transform.childCount; i++) {
-			Translation t = _languagesHolder.transform.GetChild(i).GetComponent<Translation>();
+		for (int i = 0; i < _languages.Length; i++) {
+			LanguageModule t = _languages[i];
 			if (!t.Disabled && t.Iso639 == iso) {
 				Language = t;
 				KMModule.LogFormat("Selecting language with ISO-639 code '{0}' from extended mission settings.", t.Iso639);
@@ -221,10 +221,10 @@ public class TranslatedModule : MonoBehaviour {
 		string excludedNotInPool = "Languages ignored because the configuration file does not include them: ";
 		string excludedNoManual = "Languages ignored because the configuration file dictates modules with manuals only: ";
 		string includedSelection = "Languages available for selection: ";
-		Translation transl;
-		List<Translation> availableTranslations = new List<Translation>();
-		for (int i = _languagesHolder.transform.childCount - 1; i >= 0; i--) {
-			transl = _languagesHolder.transform.GetChild(i).GetComponent<Translation>();
+		LanguageModule transl;
+		List<LanguageModule> availableTranslations = new List<LanguageModule>();
+		for (int i = _languages.Length - 1; i >= 0; i--) {
+			transl = _languages[i];
 			if (transl.Disabled) {
 				// language is disabled. Don't choose
 				continue;
@@ -253,10 +253,10 @@ public class TranslatedModule : MonoBehaviour {
 			KMModule.Log("Configuration file allows for the use of languages without a dedicated manual.");
 		KMModule.Log(includedSelection);
 
-		Translation selected;
+		LanguageModule selected;
 		if (availableTranslations.Count == 0) {
 			KMModule.Log("There were no languages available to be chosen for this module in accordance with the configuration file.");
-			selected = _languagesHolder.transform.Find("Default").GetComponent<Translation>();
+			selected = _fallback;
 		}
 		else {
 			int index = UnityEngine.Random.Range(0, availableTranslations.Count);
