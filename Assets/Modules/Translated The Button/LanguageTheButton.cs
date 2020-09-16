@@ -5,18 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Language for The Button")]
 public class LanguageTheButton : Language {
 
-	[Header("Display")]
-	[Tooltip("Leave null to use the standard font for the module.")]
-	public Font Font;
-	[Tooltip("Leave null to use the standard font for the module.")]
-	public Material FontMaterial;
-	public float VerticalOffset = 0f;
-	[Tooltip("Untick if TMP_SubMesh throws a log stating a FallBackMaterial is being used.")]
-	public bool LatinScript = true;
-	[Tooltip("Tick this to use sprites instead of textmesh, for when textmesh doesn't support your script.")]
-	public bool UseSprites = false;
+	public enum DisplayMethods {
+		Default,
+		NonLatin,
+		CustomTextMesh,
+		Sprite
+	}
 
-	[Space]
+	[Header("Display")]
+	[Tooltip("Set to NonLatin if TMP_SubMesh throws a log stating a FallBackMaterial is being used. Set to CustomTextMesh if the text requires a custom font below. Set to sprite to use sprites.")]
+	public DisplayMethods DisplayMethod = DisplayMethods.Default;
+
 	[Header("Module Text")]
 	public string Press = "PRESS";
 	public string Hold = "HOLD";
@@ -29,18 +28,30 @@ public class LanguageTheButton : Language {
 	public string LogAbort = "Abort";
 	public string LogDetonate = "Detonate";
 
+	[Header("Custom Text Mesh Settings")]
+	public Font Font;
+	public Material FontMaterial;
+	public float VerticalOffset = 0f;
+	
+	[Space]
+	public int SizePress = -1;
+	public int SizeHold = -1;
+	public int SizeAbort = -1;
+	public int SizeDetonate = -1;
+
 	[Header("Sprites")]
 	public Sprite SpritePress;
 	public Sprite SpriteHold;
 	public Sprite SpriteAbort;
 	public Sprite SpriteDetonate;
 
-	[Space]
 	[Header("Log File Ruling Text")]
 	public string LogRed = "Red";
 	public string LogYellow = "Yellow";
 	public string LogBlue = "Blue";
 	public string LogWhite = "White";
+
+	[Space]
 
 	public string RuleColorIs = "Color is {0}.";
 	public string RuleLabelIs = "Label is {0}.";
@@ -59,6 +70,7 @@ public class LanguageTheButton : Language {
 	private Dictionary<string, string> _buttonLabels;
 	private Dictionary<string, string> _logLabels;
 	private Dictionary<string, Sprite> _spriteLabels;
+	private Dictionary<string, int> _sizeLabels;
 
 	public override void Choose() {
 		_buttonLabels = new Dictionary<string, string> {
@@ -85,6 +97,13 @@ public class LanguageTheButton : Language {
 			{ "Abort", SpriteAbort },
 			{ "Detonate", SpriteDetonate },
 		};
+
+		_sizeLabels = new Dictionary<string, int> {
+			{ "Press", SizePress },
+			{ "Hold", SizeHold },
+			{ "Abort", SizeAbort },
+			{ "Detonate", SizeDetonate },
+		};
 	}
 
 	public override string GetLabelFromEnglishName(string str) {
@@ -97,5 +116,9 @@ public class LanguageTheButton : Language {
 
 	public override Sprite GetSpriteFromEnglishName(string str) {
 		return _spriteLabels[str];
+	}
+
+	public override int GetSizeFromEnglishName(string str) {
+		return _sizeLabels[str];
 	}
 }

@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Name: TH
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
+  Iso639: th
   Version: 1
-  ManualAvailable: 0
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
+  ManualAvailable: 1
+  DisplayMethod: 2
+  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
+  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\u0E01\u0E14"
+  Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  Abort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  Detonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  LogPress: "\u0E01\u0E14"
+  LogHold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
+  LogAbort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  LogDetonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

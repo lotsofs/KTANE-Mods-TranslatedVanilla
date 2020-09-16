@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Name: HE
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Hebrew
+  NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
+  Iso639: he
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 1
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\u05E5\u05D7\u05DC"
+  Hold: "\u05E7\u05D6\u05D7\u05D4"
+  Abort: "\u05DC\u05D8\u05D1"
+  Detonate: "\u05E5\u05E6\u05D5\u05E4"
+  LogPress: "\u05DC\u05D7\u05E5"
+  LogHold: "\u05D4\u05D7\u05D6\u05E7"
+  LogAbort: "\u05D1\u05D8\u05DC"
+  LogDetonate: "\u05E4\u05D5\u05E6\u05E5"
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

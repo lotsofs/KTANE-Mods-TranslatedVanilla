@@ -12,24 +12,27 @@ MonoBehaviour:
   m_Name: KO
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Korean
+  NativeName: "\uD55C\uAD6D\uC5B4"
+  Iso639: ko
   Version: 1
-  ManualAvailable: 0
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
+  ManualAvailable: 1
+  DisplayMethod: 2
+  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
+  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\uB204\uB974\uC2DC\uC624"
+  Hold: "\uB204\uB978\uCC44 \uC720\uC9C0"
+  Abort: "\uC811\uADFC\uAE08\uC9C0"
+  Detonate: "\uD3ED\uD30C"
+  LogPress: "\uB204\uB974\uC2DC\uC624"
+  LogHold: "\uB204\uB978\uCC44 \uC720\uC9C0"
+  LogAbort: "\uC811\uADFC\uAE08\uC9C0"
+  LogDetonate: "\uD3ED\uD30C"
+  SizePress: 286
+  SizeHold: 226
+  SizeAbort: 293
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

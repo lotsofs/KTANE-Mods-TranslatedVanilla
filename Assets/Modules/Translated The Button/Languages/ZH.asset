@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Name: ZH
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Chinese
+  NativeName: "\u4E2D\u6587"
+  Iso639: zh
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 1
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\u6309\u4E0B"
+  Hold: "\u6309\u4F4F"
+  Abort: "\u89E3\u9664"
+  Detonate: "\u5F15\u7206"
+  LogPress: "\u6309\u4E0B"
+  LogHold: "\u6309\u4F4F"
+  LogAbort: "\u89E3\u9664"
+  LogDetonate: "\u5F15\u7206"
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

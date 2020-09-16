@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Name: JA
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Japanese
+  NativeName: "\u65E5\u672C\u8A9E"
+  Iso639: ja
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 1
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\u62BC\u3059"
+  Hold: "\u9577\u62BC\u3057"
+  Abort: "\u4E2D\u6B62"
+  Detonate: "\u7206\u7834"
+  LogPress: "\u62BC\u3059"
+  LogHold: "\u9577\u62BC\u3057"
+  LogAbort: "\u4E2D\u6B62"
+  LogDetonate: "\u7206\u7834"
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

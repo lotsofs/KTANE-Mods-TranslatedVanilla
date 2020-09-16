@@ -42,7 +42,13 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		// Sets the appearance of the button
 		Connector.SetColour(_color = (ButtonColour) Random.Range(0, 4));
 		_label = (ButtonLabel) Random.Range(0,4);
-		Connector.SetLabel(language.GetLabelFromEnglishName(_label.ToString()));
+
+		if (_translation.Language.DisplayMethod == LanguageTheButton.DisplayMethods.CustomTextMesh) {
+			Connector.SetLabel(language.GetLabelFromEnglishName(_label.ToString()), language.Font, language.FontMaterial, language.GetSizeFromEnglishName(_label.ToString()));
+		}
+		else {
+			Connector.SetLabel(language.GetLabelFromEnglishName(_label.ToString()));
+		}
 		
 		LogFormat(language.RuleColorIs, language.GetLogFromEnglishName(_color.ToString()));
 		LogFormat(language.RuleLabelIs, language.GetLogFromEnglishName(_label.ToString()));
@@ -53,7 +59,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		Connector.Released += Button_Out;
 
 		// If the game uses a fallback font, the label will shine in the dark. So we do it manually.
-		if (!_translation.Language.LatinScript) {
+		if (_translation.Language.DisplayMethod != LanguageTheButton.DisplayMethods.Default) {
 			if (_color == ButtonColour.Blue || _color == ButtonColour.Red) {
 				_gameInfo.OnLightsChange += Connector.ToggleLabel;
 				Connector.ToggleLabel(false);

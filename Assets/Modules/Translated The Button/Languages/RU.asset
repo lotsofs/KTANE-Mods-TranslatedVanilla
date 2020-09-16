@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Name: RU
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Russian
+  NativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+  Iso639: ru
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 1
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  Press: "\u041D\u0410\u0416\u0410\u0422\u042C"
+  Hold: "\u0414\u0415\u0420\u0416\u0410\u0422\u042C"
+  Abort: "\u0421\u0422\u041E\u041F"
+  Detonate: "\u0412\u0417\u041E\u0420\u0412\u0410\u0422\u042C"
+  LogPress: "\u041D\u0430\u0436\u0430\u0442\u044C"
+  LogHold: "\u0414\u0435\u0440\u0436\u0430\u0442\u044C"
+  LogAbort: "\u0421\u0442\u043E\u043F"
+  LogDetonate: "\u0412\u0437\u043E\u0440\u0432\u0430\u0442\u044C"
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

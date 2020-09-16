@@ -17,6 +17,8 @@ namespace NotVanillaModulesLib {
 		public Light[] TestLights;
 		public TextMesh TestModelColourblindLightText;
 
+		public TextMesh CustomTextMesh;
+
 		public Material[] Materials;
 		public Material[] ColourblindMaterials;
 		public Material[] LightMaterials;
@@ -30,6 +32,7 @@ namespace NotVanillaModulesLib {
 		private bool buttonBeingPushed;
 		public TextMeshPro ColourblindLightText;
 #endif
+		private GameObject UsedLabelMesh;
 
 		private Coroutine animationCoroutine;
 
@@ -221,15 +224,51 @@ namespace NotVanillaModulesLib {
 			}
 		}
 
-		public void SetLabel(string label) {
+		public void SetLabel(string label, Font font, Material fontMaterial, int fontSize) {
 			label = label.Replace(@"\n", Environment.NewLine);
-			if (this.TestMode)
+			if (this.TestMode) {
 				this.TestModelText.text = label;
+				if (font != null && fontMaterial != null) {
+					TestModelText.font = font;
+					TestModelText.GetComponent<MeshRenderer>().material = fontMaterial;
+				}
+				if (fontSize > 0) {
+					TestModelText.fontSize = fontSize / 5;
+				}
+			}
 #if (!DEBUG)
-			else
-				this.button.GetComponent<PressableButton>().text.text = label;
+			else {
+				Vector3 position = this.button.GetComponent<PressableButton>().text.transform.localPosition;
+				CustomTextMesh.transform.SetParent(this.button.GetComponent<PressableButton>().text.transform, true);
+				CustomTextMesh.gameObject.SetActive(true);
+				CustomTextMesh.text = label;
+				CustomTextMesh.transform.localPosition = position;
+				CustomTextMesh.color = this.button.GetComponent<PressableButton>().text.color;
+
+				if (font != null && fontMaterial != null) {
+					CustomTextMesh.font = font;
+					CustomTextMesh.GetComponent<MeshRenderer>().material = fontMaterial;
+				}
+				if (fontSize > 0) {
+					CustomTextMesh.fontSize = fontSize;
+				}
+				UsedLabelMesh = CustomTextMesh.gameObject;
+				this.button.GetComponent<PressableButton>().text.enabled = false;
+			}
 #endif
 		}
+
+		public void SetLabel(string label) {
+				label = label.Replace(@"\n", Environment.NewLine);
+				if (this.TestMode) {
+					this.TestModelText.text = label;
+				}
+#if (!DEBUG)
+				else {
+					this.button.GetComponent<PressableButton>().text.text = label;
+				}
+#endif
+			}
 
 		public void SetLightColour(ButtonLightColour colour) {
 			this.lightColour = colour;
@@ -305,8 +344,13 @@ namespace NotVanillaModulesLib {
 		public void ToggleLabel(bool on) {
 			if (!this.TestMode) {
 #if (!DEBUG)
-				var buttonComponent = this.button.GetComponent<PressableButton>();
-				buttonComponent.text.enabled = on;
+				if (UsedLabelMesh != null) {
+					UsedLabelMesh.SetActive(on);
+				}
+				else {
+					var buttonComponent = this.button.GetComponent<PressableButton>();
+					buttonComponent.text.enabled = on;
+				}
 #endif
 			}
 		}

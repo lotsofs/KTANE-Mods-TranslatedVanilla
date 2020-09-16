@@ -21,4 +21,6 @@ public abstract class Language : ScriptableObject {
 	public abstract string GetLogFromEnglishName(string str);
 
 	public abstract Sprite GetSpriteFromEnglishName(string str);
+
+	public abstract int GetSizeFromEnglishName(string str);
 }

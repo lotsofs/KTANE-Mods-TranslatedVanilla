@@ -7,7 +7,6 @@ using NotVanillaModulesLib;
 public class TranslatedModule<LanguageModule> : MonoBehaviour where LanguageModule : Language {
 
 	[SerializeField] LanguageModule[] _languages;
-	//[SerializeField] GameObject _languagesHolder;
 
 	public NotVanillaModuleConnector KMModule;
 	[SerializeField] Sticker _sticker;
@@ -21,15 +20,6 @@ public class TranslatedModule<LanguageModule> : MonoBehaviour where LanguageModu
 
 	TranslationSettings _settings;
 
-	//public void GenerateHtmlTable() {
-	//	string table = "";
-	//	for (int i = 0; i < _languagesHolder.transform.childCount; i++) {
-	//		Translation trans = _languagesHolder.transform.GetChild(i).GetComponent<Translation>();
-	//		table += string.Format("<li><strong>{0}</strong>: {1}</li>\n", trans.Iso639, trans.Name);
-	//	}
-	//	Debug.Log(table);
-	//}
-
 	void Awake() {
 		SelectLanguage();
 	}
@@ -38,6 +28,8 @@ public class TranslatedModule<LanguageModule> : MonoBehaviour where LanguageModu
 		TheButtonMissionSettings.pool = null;
 		TheButtonMissionSettings.status = TheButtonMissionSettings.Status.SelectingFinished;
 	}
+
+	
 
 	/// <summary>
 	/// Reads the settings from the configuration file in the mod settings folder
