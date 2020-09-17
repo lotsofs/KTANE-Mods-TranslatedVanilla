@@ -5,6 +5,7 @@ using NotVanillaModulesLib;
 using KModkit;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Globalization;
 
 public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public bool OpenCoverOnSelection;
