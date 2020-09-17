@@ -214,11 +214,9 @@ namespace NotVanillaModulesLib {
 				if (!this.ColourblindMode) material.mainTexture = cap.material.mainTexture;
 				cap.material = material;
 				buttonComponent.text.color = lightText ? LightTextColor : DarkTextColor;
-				/*
-					With light text, hide the text while the lights are off.
-					If we don't do this, the text will appear lit even without the lights.
-					The vanilla PressableButton does the same thing...
-				*/
+					//With light text, hide the text while the lights are off.
+					//If we don't do this, the text will appear lit even without the lights.
+					//The vanilla PressableButton does the same thing...
 				buttonComponent.text.GetComponent<HideOnLightsChange>().enabled = lightText;
 #endif
 			}

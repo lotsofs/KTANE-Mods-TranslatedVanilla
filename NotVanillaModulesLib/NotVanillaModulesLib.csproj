@@ -140,6 +140,6 @@ if "$(ConfigurationName)"=="Debug" (
         git checkout "$(ProjectDir)\..\Assets\Plugins\Managed\NotVanillaModulesLib.dll.meta"
     )
 )
-if "$(ConfigurationName)"=="Release" copy "$(TargetPath)" "$(GameInstallPath)\mods\NotVanillaModules"</PostBuildEvent>
+if "$(ConfigurationName)"=="Release" copy "$(TargetPath)" "$(GameInstallPath)\mods\TranslatedVanillaModules"</PostBuildEvent>
   </PropertyGroup>
 </Project>

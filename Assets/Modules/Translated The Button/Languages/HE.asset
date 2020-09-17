@@ -18,9 +18,6 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 1
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
-  VerticalOffset: 0
   Press: "\u05E5\u05D7\u05DC"
   Hold: "\u05E7\u05D6\u05D7\u05D4"
   Abort: "\u05DC\u05D8\u05D1"
@@ -29,6 +26,13 @@ MonoBehaviour:
   LogHold: "\u05D4\u05D7\u05D6\u05E7"
   LogAbort: "\u05D1\u05D8\u05DC"
   LogDetonate: "\u05E4\u05D5\u05E6\u05E5"
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

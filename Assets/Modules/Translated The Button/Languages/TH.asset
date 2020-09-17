@@ -18,9 +18,6 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 2
-  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
-  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
-  VerticalOffset: 0
   Press: "\u0E01\u0E14"
   Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
   Abort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
@@ -29,6 +26,13 @@ MonoBehaviour:
   LogHold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
   LogAbort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
   LogDetonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
+  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

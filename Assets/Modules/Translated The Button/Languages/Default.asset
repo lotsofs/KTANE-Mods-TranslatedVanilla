@@ -17,11 +17,7 @@ MonoBehaviour:
   Iso639: '-'
   Version: 0
   ManualAvailable: 1
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
-  VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
+  DisplayMethod: 0
   Press: PRESS
   Hold: HOLD
   Abort: ABORT
@@ -30,6 +26,13 @@ MonoBehaviour:
   LogHold: Hold
   LogAbort: Abort
   LogDetonate: Detonate
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

@@ -12,24 +12,27 @@ MonoBehaviour:
   m_Name: FI
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Finnish
+  NativeName: Suomi
+  Iso639: fi
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 0
+  Press: PAINA
+  Hold: "PID\xC4"
+  Abort: "KESKEYT\xC4"
+  Detonate: "R\xC4J\xC4YT\xC4"
+  LogPress: Paina
+  LogHold: "Pid\xE4"
+  LogAbort: "Keskeyt\xE4"
+  LogDetonate: "R\xE4j\xE4yt\xE4"
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

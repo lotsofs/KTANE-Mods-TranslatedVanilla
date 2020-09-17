@@ -18,9 +18,6 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 1
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
-  VerticalOffset: 0
   Press: "\u6309\u4E0B"
   Hold: "\u6309\u4F4F"
   Abort: "\u89E3\u9664"
@@ -29,6 +26,13 @@ MonoBehaviour:
   LogHold: "\u6309\u4F4F"
   LogAbort: "\u89E3\u9664"
   LogDetonate: "\u5F15\u7206"
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

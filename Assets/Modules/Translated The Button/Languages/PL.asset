@@ -12,24 +12,27 @@ MonoBehaviour:
   m_Name: PL
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Polish
+  NativeName: Polski
+  Iso639: pl
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 0
+  Press: "PRZYCI\u015ANIJ"
+  Hold: PRZYTRZYMAJ
+  Abort: ANULUJ
+  Detonate: ZDETONUJ
+  LogPress: "Przyci\u015Bnij"
+  LogHold: Przytrzymaj
+  LogAbort: Anuluj
+  LogDetonate: Zdetonuj
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

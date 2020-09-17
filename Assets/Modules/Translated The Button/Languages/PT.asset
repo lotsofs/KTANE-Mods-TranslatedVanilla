@@ -12,24 +12,27 @@ MonoBehaviour:
   m_Name: PT
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: 
-  NativeName: 
-  Iso639: 
+  Name: Portuguese
+  NativeName: "Portugu\xEAs"
+  Iso639: pt
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
+  DisplayMethod: 0
+  Press: APERTAR
+  Hold: SEGURAR
+  Abort: ABORTAR
+  Detonate: DETONAR
+  LogPress: Apertar
+  LogHold: Segurar
+  LogAbort: Abortar
+  LogDetonate: Detonar
   Font: {fileID: 0}
   FontMaterial: {fileID: 0}
   VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
-  Press: PRESS
-  Hold: HOLD
-  Abort: ABORT
-  Detonate: DETONATE
-  LogPress: Press
-  LogHold: Hold
-  LogAbort: Abort
-  LogDetonate: Detonate
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}

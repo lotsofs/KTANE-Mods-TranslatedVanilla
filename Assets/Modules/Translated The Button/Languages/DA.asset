@@ -17,19 +17,22 @@ MonoBehaviour:
   Iso639: da
   Version: 1
   ManualAvailable: 1
-  Font: {fileID: 0}
-  FontMaterial: {fileID: 0}
-  VerticalOffset: 0
-  LatinScript: 1
-  UseSprites: 0
+  DisplayMethod: 0
   Press: TRYK
   Hold: HOLD
   Abort: AFBRYD
   Detonate: "SPR\xC6NG"
-  LogPress: Red
-  LogHold: Yellow
-  LogAbort: Green
+  LogPress: Tryk
+  LogHold: Hold
+  LogAbort: Afbryd
   LogDetonate: "Spr\xE6ng"
+  Font: {fileID: 0}
+  FontMaterial: {fileID: 0}
+  VerticalOffset: 0
+  SizePress: -1
+  SizeHold: -1
+  SizeAbort: -1
+  SizeDetonate: -1
   SpritePress: {fileID: 0}
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
