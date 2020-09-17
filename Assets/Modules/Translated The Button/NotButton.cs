@@ -170,9 +170,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	#region twitch plays
 
-	public static readonly string TwitchHelpMessage = "!{0} tap | !{0} hold | !{0} release 1:13 1:23 | !{0} mash 50";
-	[NonSerialized]
-	public bool ZenModeActive;
+	public static readonly string TwitchHelpMessage = "!{0} tap | !{0} hold | !{0} release 1:13 1:23";
 	[NonSerialized]
 	public bool TwitchShouldCancelCommand;
 
@@ -185,37 +183,20 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		if (tokens[0].Equals("release", StringComparison.InvariantCultureIgnoreCase)) {
 			if (!_pressed)
 				yield return "sendtochaterror You must start holding the button first.";
-			else if (tokens.Length > 1) {
-				var time = ZenModeActive ? float.PositiveInfinity : float.NegativeInfinity;
+
+			else if (tokens.Length == 2) {
 				var bombTime = _bombInfo.GetTime();
 				float time2;
-				foreach (var timeString in tokens.Skip(1)) {
-					if (!GeneralExtensions.TryParseTime(timeString, out time2)) yield break;
-					if (ZenModeActive ? (time2 < time && time2 > bombTime) : (time2 > time && time2 < bombTime))
-						time = time2;
+				if (tokens[1].Length != 1 || !char.IsDigit(tokens[1][0])) {
+					yield break;
 				}
-				if (float.IsInfinity(time))
-					yield return tokens.Length == 2 ? "sendtochaterror The specified time has already passed."
-						: "sendtochaterror All of the specified times have already passed.";
-				else {
-					var timeInt = (int) time;
-					Log(string.Format("Releasing the button at {0}", GeneralExtensions.FormatTime(time)));
-					yield return null;
-					if (Math.Abs(time - _bombInfo.GetTime()) > 15) yield return "waiting music";
-
-					while (timeInt != (int) _bombInfo.GetTime()) {
-						yield return "trycancel The button was not released due to a request to cancel.";
-					}
-
-					var wasHolding = _holding;
-					Connector.TwitchRelease();
-					if (!wasHolding) {
-						// The button was held so briefly it didn't count as such... Not sure this is actually possible.
-						yield return ShouldBeHeld() == false ? "solve" : "strike";
-					}
+				while (!_bombInfo.GetFormattedTime().Contains(tokens[1][0])) {
+					yield return "trycancel Aborting release.";
 				}
+				Connector.TwitchRelease();
+
 			}
-		} 
+		}
 		else if (_pressed)
 			yield return "sendtochaterror The button is already being held.";
 		else {
@@ -223,32 +204,48 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 				Connector.TwitchPress();
 				yield return new WaitForSeconds(1 / 12f);
 				Connector.TwitchRelease();
-				yield return new WaitForSeconds(1 / 12f);
 			}
 			else if (tokens[0].Equals("hold", StringComparison.InvariantCultureIgnoreCase)) {
 				yield return null;
 				Connector.TwitchPress();
-				yield return new WaitForSeconds(1);
+				yield return new WaitForSeconds(0.5f);
 			}
 		}
 	}
 
 	public IEnumerator TwitchHandleForcedSolve() {
 		Connector.OpenCover();
-		switch (ShouldBeHeld()) {
-			case false:
+		if (_holding && !ShouldBeHeld()) {
+			// uh oh, module is already being held when it should be pressed. Use cheats.
+			_holding = false;
+			_interactionTime = 0;
+			Connector.SetLightColour(0);
+			yield return new WaitForSeconds(0.4f);
+			Connector.TwitchRelease();
+		}
+		else if (ShouldBeHeld()) {
+			if (!_pressed) {
 				Connector.TwitchPress();
-				yield return new WaitForSeconds(1 / 12f);
-				Connector.TwitchRelease();
-				break;
-			case true:
-				Connector.TwitchPress();
-				yield return new WaitForSeconds(1);
-				Connector.TwitchRelease();
-				break;
-			default:
-				Disarm();
-				break;
+			}
+			while (!_holding) {
+				yield return true;
+			}
+			char solution;
+			switch (_lightColor) {
+				case ButtonLightColour.Blue: solution = '4'; break;
+				case ButtonLightColour.White: solution = '1'; break;
+				case ButtonLightColour.Yellow: solution = '5'; break;
+				default: solution = '1'; break;
+			}
+			while (!_bombInfo.GetFormattedTime().Contains(solution)) {
+				yield return true;
+			}
+			Connector.TwitchRelease();
+		}
+		else {
+			Connector.TwitchPress();
+			yield return new WaitForSeconds(0.1f);
+			Connector.TwitchRelease();
 		}
 		Connector.CloseCover();
 	}

@@ -19,7 +19,7 @@ public abstract class NotVanillaModule<TConnector> : MonoBehaviour where TConnec
 
 	protected bool TwitchColourblindModeCommand(string command) {
 		command = command.Trim();
-		if (command.EqualsIgnoreCase("colourblind") || command.EqualsIgnoreCase("colorblind") || command.EqualsIgnoreCase("cb")) {
+		if (command.EqualsIgnoreCase("colourblind") || command.EqualsIgnoreCase("colorblind") || command.EqualsIgnoreCase("cb") || command.EqualsIgnoreCase("color blind") || command.EqualsIgnoreCase("colour blind")) {
 			this.Connector.ColourblindMode = true;
 			return true;
 		}
