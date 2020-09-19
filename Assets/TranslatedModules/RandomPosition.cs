@@ -8,7 +8,7 @@ public class RandomPosition : MonoBehaviour {
 	public Vector3[] Rotations;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		int index = Random.Range(0, Positions.Length);
 		transform.localPosition = Positions[index]; 
 		index = Random.Range(0, Rotations.Length);

@@ -163,6 +163,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1490644746692502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4252481504400166}
+  - component: {fileID: 114079161570188650}
+  - component: {fileID: 114214651537428732}
+  m_Layer: 0
+  m_Name: Sticker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1539122189430724
 GameObject:
   m_ObjectHideFlags: 1
@@ -433,7 +450,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1911211742516788
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -441,12 +458,10 @@ GameObject:
   - component: {fileID: 4997713853394266}
   - component: {fileID: 33214459554783466}
   - component: {fileID: 65647708214949136}
-  - component: {fileID: 114770959827339918}
   - component: {fileID: 23030893796993992}
   - component: {fileID: 114347662546963058}
-  - component: {fileID: 114617154498210510}
   m_Layer: 0
-  m_Name: Sticker
+  m_Name: Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,6 +635,20 @@ Transform:
   m_Father: {fileID: 4020293458958610}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4252481504400166
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490644746692502}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -0.0101, y: 0.0152, z: 0.0674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4997713853394266}
+  m_Father: {fileID: 4388002967487990}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 270, y: 180, z: 0}
 --- !u!4 &4257535019098690
 Transform:
   m_ObjectHideFlags: 1
@@ -671,7 +700,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4523273335697124}
-  - {fileID: 4997713853394266}
+  - {fileID: 4252481504400166}
   - {fileID: 4980728241516854}
   - {fileID: 4503322629469064}
   - {fileID: 4514251720967846}
@@ -883,15 +912,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1911211742516788}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -0.0101, y: 0.0152, z: 0.0674}
-  m_LocalScale: {x: 0.02974983, y: 0.01784988, z: 0.00002974981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.029749857, y: 0.017849889, z: 0.000029749826}
   m_Children:
   - {fileID: 4928370673854442}
   - {fileID: 4855560528114916}
-  m_Father: {fileID: 4388002967487990}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 270, y: 180, z: 0}
+  m_Father: {fileID: 4252481504400166}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23019422860080806
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1550,7 +1579,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765315535274848}
-  m_Text: TLM436F66.ABCDE.LANG1231
+  m_Text: TLM0369CF.ABCD.LANG1230
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1797,6 +1826,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Standard
+--- !u!114 &114079161570188650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490644746692502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4997048a7983244a1d940c3a34dcff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bigLabel: {fileID: 102434190526937074}
+  _blackBar: {fileID: 102105268883960894}
+  _PeriodicTableCode: B
 --- !u!114 &114161330509457418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1821,6 +1864,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Standard
+--- !u!114 &114214651537428732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490644746692502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ff1ffa71107cf042aedcbece34006da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Positions:
+  - {x: -0.0007, y: 0.0152, z: 0.0768}
+  - {x: -0.0327, y: 0.0152, z: 0.0726}
+  - {x: -0.0188, y: 0.0152, z: 0.0696}
+  Rotations:
+  - {x: 270, y: 180, z: -3.549988}
+  - {x: 270, y: 180, z: 7.3}
+  - {x: 270, y: 180, z: 2.24}
 --- !u!114 &114229659061671490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2047,7 +2109,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3eb6411d8ab705409074ce01694378d, type: 2}
   - {fileID: 11400000, guid: 1024d07b0ada4e1469530bd09bf8e3b8, type: 2}
   _fallbackLanguage: {fileID: 11400000, guid: df42a593649520c42964c1dec395e30f, type: 2}
-  _sticker: {fileID: 114770959827339918}
+  _sticker: {fileID: 114079161570188650}
   _extendedMissionSettings: {fileID: 11400000, guid: 06f340119bbfa2949813f5e0263c181f,
     type: 2}
   _settingsFileName: Translated-TheButton-Settings
@@ -2116,25 +2178,6 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
---- !u!114 &114617154498210510
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911211742516788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff1ffa71107cf042aedcbece34006da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Positions:
-  - {x: -0.0007, y: 0.0152, z: 0.0768}
-  - {x: -0.0327, y: 0.0152, z: 0.0726}
-  - {x: -0.0188, y: 0.0152, z: 0.0696}
-  Rotations:
-  - {x: 270, y: 180, z: -3.549988}
-  - {x: 270, y: 180, z: 7.3}
-  - {x: 270, y: 180, z: 2.24}
 --- !u!114 &114718113586957980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2158,20 +2201,6 @@ MonoBehaviour:
   AllowSelectionWrapY: 0
   ForceSelectionHighlight: 0
   ForceInteractionHighlight: 0
---- !u!114 &114770959827339918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911211742516788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff4997048a7983244a1d940c3a34dcff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bigLabel: {fileID: 102434190526937074}
-  _blackBar: {fileID: 102105268883960894}
-  _PeriodicTableCode: B
 --- !u!114 &114835436380170924
 MonoBehaviour:
   m_ObjectHideFlags: 1

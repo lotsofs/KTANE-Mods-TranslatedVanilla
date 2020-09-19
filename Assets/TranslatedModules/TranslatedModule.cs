@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehaviour
@@ -71,7 +73,42 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 			}
 		}
 		config.Settings = settings;
-		return settings;
+
+		if (settings.UseGlobalSettings) {
+			Configuration<TranslationSettings> configG = new Configuration<TranslationSettings>("TranslatedModules-Settings");
+			if (configG.Settings != null) {
+				configG.Settings.UseGlobalSettings = true;
+				Log("Config file dictates using the global translated modules settings.");
+				return configG.Settings;
+			}
+			else {
+				// could not find global config file. See if the service is installed, and whether there perhaps was an update that renamed the settings file.
+				GameObject ts = GameObject.Find("TranslatedModulesService(Clone)");
+				if (ts == null) {
+					// translated modules service not installed.
+					Log("Config file dictates using the global translated modules settings, but the translated modules service does not appear to be installed.");
+					return null;
+				}
+				try {
+					Component service = ts.GetComponent("TranslatedModulesService");
+					Type type = service.GetType();
+					FieldInfo fieldSettings = type.GetField("SettingsFileName");
+					string settingsFileName = (string)fieldSettings.GetValue(service);
+					Configuration<TranslationSettings> configG2 = new Configuration<TranslationSettings>("TranslatedModules-Settings");
+					if (configG2.Settings != null) {
+						configG2.Settings.UseGlobalSettings = true;
+						Log("Config file dictates using the global translated modules settings. These settings were found, but under a different filename than expected.");
+						return configG2.Settings;
+					}
+				}
+				catch (Exception e) {
+					Debug.Log(e.Message);
+					Log("Config file dictates using the global translated modules settings, but an error occured trying to acquire them.");
+					return null;
+				}
+			}
+		}
+		return config.Settings;
 	}
 
 	/// <summary>
@@ -149,9 +186,78 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 	}
 
 	/// <summary>
-	/// Picks a language according to the EMS's fixed pool
+	/// Select a language for this module.
 	/// </summary>
-	/// <returns></returns>
+	public void SetLanguage(string moduleName) {
+		_moduleLogName = moduleName;
+
+		// debug
+		if (Application.isEditor && _languageOverride != null) {
+			LogFormat("DEBUG: Language overridden to {0}.", _languageOverride.Iso639);
+			UseLanguage(_languageOverride);
+			return;
+		}
+
+		TLanguage lang;
+
+
+		// First check the EMS for languages to pick
+		TExtendedMissionSettings ems = ReadExtendedMissionSettings();
+		if (ems == null) {
+			// No EMS used on this mission.
+			lang = PickLanguageFromConfigFile();
+		}
+		else {
+			switch (_extendedMissionSettings.status) {
+				case EMSLanguagesPool.Statuses.Uninitialized:
+					// Only one module per mission needs to record these settings. A null pool indicates no other module has processed it yet, otherwise it would be empty instead.
+					// Status Uninitialized does the same. In either of these cases, establish a new one. Otherwise, a pool has already been established for this mission.
+					EstablishPool(ems);
+					goto case EMSLanguagesPool.Statuses.FixedPool;
+				case EMSLanguagesPool.Statuses.FixedPool:
+					Log("Checking fixed pool from extended mission settings.");
+					lang = PickLanguageFromFixedPool();
+					if (lang == null) {
+						_extendedMissionSettings.status = EMSLanguagesPool.Statuses.RandomPool;
+						goto case EMSLanguagesPool.Statuses.RandomPool;
+					}
+					else {
+						break;
+					}
+				case EMSLanguagesPool.Statuses.RandomPool:
+					Log("Checking random pool from extended mission settings.");
+					lang = PickLanguageFromRandomPool();
+					if (lang == null) {
+						_extendedMissionSettings.status = EMSLanguagesPool.Statuses.ConfigFile;
+						goto case EMSLanguagesPool.Statuses.ConfigFile;
+					}
+					else {
+						break;
+					}
+				case EMSLanguagesPool.Statuses.ConfigFile:
+					Log("Resorting to player's personal config file to determine the remaining modules' languages.");
+					Log("--------------------------");
+					lang = PickLanguageFromConfigFile();
+					break;
+				default:
+					lang = null;
+					break;
+			}
+		}
+		if (lang != null) {
+			UseLanguage(lang);
+		}
+		else {
+			LogFormat("WARNING: Could not find a language to be used. Using a fallback language.");
+			UseLanguage(_fallbackLanguage);
+		}
+
+	}
+	
+	/// <summary>
+		/// Picks a language according to the EMS's fixed pool
+		/// </summary>
+		/// <returns></returns>
 	TLanguage PickLanguageFromFixedPool() {
 		while (true) {
 			// check if pool even was provided
@@ -255,7 +361,6 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 			includedSelection += string.Format("{0}, ", transl.Iso639);
 			availableTranslations.Add(transl);
 		}
-
 		if (!_settings.UseAllLanguages)
 			Log(excludedNotInPool);
 		else
@@ -276,73 +381,6 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 		}
 	}
 
-	/// <summary>
-	/// Select a language for this module.
-	/// </summary>
-	public void SetLanguage(string moduleName) {
-		_moduleLogName = moduleName;
 
-		// debug
-		if (Application.isEditor && _languageOverride != null) {
-			LogFormat("DEBUG: Language overridden to {0}.", _languageOverride.Iso639);
-			UseLanguage(_languageOverride);
-			return;
-		}
-
-		TLanguage lang;
-
-
-		// First check the EMS for languages to pick
-		TExtendedMissionSettings ems = ReadExtendedMissionSettings();
-		if (ems == null) {
-			// No EMS used on this mission.
-			lang = PickLanguageFromConfigFile();
-		}
-		else {
-			switch (_extendedMissionSettings.status) {
-				case EMSLanguagesPool.Statuses.Uninitialized:
-					// Only one module per mission needs to record these settings. A null pool indicates no other module has processed it yet, otherwise it would be empty instead.
-					// Status Uninitialized does the same. In either of these cases, establish a new one. Otherwise, a pool has already been established for this mission.
-					EstablishPool(ems);
-					goto case EMSLanguagesPool.Statuses.FixedPool;
-				case EMSLanguagesPool.Statuses.FixedPool:
-					Log("Checking fixed pool from extended mission settings.");
-					lang = PickLanguageFromFixedPool();
-					if (lang == null) {
-						_extendedMissionSettings.status = EMSLanguagesPool.Statuses.RandomPool;
-						goto case EMSLanguagesPool.Statuses.RandomPool;
-					}
-					else {
-						break;
-					}
-				case EMSLanguagesPool.Statuses.RandomPool:
-					Log("Checking random pool from extended mission settings.");
-					lang = PickLanguageFromRandomPool();
-					if (lang == null) {
-						_extendedMissionSettings.status = EMSLanguagesPool.Statuses.ConfigFile;
-						goto case EMSLanguagesPool.Statuses.ConfigFile;
-					}
-					else {
-						break;
-					}
-				case EMSLanguagesPool.Statuses.ConfigFile:
-					Log("Resorting to player's personal config file to determine the remaining modules' languages.");
-					Log("--------------------------");
-					lang = PickLanguageFromConfigFile();
-					break;
-				default:
-					lang = null;
-					break;
-			}
-		}
-		if (lang != null) {
-			UseLanguage(lang);
-		}
-		else {
-			LogFormat("WARNING: Could not find a language to be used. Using a fallback language.");
-			UseLanguage(_fallbackLanguage);
-		}
-
-	}
 }
 

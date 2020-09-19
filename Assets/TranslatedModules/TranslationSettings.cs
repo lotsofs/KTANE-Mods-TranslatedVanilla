@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TranslationSettings {
+﻿public class TranslationSettings {
 	public string HowToUse1 = "If you want to play with (a) specific language(s) only, set UseAllLanguages to false and remove all other language codes from the LanguagePool list.";
 	public string HowToUse2 = "If UseAllLanguages is set to true, the module will ignore the LanguagePool list and instead pick any language.";
 	public string HowToUse3 = "Set LanguagesWithManualOnly to true if you only want the module to select languages that have a dedicated manual available in that language.";
+	public string HowToUse4 = "If UseGlobalSettings is set to true, module specific settings will be ignored and instead the settings from ";
+	public bool UseGlobalSettings = true;
 	public bool UseAllLanguages = true;
 	public bool UseLanguagesWithManualOnly = false;
 	public string[] LanguagePool = {        

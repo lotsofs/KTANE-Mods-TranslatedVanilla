@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e20f2edeb866af04bbcc57ee2a0fe921, type: 3}
-  m_Name: EMS Language Pool
+  m_Name: TheButton_LanguagePool
   m_EditorClassIdentifier: 
   pool: []
-  status: 0
+  status: 3
   FixedLanguages: []
   RandomLanguages: []
   ShuffleFixedLanguages: 0
