@@ -36,6 +36,11 @@ MonoBehaviour:
     - TheButton_11SV
     - TheButton_11TH
     - TheButton_11ZH
+  - Title: 11 Newly Added
+    MissionIDs:
+    - TheButton_11FY
+    - TheButton_11GA
+    - TheButton_11TR
   - Title: Test Missions
     MissionIDs:
     - TheButton_5Fixed6Random
