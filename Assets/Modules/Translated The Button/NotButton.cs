@@ -35,9 +35,11 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	public override void Start () {
 		base.Start();
+		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
 		_gameInfo = GetComponent<KMGameInfo>();
 		_bombInfo = GetComponent<KMBombInfo>();
 		_translation = GetComponent<TranslatedTheButton> ();
+		_translation.SetLanguage(name);
 		LanguageTheButton language = _translation.Language;
 
 		// Sets the appearance of the button

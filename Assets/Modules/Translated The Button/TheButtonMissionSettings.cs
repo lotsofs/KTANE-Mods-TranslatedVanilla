@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class TheButtonMissionSettings : TranslatedVanillaMissionSettings {
+public class TheButtonMissionSettings : TranslatedModulesMissionSettings {
 
 	/// <summary>
 	/// These languages will be selected first. When they're depleted, random languages will be selected.
@@ -19,16 +20,8 @@ public class TheButtonMissionSettings : TranslatedVanillaMissionSettings {
 	/// </summary>
 	public bool BigButtonTranslated_ShuffleFixedLanguages;
 
-	#region not actual settings
-	public static List<string> pool;
-	
-	public enum Status {
-		FixedPool,
-		RandomPool,
-		ConfigFile,
-		SelectingFinished
-	}
-	public static Status status;
-
-	#endregion
+	public override string[] FixedLanguages { get { return BigButtonTranslated_FixedLanguages; } set { BigButtonTranslated_FixedLanguages = value; } }
+	public override string[] RandomLanguages { get { return BigButtonTranslated_RandomLanguages; } set { BigButtonTranslated_RandomLanguages = value; } }
+	public override bool ShuffleFixedLanguages { get { return BigButtonTranslated_ShuffleFixedLanguages; } set { BigButtonTranslated_ShuffleFixedLanguages = value; } }
+	public override bool AvoidDuplicates { get { return BigButtonTranslated_AvoidDuplicates; } set { BigButtonTranslated_AvoidDuplicates = value; } }
 }

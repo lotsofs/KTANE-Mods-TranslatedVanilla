@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &90801924
 Transform:
   m_ObjectHideFlags: 0
@@ -501,6 +501,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: d3eb6411d8ab705409074ce01694378d,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: d3eb6411d8ab705409074ce01694378d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -550,6 +560,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: 310d6595c2f5d0748b55b1d78f439dd4,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 310d6595c2f5d0748b55b1d78f439dd4,
         type: 2}
@@ -615,6 +635,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 03daa87781b6dd442a02d78a5440644d,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 03daa87781b6dd442a02d78a5440644d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -664,6 +694,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ebf2b1f20abcde4499e4c13d837b3d4,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 7ebf2b1f20abcde4499e4c13d837b3d4,
         type: 2}
@@ -721,6 +761,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: f2b39ba47d2cb3e43ab5f20dc3931e4d,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: f2b39ba47d2cb3e43ab5f20dc3931e4d,
         type: 2}
@@ -791,6 +841,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 81853044b3c10a64ea73270f31888d23,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 81853044b3c10a64ea73270f31888d23,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -845,6 +905,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: 4dffe57a3011a694599bfeeb035b4600,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 4dffe57a3011a694599bfeeb035b4600,
         type: 2}
@@ -980,9 +1050,13 @@ Prefab:
       propertyPath: m_Name
       value: Module_DE
       objectReference: {fileID: 0}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
-      propertyPath: Override
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 243d559a948a88b4ab2879d849df42f8,
         type: 2}
@@ -1038,6 +1112,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 825684d9af2a1434fa25bc39770be8ae,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 825684d9af2a1434fa25bc39770be8ae,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1089,9 +1173,13 @@ Prefab:
       propertyPath: m_Name
       value: Module_PT
       objectReference: {fileID: 0}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
-      propertyPath: Override
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 268aaaabf2866a14fb3f726e1b6e7f11,
         type: 2}
@@ -1147,6 +1235,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 94ac8ddb77d552948bd6b4bd4fad0066,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 94ac8ddb77d552948bd6b4bd4fad0066,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1196,6 +1294,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: f575f055c9be6b04eb11aedf8a7c5921,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: f575f055c9be6b04eb11aedf8a7c5921,
         type: 2}
@@ -1271,6 +1379,16 @@ Prefab:
       propertyPath: m_Text
       value: PRESS
       objectReference: {fileID: 0}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 61afed4f10a3c7542834e7c1a6e3b306,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1323,6 +1441,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: d6751959ed30ef04791d01148002d16a,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: d6751959ed30ef04791d01148002d16a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1372,6 +1500,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: 410b4b15df642f94fba81f30d52c33ec,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 410b4b15df642f94fba81f30d52c33ec,
         type: 2}
@@ -1512,6 +1650,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: f39ed33d10879364e9e2a768c92c05a8,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: f39ed33d10879364e9e2a768c92c05a8,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1616,6 +1764,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 44ed16ba29b23e1468d776dae4e25c95,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 44ed16ba29b23e1468d776dae4e25c95,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1683,6 +1841,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 6952acf468ce2f94aa319c78a9e8c126,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: 6952acf468ce2f94aa319c78a9e8c126,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1732,6 +1900,16 @@ Prefab:
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
       propertyPath: Override
+      value: 
+      objectReference: {fileID: 11400000, guid: 1024d07b0ada4e1469530bd09bf8e3b8,
+        type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 1024d07b0ada4e1469530bd09bf8e3b8,
         type: 2}
@@ -1787,6 +1965,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: e0854a59f054b7749b04a9f510f2d5b3,
         type: 2}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
+        type: 2}
+      propertyPath: _languageOverride
+      value: 
+      objectReference: {fileID: 11400000, guid: e0854a59f054b7749b04a9f510f2d5b3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
   m_IsPrefabParent: 0
@@ -1833,9 +2021,13 @@ Prefab:
       propertyPath: m_Name
       value: Module_CS
       objectReference: {fileID: 0}
+    - target: {fileID: 1758559113600360, guid: 95e502283575ea8448b9ab07fc534402, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114424529933858232, guid: 95e502283575ea8448b9ab07fc534402,
         type: 2}
-      propertyPath: Override
+      propertyPath: _languageOverride
       value: 
       objectReference: {fileID: 11400000, guid: 0fc2458e56344cc41b1a07b1dbe89280,
         type: 2}

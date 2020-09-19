@@ -707,7 +707,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758559113600360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -2034,12 +2034,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 310d6595c2f5d0748b55b1d78f439dd4, type: 2}
   - {fileID: 11400000, guid: d3eb6411d8ab705409074ce01694378d, type: 2}
   - {fileID: 11400000, guid: 1024d07b0ada4e1469530bd09bf8e3b8, type: 2}
-  KMModule: {fileID: 114294900926208988}
+  _fallbackLanguage: {fileID: 11400000, guid: df42a593649520c42964c1dec395e30f, type: 2}
   _sticker: {fileID: 114184262881831760}
+  _extendedMissionSettings: {fileID: 11400000, guid: 06f340119bbfa2949813f5e0263c181f,
+    type: 2}
   _settingsFileName: Translated-TheButton-Settings
   _oldSettingsFiles: []
-  _fallback: {fileID: 11400000, guid: df42a593649520c42964c1dec395e30f, type: 2}
-  Override: {fileID: 0}
+  _languageOverride: {fileID: 0}
+  _editorExtendedMissionSettings: 
 --- !u!114 &114444589732886140
 MonoBehaviour:
   m_ObjectHideFlags: 1

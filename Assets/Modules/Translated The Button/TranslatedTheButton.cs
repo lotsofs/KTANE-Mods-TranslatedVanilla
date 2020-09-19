@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TranslatedTheButton : TranslatedModule<LanguageTheButton> {
+public class TranslatedTheButton : TranslatedModule<LanguageTheButton, TheButtonMissionSettings> {
 
 }

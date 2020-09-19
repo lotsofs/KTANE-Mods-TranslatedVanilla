@@ -11,9 +11,20 @@ public enum EMSRResults {
 	Error,
 }
 
-public class ExtendedMissionSettingsReader<T> : MonoBehaviour {
+public class ExtendedMissionSettingsReader<T> {
 
-	public static EMSRResults ReadMissionSettings(out T settings) {
+	public static EMSRResults ReadMissionSettings(out T settings, string editorSettings = null) {
+		if (Application.isEditor) {
+			if (string.IsNullOrEmpty(editorSettings)) {
+				settings = default(T);
+				return EMSRResults.NotInstalled;
+			}
+			else {
+				settings = JsonConvert.DeserializeObject<T>(editorSettings);
+				return EMSRResults.Success;
+			}
+		}
+
 		GameObject emsGO = GameObject.Find("ExtendedMissionSettings(Clone)");
 		if (emsGO == null) {
 			settings = default(T);
@@ -28,7 +39,7 @@ public class ExtendedMissionSettingsReader<T> : MonoBehaviour {
 			fieldSettings = type.GetField("CurrentMissionSettings");
 			string settingsValue = (string)fieldSettings.GetValue(extendedMissionSettings);
 			settings = JsonConvert.DeserializeObject<T>(settingsValue);
-
+			
 			if (settingsValue == null) {
 				Debug.LogWarning("[Extended Mission Settings] The EMS service did not keep up with the gamestate in time! Please hand in a bug report with an unfiltered log file");
 				return EMSRResults.ReceivedNull;    
