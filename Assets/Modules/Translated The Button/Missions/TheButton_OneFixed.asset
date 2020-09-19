@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -548183353, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
-  m_Name: TheButton_Nonsense
+  m_Name: TheButton_OneFixed
   m_EditorClassIdentifier: 
-  DisplayName: Nonsensical languages
-  Description: Break test
+  DisplayName: One Fixed
+  Description: One of these will always be German. The other ones are all up to you!
   GeneratorSetting:
-    TimeLimit: 3600
+    TimeLimit: 8760
     NumStrikes: 3
     TimeBeforeNeedyActivation: 90
     FrontFaceOnly: 0
@@ -31,5 +31,5 @@ MonoBehaviour:
       ComponentTypes: 
       SpecialComponentType: 0
       ModTypes:
-      - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["ab","cd","ef","gh"]}'
+      - 'Extended Settings {"BigButtonTranslated_FixedLanguages": ["de"]}'
   PacingEventsEnabled: 0

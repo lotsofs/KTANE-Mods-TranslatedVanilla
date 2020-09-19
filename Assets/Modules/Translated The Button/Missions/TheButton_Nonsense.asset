@@ -14,7 +14,7 @@ MonoBehaviour:
   DisplayName: Nonsensical languages
   Description: Break test
   GeneratorSetting:
-    TimeLimit: 3600
+    TimeLimit: 8760
     NumStrikes: 3
     TimeBeforeNeedyActivation: 90
     FrontFaceOnly: 0
@@ -31,5 +31,5 @@ MonoBehaviour:
       ComponentTypes: 
       SpecialComponentType: 0
       ModTypes:
-      - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["ab","cd","ef","gh"]}'
+      - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["abc","def","ghi","jkl"]}'
   PacingEventsEnabled: 0

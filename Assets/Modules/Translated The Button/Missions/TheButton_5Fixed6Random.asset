@@ -14,7 +14,7 @@ MonoBehaviour:
   DisplayName: 5 Latin, 6 Asian
   Description: 5 fixed latin, 6 random asian?
   GeneratorSetting:
-    TimeLimit: 3600
+    TimeLimit: 8760
     NumStrikes: 3
     TimeBeforeNeedyActivation: 90
     FrontFaceOnly: 0

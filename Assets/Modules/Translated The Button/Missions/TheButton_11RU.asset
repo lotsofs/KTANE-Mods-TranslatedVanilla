@@ -14,7 +14,7 @@ MonoBehaviour:
   DisplayName: 11 Russian The Buttons
   Description: ru
   GeneratorSetting:
-    TimeLimit: 3600
+    TimeLimit: 8760
     NumStrikes: 3
     TimeBeforeNeedyActivation: 90
     FrontFaceOnly: 0

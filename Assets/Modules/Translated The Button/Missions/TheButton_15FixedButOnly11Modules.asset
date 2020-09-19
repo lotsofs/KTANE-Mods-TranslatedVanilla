@@ -14,7 +14,7 @@ MonoBehaviour:
   DisplayName: 15 / 11
   Description: '15 fixed languages but there''s only 11 modules. '
   GeneratorSetting:
-    TimeLimit: 3600
+    TimeLimit: 8760
     NumStrikes: 3
     TimeBeforeNeedyActivation: 90
     FrontFaceOnly: 0
