@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using NotVanillaModulesLib;
-using UnityEngine.Serialization;
 
 public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehaviour
 	where TLanguage : Language
