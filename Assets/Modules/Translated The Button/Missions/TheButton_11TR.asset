@@ -31,5 +31,5 @@ MonoBehaviour:
       ComponentTypes: 
       SpecialComponentType: 0
       ModTypes:
-      - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["fi"]}'
+      - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["tr"]}'
   PacingEventsEnabled: 0

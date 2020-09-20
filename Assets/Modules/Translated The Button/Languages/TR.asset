@@ -19,7 +19,7 @@ MonoBehaviour:
   ManualAvailable: 0
   DisplayMethod: 0
   Press: BAS
-  Hold: HOLD
+  Hold: TUT
   Abort: "\u0130PTAL ET"
   Detonate: PATLAT
   LogPress: Bas
