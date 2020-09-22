@@ -362,7 +362,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851467417882396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016, y: 0.018, z: -0.065}
+  m_LocalPosition: {x: 0.016, y: 0.018, z: -0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4529100519196430}
@@ -446,7 +446,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956038280876260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.016, y: 0.018, z: -0.065}
+  m_LocalPosition: {x: -0.016, y: 0.018, z: -0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172589798208450}
@@ -501,7 +501,7 @@ Transform:
   m_GameObject: {fileID: 1420682148411636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4324111450056370}
   - {fileID: 4937053520031116}
@@ -1239,8 +1239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CountdownTime: 40
-  ModuleType: NotVentingGas
-  ModuleDisplayName: Not Venting Gas
+  ModuleType: VentGasTranslated
+  ModuleDisplayName: Needy Vent Gas Translated
   RequiresTimerVisibility: 0
   WarnAtFiveSeconds: 1
 --- !u!114 &114691570363855544

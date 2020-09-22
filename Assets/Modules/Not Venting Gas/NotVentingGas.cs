@@ -15,30 +15,6 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	private int value;
 	private VentingGasButton correctButton;
 
-	private static readonly string[] prompts = new[] {
-		"VENT GAS", "VENT", "DETONATE", "DEFUSE", "DISARM", "DISABLE", "DISASSEMBLE",
-		"CONTINUE", "PROCEED", "ACCEPT", "YES", "NO", "ACTIVATE", "DEACTIVATE", "SUCCESS", "ERROR"
-	};
-	private static readonly string[] punctuation = new[] { "", ".", "?", "!" };
-	private static readonly int[,] defaultValues = new[,] {
-		{ 5, 8, 4, 9 },
-		{ 1, 1, 4, 6 },
-		{ 3, 5, 8, 7 },
-		{ 9, 5, 6, 1 },
-		{ 6, 2, 6, 6 },
-		{ 8, 8, 0, 3 },
-		{ 6, 7, 9, 7 },
-		{ 1, 1, 3, 6 },
-		{ 6, 5, 1, 8 },
-		{ 7, 2, 7, 3 },
-		{ 0, 8, 6, 8 },
-		{ 4, 4, 2, 8 },
-		{ 1, 5, 4, 9 },
-		{ 0, 3, 0, 1 },
-		{ 2, 0, 3, 1 },
-		{ 8, 8, 5, 2 }
-	};
-
 	public override void Start() {
 		base.Start();
 		this.Connector.KMNeedyModule.OnNeedyActivation = this.KMNeedyModule_OnNeedyActivation;
@@ -59,20 +35,18 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private void KMNeedyModule_OnNeedyActivation() {
-		// Bias the selection towards 'VENT GAS' and 'DETONATE'.
-		int i = Random.Range(0, 8);
-		if (i < 3) i = 0;
-		else if (i == 3) i = 2;
-		else i = Random.Range(0, prompts.Length);
-		int j = Random.Range(0, punctuation.Length);
-		this.DisplayText = prompts[i] + punctuation[j];
+		if (Random.Range(0, 1) < 0.1f) {
+			// detoante?
+		}
+		else {
+			// vent gas?
+		}
+		
+		this.DisplayText = "temp text";
 		this.Connector.DisplayText = this.DisplayText;
 		this.Connector.DisplayActive = true;
 
-		var value = defaultValues[i, j];
-		this.correctButton = value > this.value ? VentingGasButton.Y : VentingGasButton.N;
-		this.Log("Module active. The display reads '{0}{1}'. The value is {2}; the last value was {3}. The correct button is {4}.",
-			prompts[i], punctuation[j], value, this.value, this.correctButton);
+		this.correctButton = VentingGasButton.Y;
 		this.value = value;
 	}
 
@@ -105,6 +79,8 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		}
 	}
 
+	#region TP
+
 	// Twitch Plays support
 	public static readonly string TwitchHelpMessage
 		= "!{0} N | !{0} Y";
@@ -129,4 +105,6 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		yield return null;
 		this.Connector.TwitchPress(button);
 	}
+
+	#endregion
 }

@@ -47,6 +47,22 @@ namespace NotVanillaModulesLib {
 			}
 		}
 
+
+		public string ResponseText {
+			get {
+#if (!DEBUG)
+				if (!this.TestMode) return this.displayTexts[1].text;
+#endif
+				return this.TestModelDisplayTexts[1].text;
+			}
+			set {
+				if (this.TestMode) this.TestModelDisplayTexts[1].text = value;
+#if (!DEBUG)
+				else this.displayTexts[1].text = value;
+#endif
+			}
+		}
+
 		public string InputText {
 			get {
 #if (!DEBUG)
@@ -75,7 +91,6 @@ namespace NotVanillaModulesLib {
 				wrapper.Component.VentText.transform.Find("VentYN").GetComponent<TextMeshPro>(),
 				wrapper.Component.InputText };
 			foreach (var text in this.displayTexts) DestroyImmediate(text.GetComponent<I2.Loc.Localize>());
-			this.displayTexts[1].text = "N/Y";
 			this.displayBase.gameObject.SetActive(false);
 			this.displayBase.transform.SetParent(this.transform, false);
 			wrapper.Component.InputText.transform.SetParent(this.transform, false);
@@ -84,12 +99,12 @@ namespace NotVanillaModulesLib {
 			var keypadEventConnector = new KeypadEventConnector();
 			keypadEventConnector.ButtonPressed += (sender, e) => this.ButtonPressed?.Invoke(this, new VentingGasButtonEventArgs((VentingGasButton) e.ButtonIndex));
 
-			wrapper.Component.YesButton.gameObject.name = "Key_N";
-			wrapper.Component.YesButton.GetComponentInChildren<TextMeshPro>().text = "N";
-			wrapper.Component.NoButton.gameObject.name = "Key_Y";
-			wrapper.Component.NoButton.GetComponentInChildren<TextMeshPro>().text = "Y";
+			wrapper.Component.YesButton.gameObject.name = "Key_Y";
+			//wrapper.Component.YesButton.GetComponentInChildren<TextMeshPro>().text = "Yes";
+			wrapper.Component.NoButton.gameObject.name = "Key_N";
+			//wrapper.Component.NoButton.GetComponentInChildren<TextMeshPro>().text = "No";
 
-			this.buttons = new[] { wrapper.Component.YesButton, wrapper.Component.NoButton };
+			this.buttons = new[] { wrapper.Component.NoButton, wrapper.Component.YesButton };
 			keypadEventConnector.Attach(this.buttons);
 
 			FixKeypadButtons(this.buttons);
