@@ -18,6 +18,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		Connector.KMNeedyModule.OnNeedyActivation = KMNeedyModule_OnNeedyActivation;
 		Connector.KMNeedyModule.OnNeedyDeactivation = () => DisarmNeedy();
 		Connector.KMNeedyModule.OnTimerExpired = KMNeedyModule_OnTimerExpired;
+		GetComponent<KMBombInfo>().OnBombSolved = Connector.DisableDisplay;
 		Connector.ButtonPressed += Connector_ButtonPressed;
 
 		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, "VENT GAS?");
