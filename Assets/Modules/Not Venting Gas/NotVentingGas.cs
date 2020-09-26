@@ -16,7 +16,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	public override void Start() {
 		base.Start();
 		Connector.KMNeedyModule.OnNeedyActivation = KMNeedyModule_OnNeedyActivation;
-		Connector.KMNeedyModule.OnNeedyDeactivation = DisarmNeedy;
+		Connector.KMNeedyModule.OnNeedyDeactivation = () => DisarmNeedy();
 		Connector.KMNeedyModule.OnTimerExpired = KMNeedyModule_OnTimerExpired;
 		Connector.ButtonPressed += Connector_ButtonPressed;
 
@@ -29,9 +29,10 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		Connector.InputText = "";
 	}
 
-	public void DisarmNeedy() {
+	public void DisarmNeedy(bool ventingComplete = false) {
 		Connector.InputText = "";
 		Connector.DisableDisplay();
+		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, ventingComplete);
 		if (coroutine != null) {
 			StopCoroutine(coroutine);
 			coroutine = null;
@@ -39,6 +40,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private void KMNeedyModule_OnNeedyActivation() {
+		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, false);
 		if (Random.Range(0f, 1f) < 0.1f) {
 			correctButton = VentingGasButton.N;
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.Detonate, true);
@@ -63,23 +65,58 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private IEnumerator ButtonPressedCoroutine(VentingGasButton button) {
-		var label = button == VentingGasButton.N ? "NO" : "YES";
-		float inputTime = button == VentingGasButton.N ? 1.0f : 1.5f;
+		// if RTL, we actually pressed the other button
+		bool rightToLeft = false; // todo: implement RTL :p
+		button = button == VentingGasButton.Y ^ rightToLeft ? VentingGasButton.Y : VentingGasButton.N;   
+
+		var label = button == VentingGasButton.Y ? "YES" : "NO";
+		float inputTime = button == VentingGasButton.Y ? 1.5f : 1.0f;
 		float charInputDelay = inputTime / label.Length;
 		foreach (var c in label) {
 			Connector.InputText += c;
 			yield return new WaitForSeconds(charInputDelay);
 		}
 		yield return new WaitForSeconds(0.5f);
-		// todo: VNETING PREVENTS E$XPLOSIONS
-		if (button == correctButton)
-			Log("You pressed {0}. That was correct.", button);
-		else {
-			Log("You pressed {0}. That was incorrect.", button);
-			Connector.KMNeedyModule.HandleStrike();
-		}
+
+		bool correctPress = button == correctButton;
+
+		if (correctButton == VentingGasButton.N) {
+			if (button == correctButton) {
+				Log("You pressed N. That was correct.");
 		Connector.KMNeedyModule.HandlePass();
-		DisarmNeedy();
+			}
+			else {
+				Log("You pressed Y. That was incorrect.");
+				Connector.KMNeedyModule.HandleStrike();
+			}
+			DisarmNeedy();
+			yield break;
+		}
+		else if (button == correctButton) {
+			Log("You pressed Y. That was correct.");
+			Connector.KMNeedyModule.HandlePass();
+			DisarmNeedy(true);
+			yield break;
+		}
+		else {
+			Connector.DisableDisplay();
+			Connector.InputText = "";
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			yield return new WaitForSeconds(0.75f);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			yield return new WaitForSeconds(0.4f);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			yield return new WaitForSeconds(0.75f);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			yield return new WaitForSeconds(0.4f);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			yield return new WaitForSeconds(1f);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
+			coroutine = null;
+		}
 	}
 
 	#region TP
