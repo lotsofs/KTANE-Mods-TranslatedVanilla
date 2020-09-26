@@ -7,102 +7,127 @@ using TMPro;
 
 namespace NotVanillaModulesLib {
 	public class NotVentingGasConnector : NotVanillaModuleConnector {
+		public enum Texts {
+			VentGas,
+			VentYN,
+			Detonate,
+			DetonateYN,
+			VentingPreventsExplosions,
+			VentingComplete,
+			InputText,
+		}
+
 		public GameObject TestModelDisplayBase;
 		public TextMesh[] TestModelDisplayTexts;
 		public TestModelButton[] TestModelButtons;
 
 #if (!DEBUG)
-		private GameObject displayBase;
 		private TextMeshPro[] displayTexts;
 		private KeypadButton[] buttons;
 #endif
 
-		public bool DisplayActive {
-			get {
-#if (!DEBUG)
-				if (!this.TestMode) return this.displayBase.activeSelf;
-#endif
-				return this.TestModelDisplayBase.activeSelf;
-			}
-			set {
-#if (!DEBUG)
-				if (!this.TestMode) this.displayBase.SetActive(value);
-#endif
-				this.TestModelDisplayBase.SetActive(value);
-			}
-		}
-
-		public string DisplayText {
-			get {
-#if (!DEBUG)
-				if (!this.TestMode) return this.displayTexts[0].text;
-#endif
-				return this.TestModelDisplayTexts[0].text;
-			}
-			set {
-				if (this.TestMode) this.TestModelDisplayTexts[0].text = value;
-#if (!DEBUG)
-				else this.displayTexts[0].text = value;
-#endif
-			}
-		}
-
-
-		public string ResponseText {
-			get {
-#if (!DEBUG)
-				if (!this.TestMode) return this.displayTexts[1].text;
-#endif
-				return this.TestModelDisplayTexts[1].text;
-			}
-			set {
-				if (this.TestMode) this.TestModelDisplayTexts[1].text = value;
-#if (!DEBUG)
-				else this.displayTexts[1].text = value;
-#endif
-			}
-		}
-
 		public string InputText {
 			get {
 #if (!DEBUG)
-				if (!this.TestMode) return this.displayTexts[2].text;
+				if (!this.TestMode) return this.displayTexts[(int)Texts.InputText].text;
 #endif
-				return this.TestModelDisplayTexts[2].text;
+				return this.TestModelDisplayTexts[(int)Texts.InputText].text;
 			}
 			set {
-				if (this.TestMode) this.TestModelDisplayTexts[2].text = value;
+				if (this.TestMode) this.TestModelDisplayTexts[(int)Texts.InputText].text = value;
 #if (!DEBUG)
-				else this.displayTexts[2].text = value;
+				else this.displayTexts[(int)Texts.InputText].text = value;
 #endif
+			}
+		}
+
+		public void SetDisplayActive(Texts display, bool active) {
+			if (!this.TestMode) {
+#if (!DEBUG)
+				displayTexts[(int)display].gameObject.SetActive(active);
+#endif
+			}
+			else {
+				this.TestModelDisplayTexts[(int)display].gameObject.SetActive(active);
+			}
+		}
+
+		public void SetDisplayText(Texts display, string text) {
+			if (!this.TestMode) {
+#if (!DEBUG)
+				Log(text);
+				displayTexts[(int)display].text = text;
+				Log(displayTexts[(int)display].text);
+#endif
+			}
+			else {
+				this.TestModelDisplayTexts[(int)display].text = text;
+			}
+		}
+
+		public void DisableDisplay() {
+			if (!this.TestMode) {
+#if (!DEBUG)
+				foreach (var text in this.displayTexts) {
+					text.gameObject.SetActive(false);
+				}
+#endif
+			}
+			else {
+				foreach (var text in this.TestModelDisplayTexts) {
+					text.gameObject.SetActive(false);
+				}
 			}
 		}
 
 		public event EventHandler<VentingGasButtonEventArgs> ButtonPressed;
+
+		public void SetButtonTexts(string yes, string no) {
+			if (!this.TestMode) {
+#if (!DEBUG)
+				buttons[0].GetComponentInChildren<TextMeshPro>().text = no;
+				buttons[1].GetComponentInChildren<TextMeshPro>().text = yes;
+#endif
+			}
+			else {
+				TestModelButtons[0].TextMesh.text = no;
+				TestModelButtons[0].TextMesh.text = yes;
+			}
+		}
 
 		protected override void AwakeLive() {
 #if (!DEBUG)
 			using var wrapper = this.InstantiateComponent<NeedyVentComponent>();
 			wrapper.Component.transform.Find("Component_Needy_VentGas").SetParent(this.transform, false);
 
-			this.displayBase = wrapper.Component.VentText;
-			this.displayTexts = new[] {
-				wrapper.Component.VentText.transform.Find("VentGas").GetComponent<TextMeshPro>(),
-				wrapper.Component.VentText.transform.Find("VentYN").GetComponent<TextMeshPro>(),
-				wrapper.Component.InputText };
-			foreach (var text in this.displayTexts) DestroyImmediate(text.GetComponent<I2.Loc.Localize>());
-			this.displayBase.gameObject.SetActive(false);
-			this.displayBase.transform.SetParent(this.transform, false);
-			wrapper.Component.InputText.transform.SetParent(this.transform, false);
-			wrapper.Component.InputText.transform.SetParent(this.displayBase.transform, true);
+			this.displayTexts = new TextMeshPro[7];
+			displayTexts[(int)Texts.VentGas] = wrapper.Component.VentText.transform.Find("VentGas").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.VentYN] = wrapper.Component.VentText.transform.Find("VentYN").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.Detonate] = wrapper.Component.DetonateText.transform.Find("Detonate").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.DetonateYN] = wrapper.Component.DetonateText.transform.Find("DetonateYN").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.VentingPreventsExplosions] = wrapper.Component.PreventsText.transform.Find("VentingPreventsExplosions").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.VentingComplete] = wrapper.Component.VentingCompleteText.transform.Find("VentingComplete").GetComponent<TextMeshPro>();
+			displayTexts[(int)Texts.InputText] = wrapper.Component.InputText;
+
+			foreach (var text in this.displayTexts) {
+				DestroyImmediate(text.GetComponent<I2.Loc.Localize>());
+			}
+
+			var displayBases = new GameObject[5];
+			displayBases[0] = wrapper.Component.VentText;
+			displayBases[1] = wrapper.Component.DetonateText;
+			displayBases[2] = wrapper.Component.PreventsText;
+			displayBases[3] = wrapper.Component.VentingCompleteText;
+			displayBases[4] = wrapper.Component.InputText.gameObject;
+
+			foreach (var displayBase in displayBases) {
+				//displayBase.gameObject.SetActive(false);
+				displayBase.transform.SetParent(this.transform, false);
+			}
+			DisableDisplay();
 
 			var keypadEventConnector = new KeypadEventConnector();
 			keypadEventConnector.ButtonPressed += (sender, e) => this.ButtonPressed?.Invoke(this, new VentingGasButtonEventArgs((VentingGasButton) e.ButtonIndex));
-
-			wrapper.Component.YesButton.gameObject.name = "Key_Y";
-			//wrapper.Component.YesButton.GetComponentInChildren<TextMeshPro>().text = "Yes";
-			wrapper.Component.NoButton.gameObject.name = "Key_N";
-			//wrapper.Component.NoButton.GetComponentInChildren<TextMeshPro>().text = "No";
 
 			this.buttons = new[] { wrapper.Component.NoButton, wrapper.Component.YesButton };
 			keypadEventConnector.Attach(this.buttons);
@@ -123,7 +148,7 @@ namespace NotVanillaModulesLib {
 		protected override void StartTest() {
 			foreach (var button in this.TestModelButtons)
 				button.Pressed += (sender, e) => this.ButtonPressed?.Invoke(this, new VentingGasButtonEventArgs((VentingGasButton) e.ButtonIndex));
-			this.TestModelDisplayBase.gameObject.SetActive(false);
+			DisableDisplay();
 		}
 
 		public void TwitchPress(VentingGasButton button) {

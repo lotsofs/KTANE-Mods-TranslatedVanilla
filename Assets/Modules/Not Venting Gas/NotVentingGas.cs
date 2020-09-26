@@ -9,74 +9,77 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
-	public string DisplayText { get; private set; }
 
 	private Coroutine coroutine;
-	private int value;
 	private VentingGasButton correctButton;
 
 	public override void Start() {
 		base.Start();
-		this.Connector.KMNeedyModule.OnNeedyActivation = this.KMNeedyModule_OnNeedyActivation;
-		this.Connector.KMNeedyModule.OnNeedyDeactivation = this.DisarmNeedy;
-		this.Connector.KMNeedyModule.OnTimerExpired = this.KMNeedyModule_OnTimerExpired;
-		this.Connector.ButtonPressed += this.Connector_ButtonPressed;
-		this.value = this.GetComponent<KMBombInfo>().GetSerialNumberNumbers().LastOrDefault();
-		this.Connector.InputText = "";
+		Connector.KMNeedyModule.OnNeedyActivation = KMNeedyModule_OnNeedyActivation;
+		Connector.KMNeedyModule.OnNeedyDeactivation = DisarmNeedy;
+		Connector.KMNeedyModule.OnTimerExpired = KMNeedyModule_OnTimerExpired;
+		Connector.ButtonPressed += Connector_ButtonPressed;
+
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, "VENT GAS?");
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, "DETONATE?");
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, "VENTING\nCOMPLETE");
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, "VENTING\nPREVENTS\nEXPLOSIONS");
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, "Y/N");
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, "Y/N");
+		Connector.InputText = "";
 	}
 
 	public void DisarmNeedy() {
-		this.Connector.InputText = "";
-		this.Connector.DisplayActive = false;
-		if (this.coroutine != null) {
-			this.StopCoroutine(this.coroutine);
-			this.coroutine = null;
+		Connector.InputText = "";
+		Connector.DisableDisplay();
+		if (coroutine != null) {
+			StopCoroutine(coroutine);
+			coroutine = null;
 		}
 	}
 
 	private void KMNeedyModule_OnNeedyActivation() {
-		if (Random.Range(0, 1) < 0.1f) {
-			// detoante?
+		if (Random.Range(0f, 1f) < 0.1f) {
+			correctButton = VentingGasButton.N;
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.Detonate, true);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.DetonateYN, true);
 		}
 		else {
-			// vent gas?
+			correctButton = VentingGasButton.Y;
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
+			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
 		}
-		
-		this.DisplayText = "temp text";
-		this.Connector.DisplayText = this.DisplayText;
-		this.Connector.DisplayActive = true;
-
-		this.correctButton = VentingGasButton.Y;
-		this.value = value;
+		Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
 	}
 
 	private void KMNeedyModule_OnTimerExpired() {
-		this.Log("You didn't press the button in time.");
-		this.Connector.KMNeedyModule.HandleStrike();
-		this.DisarmNeedy();
+		Log("You didn't press the button in time.");
+		Connector.KMNeedyModule.HandleStrike();
+		DisarmNeedy();
 	}
 
 	private void Connector_ButtonPressed(object sender, VentingGasButtonEventArgs e) {
-		if (this.Connector.DisplayActive && this.coroutine == null) this.coroutine = this.StartCoroutine(this.ButtonPressedCoroutine(e.Button));
+		if (coroutine == null) coroutine = StartCoroutine(ButtonPressedCoroutine(e.Button));
 	}
 
 	private IEnumerator ButtonPressedCoroutine(VentingGasButton button) {
 		var label = button == VentingGasButton.N ? "NO" : "YES";
+		float inputTime = button == VentingGasButton.N ? 1.0f : 1.5f;
+		float charInputDelay = inputTime / label.Length;
 		foreach (var c in label) {
-			this.Connector.InputText += c;
-			yield return new WaitForSeconds(0.5f);
+			Connector.InputText += c;
+			yield return new WaitForSeconds(charInputDelay);
 		}
 		yield return new WaitForSeconds(0.5f);
-		if (this.Connector.DisplayActive) {
-			if (button == this.correctButton)
-				this.Log("You pressed {0}. That was correct.", button);
-			else {
-				this.Log("You pressed {0}. That was incorrect.", button);
-				this.Connector.KMNeedyModule.HandleStrike();
-			}
-			this.Connector.KMNeedyModule.HandlePass();
-			this.DisarmNeedy();
+		// todo: VNETING PREVENTS E$XPLOSIONS
+		if (button == correctButton)
+			Log("You pressed {0}. That was correct.", button);
+		else {
+			Log("You pressed {0}. That was incorrect.", button);
+			Connector.KMNeedyModule.HandleStrike();
 		}
+		Connector.KMNeedyModule.HandlePass();
+		DisarmNeedy();
 	}
 
 	#region TP
@@ -103,7 +106,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 			default: yield break;
 		}
 		yield return null;
-		this.Connector.TwitchPress(button);
+		Connector.TwitchPress(button);
 	}
 
 	#endregion
