@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
+  m_Name: FI
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Finnish
+  NativeName: Suomi
+  Iso639: fi
+  Version: 1
+  ManualAvailable: 1
+  DisplayMethod: 0
+  VentGas: PURA KAASUN PAINETTA?
+  Detonate: "R\xC4J\xC4YT\xC4?"
+  VentingComplete: 'VENTING
+
+    COMPLETE'
+  VentingPrevents: "PURKAMINEN\nEST\xC4\xC4\nR\xC4J\xC4HDYKSET"
+  YesNo: K/E
+  Yes: "KYLL\xC4"
+  No: EI
+  Y: K
+  N: E
+  LogPromptDetonate: 'Prompt: Detonate?'
+  LogPromptVentGas: 'Prompt: Vent Gas?'
+  LogTooLate: You didn't press the button in time.
+  LogYesCorrect: Pressed Yes. Disarmed!
+  LogYesIncorrect: Pressed Yes. Strike!
+  LogNoCorrect: Pressed No. Disarmed!
+  LogNoIncorrect: Pressed No. Venting prevents explosions. Prompting again.

@@ -19,14 +19,15 @@ public class LanguageVentingGas : Language {
 	[Header("Module Text")]
 	public string VentGas = "VENT GAS?";
 	public string Detonate = "DETONATE?";
-	public string YesNo = "Y/N";
 	[TextArea]
 	public string VentingComplete = "VENTING\nCOMPLETE";
 	[TextArea]
 	public string VentingPrevents = "VENTING\nPREVENTS\nEXPLOSIONS";
+	
+	[Space]
+	public string YesNo = "Y/N";
 	public string Yes = "YES";
 	public string No = "NO";
-
 	public string Y = "Y";
 	public string N = "N";
 

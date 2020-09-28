@@ -9,18 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Language for Vent Gas
+  m_Name: Default - Copy (16)
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: English
+  Name: Default
   NativeName: English
-  Iso639: en
+  Iso639: '-'
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   VentGas: VENT GAS?
   Detonate: DETONATE?
-  YesNo: Y/N
   VentingComplete: 'VENTING
 
     COMPLETE'
@@ -29,6 +28,7 @@ MonoBehaviour:
     PREVENTS
 
     EXPLOSIONS'
+  YesNo: Y/N
   Yes: YES
   No: NO
   Y: Y
