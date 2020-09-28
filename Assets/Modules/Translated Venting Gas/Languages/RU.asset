@@ -9,30 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Default - Copy (10)
+  m_Name: RU
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
-  Iso639: '-'
+  Name: Russian
+  NativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+  Iso639: ru
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: VENT GAS?
-  Detonate: DETONATE?
-  VentingComplete: 'VENTING
-
-    COMPLETE'
-  VentingPrevents: 'VENTING
-
-    PREVENTS
-
-    EXPLOSIONS'
-  YesNo: Y/N
-  Yes: YES
-  No: NO
-  Y: Y
-  N: N
+  VentGas: "\u0421\u041F\u0423\u0421\u0422\u0418\u0422\u042C \u0413\u0410\u0417?"
+  Detonate: "\u0412\u0417\u041E\u0420\u0412\u0410\u0422\u042C?"
+  VentingComplete: "\u0421\u041F\u0423\u0421\u041A\n\u0417\u0410\u0412\u0415\u0420\u0428\u0415\u041D"
+  VentingPrevents: "\u0421\u041F\u0423\u0421\u041A\n\u0421\u041F\u0410\u0421\u0415\u0422
+    \u041E\u0422\n\u0412\u0417\u0420\u042B\u0412\u041E\u0412"
+  YesNo: "\u0414/\u041D"
+  Yes: "\u0414\u0410"
+  No: "\u041D\u0415\u0422"
+  Y: "\u0414"
+  N: "\u041D"
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
   LogTooLate: You didn't press the button in time.

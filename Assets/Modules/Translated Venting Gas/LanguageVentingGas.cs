@@ -17,12 +17,10 @@ public class LanguageVentingGas : Language {
 	public DisplayMethods DisplayMethod = DisplayMethods.Default;
 
 	[Header("Module Text")]
-	public string VentGas = "VENT GAS?";
-	public string Detonate = "DETONATE?";
-	[TextArea]
-	public string VentingComplete = "VENTING\nCOMPLETE";
-	[TextArea]
-	public string VentingPrevents = "VENTING\nPREVENTS\nEXPLOSIONS";
+	[TextArea] public string VentGas = "VENT GAS?";
+	[TextArea] public string Detonate = "DETONATE?";
+	[TextArea] public string VentingComplete = "VENTING\nCOMPLETE";
+	[TextArea] public string VentingPrevents = "VENTING\nPREVENTS\nEXPLOSIONS";
 	
 	[Space]
 	public string YesNo = "Y/N";

@@ -9,30 +9,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Default - Copy (11)
+  m_Name: JA
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
-  Iso639: '-'
+  Name: Japanese
+  NativeName: "\u65E5\u672C\u8A9E"
+  Iso639: ja
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: VENT GAS?
-  Detonate: DETONATE?
-  VentingComplete: 'VENTING
-
-    COMPLETE'
-  VentingPrevents: 'VENTING
-
-    PREVENTS
-
-    EXPLOSIONS'
-  YesNo: Y/N
-  Yes: YES
-  No: NO
-  Y: Y
-  N: N
+  VentGas: "\uFF76\uFF9E\uFF7D\uFF87\uFF77 \uFF66\uFF7C\uFF8F \uFF7D\uFF76?"
+  Detonate: "\uFF8A\uFF9E\uFF78\uFF8A \uFF7C\uFF8F\uFF7D \uFF76??"
+  VentingComplete: "\u30AC\u30B9\u30CC\u30AD\n\u30AB\u30F3\u30EA\u30E7\u30A6"
+  VentingPrevents: "\u30AC\u30B9\u30CC\u30AD\u3000\u30CF\n\u30D0\u30AF\u30CF\u30C4\u30F2\n\u30D5\u30BB\u30AE\u30DE\u30B9"
+  YesNo: 
+  Yes: "\u30CF\u30A4"
+  No: "\u30A4\u30A4\u30A8"
+  Y: "\u25EF"
+  N: "\u2715"
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
   LogTooLate: You didn't press the button in time.

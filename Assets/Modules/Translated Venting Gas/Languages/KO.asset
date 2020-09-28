@@ -9,28 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Default - Copy (12)
+  m_Name: KO
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
-  Iso639: '-'
+  Name: Korean
+  NativeName: "\uD55C\uAD6D\uC5B4"
+  Iso639: ko
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: VENT GAS?
-  Detonate: DETONATE?
-  VentingComplete: 'VENTING
-
-    COMPLETE'
-  VentingPrevents: 'VENTING
-
-    PREVENTS
-
-    EXPLOSIONS'
-  YesNo: Y/N
-  Yes: YES
-  No: NO
+  VentGas: "\uAC00\uC2A4\uB97C \uBC30\uCD9C\uD560\uAE4C\uC694?"
+  Detonate: "\uD3ED\uD30C\uC2DC\uD0AC\uAE4C\uC694?"
+  VentingComplete: "\uBC30\uCD9C \uC644\uB8CC"
+  VentingPrevents: "\uAC00\uC2A4\uB97C \uBC30\uCD9C\uD574\uC57C\n\uD3ED\uBC1C\uD558\uC9C0\n\uC54A\uC2B5\uB2C8\uB2E4"
+  YesNo: "\uC608(Y)/\uC544\uB2C8\uC624(N)"
+  Yes: "\uC608"
+  No: "\uC544\uB2C8\uC624"
   Y: Y
   N: N
   LogPromptDetonate: 'Prompt: Detonate?'

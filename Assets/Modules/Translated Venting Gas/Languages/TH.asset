@@ -9,30 +9,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Default - Copy (15)
+  m_Name: TH
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
-  Iso639: '-'
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
+  Iso639: th
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: VENT GAS?
-  Detonate: DETONATE?
-  VentingComplete: 'VENTING
-
-    COMPLETE'
-  VentingPrevents: 'VENTING
-
-    PREVENTS
-
-    EXPLOSIONS'
-  YesNo: Y/N
-  Yes: YES
-  No: NO
-  Y: Y
-  N: N
+  VentGas: "\u0E23\u0E30\u0E1A\u0E32\u0E22\u0E41\u0E01\u0E4A\u0E2A?"
+  Detonate: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19?"
+  VentingComplete: "\u0E23\u0E30\u0E1A\u0E32\u0E22\u0E41\u0E01\u0E4A\u0E2A\u0E41\u0E25\u0E49\u0E27"
+  VentingPrevents: "\u0E23\u0E30\u0E1A\u0E32\u0E22\u0E41\u0E01\u0E4A\u0E2A\n\u0E0A\u0E48\u0E27\u0E22\u0E44\u0E21\u0E48\u0E43\u0E2B\u0E49\u0E23\u0E30\u0E40\u0E1A\u0E34\u0E14"
+  YesNo: "\u0E0A/\u0E21"
+  Yes: "\u0E43\u0E0A\u0E48"
+  No: "\u0E44\u0E21\u0E48"
+  Y: "\u0E0A"
+  N: "\u0E21"
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
   LogTooLate: You didn't press the button in time.
