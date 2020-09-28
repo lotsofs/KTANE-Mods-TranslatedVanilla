@@ -39,7 +39,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		_gameInfo = GetComponent<KMGameInfo>();
 		_bombInfo = GetComponent<KMBombInfo>();
 		_translation = GetComponent<TranslatedTheButton> ();
-		_translation.SetLanguage(name);
+		_translation.GenerateLanguage(name);
 		LanguageTheButton language = _translation.Language;
 
 		// Sets the appearance of the button

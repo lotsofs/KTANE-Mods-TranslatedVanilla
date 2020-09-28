@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using KModkit;
 using NotVanillaModulesLib;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
-	private Coroutine coroutine;
-	private VentingGasButton correctButton;
+	private Coroutine _coroutine;
+	private VentingGasButton _correctButton;
+	private TranslatedVentingGas _translation; 
 
 	public override void Start() {
 		base.Start();
@@ -21,48 +18,52 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		GetComponent<KMBombInfo>().OnBombSolved = Connector.DisableDisplay;
 		Connector.ButtonPressed += Connector_ButtonPressed;
 
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, "VENT GAS?");
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, "DETONATE?");
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, "VENTING\nCOMPLETE");
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, "VENTING\nPREVENTS\nEXPLOSIONS");
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, "Y/N");
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, "Y/N");
-		Connector.InputText = "";
+		_translation = GetComponent<TranslatedVentingGas>();
+
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas);
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate);
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, _translation.Language.VentingComplete);
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, _translation.Language.VentingPrevents);
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.YesNo);
+		Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.YesNo);
+		Connector.InputText = string.Empty;
 	}
 
 	public void DisarmNeedy(bool ventingComplete = false) {
-		Connector.InputText = "";
+		Connector.InputText = string.Empty;
 		Connector.DisableDisplay();
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, ventingComplete);
-		if (coroutine != null) {
-			StopCoroutine(coroutine);
-			coroutine = null;
+		if (_coroutine != null) {
+			StopCoroutine(_coroutine);
+			_coroutine = null;
 		}
 	}
 
 	private void KMNeedyModule_OnNeedyActivation() {
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, false);
 		if (Random.Range(0f, 1f) < 0.1f) {
-			correctButton = VentingGasButton.N;
+			_correctButton = VentingGasButton.N;
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.Detonate, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.DetonateYN, true);
+			Log(_translation.Language.LogPromptDetonate);
 		}
 		else {
-			correctButton = VentingGasButton.Y;
+			_correctButton = VentingGasButton.Y;
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
+			Log(_translation.Language.LogPromptVentGas);
 		}
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
 	}
 
 	private void KMNeedyModule_OnTimerExpired() {
-		Log("You didn't press the button in time.");
+		Log(_translation.Language.LogTooLate);
 		Connector.KMNeedyModule.HandleStrike();
 		DisarmNeedy();
 	}
 
 	private void Connector_ButtonPressed(object sender, VentingGasButtonEventArgs e) {
-		if (coroutine == null) coroutine = StartCoroutine(ButtonPressedCoroutine(e.Button));
+		if (_coroutine == null) _coroutine = StartCoroutine(ButtonPressedCoroutine(e.Button));
 	}
 
 	private IEnumerator ButtonPressedCoroutine(VentingGasButton button) {
@@ -70,7 +71,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		bool rightToLeft = false; // todo: implement RTL :p
 		button = button == VentingGasButton.Y ^ rightToLeft ? VentingGasButton.Y : VentingGasButton.N;   
 
-		var label = button == VentingGasButton.Y ? "YES" : "NO";
+		var label = button == VentingGasButton.Y ? _translation.Language.Yes : _translation.Language.No;
 		float inputTime = button == VentingGasButton.Y ? 1.5f : 1.0f;
 		float charInputDelay = inputTime / label.Length;
 		foreach (var c in label) {
@@ -79,29 +80,30 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		}
 		yield return new WaitForSeconds(0.5f);
 
-		bool correctPress = button == correctButton;
+		bool correctPress = button == _correctButton;
 
-		if (correctButton == VentingGasButton.N) {
-			if (button == correctButton) {
-				Log("You pressed N. That was correct.");
-		Connector.KMNeedyModule.HandlePass();
+		if (_correctButton == VentingGasButton.N) {
+			if (button == _correctButton) {
+				Log(_translation.Language.LogNoCorrect);
+				Connector.KMNeedyModule.HandlePass();
 			}
 			else {
-				Log("You pressed Y. That was incorrect.");
+				Log(_translation.Language.LogYesIncorrect);
 				Connector.KMNeedyModule.HandleStrike();
 			}
 			DisarmNeedy();
 			yield break;
 		}
-		else if (button == correctButton) {
-			Log("You pressed Y. That was correct.");
+		else if (button == _correctButton) {
+			Log(_translation.Language.LogYesCorrect);
 			Connector.KMNeedyModule.HandlePass();
 			DisarmNeedy(true);
 			yield break;
 		}
 		else {
+			Log(_translation.Language.LogNoIncorrect);
 			Connector.DisableDisplay();
-			Connector.InputText = "";
+			Connector.InputText = string.Empty;
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
 			yield return new WaitForSeconds(0.75f);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
@@ -116,7 +118,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
-			coroutine = null;
+			_coroutine = null;
 		}
 	}
 

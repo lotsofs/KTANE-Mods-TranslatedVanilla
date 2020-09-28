@@ -10,7 +10,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 
 	public TLanguage Language { get {
 			if (_language == null) {
-				SetLanguage(this.name);
+				GenerateLanguage(this.name);
 			}
 			return _language;
 		} 
@@ -35,9 +35,17 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 
 	void Awake() {
 		// reset everything to blank at the start of the mission
+		if (_extendedMissionSettings == null) {
+			_extendedMissionSettings = new EMSLanguagesPool();
+		}
 		_extendedMissionSettings.pool = null;
 		_extendedMissionSettings.status = EMSLanguagesPool.Statuses.Uninitialized;
-		_moduleLogName = GetComponent<KMBombModule>().ModuleDisplayName;
+		if (GetComponent<KMBombModule>() != null) {
+			_moduleLogName = GetComponent<KMBombModule>().ModuleDisplayName;
+		}
+		else {
+			_moduleLogName = GetComponent<KMNeedyModule>().ModuleDisplayName;
+		}
 	}
 
 	void Start() {
@@ -169,7 +177,12 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 
 		// finalize selection
 		LogFormat("Selected Language: {0}, {1} ({2})\n", _language.NativeName, _language.Name, _language.Iso639);
-		_sticker.GenerateText(_language.Iso639, _language.Version);
+		if (_sticker != null) {
+			_sticker.GenerateText(_language.Iso639, _language.Version);
+		}
+		else {
+			Debug.LogFormat("[Translated Modules Service] Module '{0}' has no sticker", _moduleLogName);
+		}
 	}
 
 	/// <summary>
@@ -188,7 +201,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 	/// <summary>
 	/// Select a language for this module.
 	/// </summary>
-	public void SetLanguage(string moduleName) {
+	public void GenerateLanguage(string moduleName) {
 		_moduleLogName = moduleName;
 
 		// debug

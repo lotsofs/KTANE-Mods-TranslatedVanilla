@@ -106,19 +106,19 @@ public class LanguageTheButton : Language {
 		};
 	}
 
-	public override string GetLabelFromEnglishName(string str) {
+	public string GetLabelFromEnglishName(string str) {
 		return _buttonLabels[str];
 	}
 
-	public override string GetLogFromEnglishName(string str) {
+	public string GetLogFromEnglishName(string str) {
 		return _logLabels[str];
 	}
 
-	public override Sprite GetSpriteFromEnglishName(string str) {
+	public Sprite GetSpriteFromEnglishName(string str) {
 		return _spriteLabels[str];
 	}
 
-	public override int GetSizeFromEnglishName(string str) {
+	public int GetSizeFromEnglishName(string str) {
 		return _sizeLabels[str];
 	}
 }
