@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Translated The Button Test Missions
   Sections:
-  - Title: 11 Tharagon Originals
+  - Title: 11 The Classics
     MissionIDs:
     - TheButton_11CS
     - TheButton_11DA
@@ -40,7 +40,6 @@ MonoBehaviour:
     MissionIDs:
     - TheButton_11FY
     - TheButton_11GA
-    - TheButton_11TR
   - Title: Test Missions
     MissionIDs:
     - TheButton_5Fixed6Random
