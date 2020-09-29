@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 	private Coroutine _coroutine;
+	private bool _active = false;
 	private VentingGasButton _correctButton;
 	private TranslatedVentingGas _translation; 
 
@@ -33,6 +34,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		Connector.InputText = string.Empty;
 		Connector.DisableDisplay();
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, ventingComplete);
+		_active = false;
 		if (_coroutine != null) {
 			StopCoroutine(_coroutine);
 			_coroutine = null;
@@ -40,6 +42,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private void KMNeedyModule_OnNeedyActivation() {
+		_active = true;
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, false);
 		if (Random.Range(0f, 1f) < 0.1f) {
 			_correctButton = VentingGasButton.N;
@@ -63,7 +66,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private void Connector_ButtonPressed(object sender, VentingGasButtonEventArgs e) {
-		if (_coroutine == null) _coroutine = StartCoroutine(ButtonPressedCoroutine(e.Button));
+		if (_coroutine == null && _active) _coroutine = StartCoroutine(ButtonPressedCoroutine(e.Button));
 	}
 
 	private IEnumerator ButtonPressedCoroutine(VentingGasButton button) {
@@ -85,12 +88,12 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		if (_correctButton == VentingGasButton.N) {
 			if (button == _correctButton) {
 				Log(_translation.Language.LogNoCorrect);
-				Connector.KMNeedyModule.HandlePass();
 			}
 			else {
 				Log(_translation.Language.LogYesIncorrect);
 				Connector.KMNeedyModule.HandleStrike();
 			}
+			Connector.KMNeedyModule.HandlePass();
 			DisarmNeedy();
 			yield break;
 		}
