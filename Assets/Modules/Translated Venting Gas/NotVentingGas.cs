@@ -8,6 +8,9 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 	private Coroutine _coroutine;
 	private bool _active = false;
+	private bool _multilineVent = false;
+	private bool _multilineDetonate = false;
+
 	private VentingGasButton _correctButton;
 	private TranslatedVentingGas _translation; 
 
@@ -21,12 +24,26 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 		_translation = GetComponent<TranslatedVentingGas>();
 
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas);
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate);
+		if (_translation.Language.VentGas.Contains("\n")) {
+			_multilineVent = true;
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
+		}
+		else {
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas);
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.YesNo);
+		}
+		if (_translation.Language.Detonate.Contains("\n")) {
+			_multilineDetonate = true;
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
+		}
+		else {
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate);
+			Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.YesNo);
+		}
 		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, _translation.Language.VentingComplete);
 		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, _translation.Language.VentingPrevents);
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.YesNo);
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.YesNo);
 		Connector.InputText = string.Empty;
 	}
 
@@ -49,12 +66,18 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.Detonate, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.DetonateYN, true);
 			Log(_translation.Language.LogPromptDetonate);
+			if (_multilineDetonate) {
+				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+			}
 		}
 		else {
 			_correctButton = VentingGasButton.Y;
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
 			Log(_translation.Language.LogPromptVentGas);
+			if (_multilineVent) {
+				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+			}
 		}
 		Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
 	}
@@ -70,15 +93,19 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	}
 
 	private IEnumerator ButtonPressedCoroutine(VentingGasButton button) {
-		// if RTL, we actually pressed the other button
-		bool rightToLeft = false; // todo: implement RTL :p
-		button = button == VentingGasButton.Y ^ rightToLeft ? VentingGasButton.Y : VentingGasButton.N;   
+		button = button == VentingGasButton.Y ^ _translation.Language.RightToLeft ? VentingGasButton.Y : VentingGasButton.N;   
 
 		var label = button == VentingGasButton.Y ? _translation.Language.Yes : _translation.Language.No;
 		float inputTime = button == VentingGasButton.Y ? 1.5f : 1.0f;
 		float charInputDelay = inputTime / label.Length;
-		foreach (var c in label) {
-			Connector.InputText += c;
+		Connector.InputText = "";
+		for (int i = 0; i < label.Length; i++) {
+			if (_translation.Language.RightToLeft) {
+				Connector.InputText = label[label.Length - 1 - i] + Connector.InputText;
+			}
+			else { 
+				Connector.InputText += label[i];
+			}
 			yield return new WaitForSeconds(charInputDelay);
 		}
 		yield return new WaitForSeconds(0.5f);
@@ -121,6 +148,9 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
 			Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
+			if (_multilineVent) {
+				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+			}
 			_coroutine = null;
 		}
 	}
