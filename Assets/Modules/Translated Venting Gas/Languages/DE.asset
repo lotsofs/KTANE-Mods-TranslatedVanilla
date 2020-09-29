@@ -18,7 +18,10 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: GAS ABLASSEN?
+  RightToLeft: 0
+  VentGas: 'GAS
+
+    ABLASSEN?'
   Detonate: SPRENGEN?
   VentingComplete: 'GAS
 

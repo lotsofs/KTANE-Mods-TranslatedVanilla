@@ -18,8 +18,11 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: "\xC9VACUER LE GAZ?"
-  Detonate: PROVOQUER L'EXPLOSION?
+  RightToLeft: 0
+  VentGas: "\xC9VACUER\nLE GAZ?"
+  Detonate: 'PROVOQUER
+
+    L''EXPLOSION?'
   VentingComplete: "\xC9VACUATION\nTERMIN\xC9E"
   VentingPrevents: "\xC9VACUER\n\xC9VITE LES\nEXPLOSIONS"
   YesNo: O/N

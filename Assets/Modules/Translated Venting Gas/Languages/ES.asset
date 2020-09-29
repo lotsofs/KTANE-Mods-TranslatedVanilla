@@ -18,7 +18,8 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: "\xBFEVACUAR GAS?"
+  RightToLeft: 0
+  VentGas: "\xBFEVACUAR\nGAS?"
   Detonate: DETONAR?
   VentingComplete: 'EVACUADO
 

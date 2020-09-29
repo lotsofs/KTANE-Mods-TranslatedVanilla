@@ -18,9 +18,9 @@ MonoBehaviour:
   Version: 0
   ManualAvailable: 1
   DisplayMethod: 0
+  AutoRightToLeft: 0
   VentGas: VENT GAS?
   Detonate: DETONATE?
-  YesNo: Y/N
   VentingComplete: 'VENTING
 
     COMPLETE'
@@ -29,6 +29,7 @@ MonoBehaviour:
     PREVENTS
 
     EXPLOSIONS'
+  YesNo: Y/N
   Yes: YES
   No: NO
   Y: Y

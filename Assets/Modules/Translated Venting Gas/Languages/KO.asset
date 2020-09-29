@@ -18,7 +18,8 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: "\uAC00\uC2A4\uB97C \uBC30\uCD9C\uD560\uAE4C\uC694?"
+  RightToLeft: 0
+  VentGas: "\uAC00\uC2A4\uB97C\n\uBC30\uCD9C\uD560\uAE4C\uC694?"
   Detonate: "\uD3ED\uD30C\uC2DC\uD0AC\uAE4C\uC694?"
   VentingComplete: "\uBC30\uCD9C \uC644\uB8CC"
   VentingPrevents: "\uAC00\uC2A4\uB97C \uBC30\uCD9C\uD574\uC57C\n\uD3ED\uBC1C\uD558\uC9C0\n\uC54A\uC2B5\uB2C8\uB2E4"

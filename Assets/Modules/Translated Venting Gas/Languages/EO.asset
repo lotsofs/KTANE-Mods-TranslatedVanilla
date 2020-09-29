@@ -18,7 +18,10 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: BLOVLASU GASON?
+  RightToLeft: 0
+  VentGas: 'BLOVLASU
+
+    GASON?'
   Detonate: EKSPLODIGI?
   VentingComplete: 'BLOVLASO
 

@@ -18,7 +18,10 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: PURA KAASUN PAINETTA?
+  RightToLeft: 0
+  VentGas: 'PURA KAASUN
+
+    PAINETTA?'
   Detonate: "R\xC4J\xC4YT\xC4?"
   VentingComplete: 'VENTING
 

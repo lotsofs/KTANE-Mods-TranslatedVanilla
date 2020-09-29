@@ -18,16 +18,19 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
+  RightToLeft: 0
   VentGas: VENT GAS?
   Detonate: DETONATE?
   VentingComplete: 'VENTING
 
     COMPLETE'
-  VentingPrevents: 'VENTING
-
-    PREVENTS
-
-    EXPLOSIONS'
+  VentingPrevents: "VENTING\nPREVENTS\r\nEXPLOSIONS\r"
+  VentGasLine1: VENT GAS?
+  VentGasLine2: Y/N
+  VentGasLine3: 
+  DetonateLine1: DETONATE?
+  DetonateLine2: Y/N
+  DetonateLine3: 
   YesNo: Y/N
   Yes: YES
   No: NO

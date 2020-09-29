@@ -9,29 +9,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46c7c9b1252046c448878abc096d18bb, type: 3}
-  m_Name: Default - Copy (17)
+  m_Name: PL
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
-  Iso639: '-'
+  Name: Polish
+  NativeName: Polski
+  Iso639: pl
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
-  VentGas: VENT GAS?
-  Detonate: DETONATE?
-  VentingComplete: 'VENTING
+  RightToLeft: 0
+  VentGas: "WENTYLOWA\u0106\nGAZ?"
+  Detonate: "DETONOWA\u0106?"
+  VentingComplete: 'WENTYLOWANIE
 
-    COMPLETE'
-  VentingPrevents: 'VENTING
+    KOMPLETNE'
+  VentingPrevents: 'WENTYLOWANIE
 
-    PREVENTS
+    ZAPOBIEGA
 
-    EXPLOSIONS'
-  YesNo: Y/N
-  Yes: YES
-  No: NO
-  Y: Y
+    EKSPLOZJI'
+  YesNo: T/N
+  Yes: TAK
+  No: NIE
+  Y: T
   N: N
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
