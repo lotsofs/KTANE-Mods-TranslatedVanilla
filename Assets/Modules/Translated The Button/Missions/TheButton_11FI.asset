@@ -32,4 +32,4 @@ MonoBehaviour:
       SpecialComponentType: 0
       ModTypes:
       - 'Extended Settings {"BigButtonTranslated_RandomLanguages": ["fi"]}'
-  PacingEventsEnabled: 0
+  PacingEventsEnabled: 1

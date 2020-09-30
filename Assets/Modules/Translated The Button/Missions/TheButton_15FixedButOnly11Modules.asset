@@ -33,4 +33,4 @@ MonoBehaviour:
       ModTypes:
       - 'Extended Settings { "BigButtonTranslated_FixedLanguages": ["de","nl","fr","it","sv","cs","da","no","fi","en","he","th","ja","zh","ko"],  BigButtonTranslated_ShuffleFixedLanguages:
         true }'
-  PacingEventsEnabled: 0
+  PacingEventsEnabled: 1

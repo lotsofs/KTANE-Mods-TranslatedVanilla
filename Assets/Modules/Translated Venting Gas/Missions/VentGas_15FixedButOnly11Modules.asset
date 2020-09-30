@@ -22,7 +22,7 @@ MonoBehaviour:
     ComponentPools:
     - Count: 1
       AllowedSources: 2
-      ComponentTypes: 09000000
+      ComponentTypes: 0a000000
       SpecialComponentType: 0
       ModTypes: []
     - Count: 10
@@ -38,4 +38,4 @@ MonoBehaviour:
       ModTypes:
       - 'Extended Settings { "VentGasTranslated_FixedLanguages": ["de","nl","fr","it","sv","cs","da","no","fi","en","he","th","ja","zh","ko"],  VentGasTranslated_ShuffleFixedLanguages:
         true }'
-  PacingEventsEnabled: 0
+  PacingEventsEnabled: 1
