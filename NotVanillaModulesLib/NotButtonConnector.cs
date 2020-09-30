@@ -17,6 +17,7 @@ namespace NotVanillaModulesLib {
 		public TextMesh TestModelColourblindLightText;
 
 		public TextMesh CustomTextMesh;
+		public string[] ColorBlindLabels;
 
 		public Material[] Materials;
 		public Material[] ColourblindMaterials;
@@ -106,9 +107,9 @@ namespace NotVanillaModulesLib {
 		public override bool ColourblindMode {
 			get => base.ColourblindMode;
 			set {
-				base.ColourblindMode = value;
-				this.SetColour(this.colour);
-				this.SetLightColour(this.lightColour);
+				//base.ColourblindMode = value;
+				//this.SetColour(this.colour);
+				//this.SetLightColour(this.lightColour);
 			}
 		}
 
@@ -294,10 +295,10 @@ namespace NotVanillaModulesLib {
 			} 
 			else {
 				var text = colour switch {
-					ButtonLightColour.Red => "R", 
-					ButtonLightColour.Yellow => "Y",
-					ButtonLightColour.Blue => "B",
-					ButtonLightColour.White => "W", 
+					ButtonLightColour.Red => ColorBlindLabels[0], 
+					ButtonLightColour.Yellow => ColorBlindLabels[1],
+					ButtonLightColour.Blue => ColorBlindLabels[2],
+					ButtonLightColour.White => ColorBlindLabels[3], 
 					_ => ""
 				};
 				if (this.TestMode) {

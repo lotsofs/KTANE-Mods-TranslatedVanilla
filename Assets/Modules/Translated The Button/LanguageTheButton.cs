@@ -44,6 +44,16 @@ public class LanguageTheButton : Language {
 	public Sprite SpriteAbort;
 	public Sprite SpriteDetonate;
 
+	//[Header("Color Blind Support (Not Implemented)")]
+	//public Material ButtonRed;
+	//public Material ButtonYellow;
+	//public Material ButtonBlue;
+	//public Material ButtonWhite;
+	//[TextArea] public string StripRed;
+	//[TextArea] public string StripYellow;
+	//[TextArea] public string StripBlue;
+	//[TextArea] public string StripWhite;
+
 	[Header("Log File Ruling Text")]
 	public string LogRed = "Red";
 	public string LogYellow = "Yellow";

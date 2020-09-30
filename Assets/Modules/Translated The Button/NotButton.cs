@@ -180,7 +180,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 	public bool TwitchShouldCancelCommand;
 
 	public IEnumerator ProcessTwitchCommand(string command) {
-		if (TwitchColourblindModeCommand(command)) { yield return null; yield break; }
+		//if (TwitchColourblindModeCommand(command)) { yield return null; yield break; }
 
 		var tokens = command.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
 		if (tokens.Length == 0) yield break;

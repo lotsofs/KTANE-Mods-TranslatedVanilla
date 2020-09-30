@@ -37,6 +37,14 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
+  ButtonRed: {fileID: 0}
+  ButtonYellow: {fileID: 0}
+  ButtonBlue: {fileID: 0}
+  ButtonWhite: {fileID: 0}
+  StripRed: "\u041A"
+  StripYellow: "\u0416"
+  StripBlue: "\u0421"
+  StripWhite: "\u0411"
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue
