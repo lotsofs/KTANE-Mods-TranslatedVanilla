@@ -19,7 +19,7 @@ MonoBehaviour:
   ManualAvailable: 1
   DisplayMethod: 0
   Press: "DR\xDCCKEN"
-  Hold: "GEDR\xDCCKT HALTEN"
+  Hold: "GEDR\xDCCKT\nHALTEN"
   Abort: ABBRECHEN
   Detonate: "Z\xDCNDEN"
   LogPress: "Dr\xFCcken"

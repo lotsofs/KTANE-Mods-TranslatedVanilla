@@ -19,7 +19,9 @@ MonoBehaviour:
   ManualAvailable: 1
   DisplayMethod: 0
   Press: PREMI
-  Hold: TIENI PREMUTO
+  Hold: 'TIENI
+
+    PREMUTO'
   Abort: ANNULLA
   Detonate: DETONA
   LogPress: Premi

@@ -16,10 +16,10 @@ public class LanguageTheButton : Language {
 	public DisplayMethods DisplayMethod = DisplayMethods.Default;
 
 	[Header("Module Text")]
-	public string Press = "PRESS";
-	public string Hold = "HOLD";
-	public string Abort = "ABORT";
-	public string Detonate = "DETONATE";
+	[TextArea] public string Press = "PRESS";
+	[TextArea] public string Hold = "HOLD";
+	[TextArea] public string Abort = "ABORT";
+	[TextArea] public string Detonate = "DETONATE";
 
 	[Header("Log File Text")]
 	public string LogPress = "Press";

@@ -223,7 +223,7 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void SetLabel(string label, Font font, Material fontMaterial, int fontSize) {
-			label = label.Replace(@"\n", Environment.NewLine);
+			//label = label.Replace(@"\n", Environment.NewLine);
 			if (this.TestMode) {
 				this.TestModelText.text = label;
 				if (font != null && fontMaterial != null) {
