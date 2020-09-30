@@ -12,7 +12,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	private bool _multilineDetonate = false;
 
 	private VentingGasButton _correctButton;
-	private TranslatedVentingGas _translation; 
+	private TranslatedVentingGas _translation;
 
 	public override void Start() {
 		base.Start();
@@ -23,6 +23,12 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		Connector.ButtonPressed += Connector_ButtonPressed;
 
 		_translation = GetComponent<TranslatedVentingGas>();
+		string name = string.Format("{0} #{1}", Connector.KMNeedyModule.ModuleDisplayName, Connector.ModuleID);
+		_translation.GenerateLanguage(name);
+
+		if (_translation.Language.DisplayMethod == LanguageVentingGas.DisplayMethods.CustomTextMesh) {
+			Connector.UseCustomDisplay();
+		}
 
 		if (_translation.Language.VentGas.Contains("\n")) {
 			_multilineVent = true;

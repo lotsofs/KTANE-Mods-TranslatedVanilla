@@ -25,16 +25,17 @@ namespace NotVanillaModulesLib {
 		private TextMeshPro[] displayTexts;
 		private KeypadButton[] buttons;
 #endif
+		private bool _useCustomDisplay = false;
 
 		public string InputText {
 			get {
 #if (!DEBUG)
-				if (!this.TestMode) return this.displayTexts[(int)Texts.InputText].text;
+				if (!this.TestMode && !_useCustomDisplay) return this.displayTexts[(int)Texts.InputText].text;
 #endif
 				return this.TestModelDisplayTexts[(int)Texts.InputText].text;
 			}
 			set {
-				if (this.TestMode) this.TestModelDisplayTexts[(int)Texts.InputText].text = value;
+				if (this.TestMode && !_useCustomDisplay) this.TestModelDisplayTexts[(int)Texts.InputText].text = value;
 #if (!DEBUG)
 				else this.displayTexts[(int)Texts.InputText].text = value;
 #endif
@@ -42,7 +43,7 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void SetDisplayActive(Texts display, bool active) {
-			if (!this.TestMode) {
+			if (!this.TestMode && !_useCustomDisplay) {
 #if (!DEBUG)
 				displayTexts[(int)display].gameObject.SetActive(active);
 #endif
@@ -53,11 +54,9 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void SetDisplayText(Texts display, string text) {
-			if (!this.TestMode) {
+			if (!this.TestMode && !_useCustomDisplay) {
 #if (!DEBUG)
-				Log(text);
 				displayTexts[(int)display].text = text;
-				Log(displayTexts[(int)display].text);
 #endif
 			}
 			else {
@@ -66,7 +65,7 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void DisableDisplay() {
-			if (!this.TestMode) {
+			if (!this.TestMode && !_useCustomDisplay) {
 #if (!DEBUG)
 				foreach (var text in this.displayTexts) {
 					text.gameObject.SetActive(false);
@@ -91,8 +90,21 @@ namespace NotVanillaModulesLib {
 			}
 			else {
 				TestModelButtons[0].TextMesh.text = no;
-				TestModelButtons[0].TextMesh.text = yes;
+				TestModelButtons[1].TextMesh.text = yes;
 			}
+		}
+		
+		public void UseCustomDisplay() {
+			_useCustomDisplay = true;
+#if (!DEBUG)
+			foreach (TextMeshPro tmp in displayTexts) {
+				tmp.gameObject.SetActive(false);
+			}
+			for (int i = 0; i < TestModelDisplayTexts.Length; i++) {
+				TestModelDisplayTexts[i].transform.SetParent(this.transform, true);
+				TestModelDisplayTexts[i].gameObject.SetActive(false);
+			}
+#endif
 		}
 
 		protected override void AwakeLive() {
