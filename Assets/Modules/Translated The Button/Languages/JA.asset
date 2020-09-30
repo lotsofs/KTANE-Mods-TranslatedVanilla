@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: ja
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 1
+  DisplayMethod: 0
   Press: "\u62BC\u3059"
   Hold: "\u9577\u62BC\u3057"
   Abort: "\u4E2D\u6B62"

@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: ko
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 0
+  DisplayMethod: 1
   RightToLeft: 0
   VentGas: "\uAC00\uC2A4\uB97C\n\uBC30\uCD9C\uD560\uAE4C\uC694?"
   Detonate: "\uD3ED\uD30C\uC2DC\uD0AC\uAE4C\uC694?"

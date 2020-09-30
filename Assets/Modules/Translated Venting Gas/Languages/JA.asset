@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: ja
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 0
+  DisplayMethod: 1
   RightToLeft: 0
   VentGas: "\uFF76\uFF9E\uFF7D\uFF87\uFF77 \uFF66\uFF7C\uFF8F \uFF7D\uFF76?"
   Detonate: "\uFF8A\uFF9E\uFF78\uFF8A \uFF7C\uFF8F\uFF7D \uFF76??"

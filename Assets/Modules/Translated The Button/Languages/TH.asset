@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: th
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 2
+  DisplayMethod: 1
   Press: "\u0E01\u0E14"
   Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"
   Abort: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"

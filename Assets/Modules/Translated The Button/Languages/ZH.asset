@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: zh
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 1
+  DisplayMethod: 0
   Press: "\u6309\u4E0B"
   Hold: "\u6309\u4F4F"
   Abort: "\u89E3\u9664"

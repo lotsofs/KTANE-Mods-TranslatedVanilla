@@ -5,7 +5,7 @@ public class LanguageVentingGas : Language {
 
 	public enum DisplayMethods {
 		Default,
-		NonLatin,
+		//FallbackFont,
 		CustomTextMesh,
 		Sprite
 	}

@@ -17,7 +17,7 @@ MonoBehaviour:
   Iso639: ko
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 2
+  DisplayMethod: 1
   Press: "\uB204\uB974\uC2DC\uC624"
   Hold: "\uB204\uB978\uCC44 \uC720\uC9C0"
   Abort: "\uC811\uADFC\uAE08\uC9C0"

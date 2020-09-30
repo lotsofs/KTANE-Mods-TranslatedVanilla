@@ -7,7 +7,6 @@ public class LanguageTheButton : Language {
 
 	public enum DisplayMethods {
 		Default,
-		NonLatin,
 		CustomTextMesh,
 		Sprite
 	}
