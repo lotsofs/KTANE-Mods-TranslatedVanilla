@@ -20,6 +20,7 @@ namespace NotVanillaModulesLib {
 		public GameObject TestModelDisplayBase;
 		public TextMesh[] TestModelDisplayTexts;
 		public TestModelButton[] TestModelButtons;
+		public TextMesh[] TestModelButtonLabels;
 
 #if (!DEBUG)
 		private TextMeshPro[] displayTexts;
@@ -35,10 +36,12 @@ namespace NotVanillaModulesLib {
 				return this.TestModelDisplayTexts[(int)Texts.InputText].text;
 			}
 			set {
-				if (this.TestMode && !_useCustomDisplay) this.TestModelDisplayTexts[(int)Texts.InputText].text = value;
+				if (!this.TestMode && !_useCustomDisplay) {
 #if (!DEBUG)
-				else this.displayTexts[(int)Texts.InputText].text = value;
+					this.displayTexts[(int)Texts.InputText].text = value;
 #endif
+				}
+				else this.TestModelDisplayTexts[(int)Texts.InputText].text = value;
 			}
 		}
 
@@ -82,16 +85,14 @@ namespace NotVanillaModulesLib {
 		public event EventHandler<VentingGasButtonEventArgs> ButtonPressed;
 
 		public void SetButtonTexts(string yes, string no) {
-			if (!this.TestMode) {
+			if (!this.TestMode && !_useCustomDisplay) {
 #if (!DEBUG)
 				buttons[0].GetComponentInChildren<TextMeshPro>().text = no;
 				buttons[1].GetComponentInChildren<TextMeshPro>().text = yes;
 #endif
 			}
-			else {
-				TestModelButtons[0].TextMesh.text = no;
-				TestModelButtons[1].TextMesh.text = yes;
-			}
+			TestModelButtonLabels[0].text = no;
+			TestModelButtonLabels[1].text = yes;
 		}
 		
 		public void UseCustomDisplay() {
@@ -103,6 +104,10 @@ namespace NotVanillaModulesLib {
 			for (int i = 0; i < TestModelDisplayTexts.Length; i++) {
 				TestModelDisplayTexts[i].transform.SetParent(this.transform, true);
 				TestModelDisplayTexts[i].gameObject.SetActive(false);
+			}
+			for (int i = 0; i < buttons.Length; i++) {
+				TestModelButtonLabels[i].transform.SetParent(buttons[i].transform, true);
+				buttons[i].GetComponentInChildren<TextMeshPro>().gameObject.SetActive(false);
 			}
 #endif
 		}

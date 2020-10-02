@@ -51,6 +51,9 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, _translation.Language.VentingComplete);
 		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, _translation.Language.VentingPrevents);
 		Connector.InputText = string.Empty;
+
+		if (_translation.Language.RightToLeft) Connector.SetButtonTexts(_translation.Language.N, _translation.Language.Y);
+		else Connector.SetButtonTexts(_translation.Language.Y, _translation.Language.N);
 	}
 
 	public void DisarmNeedy(bool ventingComplete = false) {

@@ -537,8 +537,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851467417882396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.016, y: 0.031899992, z: -0.065}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0104, y: 0.03497, z: -0.0557}
+  m_LocalScale: {x: 1, y: 1.2006738, z: 1}
   m_Children:
   - {fileID: 4529100519196430}
   - {fileID: 4406570221103074}
@@ -647,7 +647,7 @@ Transform:
   m_GameObject: {fileID: 1507920619782254}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.0014999993, y: 0.0012, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children: []
   m_Father: {fileID: 4237285986602768}
   m_RootOrder: 1
@@ -673,8 +673,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1956038280876260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016, y: 0.031899992, z: -0.065}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.015600002, y: 0.03497, z: -0.055699993}
+  m_LocalScale: {x: 1, y: 1.2006738, z: 1}
   m_Children:
   - {fileID: 4172589798208450}
   - {fileID: 4913206884895086}
@@ -786,8 +786,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1360441058408914}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0014999993, y: 0.0012, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0025, y: 0.0012, z: 0}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children: []
   m_Father: {fileID: 4595657874473990}
   m_RootOrder: 1
@@ -1159,7 +1159,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ec8718cd6865b644ea137dcc03268470, type: 2}
+  - {fileID: 2100000, guid: 72d9c428da0d3c44b8004f24ec76c5a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1397,7 +1397,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ec8718cd6865b644ea137dcc03268470, type: 2}
+  - {fileID: 2100000, guid: 72d9c428da0d3c44b8004f24ec76c5a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1572,15 +1572,15 @@ TextMesh:
   m_GameObject: {fileID: 1360441058408914}
   m_Text: Y
   m_OffsetZ: 0
-  m_CharacterSize: 0.004
+  m_CharacterSize: 0.5
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 72
+  m_FontSize: 244
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
+  m_Font: {fileID: 12800000, guid: 68a8eee8323649a41b96487d078424d4, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1761,15 +1761,15 @@ TextMesh:
   m_GameObject: {fileID: 1507920619782254}
   m_Text: N
   m_OffsetZ: 0
-  m_CharacterSize: 0.004
+  m_CharacterSize: 0.5
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 72
+  m_FontSize: 244
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
+  m_Font: {fileID: 12800000, guid: 68a8eee8323649a41b96487d078424d4, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1937,6 +1937,9 @@ MonoBehaviour:
   TestModelButtons:
   - {fileID: 114939825938256572}
   - {fileID: 114011926430243478}
+  TestModelButtonLabels:
+  - {fileID: 102910397621225152}
+  - {fileID: 102258464348075444}
 --- !u!114 &114397600501313570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1949,7 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114412416404026364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1962,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114421372251127308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1998,7 +2001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114493061341256400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2037,7 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114580077869081342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2076,7 +2079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114635921290592900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2105,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114736299816093810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2118,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/KT 3D Text Diffuse
+  - GUI/KT 3D Text
 --- !u!114 &114736945441748286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2184,7 +2187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text
 --- !u!114 &114858269429997652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2248,7 +2251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/KT 3D Text Diffuse
+  - GUI/KT 3D Text
 --- !u!114 &114984319595220040
 MonoBehaviour:
   m_ObjectHideFlags: 1
