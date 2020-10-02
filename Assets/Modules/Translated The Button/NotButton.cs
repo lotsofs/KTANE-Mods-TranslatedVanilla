@@ -44,8 +44,8 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 		// Sets the appearance of the button
 		Connector.SetColour(_color = (ButtonColour) Random.Range(0, 4));
-		_label = (ButtonLabel) Random.Range(0,4);
 
+		_label = (ButtonLabel) Random.Range(0,4);
 		if (_translation.Language.DisplayMethod == LanguageTheButton.DisplayMethods.CustomTextMesh) {
 			Connector.SetLabel(language.GetLabelFromEnglishName(_label.ToString()), language.Font, language.FontMaterial, language.GetSizeFromEnglishName(_label.ToString()));
 		}
@@ -61,13 +61,14 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		Connector.Held += Button_In;
 		Connector.Released += Button_Out;
 
-		// If the game uses a fallback font, the label will shine in the dark. So we do it manually.
-		if (_translation.Language.DisplayMethod != LanguageTheButton.DisplayMethods.Default) {
-			if (_color == ButtonColour.Blue || _color == ButtonColour.Red) {
-				_gameInfo.OnLightsChange += Connector.ToggleLabel;
-				Connector.ToggleLabel(false);
-			}
-		}
+		// todo: this seems not needed anymore. Maybe for sprites.
+		// Hide our custom text mesh/sprite in the dark.
+		//if (_translation.Language.DisplayMethod != LanguageTheButton.DisplayMethods.Default) {
+		//	if (_color == ButtonColour.Blue || _color == ButtonColour.Red) {
+		//		_gameInfo.OnLightsChange += Connector.ToggleLabel;
+		//		Connector.ToggleLabel(false);
+		//	}
+		//}
 
 		TwitchHelpMessage = string.Format("{1}, {2} - !{0} tap | !{0} hold | !{0} release 1:13 1:23", "{0}", _translation.Language.NativeName, _translation.Language.Name);
 
