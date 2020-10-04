@@ -27,7 +27,7 @@ namespace NotVanillaModulesLib {
 			this.spinners = wrapper.Component.Spinners;
 			this.submitButton = wrapper.Component.SubmitButton;
 			this.submitButton.transform.SetParent(this.transform, false);
-			this.submitButton.transform.Rotate(new Vector3(0, 180, 0));
+			//this.submitButton.transform.Rotate(new Vector3(0, 180, 0));
 			this.displayGlow = wrapper.Component.DisplayGlow;
 			this.displayGlow.transform.SetParent(this.transform, false);
 			this.displayGlow.SetActive(false);
