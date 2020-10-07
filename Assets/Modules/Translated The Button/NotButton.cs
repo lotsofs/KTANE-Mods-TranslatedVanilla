@@ -70,7 +70,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 		//	}
 		//}
 
-		TwitchHelpMessage = string.Format("{1}, {2} - !{0} tap | !{0} hold | !{0} release 1:13 1:23", "{0}", _translation.Language.NativeName, _translation.Language.Name);
+		TwitchHelpMessage = string.Format("{1}, {2} - !{0} tap | !{0} hold | !{0} release 7 (releases when there's a 7 in the timer)", "{0}", _translation.Language.NativeName, _translation.Language.Name);
 
 		// Stuff regarding the cover
 		var moduleSelectable = GetComponent<KMSelectable>();
@@ -176,7 +176,7 @@ public class NotButton : NotVanillaModule<NotButtonConnector> {
 
 	#region twitch plays
 
-	public static string TwitchHelpMessage = "Endonym, Anglonym - !{0} tap | !{0} hold | !{0} release 1:13 1:23";
+	public static string TwitchHelpMessage = "Endonym, Anglonym - !{0} tap | !{0} hold | !{0} release 7 (releases when there's a 7 in the timer)";
 	[NonSerialized]
 	public bool TwitchShouldCancelCommand;
 

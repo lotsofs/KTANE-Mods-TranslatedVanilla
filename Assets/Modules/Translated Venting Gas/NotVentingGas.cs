@@ -54,6 +54,8 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 		if (_translation.Language.RightToLeft) Connector.SetButtonTexts(_translation.Language.N, _translation.Language.Y);
 		else Connector.SetButtonTexts(_translation.Language.Y, _translation.Language.N);
+
+		TwitchHelpMessage = string.Format("{1}, {2} - !{0} {3} | !{0} {4}", "{0}", _translation.Language.NativeName, _translation.Language.Name, _translation.Language.Y, _translation.Language.N);
 	}
 
 	public void DisarmNeedy(bool ventingComplete = false) {
@@ -167,25 +169,21 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	#region TP
 
 	// Twitch Plays support
-	public static readonly string TwitchHelpMessage
-		= "!{0} N | !{0} Y";
+	public static string TwitchHelpMessage = "Endonym, Anglonym - !{0} NativeY | !{0} NativeN";
 
 	public IEnumerator ProcessTwitchCommand(string command) {
-		var tokens = command.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-		string buttonString; VentingGasButton button;
-		switch (tokens.Length) {
-			case 1: buttonString = tokens[0]; break;
-			case 2:
-				if (!tokens[0].EqualsIgnoreCase("press")) yield break;
-				buttonString = tokens[1];
-				break;
-			default: yield break;
+		command = command.Trim().ToUpperInvariant();
+		// todo: right to left languages get messed up with this?
+		VentingGasButton button;
+		if (command == _translation.Language.Y) {
+			button = _translation.Language.RightToLeft ? VentingGasButton.N : VentingGasButton.Y;
 		}
-		if (buttonString.Length == 0) yield break;
-		switch (buttonString[0]) {
-			case 'n': case 'N': button = VentingGasButton.N; break;
-			case 'y': case 'Y': button = VentingGasButton.Y; break;
-			default: yield break;
+		else if (command == _translation.Language.N) {
+			button = _translation.Language.RightToLeft ? VentingGasButton.Y : VentingGasButton.N;
+			Connector.TwitchPress(VentingGasButton.N);
+		}
+		else {
+			yield break;
 		}
 		yield return null;
 		Connector.TwitchPress(button);
