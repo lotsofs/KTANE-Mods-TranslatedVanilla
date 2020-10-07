@@ -20,7 +20,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 	string _moduleLogName;
 	TranslationSettings _settings;
 
-	[SerializeField] TLanguage[] _languages;
+	[SerializeField] protected TLanguage[] _languages;
 	[SerializeField] TLanguage _fallbackLanguage;
 	[SerializeField] Sticker _sticker;
 	[SerializeField] EMSLanguagesPool _extendedMissionSettings;
@@ -29,7 +29,7 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 	[SerializeField] string[] _oldSettingsFiles;
 
 	[Header("Debug")]
-	[SerializeField] TLanguage _languageOverride;
+	[SerializeField] protected TLanguage _languageOverride;
 	[SerializeField] string _editorExtendedMissionSettings;
 
 
