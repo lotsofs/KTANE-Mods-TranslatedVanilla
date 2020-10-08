@@ -10,7 +10,6 @@ namespace NotVanillaModulesLib {
 		public TestModelButton TestModelSubmitButton;
 
 		public event EventHandler SubmitPressed;
-		public event EventHandler SubmitReleased;
 
 #if (!DEBUG)
 		private IList<CharSpinner> spinners;
@@ -34,7 +33,6 @@ namespace NotVanillaModulesLib {
 
 			var keypadEventConnector = new KeypadEventConnector();
 			keypadEventConnector.ButtonPressed += this.KeypadEventConnector_ButtonPressed;
-			keypadEventConnector.ButtonReleased += this.KeypadEventConnector_ButtonReleased;
 			keypadEventConnector.Attach(this.submitButton);
 
 			FixKeypadButtons(this.GetComponentsInChildren<KeypadButton>());
@@ -44,11 +42,8 @@ namespace NotVanillaModulesLib {
 #if (!DEBUG)
 		private void KeypadEventConnector_ButtonPressed(object sender, KeypadButtonEventArgs e) {
 			this.SubmitPressed?.Invoke(this, EventArgs.Empty);
-			e.SuppressAutomaticRelease = true;
 		}
 
-		private void KeypadEventConnector_ButtonReleased(object sender, KeypadButtonEventArgs e) =>
-			this.SubmitReleased?.Invoke(this, EventArgs.Empty);
 #endif
 
 		protected override void AwakeTest() {
@@ -68,7 +63,6 @@ namespace NotVanillaModulesLib {
 		}
 		protected override void StartTest() {
 			this.TestModelSubmitButton.Pressed += (sender, e) => this.SubmitPressed?.Invoke(this, EventArgs.Empty);
-			this.TestModelSubmitButton.Released += (sender, e) => this.SubmitReleased?.Invoke(this, EventArgs.Empty);
 		}
 
 		public void Activate() {
@@ -79,6 +73,21 @@ namespace NotVanillaModulesLib {
 				this.displayGlow.SetActive(true);
 			}
 #endif
+		}
+
+		public string GetSpinnerChoices() {
+			string word = "";
+			for (int i = 0; i < 5; i++) {
+				if (this.TestMode) {
+					word += TestModelCharSpinners[i].SelectedChar;
+				}
+#if (!DEBUG)
+				else {
+					word += spinners[i].GetCurrentChar();
+				}
+#endif
+			}
+			return word;
 		}
 
 		public void SetSpinnerChoices(int index, IEnumerable<char> choices) {

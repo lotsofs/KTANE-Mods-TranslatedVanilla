@@ -34,9 +34,6 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 		base.Start();
 		this.Connector.KMBombModule.OnActivate = this.KMBombModule_OnActivate;
 		this.Connector.SubmitPressed += this.Connector_SubmitPressed;
-		this.Connector.SubmitReleased += this.Connector_SubmitReleased;
-
-
 
 		// fill all dials with all letters
 		List<char>[] dials = new List<char>[5];
@@ -58,6 +55,8 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			Connector.SetSpinnerChoices(i, dials[i]);
 		}
 	}
+
+	#region password generation
 
 	void ReduceToCharacterCount(List<char>[] dials, string correctWord) {
 		for (int i = 0; i < dials.Length; i++) {
@@ -118,16 +117,26 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 		return matches;
 	}
 
+	#endregion
+
 	private void KMBombModule_OnActivate() {
 		this.Connector.Activate();
 	}
 
 	private void Connector_SubmitPressed(object sender, EventArgs e) {
-		// solve the module
-	}
-
-	private void Connector_SubmitReleased(object sender, EventArgs e) {
-		// do nothing
+		string word = Connector.GetSpinnerChoices();
+		if (words.Contains(word)) {
+			if (!Solved) {
+				Debug.Log("Correctly submitted: " + word);
+				Disarm();
+			}
+		}
+		else {
+			if (!Solved) {
+				Debug.Log("Incorrectly submitted: " + word);
+				Connector.KMBombModule.HandleStrike();
+			}
+		}
 	}
 
 	#region TP
