@@ -19,22 +19,103 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 
 	private bool twitchStruck;
 
+	string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	string[] words = new string[] {
+			"ABOUT", "AFTER", "AGAIN", "BELOW", "COULD",
+			"EVERY", "FIRST", "FOUND", "GREAT", "HOUSE",
+			"LARGE", "LEARN", "NEVER", "OTHER", "PLACE",
+			"PLANT", "POINT", "RIGHT", "SMALL", "SOUND",
+			"SPELL", "STILL", "STUDY", "THEIR", "THERE",
+			"THESE", "THING", "THINK", "THREE", "WATER",
+			"WHERE", "WHICH", "WORLD", "WOULD", "WRITE"
+		};
+
 	public override void Start() {
 		base.Start();
 		this.Connector.KMBombModule.OnActivate = this.KMBombModule_OnActivate;
 		this.Connector.SubmitPressed += this.Connector_SubmitPressed;
 		this.Connector.SubmitReleased += this.Connector_SubmitReleased;
 
-		var letters = new char[26];
-		for (int i = 0; i < 26; ++i) letters[i] = (char) ('A' + i);
-		letters.Shuffle();
 
-		var choices = new char[5];
-		for (int i = 0; i < 5; ++i) {
-			Array.Copy(letters, i * 5, choices, 0, 5);
-			this.Connector.SetSpinnerChoices(i, choices);
+
+		// fill all dials with all letters
+		List<char>[] dials = new List<char>[5];
+		for (int i = 0; i < 5; i++) {
+			dials[i] = letters.ToList();
 		}
 
+		// select a word
+		string correctWord = words[Random.Range(0, words.Length)];
+		Log("Correct answer: " + correctWord);
+
+		PruneFalseMatches(dials, correctWord);
+		ReduceToCharacterCount(dials, correctWord);
+		if (false) { // TODO: if right to left
+			dials = dials.Reverse().ToArray();
+		}
+
+		for (int i = 0; i < 5; i++) {
+			Connector.SetSpinnerChoices(i, dials[i]);
+		}
+	}
+
+	void ReduceToCharacterCount(List<char>[] dials, string correctWord) {
+		for (int i = 0; i < dials.Length; i++) {
+			dials[i].Remove(correctWord[i]);
+			while (dials[i].Count > 5) {
+				dials[i].RemoveAt(Random.Range(0, dials[i].Count));
+			}
+			dials[i].Add(correctWord[i]);
+			dials[i].Shuffle();
+		}
+	}
+
+	void PruneFalseMatches(List<char>[] dials, string correctWord) {
+		List<string> falseMatches = GetFalseMatches(dials, correctWord);
+		while (falseMatches.Count > 0) {
+			string match = falseMatches[0];
+			List<int> incorrectCharPositions = GetIncorrectCharPositions(match, correctWord);
+			if (incorrectCharPositions.Count > 0) {
+				int dialIndexToRemoveLetterFrom = incorrectCharPositions[Random.Range(0, incorrectCharPositions.Count)];
+				char letterToRemove = match[dialIndexToRemoveLetterFrom];
+				dials[dialIndexToRemoveLetterFrom].Remove(letterToRemove);
+			}
+			falseMatches = GetFalseMatches(dials, correctWord);
+		}
+	}
+
+	List<int> GetIncorrectCharPositions(string falseWord, string correctWord) {
+		List<int> list = new List<int>();
+		for (int i = 0; i < falseWord.Length; i++) {
+			if (falseWord[i] != correctWord[i]) {
+				list.Add(i);
+			}
+		}
+		return list;
+	}
+
+	List<string> GetFalseMatches(List<char>[] dials, string correctWord) {
+		List<string> matches = GetMatches(dials);
+		matches.Remove(correctWord);
+		return matches;
+	}
+
+	List<string> GetMatches(List<char>[] dials) {
+		List<string> matches = new List<string>();
+		foreach (string word in words) {
+			char[] charArray = word.ToCharArray();
+			bool match = true;
+			for (int i = 0; i < dials.Length; i++) {
+				if (!dials[i].Contains(charArray[i])) {
+					match = false;
+					break;
+				}
+			}
+			if (match) {
+				matches.Add(word);
+			}
+		}
+		return matches;
 	}
 
 	private void KMBombModule_OnActivate() {
