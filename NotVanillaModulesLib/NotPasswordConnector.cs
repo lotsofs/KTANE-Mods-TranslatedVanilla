@@ -75,15 +75,16 @@ namespace NotVanillaModulesLib {
 #endif
 		}
 
-		public string GetSpinnerChoices() {
+		public string GetSpinnerChoices(bool rtl = false) {
 			string word = "";
 			for (int i = 0; i < 5; i++) {
+				int j = rtl ? 5 - 1 - i : i;
 				if (this.TestMode) {
-					word += TestModelCharSpinners[i].SelectedChar;
+					word += TestModelCharSpinners[j].SelectedChar;
 				}
 #if (!DEBUG)
 				else {
-					word += spinners[i].GetCurrentChar();
+					word += spinners[j].GetCurrentChar();
 				}
 #endif
 			}

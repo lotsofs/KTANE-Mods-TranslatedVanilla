@@ -19,39 +19,48 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 
 	private bool twitchStruck;
 
-	string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	string[] words = new string[] {
-			"ABOUT", "AFTER", "AGAIN", "BELOW", "COULD",
-			"EVERY", "FIRST", "FOUND", "GREAT", "HOUSE",
-			"LARGE", "LEARN", "NEVER", "OTHER", "PLACE",
-			"PLANT", "POINT", "RIGHT", "SMALL", "SOUND",
-			"SPELL", "STILL", "STUDY", "THEIR", "THERE",
-			"THESE", "THING", "THINK", "THREE", "WATER",
-			"WHERE", "WHICH", "WORLD", "WOULD", "WRITE"
-		};
+	TranslatedPassword _translation;
+
+	string _letters;
+	string[] _words;
 
 	public override void Start() {
+
 		base.Start();
 		this.Connector.KMBombModule.OnActivate = this.KMBombModule_OnActivate;
 		this.Connector.SubmitPressed += this.Connector_SubmitPressed;
 
+		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
+		_translation = GetComponent<TranslatedPassword>();
+		_translation.GenerateLanguage(name);
+		_letters = _translation.Language.PossibleLetters;
+		_words = _translation.Language.PossibleWords;
+
 		// fill all dials with all letters
 		List<char>[] dials = new List<char>[5];
 		for (int i = 0; i < 5; i++) {
-			dials[i] = letters.ToList();
+			dials[i] = _letters.ToList();
 		}
 
 		// select a word
-		string correctWord = words[Random.Range(0, words.Length)];
-		Log("Correct answer: " + correctWord);
+		string correctWord = _words[Random.Range(0, _words.Length)];
+		Log(_translation.Language.LogAnswer, correctWord);
 
 		PruneFalseMatches(dials, correctWord);
 		ReduceToCharacterCount(dials, correctWord);
-		if (false) { // TODO: if right to left
+		if (_translation.Language.RightToLeft) { 
 			dials = dials.Reverse().ToArray();
 		}
 
 		for (int i = 0; i < 5; i++) {
+			int j = _translation.Language.RightToLeft ? 5 - 1 - i : i;
+
+			string letters = "";
+			foreach (char c in dials[j]) {
+				letters += c;
+				letters += " ";
+			}
+			Log(_translation.Language.LogDial, i + 1, letters);
 			Connector.SetSpinnerChoices(i, dials[i]);
 		}
 	}
@@ -101,7 +110,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 
 	List<string> GetMatches(List<char>[] dials) {
 		List<string> matches = new List<string>();
-		foreach (string word in words) {
+		foreach (string word in _words) {
 			char[] charArray = word.ToCharArray();
 			bool match = true;
 			for (int i = 0; i < dials.Length; i++) {
@@ -124,16 +133,16 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	}
 
 	private void Connector_SubmitPressed(object sender, EventArgs e) {
-		string word = Connector.GetSpinnerChoices();
-		if (words.Contains(word)) {
+		string word = Connector.GetSpinnerChoices(_translation.Language.RightToLeft);
+		if (_words.Contains(word)) {
 			if (!Solved) {
-				Debug.Log("Correctly submitted: " + word);
+				Log(_translation.Language.LogSubmitCorrect, word);
 				Disarm();
 			}
 		}
 		else {
 			if (!Solved) {
-				Debug.Log("Incorrectly submitted: " + word);
+				Log(_translation.Language.LogSubmitWrong, word);
 				Connector.KMBombModule.HandleStrike();
 			}
 		}
