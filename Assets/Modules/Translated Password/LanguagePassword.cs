@@ -41,11 +41,25 @@ public class LanguagePassword : Language {
 			Debug.LogErrorFormat("Password {0}: Expected 35 passwords, only got {1}", Name, PossibleWords.Length);
 		}
 
+		string letters = "";
+		foreach (char letter in PossibleLetters) {
+			if (letters.Contains(letter.ToString())) {
+				Debug.LogErrorFormat("Password {0}: Character {1} appears multiple times in possible letters sequence", Name, letter);
+			}
+			else {
+				letters += letter;
+			}
+		}
+
 		for (int i = 0; i < PossibleWords.Length; i++) {
 			string pw = PossibleWords[i];
 			if (pw.Length != 5) {
 				Debug.LogErrorFormat("Password {0}: Password '{1}' does not consist of 5 characters, but {2}", Name, pw, pw.Length);
-				PossibleWords[i] = PossibleLetters.Substring(0, 5);
+			}
+			for (int j = 0; j < pw.Length; j++) {
+				if (!PossibleLetters.Contains(pw[j].ToString())) {
+					Debug.LogErrorFormat("Password {0}: Password '{1}' contains character {2}, but this character does not show up in the string of possible letters", Name, pw, pw[j]);
+				}
 			}
 		}
 

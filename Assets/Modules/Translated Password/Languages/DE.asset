@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: DE
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
+  Name: German
+  NativeName: Deutsch
   Iso639: de
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
-  PossibleLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ\xC4\xD6\xDC\u1E9E"
+  Submit: SENDEN
+  PossibleLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ\xC4\xD6\xDC"
   PossibleWords:
   - ANGST
   - ATMEN

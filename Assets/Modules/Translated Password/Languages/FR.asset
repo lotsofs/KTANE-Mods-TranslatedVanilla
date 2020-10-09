@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: FR
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
+  Name: French
+  NativeName: "Fran\xE7ais"
   Iso639: fr
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
+  Submit: VALIDER
   PossibleLetters: ABCDEFGHIJKLMNOPQRSTUVWXYZ
   PossibleWords:
   - ABRIS

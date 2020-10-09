@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e3b046f72d0914a9194a3971b3123b, type: 3}
+  m_Name: NL
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Dutch
+  NativeName: Nederlands
+  Iso639: nl
+  Version: 1
+  ManualAvailable: 1
+  DisplayMethod: 0
+  RightToLeft: 0
+  Submit: GEREED
+  PossibleLetters: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  PossibleWords:
+  - ANDER
+  - BOVEN
+  - DRAAD
+  - EERST
+  - GROOT
+  - IEDER
+  - KLANK
+  - KLANT
+  - KLEIN
+  - KLING
+  - KLINK
+  - KLOPT
+  - KNALT
+  - KRUID
+  - KRUIT
+  - LINKS
+  - NAAST
+  - NEGEN
+  - NIETS
+  - NOGAL
+  - ONDER
+  - PLANT
+  - PLOFT
+  - SPELD
+  - SPELT
+  - STUUR
+  - TEKST
+  - WACHT
+  - WATER
+  - WELKE
+  - ZENDT
+  - ZENUW
+  - ZEVEN
+  - ZWEED
+  - ZWEET
+  LogAnswer: 'Correct answer: {0}'
+  LogSubmitCorrect: Correctly submitted {0}
+  LogSubmitWrong: 'Strike: Submitted {0}'
+  LogDial: 'Dial {0}: {1}'

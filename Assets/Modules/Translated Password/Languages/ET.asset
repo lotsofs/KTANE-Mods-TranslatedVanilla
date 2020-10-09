@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: ET
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
+  Name: Estonian
+  NativeName: Eesti
   Iso639: et
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
+  Submit: SISESTA
   PossibleLetters: "ABDEFGHIJKLMNOPRS\u0160Z\u017DTUV\xD5\xC4\xD6\xDC"
   PossibleWords:
   - AITAN

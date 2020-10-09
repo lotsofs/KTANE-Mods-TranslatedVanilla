@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: FI
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
+  Name: Finnish
+  NativeName: Suomi
   Iso639: fi
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
+  Submit: "L\xC4HET\xC4"
   PossibleLetters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ\xC5\xC4\xD6"
   PossibleWords:
   - ALAVA

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: EO
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
-  NativeName: English
+  Name: Esperanto
+  NativeName: Esperanto
   Iso639: eo
   Version: 1
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
+  Submit: EK
   PossibleLetters: "ABC\u0108DEFG\u011CH\u0124IJ\u0134KLMNOPRS\u015CTU\u016CVZ"
   PossibleWords:
   - AFERO

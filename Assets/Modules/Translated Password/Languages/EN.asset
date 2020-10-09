@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: EN
   m_EditorClassIdentifier: 
   Disabled: 0
-  Name: Default
+  Name: English
   NativeName: English
   Iso639: en
   Version: 1

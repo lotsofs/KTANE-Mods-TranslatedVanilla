@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e3b046f72d0914a9194a3971b3123b, type: 3}
+  m_Name: ZH
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Name: Chinese
+  NativeName: "\u4E2D\u6587"
+  Iso639: zh
+  Version: 1
+  ManualAvailable: 1
+  DisplayMethod: 1
+  RightToLeft: 0
+  Submit: "\u80E1\u8BF4"
+  PossibleLetters: "\u5173\u95E8\u653E\u72FC\u72D7\u5F55\u9C7C\u6740\u534E\u51F6\u770B\u9E21\u7247\u5B81\u8FD8\u5FC3\u624B\u8D1D\u5403\u4E4C\u7A7F\u4E86\u5417\u9CC4\u4ECA\u7F51"
+  PossibleWords:
+  - "\u5173\u95E8\u653E\u72FC\u72D7"
+  - "\u5173\u9C7C\u6740\u534E\u51F6"
+  - "\u5173\u770B\u9E21\u5F55\u7247"
+  - "\u5173\u9E21\u5B81\u8FD8\u770B"
+  - "\u5173\u9E21\u770B\u6740\u9C7C"
+  - "\u653E\u5FC3\u770B\u624B\u9E21"
+  - "\u72FC\u5FC3\u8D1D\u72D7\u5403"
+  - "\u8D1D\u5B81\u6740\u4E4C\u9E21"
+  - "\u8D1D\u770B\u7A7F\u4E86\u5417"
+  - "\u8D1D\u5B81\u7A7F\u8D1D\u5FC3"
+  - "\u5B81\u7A7F\u4E86\u534E\u9E21"
+  - "\u5B81\u7A7F\u4E86\u8D1D\u5FC3"
+  - "\u5B81\u8D1D\u9CC4\u7247\u4E86"
+  - "\u5B81\u8FD8\u770B\u51F6\u9E21"
+  - "\u5B81\u5403\u4E4C\u9E21\u5417"
+  - "\u6740\u9C7C\u9CC4\u4E86\u5417"
+  - "\u9E21\u72D7\u8FD8\u5B81\u5417"
+  - "\u9E21\u6740\u4E86\u51F6\u624B"
+  - "\u534E\u8D1D\u8FD8\u4E86\u5417"
+  - "\u51F6\u624B\u6740\u72FC\u72D7"
+  - "\u51F6\u624B\u8D1D\u5173\u4E86"
+  - "\u770B\u72FC\u5403\u9CC4\u9C7C"
+  - "\u770B\u7247\u5173\u624B\u9E21"
+  - "\u5F55\u8D1D\u72FC\u7247\u4E86"
+  - "\u7247\u7247\u8D1D\u72D7\u5403"
+  - "\u7247\u7247\u9C7C\u4E86\u9E21"
+  - "\u4ECA\u7F51\u5403\u4E86\u9E21"
+  - "\u7F51\u8FD8\u653E\u534E\u9E21"
+  - "\u9CC4\u9C7C\u5403\u4E86\u5417"
+  - "\u9CC4\u4E86\u5417\u5173\u7F51"
+  - "\u8FD8\u770B\u5B81\u5403\u9E21"
+  - "\u5FC3\u624B\u5403\u9E21\u4E86"
+  - "\u624B\u9E21\u770B\u534E\u9E21"
+  - "\u624B\u9E21\u5F55\u9CC4\u5F55"
+  - "\u624B\u9E21\u8D1D\u7F51\u5F55"
+  LogAnswer: 'Correct answer: {0}'
+  LogSubmitCorrect: Correctly submitted {0}
+  LogSubmitWrong: 'Strike: Submitted {0}'
+  LogDial: 'Dial {0}: {1}'

@@ -19,7 +19,7 @@ MonoBehaviour:
   ManualAvailable: 1
   DisplayMethod: 0
   RightToLeft: 0
-  Submit: SUBMIT
+  Submit: POTVRDIT
   PossibleLetters: "A\xC1BC\u010CD\u010EE\xC9\u011AFGHI\xCDJKLMN\u0147O\xD3PQR\u0158S\u0160T\u0164U\xDA\u016EVWXY\xDDZ\u017D"
   PossibleWords:
   - AGENT
