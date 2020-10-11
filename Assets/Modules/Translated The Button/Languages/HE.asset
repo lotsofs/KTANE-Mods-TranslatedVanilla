@@ -17,6 +17,7 @@ MonoBehaviour:
   Iso639: he
   Version: 1
   ManualAvailable: 1
+  RightToLeft: 1
   DisplayMethod: 0
   Press: "\u05E5\u05D7\u05DC"
   Hold: "\u05E7\u05D6\u05D7\u05D4"
@@ -37,14 +38,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: "\u05D0"
-  StripYellow: "\u05E6"
-  StripBlue: "\u05DB"
-  StripWhite: "\u05DC"
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

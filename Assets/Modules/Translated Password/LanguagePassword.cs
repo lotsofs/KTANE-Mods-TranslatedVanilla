@@ -14,8 +14,10 @@ public class LanguagePassword : Language {
 	[Tooltip("Set to NonLatin if TMP_SubMesh throws a log stating a FallBackMaterial is being used. Set to CustomTextMesh if the text requires a custom font below. Set to sprite to use sprites.")]
 	public DisplayMethods DisplayMethod = DisplayMethods.Default;
 
-	[Tooltip("The unity editor does not properly show right to left languages, showing them as left to right instead. If this happens on the actual text mesh too, the letters must be manually switched around 'siht ekil'. Tick this to make the mod do that for you. This will not change anything in the editor and it will maintain the incorrect left-to-right look. It is recommended to copy paste the texts into a text editor and edit them there. This does not do anything in the editor.")]
-	public bool RightToLeft = false;
+	public Font DialsFont;
+	public Material DialsFontMaterial;
+	public int DialsFontSize;
+	public float DialsOffsetLeft;
 
 	[Header("Module Text")]
 	public string Submit = "SUBMIT";

@@ -13,6 +13,9 @@ public abstract class Language : ScriptableObject {
 	public string Iso639;
 	public int Version = 1;
 	public bool ManualAvailable = false;
+	[Space]
+	[Tooltip("The unity editor does not properly show right to left languages, showing them as left to right instead. If this happens on the actual text mesh too, the letters must be manually switched around 'siht ekil'. Tick this to make the mod do that for you. This will not change anything in the editor and it will maintain the incorrect left-to-right look. It is recommended to copy paste the texts into a text editor and edit them there. This does not do anything in the editor.")]
+	public bool RightToLeft = false;
 
 	public abstract void Choose();
 
