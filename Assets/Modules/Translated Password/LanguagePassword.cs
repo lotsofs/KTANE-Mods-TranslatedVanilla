@@ -14,10 +14,12 @@ public class LanguagePassword : Language {
 	[Tooltip("Set to NonLatin if TMP_SubMesh throws a log stating a FallBackMaterial is being used. Set to CustomTextMesh if the text requires a custom font below. Set to sprite to use sprites.")]
 	public DisplayMethods DisplayMethod = DisplayMethods.Default;
 
+
+	[Header("Custom Text Mesh")]
 	public Font DialsFont;
 	public Material DialsFontMaterial;
 	public int DialsFontSize;
-	public float DialsOffsetLeft;
+	public Vector3 DialsOffset;
 
 	[Header("Module Text")]
 	public string Submit = "SUBMIT";

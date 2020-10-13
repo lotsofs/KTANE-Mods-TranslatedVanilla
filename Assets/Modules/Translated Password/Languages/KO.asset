@@ -21,8 +21,8 @@ MonoBehaviour:
   DisplayMethod: 1
   DialsFont: {fileID: 12800000, guid: 537e0102af461e1499cffe8d84c84643, type: 3}
   DialsFontMaterial: {fileID: 2100000, guid: d9d87f1d3ae630c4a9c1ecea9b49b40c, type: 2}
-  DialsFontSize: 300
-  DialsOffsetLeft: 0
+  DialsFontSize: 167
+  DialsOffset: {x: -0.148, y: 0.46, z: -0.05}
   Submit: "\uD655\uC778"
   PossibleLetters: "\u3131\u3134\u3137\u3139\u3141\u3142\u3145\u3147\u3148\u314A\u314B\u314C\u314D\u314E\u314F\u3151\u3153\u3155\u3157\u315B\u315C\u3160\u3161\u3163\u3150\u3152\u3154\u3156"
   PossibleWords:

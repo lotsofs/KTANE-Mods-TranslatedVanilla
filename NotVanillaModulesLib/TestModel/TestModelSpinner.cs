@@ -23,16 +23,24 @@ namespace NotVanillaModulesLib.TestModel {
 			this.DownButton.Pressed += this.DownButton_Pressed;
 		}
 
-		private void UpButton_Pressed(object sender, KeypadButtonEventArgs e) {
+		internal void Up() {
 			--this.SelectedIndex;
 			if (this.SelectedIndex < 0) this.SelectedIndex = this.Choices.Count - 1;
 			this.UpdateSelectedChar();
 		}
 
-		private void DownButton_Pressed(object sender, KeypadButtonEventArgs e) {
+		internal void Down() {
 			++this.SelectedIndex;
 			if (this.SelectedIndex >= this.Choices.Count) this.SelectedIndex = 0;
 			this.UpdateSelectedChar();
+		}
+
+		private void UpButton_Pressed(object sender, KeypadButtonEventArgs e) {
+			Up();
+		}
+
+		private void DownButton_Pressed(object sender, KeypadButtonEventArgs e) {
+			Down();
 		}
 
 		private void UpdateSelectedChar() {

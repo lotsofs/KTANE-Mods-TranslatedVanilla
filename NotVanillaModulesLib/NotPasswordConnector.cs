@@ -18,6 +18,8 @@ namespace NotVanillaModulesLib {
 		private PasswordLayout layout;
 #endif
 
+		bool _useCustomDisplay = false;
+
 		protected override void AwakeLive() {
 #if (!DEBUG)
 			using var wrapper = this.InstantiateComponent<PasswordComponent>();
@@ -75,11 +77,40 @@ namespace NotVanillaModulesLib {
 #endif
 		}
 
+		public void UseCustomSpinners(int fontSize, Vector3 offset, Font font = null, Material fontMaterial = null) {
+			_useCustomDisplay = true;
+#if (!DEBUG)
+			foreach (var spinner in spinners) {
+				spinner.gameObject.SetActive(false);
+			}
+#endif
+			for (int i = 0; i < TestModelCharSpinners.Length; i++) {
+				TextMesh textMesh = TestModelCharSpinners[i].Text;
+				if (font != null) {
+					textMesh.font = font;
+					textMesh.GetComponent<MeshRenderer>().material = fontMaterial;
+				}
+				textMesh.transform.localPosition = offset;
+				textMesh.fontSize = fontSize;
+#if (!DEBUG)
+				textMesh.transform.SetParent(this.transform, true);
+				textMesh.gameObject.SetActive(true);
+				spinners[i].UpButton.OnPush += TestModelCharSpinners[i].Up;
+				spinners[i].DownButton.OnPush += TestModelCharSpinners[i].Down;
+#endif
+			}
+			// todo: button
+			//for (int i = 0; i < buttons.Length; i++) {
+			//	TestModelButtonLabels[i].transform.SetParent(buttons[i].transform, true);
+			//	buttons[i].GetComponentInChildren<TextMeshPro>().gameObject.SetActive(false);
+			//}
+		}
+
 		public string GetSpinnerChoices(bool rtl = false) {
 			string word = "";
 			for (int i = 0; i < 5; i++) {
 				int j = rtl ? 5 - 1 - i : i;
-				if (this.TestMode) {
+				if (this.TestMode || _useCustomDisplay) {
 					word += TestModelCharSpinners[j].SelectedChar;
 				}
 #if (!DEBUG)
@@ -92,7 +123,7 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void SetSpinnerChoices(int index, IEnumerable<char> choices) {
-			if (this.TestMode) this.TestModelCharSpinners[index].SetChoices(choices);
+			if (this.TestMode || _useCustomDisplay) this.TestModelCharSpinners[index].SetChoices(choices);
 #if (!DEBUG)
 			else {
 				var charSpinner = this.spinners[index];

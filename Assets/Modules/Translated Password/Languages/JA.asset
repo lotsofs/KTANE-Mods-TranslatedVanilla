@@ -19,10 +19,10 @@ MonoBehaviour:
   ManualAvailable: 1
   RightToLeft: 0
   DisplayMethod: 1
-  DialsFont: {fileID: 0}
-  DialsFontMaterial: {fileID: 0}
-  DialsFontSize: 0
-  DialsOffsetLeft: 0
+  DialsFont: {fileID: 12800000, guid: 537e0102af461e1499cffe8d84c84643, type: 3}
+  DialsFontMaterial: {fileID: 2100000, guid: d9d87f1d3ae630c4a9c1ecea9b49b40c, type: 2}
+  DialsFontSize: 221
+  DialsOffset: {x: 0.145, y: 0.46, z: -0.05}
   Submit: "\u78BA\u8A8D"
   PossibleLetters: "\u30A1\u30A2\uFF68\u30A4\u30A5\u30A6\u30A7\u30A8\u30AA\u30F5\u30AB\u30AD\u30AF\u30F6\u30B1\u30B3\u30B5\u30B7\u30B9\u30BB\u30BD\u30BF\u30C1\u30C3\u30C4\u30C6\u30C8\u30CA\u30CB\u30CC\u30CD\u30CE\u30CF\u30D2\u30D5\u30D8\u30DB\u30DE\u30DF\u30E0\u30E1\u30E2\uFF6C\u30E4\uFF6D\u30E6\uFF6E\u30E8\u30E9\u30EA\u30EB\u30EC\u30ED\u30EE\u30EF\u30F0\u30F1\u30F2\u30F3\u30FD\uFF9E\uFF9F\u30FC"
   PossibleWords:

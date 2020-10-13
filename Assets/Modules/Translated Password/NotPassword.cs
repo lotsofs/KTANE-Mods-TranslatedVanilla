@@ -52,6 +52,10 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			dials = dials.Reverse().ToArray();
 		}
 
+		if (_translation.Language.DisplayMethod == LanguagePassword.DisplayMethods.CustomTextMesh) {
+			Connector.UseCustomSpinners(_translation.Language.DialsFontSize, _translation.Language.DialsOffset, _translation.Language.DialsFont, _translation.Language.DialsFontMaterial);
+		}
+
 		for (int i = 0; i < 5; i++) {
 			int j = _translation.Language.RightToLeft ? 5 - 1 - i : i;
 
