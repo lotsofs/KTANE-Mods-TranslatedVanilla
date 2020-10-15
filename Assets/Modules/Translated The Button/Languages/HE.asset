@@ -19,10 +19,10 @@ MonoBehaviour:
   ManualAvailable: 1
   RightToLeft: 1
   DisplayMethod: 0
-  Press: "\u05E5\u05D7\u05DC"
-  Hold: "\u05E7\u05D6\u05D7\u05D4"
-  Abort: "\u05DC\u05D8\u05D1"
-  Detonate: "\u05E5\u05E6\u05D5\u05E4"
+  Press: "\u05DC\u05D7\u05E5"
+  Hold: "\u05D4\u05D7\u05D6\u05E7"
+  Abort: "\u05D1\u05D8\u05DC"
+  Detonate: "\u05E4\u05D5\u05E6\u05E5"
   LogPress: "\u05DC\u05D7\u05E5"
   LogHold: "\u05D4\u05D7\u05D6\u05E7"
   LogAbort: "\u05D1\u05D8\u05DC"

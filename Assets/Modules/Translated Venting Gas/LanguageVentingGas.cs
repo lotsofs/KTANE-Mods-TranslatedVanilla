@@ -40,7 +40,7 @@ public class LanguageVentingGas : Language {
 	public string LogNoIncorrect = "Pressed No. Venting prevents explosions. Prompting again.";
 
 	public override void Choose() {
-		if (RightToLeft && !_flipped && !Application.isEditor) {
+		if (RightToLeft && !Flipped && !Application.isEditor) {
 			VentGas = ReverseReadingDirection(VentGas);
 			Detonate = ReverseReadingDirection(Detonate);
 			VentingComplete = ReverseReadingDirection(VentingComplete);

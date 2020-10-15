@@ -40,6 +40,15 @@ public class LanguagePassword : Language {
 	public string LogSubmitWrong = "Strike: Submitted {0}";
 	public string LogDial = "Dial {0}: {1}";
 
+	void FixRightToLeft() {
+		if (RightToLeft && !Flipped && !Application.isEditor) {
+			Submit = ReverseReadingDirection(Submit);
+			for (int i = 0; i < PossibleWords.Length; i++) {
+				PossibleWords[i] = ReverseReadingDirection(PossibleWords[i]);
+			}
+		}
+	}
+
 	public override void Choose() {
 		if (PossibleWords.Length != 35) {
 			Debug.LogErrorFormat("Password {0}: Expected 35 passwords, only got {1}", Name, PossibleWords.Length);
@@ -67,11 +76,6 @@ public class LanguagePassword : Language {
 			}
 		}
 
-		if (RightToLeft && !_flipped && !Application.isEditor) {
-			Submit = ReverseReadingDirection(Submit);
-			for (int i = 0; i < PossibleWords.Length; i++) {
-				PossibleWords[i] = ReverseReadingDirection(PossibleWords[i]);
-			}
-		}
+		FixRightToLeft();
 	}
 }

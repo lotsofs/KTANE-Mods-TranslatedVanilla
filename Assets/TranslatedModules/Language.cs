@@ -19,7 +19,7 @@ public abstract class Language : ScriptableObject {
 
 	public abstract void Choose();
 
-	internal bool _flipped = false;
+	internal bool Flipped = false;
 
 	//public abstract string GetLabelFromEnglishName(string str);
 
@@ -35,7 +35,7 @@ public abstract class Language : ScriptableObject {
 			IEnumerable<char> chars = splits[i].Reverse();
 			splits[i] = new string(chars.ToArray());
 		}
-		_flipped = true;
+		Flipped = true;
 		return string.Join(Environment.NewLine, splits);
 	}
 }

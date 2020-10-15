@@ -81,7 +81,19 @@ public class LanguageTheButton : Language {
 	private Dictionary<string, Sprite> _spriteLabels;
 	private Dictionary<string, int> _sizeLabels;
 
+	void FixRightToLeft() {
+		if (RightToLeft && !Flipped && !Application.isEditor) {
+			Press = ReverseReadingDirection(Press);
+			Hold = ReverseReadingDirection(Hold);
+			Abort = ReverseReadingDirection(Abort);
+			Detonate = ReverseReadingDirection(Detonate);
+		}
+	}
+
 	public override void Choose() {
+
+		FixRightToLeft();
+
 		_buttonLabels = new Dictionary<string, string> {
 			{ "Press", Press },
 			{ "Hold", Hold },
