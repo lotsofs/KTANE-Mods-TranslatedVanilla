@@ -69,12 +69,17 @@ namespace NotVanillaModulesLib {
 
 		public void Activate() {
 			if (this.TestMode) foreach (var spinner in this.TestModelCharSpinners) spinner.Activate();
-#if (!DEBUG)
 			else {
+#if (!DEBUG)
 				this.layout.Activate();
 				this.displayGlow.SetActive(true);
-			}
 #endif
+				if (_useCustomDisplay) {
+					foreach (TestModelSpinner spinner in TestModelCharSpinners) {
+						spinner.Text.gameObject.SetActive(true);
+					}
+				}		
+			}
 		}
 
 		public void UseCustomSpinners(int fontSize, Vector3 offset, Font font = null, Material fontMaterial = null) {
@@ -92,9 +97,9 @@ namespace NotVanillaModulesLib {
 				}
 				textMesh.transform.localPosition = offset;
 				textMesh.fontSize = fontSize;
+				textMesh.gameObject.SetActive(false);
 #if (!DEBUG)
 				textMesh.transform.SetParent(this.transform, true);
-				textMesh.gameObject.SetActive(true);
 				spinners[i].UpButton.OnPush += TestModelCharSpinners[i].Up;
 				spinners[i].DownButton.OnPush += TestModelCharSpinners[i].Down;
 #endif
