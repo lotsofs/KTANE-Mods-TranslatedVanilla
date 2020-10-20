@@ -17,8 +17,12 @@ MonoBehaviour:
   Iso639: zh
   Version: 1
   ManualAvailable: 1
-  DisplayMethod: 1
   RightToLeft: 0
+  DisplayMethod: 1
+  DialsFont: {fileID: 12800000, guid: 656371b237f7f5d4f8ae1a032c36fb27, type: 3}
+  DialsFontMaterial: {fileID: 2100000, guid: 754fb67c2f1933b4ab8685cea81bdf09, type: 2}
+  DialsFontSize: 189
+  DialsOffset: {x: 0.186, y: 0.46, z: 0.26}
   Submit: "\u80E1\u8BF4"
   PossibleLetters: "\u5173\u95E8\u653E\u72FC\u72D7\u5F55\u9C7C\u6740\u534E\u51F6\u770B\u9E21\u7247\u5B81\u8FD8\u5FC3\u624B\u8D1D\u5403\u4E4C\u7A7F\u4E86\u5417\u9CC4\u4ECA\u7F51"
   PossibleWords:
