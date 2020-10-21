@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Name: GA
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: ga
   Name: Irish
   NativeName: Gaeilge
-  Iso639: ga
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: ga
   DisplayMethod: 0
-  RightToLeft: 0
   VentGas: "LIG AMACH\nG\xC1S?"
   Detonate: MAIDHM?
   VentingComplete: "LIGEAN AMACH\nCR\xCDOCHNAITHE"

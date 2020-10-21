@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: JA
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: ja
   Name: Japanese
   NativeName: "\u65E5\u672C\u8A9E"
-  Iso639: ja
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: ja
   DisplayMethod: 0
   Press: "\u62BC\u3059"
   Hold: "\u9577\u62BC\u3057"
@@ -37,14 +50,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: "\u8D64"
-  StripYellow: "\u9EC4\n\u8272"
-  StripBlue: "\u9752"
-  StripWhite: "\u767D"
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

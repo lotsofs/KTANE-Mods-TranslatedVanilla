@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Name: TH
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: th
   Name: Thai
   NativeName: "\u0E44\u0E17\u0E22"
-  Iso639: th
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
-  RightToLeft: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: th
   DisplayMethod: 1
   DialsFont: {fileID: 12800000, guid: eaed089f20832fc459e775a72d799201, type: 3}
   DialsFontMaterial: {fileID: 2100000, guid: 7797c0ff001b6cd499353be5ba48a4b0, type: 2}

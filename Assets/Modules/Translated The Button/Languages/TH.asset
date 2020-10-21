@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: TH
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: th
   Name: Thai
   NativeName: "\u0E44\u0E17\u0E22"
-  Iso639: th
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: th
   DisplayMethod: 1
   Press: "\u0E01\u0E14"
   Hold: "\u0E01\u0E14\u0E04\u0E49\u0E32\u0E07"

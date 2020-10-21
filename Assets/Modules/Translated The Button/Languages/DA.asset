@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: DA
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: da
   Name: Danish
   NativeName: Dansk
-  Iso639: da
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: da
   DisplayMethod: 0
   Press: TRYK
   Hold: HOLD

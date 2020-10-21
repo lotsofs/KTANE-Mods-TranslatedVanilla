@@ -11,14 +11,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e3b046f72d0914a9194a3971b3123b, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  Disabled: 0
+  Disabled: 1
+  Iso639: '-'
   Name: Default
   NativeName: English
-  Iso639: '-'
+  RightToLeft: 0
   Version: 0
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: '-'
   DisplayMethod: 0
-  RightToLeft: 0
+  DialsFont: {fileID: 0}
+  DialsFontMaterial: {fileID: 0}
+  DialsFontSize: 0
+  DialsOffset: {x: 0, y: 0, z: 0}
   Submit: SUBMIT
   PossibleLetters: ABCDEFGHIJKLMNOPQRSTUVWXYZ
   PossibleWords:

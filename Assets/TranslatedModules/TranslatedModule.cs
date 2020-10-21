@@ -69,17 +69,17 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 		Configuration<TranslationSettings> config = new Configuration<TranslationSettings>(_settingsFileName);
 		TranslationSettings settings = config.Settings;
 
-		// check for an old config file
-		foreach (string cfgOld in _oldSettingsFiles) {
-			Configuration<TranslationSettings> configOld = new Configuration<TranslationSettings>(cfgOld, false);
-			TranslationSettings oldSettings = configOld.OldSettings;
-			if (oldSettings != null) {
-				settings.UseAllLanguages = oldSettings.UseAllLanguages;
-				settings.UseLanguagesWithManualOnly = oldSettings.UseLanguagesWithManualOnly;
-				settings.LanguagePool = oldSettings.LanguagePool;
-				configOld.ClearFile();
-			}
-		}
+		//// check for an old config file
+		//foreach (string cfgOld in _oldSettingsFiles) {
+		//	Configuration<TranslationSettings> configOld = new Configuration<TranslationSettings>(cfgOld, false);
+		//	TranslationSettings oldSettings = configOld.OldSettings;
+		//	if (oldSettings != null) {
+		//		settings.UseAllLanguages = oldSettings.UseAllLanguages;
+		//		settings.IgnoreWithoutManual = oldSettings.IgnoreWithoutManual;
+		//		settings.LanguagePool = oldSettings.LanguagePool;
+		//		configOld.ClearFile();
+		//	}
+		//}
 		config.Settings = settings;
 
 		if (settings.UseGlobalSettings) {
@@ -173,7 +173,6 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 	void UseLanguage(TLanguage language) {
 		Log("--------------------------");
 		_language = language;
-		_language.Choose();
 
 		// finalize selection
 		LogFormat("Selected Language: {0}, {1} ({2})\n", _language.NativeName, _language.Name, _language.Iso639);
@@ -352,48 +351,111 @@ public class TranslatedModule<TLanguage, TExtendedMissionSettings> : MonoBehavio
 
 		string excludedNotInPool = "Languages ignored because the configuration file does not include them: ";
 		string excludedNoManual = "Languages ignored because the configuration file dictates modules with manuals only: ";
-		string includedSelection = "Languages available for selection: ";
+		string excludedMachine = "Languages ignored because the configuration file dictates ignoring machine translations: ";
+		string excludedUntranslated = "Languages ignored because the configuration file dictates ignoring translations that didn't bother with translating the main content of the module: ";
+		string excludedIgnored = "Languages ignored because they're actively disabled in the configuration file: ";
+		string includedSelection = "{0} languages available for selection: ";
+
 		TLanguage transl;
 		List<TLanguage> availableTranslations = new List<TLanguage>();
-		for (int i = _languages.Length - 1; i >= 0; i--) {
+		Dictionary<string, List<TLanguage>> languageGroups = new Dictionary<string, List<TLanguage>>();
+		bool hasUnfinishedLanguages = false;
+
+		for (int i = 0; i < _languages.Length; i++) {
 			transl = _languages[i];
 			if (transl.Disabled) {
 				// language is disabled. Don't choose
 				continue;
 			}
-			if (!_settings.UseAllLanguages && !_settings.LanguagePool.Contains(transl.Iso639)) {
-				// if using the language pool and it does not contain this language
-				excludedNotInPool += string.Format("{0}, ", transl.Iso639);
+
+			// check if we're using the enabled languages list and it does not contain this language
+			if (!_settings.UseAllLanguages
+			&& !_settings.EnabledLanguages.Contains(transl.Iso639, StringComparer.OrdinalIgnoreCase)
+			&& !_settings.EnabledLanguages.Contains(transl.IetfBcp47, StringComparer.OrdinalIgnoreCase)) {
+				excludedNotInPool += string.Format("{0}, ", transl.IetfBcp47);
 				continue;
 			}
-			if (_settings.UseLanguagesWithManualOnly && !transl.ManualAvailable) {
-				// if a language has no manual but we want languages with a manual only, skip it
-				excludedNoManual += string.Format("{0}, ", transl.Iso639);
+
+			// check for disabled languages outright
+			if (_settings.DisabledLanguages.Contains(transl.Iso639, StringComparer.OrdinalIgnoreCase)) {
+				excludedIgnored += string.Format("{0}, ", transl.IetfBcp47);
 				continue;
 			}
+			if (_settings.DisabledLanguages.Contains(transl.IetfBcp47, StringComparer.OrdinalIgnoreCase)) {
+				excludedIgnored += string.Format("{0}, ", transl.IetfBcp47);
+				continue;
+			}
+			if (_settings.DisabledLanguages.Contains(transl.IetfBcp47.Split(new string[] { "-x-", "-X-", "-t-", "-T-", "-u-", "-U-" }, StringSplitOptions.RemoveEmptyEntries)[0], StringComparer.OrdinalIgnoreCase)) {
+				excludedIgnored += string.Format("{0}, ", transl.IetfBcp47);
+				continue;
+			}
+
+			// check for certain language settings we dont want
+			if (_settings.IgnoreWithoutManual && !transl.ManualAvailable) {
+				excludedNoManual += string.Format("{0}, ", transl.IetfBcp47);
+				continue;
+			}
+			if (_settings.IgnoreMachineTranslations && transl.MachineTranslation) {
+				excludedMachine += string.Format("{0}, ", transl.IetfBcp47);
+			}
+
+			if (_settings.IgnoredPrivateSubtags != null && _settings.IgnoredPrivateSubtags.Length > 0) {
+				bool cont = false;
+				foreach (string subtag in transl.IetfBcp47.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries)) {
+					if (subtag == "untc") {
+						hasUnfinishedLanguages = true;
+					}
+					if (_settings.IgnoredPrivateSubtags.Contains(subtag, StringComparer.OrdinalIgnoreCase)) {
+						LogFormat("Ignoring language {0} because its ietf bcp 47 tag contains illegal private use subtag '{1}'", transl.IetfBcp47, subtag);
+						if (subtag == "untc") {
+							excludedUntranslated += string.Format("{0}, ", transl.IetfBcp47);
+						}
+						cont = true; 
+					}
+				}
+				if (cont) continue;
+			}
+
 			includedSelection += string.Format("{0}, ", transl.Iso639);
 			availableTranslations.Add(transl);
+			if (languageGroups.ContainsKey(transl.Iso639)) {
+				languageGroups[transl.Iso639].Add(transl);
+			}
+			else {
+				languageGroups.Add(transl.Iso639, new List<TLanguage> { transl } );
+			}
 		}
-		if (!_settings.UseAllLanguages)
-			Log(excludedNotInPool);
-		else
-			Log("Configuration file dictates using any available language.");
-		if (_settings.UseLanguagesWithManualOnly)
-			Log(excludedNoManual);
-		else
-			Log("Configuration file allows for the use of languages without a dedicated manual.");
-		Log(includedSelection);
+
+		if (!_settings.UseAllLanguages && excludedNotInPool.Trim().Last() != ':') Log(excludedNotInPool);
+		else Log("Configuration file dictates using any available language.");
+
+		if (_settings.DisabledLanguages != null && excludedIgnored.Trim().Last() != ':') Log(excludedIgnored);
+
+		if (_settings.IgnoreWithoutManual && excludedNoManual.Trim().Last() != ':') Log(excludedNoManual);
+		else Log("Configuration file allows for the use of translations without a dedicated manual.");
+
+		if (_settings.IgnoreMachineTranslations && excludedMachine.Trim().Last() != ':') Log(excludedMachine);
+
+		if (_settings.IgnoredPrivateSubtags.Contains("untc", StringComparer.OrdinalIgnoreCase) && excludedUntranslated.Trim().Last() != ':') Log(excludedUntranslated);
+		else if (hasUnfinishedLanguages) Log("Configuration file allows for the use of translations that didn't bother to translate the main content of the module.");
+
 
 		if (availableTranslations.Count == 0) {
 			Log("There were no languages available to be chosen for this module in accordance with the configuration file.");
 			return null;
+		}
+		LogFormat(includedSelection, availableTranslations.Count.ToString());
+
+		if (_settings.TreatMultipleVariantsAsOne) {
+			List<TLanguage>[] values = languageGroups.Values.ToArray();
+			int index = UnityEngine.Random.Range(0, values.Length);
+			int index2 = UnityEngine.Random.Range(0, values[index].Count);
+			return values[index][index2];
 		}
 		else {
 			int index = UnityEngine.Random.Range(0, availableTranslations.Count);
 			return availableTranslations[index];
 		}
 	}
-
-
 }
 

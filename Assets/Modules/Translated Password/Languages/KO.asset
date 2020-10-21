@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Name: KO
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: ko
   Name: Korean
   NativeName: "\uD55C\uAD6D\uC5B4"
-  Iso639: ko
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
-  RightToLeft: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: ko
   DisplayMethod: 1
   DialsFont: {fileID: 12800000, guid: 537e0102af461e1499cffe8d84c84643, type: 3}
   DialsFontMaterial: {fileID: 2100000, guid: d9d87f1d3ae630c4a9c1ecea9b49b40c, type: 2}

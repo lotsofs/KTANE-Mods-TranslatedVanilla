@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Name: KO
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: ko
   Name: Korean
   NativeName: "\uD55C\uAD6D\uC5B4"
-  Iso639: ko
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: ko
   DisplayMethod: 1
-  RightToLeft: 0
   VentGas: "\uAC00\uC2A4\uB97C\n\uBC30\uCD9C\uD560\uAE4C\uC694?"
   Detonate: "\uD3ED\uD30C\uC2DC\uD0AC\uAE4C\uC694?"
   VentingComplete: "\uBC30\uCD9C \uC644\uB8CC"

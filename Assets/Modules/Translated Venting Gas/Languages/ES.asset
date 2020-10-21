@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Name: ES
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: es
   Name: Spanish
   NativeName: "Espa\xF1ol"
-  Iso639: es
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: es
   DisplayMethod: 0
-  RightToLeft: 0
   VentGas: "\xBFEVACUAR\nGAS?"
   Detonate: DETONAR?
   VentingComplete: 'EVACUADO

@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: ES
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: es
   Name: Spanish
   NativeName: "Espa\xF1ol"
-  Iso639: es
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: es
   DisplayMethod: 0
   Press: PRESIONAR
   Hold: MANTENER
@@ -37,18 +50,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: R
-  StripYellow: 'A
-
-    m'
-  StripBlue: 'A
-
-    z'
-  StripWhite: B
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

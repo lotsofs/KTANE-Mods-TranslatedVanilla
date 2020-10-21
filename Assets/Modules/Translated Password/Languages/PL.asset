@@ -12,13 +12,29 @@ MonoBehaviour:
   m_Name: PL
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: pl
   Name: Polish
   NativeName: Polski
-  Iso639: pl
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: pl
   DisplayMethod: 0
-  RightToLeft: 0
+  DialsFont: {fileID: 0}
+  DialsFontMaterial: {fileID: 0}
+  DialsFontSize: 0
+  DialsOffset: {x: 0, y: 0, z: 0}
   Submit: "WY\u015ALIJ"
   PossibleLetters: "A\u0104BC\u0106DE\u0118FGHIJKL\u0141MN\u0143O\xD3PQRS\u015ATUVWXYZ\u0179\u017B"
   PossibleWords:

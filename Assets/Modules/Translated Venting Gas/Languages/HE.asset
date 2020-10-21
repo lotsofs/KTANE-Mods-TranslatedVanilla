@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Name: HE
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: he
   Name: Hebrew
   NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
-  Iso639: he
+  RightToLeft: 1
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: he
   DisplayMethod: 0
-  RightToLeft: 1
   VentGas: "\u05E9\u05D7\u05E8\u05E8 \u05D2\u05D6?"
   Detonate: "\u05D4\u05E4\u05E2\u05DC \u05E4\u05E6\u05E6\u05D4?"
   VentingComplete: "\u05E9\u05D7\u05E8\u05D5\u05E8 \u05D2\u05D1\r\n\u05D4\u05D5\u05E9\u05DC\u05DD"

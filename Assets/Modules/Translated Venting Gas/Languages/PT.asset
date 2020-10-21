@@ -12,13 +12,25 @@ MonoBehaviour:
   m_Name: PT
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: pt
   Name: Portuguese
   NativeName: "Portugu\xEAs"
-  Iso639: pt
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: pt
   DisplayMethod: 0
-  RightToLeft: 0
   VentGas: "LIBERAR\nO G\xC1S"
   Detonate: DETONAR?
   VentingComplete: "LIBERA\xC7\xC3O\nCOMPLETA"

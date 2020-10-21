@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: ET
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: et
   Name: Estonian
   NativeName: Eesti
-  Iso639: et
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: et
   DisplayMethod: 0
   Press: VAJUTA
   Hold: HOIA

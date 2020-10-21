@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: ZH
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: zh
   Name: Chinese
   NativeName: "\u4E2D\u6587"
-  Iso639: zh
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 501
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: zh-Hans
   DisplayMethod: 0
   Press: "\u6309\u4E0B"
   Hold: "\u6309\u4F4F"

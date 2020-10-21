@@ -12,12 +12,24 @@ MonoBehaviour:
   m_Name: ZH
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: zh
   Name: Chinese
   NativeName: "\u4E2D\u6587"
-  Iso639: zh
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
-  RightToLeft: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 501
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: zh-Hans
   DisplayMethod: 1
   DialsFont: {fileID: 12800000, guid: 656371b237f7f5d4f8ae1a032c36fb27, type: 3}
   DialsFontMaterial: {fileID: 2100000, guid: 754fb67c2f1933b4ab8685cea81bdf09, type: 2}

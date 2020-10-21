@@ -12,13 +12,29 @@ MonoBehaviour:
   m_Name: CS
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: cs
   Name: Czech
   NativeName: "\u010Ce\u0161tina"
-  Iso639: cs
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: cs
   DisplayMethod: 0
-  RightToLeft: 0
+  DialsFont: {fileID: 0}
+  DialsFontMaterial: {fileID: 0}
+  DialsFontSize: 0
+  DialsOffset: {x: 0, y: 0, z: 0}
   Submit: POTVRDIT
   PossibleLetters: "A\xC1BC\u010CD\u010EE\xC9\u011AFGHI\xCDJKLMN\u0147O\xD3PQR\u0158S\u0160T\u0164U\xDA\u016EVWXY\xDDZ\u017D"
   PossibleWords:

@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: FR
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: fr
   Name: French
   NativeName: "Fran\xE7ais"
-  Iso639: fr
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: fr
   DisplayMethod: 0
   Press: POUSSER
   Hold: MAINTENIR
@@ -37,22 +50,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: R
-  StripYellow: J
-  StripBlue: 'B
-
-    l
-
-    e'
-  StripWhite: 'B
-
-    l
-
-    a'
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

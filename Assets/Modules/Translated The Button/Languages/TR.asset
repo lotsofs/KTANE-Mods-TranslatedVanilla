@@ -11,12 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68768987c3414114c9287191ba11d404, type: 3}
   m_Name: TR
   m_EditorClassIdentifier: 
-  Disabled: 1
+  Disabled: 0
+  Iso639: tr
   Name: Turkish
   NativeName: "T\xFCrk\xE7e"
-  Iso639: tr
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: tr
   DisplayMethod: 0
   Press: BAS
   Hold: TUT
@@ -37,14 +50,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: K
-  StripYellow: S
-  StripBlue: M
-  StripWhite: B
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

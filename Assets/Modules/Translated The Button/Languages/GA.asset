@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Name: GA
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: ga
   Name: Irish
   NativeName: Gaeilge
-  Iso639: ga
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 0
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: ga
   DisplayMethod: 0
   Press: "BR\xDAIGH"
   Hold: COINNIGH
@@ -37,16 +50,6 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
-  ButtonRed: {fileID: 0}
-  ButtonYellow: {fileID: 0}
-  ButtonBlue: {fileID: 0}
-  ButtonWhite: {fileID: 0}
-  StripRed: D
-  StripYellow: 'B
-
-    u'
-  StripBlue: G
-  StripWhite: "B\n\xE1"
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

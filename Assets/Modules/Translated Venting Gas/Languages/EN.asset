@@ -12,25 +12,31 @@ MonoBehaviour:
   m_Name: EN
   m_EditorClassIdentifier: 
   Disabled: 0
+  Iso639: en
   Name: English
   NativeName: English
-  Iso639: en
+  RightToLeft: 0
   Version: 1
   ManualAvailable: 1
+  ManualLinks: []
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: en
   DisplayMethod: 0
-  RightToLeft: 0
   VentGas: VENT GAS?
   Detonate: DETONATE?
   VentingComplete: 'VENTING
 
     COMPLETE'
   VentingPrevents: "VENTING\nPREVENTS\r\nEXPLOSIONS\r"
-  VentGasLine1: VENT GAS?
-  VentGasLine2: Y/N
-  VentGasLine3: 
-  DetonateLine1: DETONATE?
-  DetonateLine2: Y/N
-  DetonateLine3: 
   YesNo: Y/N
   Yes: YES
   No: NO
