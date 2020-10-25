@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Language for Password")]
 public class LanguagePassword : Language {
@@ -12,14 +13,18 @@ public class LanguagePassword : Language {
 
 	[Header("Display")]
 	[Tooltip("Set to NonLatin if TMP_SubMesh throws a log stating a FallBackMaterial is being used. Set to CustomTextMesh if the text requires a custom font below. Set to sprite to use sprites.")]
-	public DisplayMethods DisplayMethod = DisplayMethods.Default;
+	public DisplayMethods DialsDisplayMethod = DisplayMethods.Default;
+	public DisplayMethods ButtonDisplayMethod = DisplayMethods.Default;
 
-
-	[Header("Custom Text Mesh")]
+	[Header("Custom Text Meshes")]
 	public Font DialsFont;
 	public Material DialsFontMaterial;
 	public int DialsFontSize;
 	public Vector3 DialsOffset;
+	//[Space]	// Not actually in use yet. Perhaps for future languages.
+	//public Font ButtonFont;
+	//public Material ButtonFontMaterial;
+	//public int ButtonFontSize;
 
 	[Header("Module Text")]
 	public string Submit = "SUBMIT";

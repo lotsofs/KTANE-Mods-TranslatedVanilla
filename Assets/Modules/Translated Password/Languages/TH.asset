@@ -34,7 +34,8 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: th
-  DisplayMethod: 1
+  DialsDisplayMethod: 1
+  ButtonDisplayMethod: 1
   DialsFont: {fileID: 12800000, guid: eaed089f20832fc459e775a72d799201, type: 3}
   DialsFontMaterial: {fileID: 2100000, guid: 7797c0ff001b6cd499353be5ba48a4b0, type: 2}
   DialsFontSize: 290

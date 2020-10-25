@@ -33,6 +33,11 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
 		_translation = GetComponent<TranslatedPassword>();
 		_translation.GenerateLanguage(name);
+
+		if (_translation.Language.ButtonDisplayMethod == LanguagePassword.DisplayMethods.CustomTextMesh) {
+			this.Connector.UseCustomButtonLabel();
+		}
+		this.Connector.SetButtonLabel(_translation.Language.Submit);
 		_letters = _translation.Language.PossibleLetters;
 		_words = _translation.Language.PossibleWords;
 
@@ -52,7 +57,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			dials = dials.Reverse().ToArray();
 		}
 
-		if (_translation.Language.DisplayMethod == LanguagePassword.DisplayMethods.CustomTextMesh) {
+		if (_translation.Language.DialsDisplayMethod == LanguagePassword.DisplayMethods.CustomTextMesh) {
 			Connector.UseCustomSpinners(_translation.Language.DialsFontSize, _translation.Language.DialsOffset, _translation.Language.DialsFont, _translation.Language.DialsFontMaterial);
 		}
 

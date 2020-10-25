@@ -33,7 +33,8 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: sv
-  DisplayMethod: 0
+  DialsDisplayMethod: 0
+  ButtonDisplayMethod: 0
   DialsFont: {fileID: 0}
   DialsFontMaterial: {fileID: 0}
   DialsFontSize: 0

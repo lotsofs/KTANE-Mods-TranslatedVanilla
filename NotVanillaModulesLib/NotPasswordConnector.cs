@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using NotVanillaModulesLib.TestModel;
+#if (!DEBUG)
+using TMPro;
+#endif
 using UnityEngine;
 
 namespace NotVanillaModulesLib {
 	public class NotPasswordConnector : NotVanillaModuleConnector {
 		public TestModelSpinner[] TestModelCharSpinners;
 		public TestModelButton TestModelSubmitButton;
+		public TextMesh TestModelButtonLabel;
 
 		public event EventHandler SubmitPressed;
 
@@ -19,6 +23,7 @@ namespace NotVanillaModulesLib {
 #endif
 
 		bool _useCustomDisplay = false;
+		bool _useCustomButton = false;
 
 		protected override void AwakeLive() {
 #if (!DEBUG)
@@ -82,6 +87,25 @@ namespace NotVanillaModulesLib {
 			}
 		}
 
+		public void UseCustomButtonLabel() {
+			_useCustomButton = true;
+#if (!DEBUG)
+			submitButton.GetComponentInChildren<TextMeshPro>().gameObject.SetActive(false);
+			TestModelButtonLabel.transform.SetParent(submitButton.transform, true);
+#endif
+		}
+
+		public void SetButtonLabel(string label) {
+			if (!this.TestMode && !_useCustomButton) {
+#if (!DEBUG)
+				submitButton.GetComponentInChildren<TextMeshPro>().text = label;
+#endif
+			}
+			TestModelButtonLabel.text = label;
+		}
+
+		#region spinners
+
 		public void UseCustomSpinners(int fontSize, Vector3 offset, Font font = null, Material fontMaterial = null) {
 			_useCustomDisplay = true;
 #if (!DEBUG)
@@ -138,6 +162,10 @@ namespace NotVanillaModulesLib {
 #endif
 		}
 
+		#endregion
+
+		#region TP
+
 		public void TwitchMoveUp(int index) {
 			if (this.TestMode) TwitchExtensions.Click(this.TestModelCharSpinners[index].UpButton);
 #if (!DEBUG)
@@ -165,5 +193,7 @@ namespace NotVanillaModulesLib {
 			else TwitchExtensions.Release(this.submitButton);
 #endif
 		}
+
+		#endregion
 	}
 }
