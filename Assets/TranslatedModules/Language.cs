@@ -19,6 +19,8 @@ public class Language : ScriptableObject {
 	public int Version = 1;
 	public bool ManualAvailable = false;
 	public string[] ManualLinks;
+	[Space]
+	public string TwitchHelpMessage = "!{0} twitch help message";
 
 	[Header("Optional IETF BCP 47 Language Tag Information")]
 	public string ExtLang = "";

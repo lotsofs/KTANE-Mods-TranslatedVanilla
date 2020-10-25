@@ -54,6 +54,12 @@ public class LanguageTheButton : Language {
 	//[TextArea] public string StripBlue;
 	//[TextArea] public string StripWhite;
 
+	[Header("Twitch Plays")]
+	public string TPTap = "tap";
+	public string TPHold = "hold";
+	public string TPRelease = "release";
+	public string TPMessage = "!{0} {1} [tap the button] | !{0} {2} [hold the button] | !{0} {3} 7 [release when the digit shows 7]";
+
 	[Header("Log File Ruling Text")]
 	public string LogRed = "Red";
 	public string LogYellow = "Yellow";
@@ -81,7 +87,17 @@ public class LanguageTheButton : Language {
 	private Dictionary<string, Sprite> _spriteLabels;
 	private Dictionary<string, int> _sizeLabels;
 
-	LanguageTheButton() {
+	[ContextMenu("Generate Twitch Help Message")]
+	void GenerateTwitchHelpMessage() {
+		TwitchHelpMessage = string.Format(TPMessage,
+			"{0}",
+			TPTap,
+			TPHold,
+			TPRelease
+		);
+	}
+
+	void OnEnable() {
 		FixRightToLeft();
 
 		_buttonLabels = new Dictionary<string, string> {

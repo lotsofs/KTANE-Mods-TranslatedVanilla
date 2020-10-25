@@ -34,13 +34,32 @@ public class LanguagePassword : Language {
 			"WHERE", "WHICH", "WORLD", "WOULD", "WRITE"
 		};
 
+	[Header("Twitch Plays")]
+	public string TPCycle = "cycle";
+	public string TPToggle = "toggle";
+	public string TPSubmit = "submit";
+	[TextArea]
+	public string TPMessage = "!{0} {1} 1 3 5 [cycle through the letters in columns 1, 3, and 5] | !{0} {1} [cycle through all columns] | !{0} {2} [move all columns down one letter] | !{0} {3} {4} [try to submit a word]";
+
 	[Header("Log File Text")]
 	public string LogAnswer = "Correct answer: {0}";
 	public string LogSubmitCorrect = "Correctly submitted {0}";
 	public string LogSubmitWrong = "Strike: Submitted {0}";
 	public string LogDial = "Dial {0}: {1}";
 
-	LanguagePassword() {
+	[ContextMenu("Generate Twitch Help Message")]
+	void GenerateTwitchHelpMessage() {
+		TwitchHelpMessage = string.Format(TPMessage,
+			"{0}",
+			TPCycle,
+			TPToggle,
+			TPSubmit,
+			PossibleWords[PossibleWords.Length - 3]
+		);
+	}
+
+	void OnEnable() {
+
 		if (PossibleWords.Length != 35) {
 			Debug.LogErrorFormat("Password {0}: Expected 35 passwords, only got {1}", Name, PossibleWords.Length);
 		}

@@ -19,6 +19,8 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   ManualLinks: []
+  TwitchHelpMessage: "!{0} kyll\xE4, !{0} k [answer yes] | !{0} ei, !{0} e [answer
+    no]"
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -44,6 +46,7 @@ MonoBehaviour:
   No: EI
   Y: K
   N: E
+  TPMessage: '!{0} {1}, !{0} {2} [answer yes] | !{0} {3}, !{0} {4} [answer no]'
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
   LogTooLate: You didn't press the button in time.

@@ -19,6 +19,8 @@ MonoBehaviour:
   Version: 0
   ManualAvailable: 1
   ManualLinks: []
+  TwitchHelpMessage: '!{0} tap [tap the button] | !{0} hold [hold the button] | !{0}
+    release 7 [release when the digit shows 7]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -50,6 +52,11 @@ MonoBehaviour:
   SpriteHold: {fileID: 0}
   SpriteAbort: {fileID: 0}
   SpriteDetonate: {fileID: 0}
+  TPTap: tap
+  TPHold: hold
+  TPRelease: release
+  TPMessage: '!{0} {1} [tap the button] | !{0} {2} [hold the button] | !{0} {3} 7
+    [release when the digit shows 7]'
   LogRed: Red
   LogYellow: Yellow
   LogBlue: Blue

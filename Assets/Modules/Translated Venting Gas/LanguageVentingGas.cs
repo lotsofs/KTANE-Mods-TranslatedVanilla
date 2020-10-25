@@ -27,6 +27,9 @@ public class LanguageVentingGas : Language {
 	public string Y = "Y";
 	public string N = "N";
 
+	[Header("Twitch Plays")]
+	public string TPMessage = "!{0} {1}, !{0} {2} [answer yes] | !{0} {3}, !{0} {4} [answer no]";
+
 	[Header("Log File Text")]
 	public string LogPromptDetonate = "Prompt: Detonate?";
 	public string LogPromptVentGas = "Prompt: Vent Gas?";
@@ -39,8 +42,21 @@ public class LanguageVentingGas : Language {
 	public string LogNoCorrect = "Pressed No. Disarmed!";
 	public string LogNoIncorrect = "Pressed No. Venting prevents explosions. Prompting again.";
 
-	LanguageVentingGas() {
+	[ContextMenu("Generate Twitch Help Message")]
+	void GenerateTwitchHelpMessage() {
+		TwitchHelpMessage = string.Format(TPMessage,
+			"{0}",
+			Yes.ToLower(),
+			Y.ToLower(),
+			No.ToLower(),
+			N.ToLower()
+		);
+	}
+
+	void OnEnable() {
+
 		if (RightToLeft && !flipped && !Application.isEditor) {
+
 			VentGas = ReverseReadingDirection(VentGas);
 			Detonate = ReverseReadingDirection(Detonate);
 			VentingComplete = ReverseReadingDirection(VentingComplete);

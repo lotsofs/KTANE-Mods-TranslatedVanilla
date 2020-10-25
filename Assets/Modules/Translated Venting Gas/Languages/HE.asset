@@ -19,6 +19,8 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   ManualLinks: []
+  TwitchHelpMessage: "!{0} \u05DB\u05DF, !{0} \u05DB\u05DF [answer yes] | !{0} \u05DC\u05D0,
+    !{0} \u05DC\u05D0 [answer no]"
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -40,6 +42,7 @@ MonoBehaviour:
   No: "\u05DC\u05D0"
   Y: "\u05DB\u05DF"
   N: "\u05DC\u05D0"
+  TPMessage: '!{0} {1}, !{0} {2} [answer yes] | !{0} {3}, !{0} {4} [answer no]'
   LogPromptDetonate: 'Prompt: Detonate?'
   LogPromptVentGas: 'Prompt: Vent Gas?'
   LogTooLate: You didn't press the button in time.

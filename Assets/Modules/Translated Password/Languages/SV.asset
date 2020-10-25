@@ -19,6 +19,9 @@ MonoBehaviour:
   Version: 1
   ManualAvailable: 1
   ManualLinks: []
+  TwitchHelpMessage: '!{0} cycle 1 3 5 [cycle through the letters in columns 1, 3,
+    and 5] | !{0} cycle [cycle through all columns] | !{0} toggle [move all columns
+    down one letter] | !{0} submit VILKA [try to submit a word]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -73,6 +76,12 @@ MonoBehaviour:
   - VILKA
   - VISST
   - "V\xC4NTA"
+  TPCycle: cycle
+  TPToggle: toggle
+  TPSubmit: submit
+  TPMessage: '!{0} {1} 1 3 5 [cycle through the letters in columns 1, 3, and 5] |
+    !{0} {1} [cycle through all columns] | !{0} {2} [move all columns down one letter]
+    | !{0} {3} {4} [try to submit a word]'
   LogAnswer: 'Correct answer: {0}'
   LogSubmitCorrect: Correctly submitted {0}
   LogSubmitWrong: 'Strike: Submitted {0}'

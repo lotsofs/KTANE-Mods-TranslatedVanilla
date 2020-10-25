@@ -38,6 +38,7 @@ MonoBehaviour:
     - TheButton_11ZH
   - Title: 11 Newly Added
     MissionIDs:
+    - TheButton_11BG
     - TheButton_11FY
     - TheButton_11GA
   - Title: Test Missions
