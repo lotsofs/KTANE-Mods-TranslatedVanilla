@@ -142,7 +142,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	}
 
 	private void Connector_SubmitPressed(object sender, EventArgs e) {
-		string word = Connector.GetSpinnerChoices(_translation.Language.RightToLeft);
+		string word = Connector.GetWord(_translation.Language.RightToLeft);
 		if (_words.Contains(word)) {
 			if (!Solved) {
 				Log(_translation.Language.LogSubmitCorrect, word);
@@ -211,15 +211,173 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			} 
 			else if (tokens[0].EqualsIgnoreCase("tap") || tokens[0].EqualsIgnoreCase("press")) {
 				this.Connector.TwitchPressSubmit();
-				this.Connector.TwitchReleaseSubmit();
 				// todo: turn this into a normal press, or actually, make it "!{0} submit <word>"
 			}
 		}
 	}
 
+	public int CountMatches(string a, string b) {
+		int matches = 0;
+		for (int i = 0; i < 5; i++) {
+			matches += a[i] == b[i] ? 1 : 0;
+		}
+		return matches;
+	}
+
 	public IEnumerator TwitchHandleForcedSolve() {
-		// todo: make this
-		yield return null;
+		LogFormat("Forcing solve (Twitch Plays)");
+		bool rtl = _translation.Language.RightToLeft;
+		float delay = 0.1f;
+
+		Dictionary<string, int> passwordLikelihood = new Dictionary<string, int>();
+
+		List<List<char>> memorizedDials = new List<List<char>> { null, null, null, null, null };
+		int lastChangedDial = -1;
+		List<string> keys;
+		int presses = 0;
+
+		// start
+		string currentWord = Connector.GetWord() ;
+		LogFormat("Starting display: {0}", currentWord);
+
+		// populate the dictionary and compensate for RTL languages
+		foreach (string pw in _translation.Language.PossibleWords) {
+			passwordLikelihood.Add(pw, -1);
+		}
+		if (rtl) {
+			keys = new List<string>(passwordLikelihood.Keys);
+			foreach (string pw in keys) {
+				passwordLikelihood.Add(_translation.Language.ReverseReadingDirection(pw), -1);
+				passwordLikelihood.Remove(pw);
+			}
+		}
+
+		// memorize the current letters on display
+		for (int i = 0; i < 5; i++) {
+			memorizedDials[i] = new List<char> { currentWord[i] };
+		}
+
+		// check if any of the dials are set to an unused letter (eg. X in English) and toggle them down if so
+		for (int i = 0; i < 5; i++) {
+			bool letterExistsInTable = false;
+			while (!letterExistsInTable) {
+				foreach (string pw in _translation.Language.PossibleWords) {
+					if (pw[i] == currentWord[i]) {
+						letterExistsInTable = true;
+						break;
+					}
+				}
+				if (!letterExistsInTable) {
+					Connector.TwitchMoveDown(i);
+					presses++;
+					lastChangedDial = i;
+					currentWord = Connector.GetWord();
+					LogFormat("UNUSED: Current display: {0}", currentWord);
+					memorizedDials[i].Add(currentWord[i]);
+					yield return new WaitForSeconds(delay);
+				}
+			}
+		}
+
+		// count how many characters are already matching and pick the most likely word as the target
+		string targetWord = "";
+		int feasibilityScore = -1;
+		keys = new List<string>(passwordLikelihood.Keys);
+		foreach (string pw in keys) {
+			int matchingLetters = CountMatches(currentWord, pw);
+			if (matchingLetters > feasibilityScore) {
+				targetWord = pw;
+				feasibilityScore = matchingLetters;
+			}
+			passwordLikelihood[pw] = CountMatches(currentWord, pw);
+		}
+		LogFormat("Aiming for '{0}' as it already has {1} matching characters", targetWord, feasibilityScore.ToString());
+
+		while (presses < 50) {
+			// change an incorrect letter in a column that we're not sure contains a letter from this password
+			bool pressed = false;
+			for (int i = 0; i < 5; i++) {
+				if (!memorizedDials[i].Contains(targetWord[i])) {   // currentWord[i] != targetWord[i]
+					Connector.TwitchMoveDown(i);
+					lastChangedDial = i;
+					presses++;
+					pressed = true;
+					currentWord = Connector.GetWord();
+					LogFormat("NOMATCH: Current display: {0}", currentWord);
+					break;
+				}
+			}
+			// all columns contain letters from this password. We know the right password, just need to enter it.
+			if (!pressed) {
+				for (int i = 0; i < 5; i++) {
+					if (currentWord[i] == targetWord[i]) {
+						continue;
+					}
+					int indexCurrent = Connector.GetSpinnerChoices(i).IndexOf(c => c == currentWord[i]);
+					int indexTarget = Connector.GetSpinnerChoices(i).IndexOf(c => c == targetWord[i]);
+					int difference = indexTarget - indexCurrent;
+					if (difference < 0) difference += 6;
+					if (difference < 3 ) {
+						Connector.TwitchMoveDown(i);
+					}
+					else {
+						Connector.TwitchMoveUp(i);
+					}
+					lastChangedDial = i;
+					presses++;
+					currentWord = Connector.GetWord();
+					LogFormat("CERTAIN: Current display: {0}", currentWord);
+					break;
+				}
+			}
+			yield return new WaitForSeconds(delay);
+
+			// check if module is solved.
+			if (_translation.Language.PossibleWords.Contains(Connector.GetWord(rtl))) {
+				Connector.TwitchPressSubmit();
+				LogFormat("solved in {0} presses", presses.ToString());
+				yield break;
+			}
+
+			// check if we've seen this letter before and if so, increase all passwords with a matching letter's likelihood
+			if (!memorizedDials[lastChangedDial].Contains(currentWord[lastChangedDial])) {
+				memorizedDials[lastChangedDial].Add(currentWord[lastChangedDial]);
+				keys = new List<string>(passwordLikelihood.Keys);
+				foreach (string pw in keys) {
+					if (pw[lastChangedDial] == currentWord[lastChangedDial]) {
+						passwordLikelihood[pw]++;
+					}
+				}
+			}
+
+			// check if we've seen every letter in this dial, and if so, clear out impossible words.
+			if (memorizedDials[lastChangedDial].Count >= 6) {
+				keys = new List<string>(passwordLikelihood.Keys);
+				string pws = "";
+				foreach (string pw in keys) {
+					if (!memorizedDials[lastChangedDial].Contains(pw[lastChangedDial])) {
+						passwordLikelihood.Remove(pw);
+						pws += pw + ", ";
+					}
+				}
+				LogFormat("Excluding {0}as they have no matching letters in dial {1}.", pws, lastChangedDial.ToString());
+			}
+
+			// check what is now the most suitable word to go for.
+			keys = new List<string>(passwordLikelihood.Keys);
+			string oldTarget = targetWord;
+			feasibilityScore = -1;
+			foreach (string pw in keys) {
+				int matchingLetters = CountMatches(currentWord, pw);
+				if (matchingLetters + passwordLikelihood[pw] > feasibilityScore) {
+					targetWord = pw;
+					feasibilityScore = matchingLetters + passwordLikelihood[pw];
+				}
+			}
+			if (oldTarget != targetWord) {
+				LogFormat("Now aiming for '{0}' as it has {1} currently matching characters and at least {2} known to exist in the dials.", targetWord, CountMatches(currentWord, targetWord).ToString(), passwordLikelihood[targetWord].ToString());
+			}
+		}
 	}
 
 	#endregion

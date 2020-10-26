@@ -135,7 +135,7 @@ namespace NotVanillaModulesLib {
 			//}
 		}
 
-		public string GetSpinnerChoices(bool rtl = false) {
+		public string GetWord(bool rtl = false) {
 			string word = "";
 			for (int i = 0; i < 5; i++) {
 				int j = rtl ? 5 - 1 - i : i;
@@ -149,6 +149,17 @@ namespace NotVanillaModulesLib {
 #endif
 			}
 			return word;
+		}
+
+		public IEnumerable<char> GetSpinnerChoices(int index) {
+			if (this.TestMode || _useCustomDisplay)	return TestModelCharSpinners[index].Choices;
+#if (!DEBUG)
+			else {
+				var charSpinner = this.spinners[index];
+				return charSpinner.Options;
+			}
+#endif
+			return null;
 		}
 
 		public void SetSpinnerChoices(int index, IEnumerable<char> choices) {
@@ -183,14 +194,7 @@ namespace NotVanillaModulesLib {
 		public void TwitchPressSubmit() {
 			if (this.TestMode) TwitchExtensions.Press(this.TestModelSubmitButton);
 #if (!DEBUG)
-			else TwitchExtensions.Press(this.submitButton);
-#endif
-		}
-
-		public void TwitchReleaseSubmit() {
-			if (this.TestMode) TwitchExtensions.Release(this.TestModelSubmitButton);
-#if (!DEBUG)
-			else TwitchExtensions.Release(this.submitButton);
+			else TwitchExtensions.Click(this.submitButton);
 #endif
 		}
 
