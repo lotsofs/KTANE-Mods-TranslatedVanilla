@@ -150,10 +150,8 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			}
 		}
 		else {
-			if (!Solved) {
-				Log(_translation.Language.LogSubmitWrong, word);
-				Connector.KMBombModule.HandleStrike();
-			}
+			Log(_translation.Language.LogSubmitWrong, word);
+			Connector.KMBombModule.HandleStrike();
 		}
 	}
 
