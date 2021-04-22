@@ -1,5 +1,5 @@
 ﻿using System;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 using System.Collections;
 #if (!DEBUG)
@@ -7,9 +7,9 @@ using BombGame;
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>A <see cref="Behaviour"/> that connects a mod module with the vanilla components for Knob.</summary>
-	public class NotKnobConnector : NotVanillaModuleConnector {
+	public class TranslatedKnobConnector : TranslatedVanillaModuleConnector {
 		public TestModelKnob TestModelKnob;
 		public Transform TestModelBase;
 		public TestModelLED[] TestModelLEDs;

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
-	public class NotWiresConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedWiresConnector : TranslatedVanillaModuleConnector {
 		public TestModelWireSpace[] TestModelWireSpaces;
 		public Material[] Materials;
 		public Material[] ColourblindMaterials;
 
-		public ReadOnlyCollection<NotWireSpace> Wires { get; private set; }
+		public ReadOnlyCollection<TranslatedWireSpace> Wires { get; private set; }
 
 		public event EventHandler<WireCutEventArgs> WireCut;
 
@@ -18,9 +18,9 @@ namespace NotVanillaModulesLib {
 			using var wrapper = this.InstantiateComponent<WireSetComponent>();
 			var eventConnector = new WireEventConnector();
 			eventConnector.WireCut += (sender, e) => this.WireCut?.Invoke(this, e);
-			var wires = new NotWireSpace[wrapper.Component.wires.Count];
+			var wires = new TranslatedWireSpace[wrapper.Component.wires.Count];
 			for (int i = 0; i < wires.Length; ++i) {
-				var liveWireSpace = new NotWireSpace.LiveWireSpace(this, wrapper.Component.wires[i], i);
+				var liveWireSpace = new TranslatedWireSpace.LiveWireSpace(this, wrapper.Component.wires[i], i);
 				wires[i] = liveWireSpace;
 				eventConnector.Attach(wrapper.Component.wires[i]);
 			}
@@ -33,9 +33,9 @@ namespace NotVanillaModulesLib {
 #endif
 		}
 		protected override void AwakeTest() {
-			var wires = new NotWireSpace[this.TestModelWireSpaces.Length];
+			var wires = new TranslatedWireSpace[this.TestModelWireSpaces.Length];
 			for (int i = 0; i < wires.Length; ++i) {
-				var testWireSpace = new NotWireSpace.TestWireSpace(this, this.TestModelWireSpaces[i], i);
+				var testWireSpace = new TranslatedWireSpace.TestWireSpace(this, this.TestModelWireSpaces[i], i);
 				wires[i] = testWireSpace;
 				this.TestModelWireSpaces[i].WireCut += (sender, e) => this.WireCut?.Invoke(this, e);
 			}
@@ -45,7 +45,7 @@ namespace NotVanillaModulesLib {
 #if (!DEBUG)
 			var selectable = this.GetComponent<Selectable>();
 			for (int i = 0; i < this.Wires.Count; ++i) {
-				var childSelectable = ((NotWireSpace.LiveWireSpace) this.Wires[i]).wire.GetComponent<Selectable>();
+				var childSelectable = ((TranslatedWireSpace.LiveWireSpace) this.Wires[i]).wire.GetComponent<Selectable>();
 				selectable.Children[i] = childSelectable;
 				childSelectable.Parent = selectable;
 			}
@@ -74,7 +74,7 @@ namespace NotVanillaModulesLib {
 			if (this.Wires[spaceIndex].Cut) return false;
 			if (this.TestMode) TwitchExtensions.Click(this.TestModelWireSpaces[spaceIndex]);
 #if (!DEBUG)
-			else TwitchExtensions.Click(((NotWireSpace.LiveWireSpace) this.Wires[spaceIndex]).wire);
+			else TwitchExtensions.Click(((TranslatedWireSpace.LiveWireSpace) this.Wires[spaceIndex]).wire);
 #endif
 			return true;
 		}

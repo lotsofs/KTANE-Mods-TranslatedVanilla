@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelWireSequencePage : MonoBehaviour {
 		public TestModelWireSequenceWireSpace[] WireSpaces;
 	}

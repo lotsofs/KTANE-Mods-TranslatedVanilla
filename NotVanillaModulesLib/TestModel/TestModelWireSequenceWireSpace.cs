@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelWireSequenceWireSpace : TestModelWireSpace {
 		public Transform WireParent;
 		public TextMesh LetterTextMesh;
 		public TextMesh NumberTextMesh;
-		public NotWireSequenceConnector Module;
+		public TranslatedWireSequenceConnector Module;
 
 		private int to;
 		public int To {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	public class SimonButtonEventArgs : EventArgs {
 		public SimonButtons Colour { get; }
 

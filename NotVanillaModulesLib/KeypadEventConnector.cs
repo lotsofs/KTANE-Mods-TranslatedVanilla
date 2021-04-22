@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 #if (!DEBUG)
 	/// <summary>Passes events from keypad buttons to a Not Vanilla module. This class is not available in debug builds.</summary>
 	internal class KeypadEventConnector : IButtonParent {

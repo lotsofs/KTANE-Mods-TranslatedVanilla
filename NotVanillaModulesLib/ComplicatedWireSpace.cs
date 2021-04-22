@@ -2,10 +2,10 @@
 #if (!DEBUG)
 using Assets.Scripts.Components.VennWire;
 #endif
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using Object = UnityEngine.Object;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>Represents a space for a wire in the Not Complicated Wires module and allows configuration of the associated light and symbol.</summary>
 	public abstract class ComplicatedWireSpace {
 		/// <summary>Returns or sets a value indicating whether this wire space has no wire.</summary>
@@ -26,7 +26,7 @@ namespace NotVanillaModulesLib {
 
 		internal class TestSpace : ComplicatedWireSpace {
 			private bool active;
-			private readonly NotComplicatedWiresConnector module;
+			private readonly TranslatedComplicatedWiresConnector module;
 
 			public override bool Empty {
 				get => !this.Model.IntactWire.activeSelf && !this.Model.CutWire.activeSelf;
@@ -58,7 +58,7 @@ namespace NotVanillaModulesLib {
 
 			public TestModelWireSpace Model { get; }
 
-			public TestSpace(NotComplicatedWiresConnector module, TestModelWireSpace model) {
+			public TestSpace(TranslatedComplicatedWiresConnector module, TestModelWireSpace model) {
 				this.module = module;
 				this.Model = model;
 			}

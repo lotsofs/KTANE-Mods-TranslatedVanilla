@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	internal static class TwitchExtensions {
 		public static void Press(KMSelectable selectable) => selectable.OnInteract?.Invoke();
 		public static void Release(KMSelectable selectable) => selectable.OnInteractEnded?.Invoke();

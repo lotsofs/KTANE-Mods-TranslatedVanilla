@@ -7,11 +7,11 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>Connects a Not Vanilla module with the vanilla game's model or the test model.</summary>
 	// This class deals only with manipulating the test or vanilla model components and does not contain puzzle logic.
 	// Puzzle logic is in the Unity project scripts.
-	public abstract class NotVanillaModuleConnector : MonoBehaviour {
+	public abstract class TranslatedVanillaModuleConnector : MonoBehaviour {
 		/// <summary>Returns a value indicating whether the test model is being used. The value returned is not valid during Awake.</summary>
 		public bool TestMode { get; protected set; }
 		public virtual bool ColourblindMode { get; set; }

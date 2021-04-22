@@ -7,16 +7,14 @@
     <ProjectGuid>{3D3283C8-05BA-440B-BFEE-C4EE6CE5587B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NotVanillaModulesLib</RootNamespace>
-    <AssemblyName>NotVanillaModulesLib</AssemblyName>
+    <RootNamespace>TranslatedVanillaModulesLib</RootNamespace>
+    <AssemblyName>TranslatedVanillaModulesLib</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>8.0</LangVersion>
-    <PreBuildEvent>rem These variables in NotVanillaModulesLib.csproj must be changed to match your Unity and KTaNE installation. See readme.md for more info.
-exit 1</PreBuildEvent>
     <UnityInstallPath Condition=" '$(UnityInstallPath)' == '' ">D:\Programs\Game Engines\Unity\2017.4.40f1</UnityInstallPath>
     <GameInstallPath Condition=" '$(GameInstallPath)' == '' ">D:\Programs\Game Launchers\Steam\steamapps\common\Keep Talking and Nobody Explodes - Mod Building</GameInstallPath>
   </PropertyGroup>
@@ -26,14 +24,14 @@ exit 1</PreBuildEvent>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\NotVanillaModulesLib.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\TranslatedVanillaModulesLib.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\Release\NotVanillaModulesLib.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\TranslatedVanillaModulesLib.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
     <Reference Include="UnityEngine">
@@ -86,23 +84,23 @@ exit 1</PreBuildEvent>
     <Compile Include="KnobPosition.cs" />
     <Compile Include="MazeButtonEventArgs.cs" />
     <Compile Include="MazeDirection.cs" />
-    <Compile Include="NotMemoryConnector.cs" />
-    <Compile Include="NotKeypadConnector.cs" />
-    <Compile Include="NotMazeConnector.cs" />
-    <Compile Include="NotMorseCodeConnector.cs" />
-    <Compile Include="NotSimonConnector.cs" />
-    <Compile Include="NotKnobConnector.cs" />
-    <Compile Include="NotVentingGasConnector.cs" />
+    <Compile Include="TranslatedMemoryConnector.cs" />
+    <Compile Include="TranslatedKeypadConnector.cs" />
+    <Compile Include="TranslatedMazeConnector.cs" />
+    <Compile Include="TranslatedMorseCodeConnector.cs" />
+    <Compile Include="TranslatedSimonConnector.cs" />
+    <Compile Include="TranslatedKnobConnector.cs" />
+    <Compile Include="TranslatedVentingGasConnector.cs" />
     <Compile Include="TestModel\TestModelKnob.cs" />
     <Compile Include="TestModel\TestModelLED.cs" />
     <Compile Include="VentingGasButtonEventArgs.cs" />
     <Compile Include="VentingGasButton.cs" />
     <Compile Include="WireEventConnector.cs" />
     <Compile Include="WireColour.cs" />
-    <Compile Include="NotWiresConnector.cs" />
-    <Compile Include="NotWireSequenceConnector.cs" />
-    <Compile Include="NotWireSequenceWireSpace.cs" />
-    <Compile Include="NotWireSpace.cs" />
+    <Compile Include="TranslatedWiresConnector.cs" />
+    <Compile Include="TranslatedWireSequenceConnector.cs" />
+    <Compile Include="TranslatedWireSequenceWireSpace.cs" />
+    <Compile Include="TranslatedWireSpace.cs" />
     <Compile Include="SimonButtons.cs" />
     <Compile Include="TestModel\TestModelButton.cs" />
     <Compile Include="TestModel\TestModelWireSpace.cs" />
@@ -112,32 +110,32 @@ exit 1</PreBuildEvent>
     <Compile Include="TestModel\TestModelStageIndicator.cs" />
     <Compile Include="TestModel\TestModelWireSequencePage.cs" />
     <Compile Include="ComplicatedWireSpace.cs" />
-    <Compile Include="NotComplicatedWiresConnector.cs" />
+    <Compile Include="TranslatedComplicatedWiresConnector.cs" />
     <Compile Include="KeypadEventConnector.cs" />
     <Compile Include="ButtonEventConnector.cs" />
     <Compile Include="ButtonLabel.cs" />
     <Compile Include="ButtonLightColour.cs" />
-    <Compile Include="NotButtonConnector.cs" />
-    <Compile Include="NotCapacitorConnector.cs" />
-    <Compile Include="NotVanillaModuleConnector.cs" />
-    <Compile Include="NotPasswordConnector.cs" />
+    <Compile Include="TranslatedButtonConnector.cs" />
+    <Compile Include="TranslatedCapacitorConnector.cs" />
+    <Compile Include="TranslatedVanillaModuleConnector.cs" />
+    <Compile Include="TranslatedPasswordConnector.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestModel\TestModelSpinner.cs" />
     <Compile Include="TwitchExtensions.cs" />
     <Compile Include="WireCutEventArgs.cs" />
     <Compile Include="WireSequenceColour.cs" />
-    <Compile Include="NotWireSequencePage.cs" />
+    <Compile Include="TranslatedWireSequencePage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if exist "$(ProjectDir)\..\Assets\BuildError.cs" del "$(ProjectDir)\..\Assets\BuildError.cs"
 if "$(ConfigurationName)"=="Debug" (
     copy "$(TargetPath)" "$(ProjectDir)\..\Assets\Plugins\Managed"
-    copy "$(TargetDir)\NotVanillaModulesLib.xml" "$(ProjectDir)\..\Assets\Plugins\Managed"
-    if not exist "$(ProjectDir)\..\Assets\Plugins\Managed\NotVanillaModulesLib.dll.meta" (
-        echo NotVanillaModulesLib.dll.meta is missing; automatically checking it out from Git
-        git checkout "$(ProjectDir)\..\Assets\Plugins\Managed\NotVanillaModulesLib.dll.meta"
+    copy "$(TargetDir)\TranslatedVanillaModulesLib.xml" "$(ProjectDir)\..\Assets\Plugins\Managed"
+    if not exist "$(ProjectDir)\..\Assets\Plugins\Managed\TranslatedVanillaModulesLib.dll.meta" (
+        echo TranslatedVanillaModulesLib.dll.meta is missing; automatically checking it out from Git
+        git checkout "$(ProjectDir)\..\Assets\Plugins\Managed\TranslatedVanillaModulesLib.dll.meta"
     )
 )
 if "$(ConfigurationName)"=="Release" copy "$(TargetPath)" "$(GameInstallPath)\mods\TranslatedVanillaModules"</PostBuildEvent>

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 #if (!DEBUG)
 using TMPro;
 #endif
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
-	public class NotPasswordConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedPasswordConnector : TranslatedVanillaModuleConnector {
 		public TestModelSpinner[] TestModelCharSpinners;
 		public TestModelButton TestModelSubmitButton;
 		public TextMesh TestModelButtonLabel;

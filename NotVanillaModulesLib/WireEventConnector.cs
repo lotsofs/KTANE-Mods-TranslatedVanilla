@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 #if (!DEBUG)
 	/// <summary>Passes events from a wire component to a Not Vanilla module. This class is not available in debug builds.</summary>
 	internal class WireEventConnector : IWireParent {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelStageIndicator : MonoBehaviour {
 		public GameObject[] LightsOff;
 		public GameObject[] LightsOn;

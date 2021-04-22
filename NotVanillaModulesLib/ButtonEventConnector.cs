@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 #if (!DEBUG)
 	/// <summary>Passes events from a <see cref="PressableButton"/> to a Not Vanilla module. This class is not available in debug builds.</summary>
 	// FalseButtonConnector itself can't be used for this because the interface causes Unity to fail to load it.</remarks>

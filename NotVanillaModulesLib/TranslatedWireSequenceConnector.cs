@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 #if (!DEBUG)
 using BombGame;
 #endif
 
-namespace NotVanillaModulesLib {
-	public class NotWireSequenceConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedWireSequenceConnector : TranslatedVanillaModuleConnector {
 		public Material[] Materials;
 		public Material[] ColourblindMaterials;
 
@@ -36,7 +36,7 @@ namespace NotVanillaModulesLib {
 
 		public bool Animating { get; private set; } = true;
 
-		public ReadOnlyCollection<NotWireSequencePage> Pages { get; private set; }
+		public ReadOnlyCollection<TranslatedWireSequencePage> Pages { get; private set; }
 
 		private int stage;
 		public int Stage {
@@ -65,8 +65,8 @@ namespace NotVanillaModulesLib {
 			wrapper.Component.UpButton.GetComponent<InteractiveObject>().OnInteract = o => this.UpPressed?.Invoke(this, EventArgs.Empty);
 			wrapper.Component.DownButton.GetComponent<InteractiveObject>().OnInteract = o => this.DownPressed?.Invoke(this, EventArgs.Empty);
 
-			var pages = new NotWireSequencePage[4];
-			for (int i = 0; i < pages.Length; ++i) pages[i] = new NotWireSequencePage.LiveNotWireSequencePage(this, i * 3);
+			var pages = new TranslatedWireSequencePage[4];
+			for (int i = 0; i < pages.Length; ++i) pages[i] = new TranslatedWireSequencePage.LiveNotWireSequencePage(this, i * 3);
 			this.Pages = Array.AsReadOnly(pages);
 
 			// This time we need to keep the WireSequenceComponent instance's GameObject active,
@@ -82,11 +82,11 @@ namespace NotVanillaModulesLib {
 		protected override void AwakeTest() {
 			void wireCut(object sender, WireCutEventArgs e) => this.WireCut?.Invoke(this, e);
 
-			var pages = new NotWireSequencePage[4];
-			pages[0] = new NotWireSequencePage.TestNotWireSequencePage(this.TestModelPage, 0);
+			var pages = new TranslatedWireSequencePage[4];
+			pages[0] = new TranslatedWireSequencePage.TestNotWireSequencePage(this.TestModelPage, 0);
 			for (int i = 1; i < pages.Length; ++i) {
 				var page = Instantiate(this.TestModelPage, this.TestModelPage.transform.parent);
-				pages[i] = new NotWireSequencePage.TestNotWireSequencePage(page, i * 3);
+				pages[i] = new TranslatedWireSequencePage.TestNotWireSequencePage(page, i * 3);
 				for (int j = 0; j < page.WireSpaces.Length; ++j) {
 					page.WireSpaces[j].Index = i * 3 + j;
 					page.WireSpaces[j].WireCut += wireCut;
@@ -140,11 +140,11 @@ namespace NotVanillaModulesLib {
 				var eventConnector = new WireEventConnector();
 				eventConnector.WireCut += (sender, e) => this.WireCut?.Invoke(this, e);
 				for (int i = 0; i < this.Pages.Count; ++i) {
-					var page = (NotWireSequencePage.LiveNotWireSequencePage) this.Pages[i];
+					var page = (TranslatedWireSequencePage.LiveNotWireSequencePage) this.Pages[i];
 					var pageObject = Instantiate(this.component.PagePrefab, this.component.PageAnchor.transform);
 					page.InitialisePage(pageObject, wireConfigurations, i);
 					page.Active = false;
-					foreach (NotWireSequenceWireSpace.LiveWireSpace wire in page.Wires) eventConnector.Attach(wire.Wire);
+					foreach (TranslatedWireSequenceWireSpace.LiveWireSpace wire in page.Wires) eventConnector.Attach(wire.Wire);
 				}
 			}
 #endif
@@ -166,11 +166,11 @@ namespace NotVanillaModulesLib {
 
 			if (this.TestMode) {
 				for (int i = 0; i < 3; ++i) {
-					var childKMSelectable = ((NotWireSequenceWireSpace.TestWireSpace) this.Pages[pageIndex].Wires[i]).wire.GetComponent<KMSelectable>();
+					var childKMSelectable = ((TranslatedWireSequenceWireSpace.TestWireSpace) this.Pages[pageIndex].Wires[i]).wire.GetComponent<KMSelectable>();
 					kmSelectable.Children[i + 1] = childKMSelectable;
 					childKMSelectable.Parent = kmSelectable;
 #if (!DEBUG)
-					var childSelectable = ((NotWireSequenceWireSpace.TestWireSpace) this.Pages[pageIndex].Wires[i]).wire.GetComponent<Selectable>();
+					var childSelectable = ((TranslatedWireSequenceWireSpace.TestWireSpace) this.Pages[pageIndex].Wires[i]).wire.GetComponent<Selectable>();
 					childSelectable.Parent = selectable;
 					childSelectable.y = i + 1;
 #endif
@@ -180,7 +180,7 @@ namespace NotVanillaModulesLib {
 #if (!DEBUG)
 			else {
 				for (int i = 0; i < 3; ++i) {
-					var childSelectable = ((NotWireSequenceWireSpace.LiveWireSpace) this.Pages[pageIndex].Wires[i]).Wire.GetComponent<Selectable>();
+					var childSelectable = ((TranslatedWireSequenceWireSpace.LiveWireSpace) this.Pages[pageIndex].Wires[i]).Wire.GetComponent<Selectable>();
 					selectable.Children[i + 1] = childSelectable;
 					childSelectable.Parent = selectable;
 					childSelectable.y = i + 1;
@@ -275,9 +275,9 @@ namespace NotVanillaModulesLib {
 		}
 
 		public void TwitchCut(int index) {
-			if (this.TestMode) TwitchExtensions.Click(((NotWireSequenceWireSpace.TestWireSpace) this.Pages[this.CurrentPage].Wires[index]).wire);
+			if (this.TestMode) TwitchExtensions.Click(((TranslatedWireSequenceWireSpace.TestWireSpace) this.Pages[this.CurrentPage].Wires[index]).wire);
 #if (!DEBUG)
-			else TwitchExtensions.Click(((NotWireSequenceWireSpace.LiveWireSpace) this.Pages[this.CurrentPage].Wires[index]).Wire);
+			else TwitchExtensions.Click(((TranslatedWireSequenceWireSpace.LiveWireSpace) this.Pages[this.CurrentPage].Wires[index]).Wire);
 #endif
 		}
 		public void TwitchMoveUp() {

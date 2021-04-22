@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelSimonButton : TestModelButton {
 		public Material UnlitMaterial;
 		public Material LitMaterial;

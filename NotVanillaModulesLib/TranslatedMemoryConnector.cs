@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Collections;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 #if (!DEBUG)
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>A <see cref="Behaviour"/> that connects a mod module with the vanilla components for Memory or Who's on First.</summary>
-	public class NotMemoryConnector : NotVanillaModuleConnector {
+	public class TranslatedMemoryConnector : TranslatedVanillaModuleConnector {
 		/// <summary>The type of module that should be instantiated.</summary>
 		public ModuleType Module;
 		public TestModelButton[] TestModelButtons;

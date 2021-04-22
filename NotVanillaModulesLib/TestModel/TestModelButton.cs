@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelButton : MonoBehaviour {
 		public TextMesh TextMesh;
 		public int Index;

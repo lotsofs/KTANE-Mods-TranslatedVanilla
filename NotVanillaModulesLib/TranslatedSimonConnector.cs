@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 
-namespace NotVanillaModulesLib {
-	public class NotSimonConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedSimonConnector : TranslatedVanillaModuleConnector {
 		public TestModelSimonButton[] TestModelButtons;
 
 		public event EventHandler<SimonButtonEventArgs> ButtonPressed;

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
-	public class NotMazeConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedMazeConnector : TranslatedVanillaModuleConnector {
 		public TestModelButton[] TestModelButtons;
 		public Transform GridParent;
 		public GameObject SpacePrefab;

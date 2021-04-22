@@ -7,8 +7,8 @@ using TMPro;
 
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
-	public class NotButtonConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedButtonConnector : TranslatedVanillaModuleConnector {
 		public Transform TestModelCover;
 		public MeshRenderer TestModelCap;
 		public TextMesh TestModelText;

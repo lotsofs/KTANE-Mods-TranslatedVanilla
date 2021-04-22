@@ -1,4 +1,4 @@
-﻿namespace NotVanillaModulesLib {
+﻿namespace TranslatedVanillaModulesLib {
 	public enum ButtonColour {
 		Red,
 		Yellow,

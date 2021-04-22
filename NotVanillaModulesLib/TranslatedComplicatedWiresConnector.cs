@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 #if (!DEBUG)
 using Assets.Scripts.Components.VennWire;
 #endif
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>A <see cref="Behaviour"/> that connects a mod module with the vanilla components for Complicated Wires.</summary>
-	public class NotComplicatedWiresConnector : NotVanillaModuleConnector {
+	public class TranslatedComplicatedWiresConnector : TranslatedVanillaModuleConnector {
 		public TestModelWireSpace[] TestModelWireSpaces;
 		public Material[] TestWireMaterials;
 		public Material[] SocketMaterials;

@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	public class TestModelKnob : MonoBehaviour {
 		public KnobPosition Position { get; private set; }
 
@@ -17,7 +17,7 @@ namespace NotVanillaModulesLib.TestModel {
 
 		private bool KMSelectable_OnInteract() {
 			this.Position = this.Position switch { KnobPosition.Up => KnobPosition.Right, KnobPosition.Right => KnobPosition.Down, KnobPosition.Down => KnobPosition.Left, _ => KnobPosition.Up };
-			this.transform.localEulerAngles = new Vector3(0, NotKnobConnector.KnobPositionToRotation(this.Position), 0);
+			this.transform.localEulerAngles = new Vector3(0, TranslatedKnobConnector.KnobPositionToRotation(this.Position), 0);
 			this.Turned?.Invoke(this, EventArgs.Empty);
 			return false;
 		}

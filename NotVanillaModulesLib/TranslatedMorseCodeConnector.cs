@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 #if (!DEBUG)
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
-	public class NotMorseCodeConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedMorseCodeConnector : TranslatedVanillaModuleConnector {
 		public GameObject TestModelTunerSlider;
 		public TextMesh TestModelTunerDisplay;
 		public GameObject LightOff;

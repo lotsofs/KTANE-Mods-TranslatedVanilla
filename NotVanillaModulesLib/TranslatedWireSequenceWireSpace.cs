@@ -1,8 +1,8 @@
 ﻿using System;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 
-namespace NotVanillaModulesLib {
-	public abstract class NotWireSequenceWireSpace {
+namespace TranslatedVanillaModulesLib {
+	public abstract class TranslatedWireSequenceWireSpace {
 		public abstract WireSequenceColour Colour { get; set; }
 		public int Index { get; set; }
 		public abstract int To { get; set; }
@@ -10,11 +10,11 @@ namespace NotVanillaModulesLib {
 		public abstract string Letter { get; set; }
 		public abstract string Number { get; set; }
 
-		protected NotWireSequenceWireSpace(int index) {
+		protected TranslatedWireSequenceWireSpace(int index) {
 			this.Index = index;
 		}
 		
-		internal class TestWireSpace : NotWireSequenceWireSpace {
+		internal class TestWireSpace : TranslatedWireSequenceWireSpace {
 			internal readonly TestModelWireSequenceWireSpace wire;
 
 			public override WireSequenceColour Colour {
@@ -42,8 +42,8 @@ namespace NotVanillaModulesLib {
 		}
 
 #if (!DEBUG)
-		internal class LiveWireSpace : NotWireSequenceWireSpace {
-			private NotWireSequencePage.LiveNotWireSequencePage page;
+		internal class LiveWireSpace : TranslatedWireSequenceWireSpace {
+			private TranslatedWireSequencePage.LiveNotWireSequencePage page;
 			internal WireSequenceWire Wire { get; private set; }
 			private WireSequenceColour colour;
 			private int to;
@@ -75,7 +75,7 @@ namespace NotVanillaModulesLib {
 				set { if (this.Wire != null) throw new InvalidOperationException("Cannot set this property after the wire is initialised."); this.number = value; }
 			}
 
-			public LiveWireSpace(NotWireSequencePage.LiveNotWireSequencePage page, int index) : base(index) =>
+			public LiveWireSpace(TranslatedWireSequencePage.LiveNotWireSequencePage page, int index) : base(index) =>
 				this.page = page ?? throw new ArgumentNullException(nameof(page));
 
 			public void InitialiseWire(WireSequenceWire wire) {

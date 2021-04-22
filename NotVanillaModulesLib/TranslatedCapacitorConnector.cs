@@ -7,8 +7,8 @@ using UnityEngine;
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
-	public class NotCapacitorConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedCapacitorConnector : TranslatedVanillaModuleConnector {
 		public KMSelectable TestModelLever;
 		public Transform TestModelLeverPivot;
 		public Transform TestModelDeathBarFill;

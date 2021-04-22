@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>Provides data for the <see cref="WireEventConnector.WireCut"/> event.</summary>
 	public class WireCutEventArgs : EventArgs {
 		/// <summary>Returns the index of the wire that was cut.</summary>

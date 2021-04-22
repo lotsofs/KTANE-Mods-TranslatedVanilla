@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace NotVanillaModulesLib.TestModel {
+namespace TranslatedVanillaModulesLib.TestModel {
 	/// <summary>Represents a space for a wire in the test model for Wires, Complicated Wires or Wire Sequence.</summary>
 	public class TestModelWireSpace : MonoBehaviour {
 		public GameObject IntactWire;

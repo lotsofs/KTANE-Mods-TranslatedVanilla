@@ -1,12 +1,12 @@
 ﻿using System;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 #if (!DEBUG)
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
-	public class NotVentingGasConnector : NotVanillaModuleConnector {
+namespace TranslatedVanillaModulesLib {
+	public class TranslatedVentingGasConnector : TranslatedVanillaModuleConnector {
 		public enum Texts {
 			VentGas,
 			VentYN,

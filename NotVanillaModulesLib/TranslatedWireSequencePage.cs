@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 #if (!DEBUG)
 using TMPro;
 using UnityEngine;
 #endif
 
-namespace NotVanillaModulesLib {
-	public abstract class NotWireSequencePage {
-		public abstract ReadOnlyCollection<NotWireSequenceWireSpace> Wires { get; }
+namespace TranslatedVanillaModulesLib {
+	public abstract class TranslatedWireSequencePage {
+		public abstract ReadOnlyCollection<TranslatedWireSequenceWireSpace> Wires { get; }
 		public abstract bool Active { get; set; }
 		public abstract void SetColourblindMode();
 
-		internal class TestNotWireSequencePage : NotWireSequencePage {
+		internal class TestNotWireSequencePage : TranslatedWireSequencePage {
 			private readonly TestModelWireSequencePage page;
 
-			public override ReadOnlyCollection<NotWireSequenceWireSpace> Wires { get; }
+			public override ReadOnlyCollection<TranslatedWireSequenceWireSpace> Wires { get; }
 			public override bool Active {
 				get => this.page.gameObject.activeSelf;
 				set => this.page.gameObject.SetActive(value);
@@ -25,7 +25,7 @@ namespace NotVanillaModulesLib {
 
 			public TestNotWireSequencePage(TestModelWireSequencePage page, int startIndex) {
 				this.page = page ?? throw new ArgumentNullException(nameof(page));
-				this.Wires = page.WireSpaces.Select(w => (NotWireSequenceWireSpace) new NotWireSequenceWireSpace.TestWireSpace(w, startIndex++)).ToList().AsReadOnly();
+				this.Wires = page.WireSpaces.Select(w => (TranslatedWireSequenceWireSpace) new TranslatedWireSequenceWireSpace.TestWireSpace(w, startIndex++)).ToList().AsReadOnly();
 			}
 
 			public override void SetColourblindMode() {
@@ -34,11 +34,11 @@ namespace NotVanillaModulesLib {
 		}
 
 #if (!DEBUG)
-		internal class LiveNotWireSequencePage : NotWireSequencePage {
-			private NotWireSequenceConnector module;
+		internal class LiveNotWireSequencePage : TranslatedWireSequencePage {
+			private TranslatedWireSequenceConnector module;
 			internal WireSequencePage page;
 
-			public override ReadOnlyCollection<NotWireSequenceWireSpace> Wires { get; }
+			public override ReadOnlyCollection<TranslatedWireSequenceWireSpace> Wires { get; }
 			public override bool Active {
 				get => this.page == null ? false : this.page.gameObject.activeSelf;
 				set {
@@ -47,12 +47,12 @@ namespace NotVanillaModulesLib {
 				}
 			}
 
-			public LiveNotWireSequencePage(NotWireSequenceConnector module, int startIndex) {
+			public LiveNotWireSequencePage(TranslatedWireSequenceConnector module, int startIndex) {
 				this.module = module;
-				this.Wires = Array.AsReadOnly(new NotWireSequenceWireSpace[] {
-					new NotWireSequenceWireSpace.LiveWireSpace(this, startIndex),
-					new NotWireSequenceWireSpace.LiveWireSpace(this, startIndex + 1),
-					new NotWireSequenceWireSpace.LiveWireSpace(this, startIndex + 2)
+				this.Wires = Array.AsReadOnly(new TranslatedWireSequenceWireSpace[] {
+					new TranslatedWireSequenceWireSpace.LiveWireSpace(this, startIndex),
+					new TranslatedWireSequenceWireSpace.LiveWireSpace(this, startIndex + 1),
+					new TranslatedWireSequenceWireSpace.LiveWireSpace(this, startIndex + 2)
 				});
 			}
 
@@ -61,9 +61,9 @@ namespace NotVanillaModulesLib {
 				this.page = page;
 				page.InitPage(pageIndex, 3, wireConfigurations, null);
 
-				var wires = (IList<NotWireSequenceWireSpace>) this.Wires;
+				var wires = (IList<TranslatedWireSequenceWireSpace>) this.Wires;
 				for (int i = 0; i < wires.Count; i++) {
-					var wire = (NotWireSequenceWireSpace.LiveWireSpace) wires[i];
+					var wire = (TranslatedWireSequenceWireSpace.LiveWireSpace) wires[i];
 					wire.InitialiseWire(page.Wires[i * 3 + wire.To]);
 					if (this.module.ColourblindMode || wire.Colour == WireSequenceColour.Yellow || wire.Colour == WireSequenceColour.Green) {
 						foreach (var renderer in wire.Wire.GetComponentsInChildren<Renderer>(true)) {
@@ -92,7 +92,7 @@ namespace NotVanillaModulesLib {
 			public override void SetColourblindMode() {
 				if (this.page == null) return;
 				for (int i = 0; i < this.Wires.Count; i++) {
-					var wire = (NotWireSequenceWireSpace.LiveWireSpace) this.Wires[i];
+					var wire = (TranslatedWireSequenceWireSpace.LiveWireSpace) this.Wires[i];
 					foreach (var renderer in wire.Wire.GetComponentsInChildren<Renderer>(true)) {
 						if (renderer.gameObject.tag != "Highlight")
 							renderer.material = (this.module.ColourblindMode ? this.module.ColourblindMaterials : this.module.Materials)[(int) wire.Colour];

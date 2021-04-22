@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Linq;
 
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 using UnityEngine;
 
-namespace NotVanillaModulesLib {
-	public abstract class NotWireSpace {
+namespace TranslatedVanillaModulesLib {
+	public abstract class TranslatedWireSpace {
 		public int WireIndex { get; }
 		public abstract WireColour Colour { get; set; }
 		public abstract bool Cut { get; }
 
-		internal NotWireSpace(int index) => this.WireIndex = index;
+		internal TranslatedWireSpace(int index) => this.WireIndex = index;
 		public abstract void SetColourblindMode();
 
-		internal class TestWireSpace : NotWireSpace {
-			private readonly NotWiresConnector module;
+		internal class TestWireSpace : TranslatedWireSpace {
+			private readonly TranslatedWiresConnector module;
 			internal readonly TestModelWireSpace wire;
 
 			private WireColour colour;
@@ -33,7 +33,7 @@ namespace NotVanillaModulesLib {
 			}
 			public override bool Cut => this.wire.CutWire.activeSelf;
 
-			public TestWireSpace(NotWiresConnector module, TestModelWireSpace wire, int index) : base(index) {
+			public TestWireSpace(TranslatedWiresConnector module, TestModelWireSpace wire, int index) : base(index) {
 				this.module = module ?? throw new ArgumentNullException(nameof(module));
 				this.wire = wire ?? throw new ArgumentNullException(nameof(wire));
 			}
@@ -42,12 +42,12 @@ namespace NotVanillaModulesLib {
 		}
 
 #if (!DEBUG)
-		internal class LiveWireSpace : NotWireSpace {
-			private readonly NotWiresConnector module;
+		internal class LiveWireSpace : TranslatedWireSpace {
+			private readonly TranslatedWiresConnector module;
 			internal readonly SnippableWire wire;
 			private WireColour colour;
 
-			public LiveWireSpace(NotWiresConnector module, SnippableWire wire, int index) : base(index) {
+			public LiveWireSpace(TranslatedWiresConnector module, SnippableWire wire, int index) : base(index) {
 				this.module = module ?? throw new ArgumentNullException(nameof(module));
 				this.wire = wire ?? throw new ArgumentNullException(nameof(wire));
 				wire.WireIndex = index;

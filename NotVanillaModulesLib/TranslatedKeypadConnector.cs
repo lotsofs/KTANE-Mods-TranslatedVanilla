@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib.TestModel;
+using TranslatedVanillaModulesLib.TestModel;
 
 using UnityEngine;
 
@@ -9,9 +9,9 @@ using UnityEngine;
 using TMPro;
 #endif
 
-namespace NotVanillaModulesLib {
+namespace TranslatedVanillaModulesLib {
 	/// <summary>A <see cref="Behaviour"/> that connects a mod module with the vanilla components for Keypad.</summary>
-	public class NotKeypadConnector : NotVanillaModuleConnector {
+	public class TranslatedKeypadConnector : TranslatedVanillaModuleConnector {
 		public TestModelButton[] TestModelButtons;
 		public TextMesh[] TestModelColourblindTexts;
 		public Renderer[] LightRenderers;
