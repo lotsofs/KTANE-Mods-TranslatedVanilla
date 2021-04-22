@@ -160,8 +160,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	// Twitch Plays support
 	public static readonly string TwitchHelpMessage
 		= "!{0} cycle 1 3 5 - cycle the letters in columns 1, 3 and 5 | !{0} toggle - move all columns down one letter | " +
-		"!{0} tap - tap once | !{0} tap on 5 - tap when the timer contains a 5 | !{0} tap 5 - tap 5 times | !{0} tap 5:59 | !{0} tap 5:59 then 5:54 | " +
-		"!{0} mash - tap until something happens | !{0} hold | !{0} hold on 5 | !{0} hold for 5 | !{0} release | !{0} release on 2";
+		"!{0} submit ABCDE - submit ABCDE as the solution | !submit - press the submit button with the current display as is";
 	// `!{0} cycle` is deliberately excluded because it takes too long and its use is generally frowned on.
 	[NonSerialized]
 	public bool TwitchPlaysActive;
@@ -191,8 +190,12 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 					yield return null;
 					if (indices.Count >= 3) yield return "waiting music";
 					foreach (var i in indices) {
+						int connector = i - 1;
+						if (_translation.Language.RightToLeft) {
+							connector = 4 - connector;
+						}
 						for (int j = 0; j < 5; ++j) {
-							this.Connector.TwitchMoveDown(i - 1);
+							this.Connector.TwitchMoveDown(connector);
 							yield return "trywaitcancel 1";
 						}
 					}
@@ -201,15 +204,63 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			else if (tokens[0].EqualsIgnoreCase("toggle")) {
 				if (tokens.Length == 1) {
 					yield return null;
-					for (int i = 0; i < 5; ++i) {
-						this.Connector.TwitchMoveDown(i);
-						yield return new WaitForSeconds(0.1f);
+					if (_translation.Language.RightToLeft) {
+						for (int i = 4; i >= 0; --i) {
+							this.Connector.TwitchMoveDown(i);
+							yield return new WaitForSeconds(0.1f);
+						}
+					}
+					else {
+						for (int i = 0; i < 5; ++i) {
+							this.Connector.TwitchMoveDown(i);
+							yield return new WaitForSeconds(0.1f);
+						}
 					}
 				}
 			} 
-			else if (tokens[0].EqualsIgnoreCase("tap") || tokens[0].EqualsIgnoreCase("press")) {
+			else if (tokens[0].EqualsIgnoreCase("submit")) {
+				if (tokens.Length == 1) {
+					this.Connector.TwitchPressSubmit();
+					yield return null;
+					yield break;
+				}
+				string password;
+				int index = Array.IndexOf(_translation.Language.WordsManual, tokens[1]);
+				if (index != -1) {
+					password = _translation.Language.PossibleWords[index];
+				}
+				else if (tokens[1].Length != 5) {
+					yield break;
+				}
+				else {
+					password = tokens[1];
+				}
+				password = password.ToLowerInvariant();
+				for (int i = 0; i < 5; ++i) {
+					int connector = i;
+					if (_translation.Language.RightToLeft) {
+						connector = 4 - connector;
+					}
+					bool next = false;
+					for (int j = 0; j < 6; ++j) {
+						string word = Connector.GetWord(_translation.Language.RightToLeft).ToLowerInvariant();
+						if (word[i] == password[i]) {
+							next = true;
+							break;
+						}
+						yield return new WaitForSeconds(0.1f);
+						this.Connector.TwitchMoveDown(connector);
+					}
+					if (next) {
+						continue;
+					}
+					else {
+						yield return "sendtochaterror Incorrect password.";
+						yield break;
+					}
+				}
+				yield return new WaitForSeconds(0.1f);
 				this.Connector.TwitchPressSubmit();
-				// todo: turn this into a normal press, or actually, make it "!{0} submit <word>"
 			}
 		}
 	}
@@ -236,7 +287,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 
 		// start
 		string currentWord = Connector.GetWord() ;
-		LogFormat("Starting display: {0}", currentWord);
+		//LogFormat("Starting display: {0}", currentWord);
 
 		// populate the dictionary and compensate for RTL languages
 		foreach (string pw in _translation.Language.PossibleWords) {
@@ -270,7 +321,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 					presses++;
 					lastChangedDial = i;
 					currentWord = Connector.GetWord();
-					LogFormat("UNUSED: Current display: {0}", currentWord);
+					//LogFormat("UNUSED: Current display: {0}", currentWord);
 					memorizedDials[i].Add(currentWord[i]);
 					yield return new WaitForSeconds(delay);
 				}
@@ -289,7 +340,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			}
 			passwordLikelihood[pw] = CountMatches(currentWord, pw);
 		}
-		LogFormat("Aiming for '{0}' as it already has {1} matching characters", targetWord, feasibilityScore.ToString());
+		//LogFormat("Aiming for '{0}' as it already has {1} matching characters", targetWord, feasibilityScore.ToString());
 
 		while (presses < 50) {
 			// change an incorrect letter in a column that we're not sure contains a letter from this password
@@ -301,7 +352,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 					presses++;
 					pressed = true;
 					currentWord = Connector.GetWord();
-					LogFormat("NOMATCH: Current display: {0}", currentWord);
+					//LogFormat("NOMATCH: Current display: {0}", currentWord);
 					break;
 				}
 			}
@@ -324,7 +375,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 					lastChangedDial = i;
 					presses++;
 					currentWord = Connector.GetWord();
-					LogFormat("CERTAIN: Current display: {0}", currentWord);
+					//LogFormat("CERTAIN: Current display: {0}", currentWord);
 					break;
 				}
 			}
@@ -333,7 +384,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 			// check if module is solved.
 			if (_translation.Language.PossibleWords.Contains(Connector.GetWord(rtl))) {
 				Connector.TwitchPressSubmit();
-				LogFormat("solved in {0} presses", presses.ToString());
+				//LogFormat("solved in {0} presses", presses.ToString());
 				yield break;
 			}
 
@@ -358,7 +409,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 						pws += pw + ", ";
 					}
 				}
-				LogFormat("Excluding {0}as they have no matching letters in dial {1}.", pws, lastChangedDial.ToString());
+				//LogFormat("Excluding {0}as they have no matching letters in dial {1}.", pws, lastChangedDial.ToString());
 			}
 
 			// check what is now the most suitable word to go for.
@@ -373,7 +424,7 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 				}
 			}
 			if (oldTarget != targetWord) {
-				LogFormat("Now aiming for '{0}' as it has {1} currently matching characters and at least {2} known to exist in the dials.", targetWord, CountMatches(currentWord, targetWord).ToString(), passwordLikelihood[targetWord].ToString());
+				//LogFormat("Now aiming for '{0}' as it has {1} currently matching characters and at least {2} known to exist in the dials.", targetWord, CountMatches(currentWord, targetWord).ToString(), passwordLikelihood[targetWord].ToString());
 			}
 		}
 	}

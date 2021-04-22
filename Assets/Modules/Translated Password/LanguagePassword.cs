@@ -38,6 +38,7 @@ public class LanguagePassword : Language {
 			"THESE", "THING", "THINK", "THREE", "WATER",
 			"WHERE", "WHICH", "WORLD", "WOULD", "WRITE"
 		};
+	public string[] WordsManual;
 
 	[Header("Twitch Plays")]
 	public string TPCycle = "cycle";

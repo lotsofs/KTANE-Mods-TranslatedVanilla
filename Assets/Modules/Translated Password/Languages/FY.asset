@@ -40,13 +40,12 @@ MonoBehaviour:
   DialsFontSize: 0
   DialsOffset: {x: 0, y: 0, z: 0}
   Submit: YNTSJINJE
-  PossibleLetters: ABCDEFGHIYJKLMNOPRSTUVWZ
+  PossibleLetters: "A\xC2BCDE\xCA\xC9FGHIYJKLMNO\xD4PRSTU\xDB\xDAVWZ"
   PossibleWords:
-  - AAPKE
   - ALTYD
   - AMPER
-  - BONKE
-  - FLEIS
+  - "BR\xDBKE"
+  - "F\xCASTE"
   - FUORT
   - GRIEN
   - HJOED
@@ -59,10 +58,9 @@ MonoBehaviour:
   - IUWEN
   - JISKE
   - KREKT
-  - LYTSE
+  - "L\xCASTE"
   - NOAIT
   - PIPER
-  - PLANT
   - PRIUW
   - PROAI
   - PRONK
@@ -75,7 +73,9 @@ MonoBehaviour:
   - TROAN
   - TRIJE
   - TRYST
+  - ÚTIEN
   - WIIST
+  - "WR\xC2LD"
   - WURCH
   TPCycle: cycle
   TPToggle: toggle
