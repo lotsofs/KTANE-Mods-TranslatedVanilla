@@ -384,7 +384,6 @@ GameObject:
   - component: {fileID: 65065796984675958}
   - component: {fileID: 114835436380170924}
   - component: {fileID: 114161330509457418}
-  - component: {fileID: 114956671293027526}
   - component: {fileID: 114424529933858232}
   - component: {fileID: 114229659061671490}
   m_Layer: 0
@@ -1965,7 +1964,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758559113600360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1298924185, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: 1782137628, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TestModel: {fileID: 1160201854629994}
@@ -2260,18 +2259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
---- !u!114 &114956671293027526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758559113600360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colorblindMode: 0
 --- !u!114 &114976002606991788
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -304,21 +304,25 @@ public class Password : TranslatedVanillaModule<TranslatedPasswordConnector> {
 
 		// check if any of the dials are set to an unused letter (eg. X in English) and toggle them down if so
 		for (int i = 0; i < 5; i++) {
+			int connector = i;
+			if (_translation.Language.RightToLeft) {
+				connector = 4 - connector;
+			}
 			bool letterExistsInTable = false;
 			while (!letterExistsInTable) {
 				foreach (string pw in _translation.Language.PossibleWords) {
-					if (pw[i] == currentWord[i]) {
+					if (pw[i] == currentWord[connector]) {
 						letterExistsInTable = true;
 						break;
 					}
 				}
 				if (!letterExistsInTable) {
-					Connector.TwitchMoveDown(i);
+					Connector.TwitchMoveDown(connector);
 					presses++;
-					lastChangedDial = i;
+					lastChangedDial = connector;
 					currentWord = Connector.GetWord();
 					//LogFormat("UNUSED: Current display: {0}", currentWord);
-					memorizedDials[i].Add(currentWord[i]);
+					memorizedDials[connector].Add(currentWord[connector]);
 					yield return new WaitForSeconds(delay);
 				}
 			}
