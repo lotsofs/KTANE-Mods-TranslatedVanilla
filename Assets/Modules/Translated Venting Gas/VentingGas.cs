@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
+public class VentingGas : TranslatedVanillaModule<TranslatedVentingGasConnector> {
 
 	private Coroutine _coroutine;
 	private bool _active = false;
@@ -32,24 +32,24 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 		if (_translation.Language.VentGas.Contains("\n")) {
 			_multilineVent = true;
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentGas, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentYN, _translation.Language.VentGas.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
 		}
 		else {
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentGas, _translation.Language.VentGas);
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.VentYN, _translation.Language.YesNo);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentGas, _translation.Language.VentGas);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentYN, _translation.Language.YesNo);
 		}
 		if (_translation.Language.Detonate.Contains("\n")) {
 			_multilineDetonate = true;
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.Detonate, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[0]);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.DetonateYN, _translation.Language.Detonate.Split(new[] { "\n" }, StringSplitOptions.None)[1]);
 		}
 		else {
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.Detonate, _translation.Language.Detonate);
-			Connector.SetDisplayText(NotVentingGasConnector.Texts.DetonateYN, _translation.Language.YesNo);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.Detonate, _translation.Language.Detonate);
+			Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.DetonateYN, _translation.Language.YesNo);
 		}
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingComplete, _translation.Language.VentingComplete);
-		Connector.SetDisplayText(NotVentingGasConnector.Texts.VentingPreventsExplosions, _translation.Language.VentingPrevents);
+		Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentingComplete, _translation.Language.VentingComplete);
+		Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, _translation.Language.VentingPrevents);
 		Connector.InputText = string.Empty;
 
 		if (_translation.Language.RightToLeft) Connector.SetButtonTexts(_translation.Language.N, _translation.Language.Y);
@@ -61,7 +61,7 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 	public void DisarmNeedy(bool ventingComplete = false) {
 		Connector.InputText = string.Empty;
 		Connector.DisableDisplay();
-		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, ventingComplete);
+		Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingComplete, ventingComplete);
 		_active = false;
 		if (_coroutine != null) {
 			StopCoroutine(_coroutine);
@@ -71,26 +71,26 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 
 	private void KMNeedyModule_OnNeedyActivation() {
 		_active = true;
-		Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingComplete, false);
+		Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingComplete, false);
 		if (Random.Range(0f, 1f) < 0.1f) {
 			_correctButton = VentingGasButton.N;
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.Detonate, true);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.DetonateYN, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.Detonate, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.DetonateYN, true);
 			Log(_translation.Language.LogPromptDetonate);
 			if (_multilineDetonate) {
-				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+				Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
 			}
 		}
 		else {
 			_correctButton = VentingGasButton.Y;
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentGas, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentYN, true);
 			Log(_translation.Language.LogPromptVentGas);
 			if (_multilineVent) {
-				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+				Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
 			}
 		}
-		Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
+		Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.InputText, true);
 	}
 
 	private void KMNeedyModule_OnTimerExpired() {
@@ -145,22 +145,22 @@ public class NotVentingGas : NotVanillaModule<NotVentingGasConnector> {
 			Log(_translation.Language.LogNoIncorrect);
 			Connector.DisableDisplay();
 			Connector.InputText = string.Empty;
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, true);
 			yield return new WaitForSeconds(0.75f);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, false);
 			yield return new WaitForSeconds(0.4f);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, true);
 			yield return new WaitForSeconds(0.75f);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, false);
 			yield return new WaitForSeconds(0.4f);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, true);
 			yield return new WaitForSeconds(1f);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentingPreventsExplosions, false);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentGas, true);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.VentYN, true);
-			Connector.SetDisplayActive(NotVentingGasConnector.Texts.InputText, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentingPreventsExplosions, false);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentGas, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.VentYN, true);
+			Connector.SetDisplayActive(TranslatedVentingGasConnector.Texts.InputText, true);
 			if (_multilineVent) {
-				Connector.SetDisplayText(NotVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
+				Connector.SetDisplayText(TranslatedVentingGasConnector.Texts.InputText, _translation.Language.YesNo);
 			}
 			_coroutine = null;
 		}

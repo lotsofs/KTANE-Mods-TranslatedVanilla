@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 
-public abstract class NotVanillaModule<TConnector> : MonoBehaviour where TConnector : NotVanillaModuleConnector {
+public abstract class TranslatedVanillaModule<TConnector> : MonoBehaviour where TConnector : TranslatedVanillaModuleConnector {
 	protected TConnector Connector { get; private set; }
 	public bool Solved { get; private set; }
 

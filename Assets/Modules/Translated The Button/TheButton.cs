@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using KModkit;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Globalization;
 
-public class NotButton : NotVanillaModule<NotButtonConnector> {
+public class TheButton : TranslatedVanillaModule<TranslatedButtonConnector> {
 	public bool OpenCoverOnSelection;
 
 	ButtonColour _color;

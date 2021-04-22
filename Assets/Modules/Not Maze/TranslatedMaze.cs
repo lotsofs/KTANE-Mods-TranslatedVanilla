@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class NotMaze : NotVanillaModule<NotMazeConnector> {
+public class NotMaze : TranslatedVanillaModule<TranslatedMazeConnector> {
 	public Vector2Int Position { get; private set; }
 	public Vector2Int GoalPosition { get; private set; }
 

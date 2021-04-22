@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using KModkit;
 using UnityEngine;
 
-public class NotWiresword : NotVanillaModule<NotWiresConnector> {
+public class NotWiresword : TranslatedVanillaModule<TranslatedWiresConnector> {
 	private static readonly Dictionary<char, WireState[]> defaultWireTableNoVowel = new Dictionary<char, WireState[]> {
 		{ 'A', new[] { new WireState(2, WireColour.Red), new WireState(3, WireColour.Yellow), new WireState(5, WireColour.Purple) } },
 		{ 'B', new[] { new WireState(0, WireColour.Purple), new WireState(5, WireColour.Orange) } },

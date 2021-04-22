@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 using KModkit;
 using System.Linq;
 
-public class NotCapacitorDischarge : NotVanillaModule<NotCapacitorConnector> {
+public class NotCapacitorDischarge : TranslatedVanillaModule<TranslatedCapacitorConnector> {
 	public int Number { get; private set; }
 	public bool Down { get; private set; }
 	public bool PressedIncorrectly { get; private set; }

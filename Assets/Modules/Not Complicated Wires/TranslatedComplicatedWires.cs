@@ -2,18 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using KModkit;
 using UnityEngine;
 
-public class NotComplicatedWires : NotVanillaModule<NotComplicatedWiresConnector> {
+public class TranslatedComplicatedWires : TranslatedVanillaModule<TranslatedComplicatedWiresConnector> {
 	private KMBombInfo kmBombInfo;
 	private readonly bool[] shouldCut = new bool[6];
 	private List<int> activeSpaceIndices;
 
 	private static readonly Dictionary<char, Operation[]> defaultOperationTable = new Dictionary<char, Operation[]>();
 
-	static NotComplicatedWires() {
+	static TranslatedComplicatedWires() {
 		defaultOperationTable['1'] = defaultOperationTable['6'] = defaultOperationTable['E'] = defaultOperationTable['J'] =
 			new[] { Operation.AND, Operation.XOR, Operation.OR, Operation.XNOR, Operation.IMPLIES, Operation.NAND };
 		defaultOperationTable['2'] = defaultOperationTable['7'] = defaultOperationTable['D'] = defaultOperationTable['I'] =

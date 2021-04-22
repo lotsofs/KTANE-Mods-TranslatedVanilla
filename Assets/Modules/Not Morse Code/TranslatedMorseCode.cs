@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using Random = UnityEngine.Random;
 using System;
 using System.Linq;
 
-public class NotMorseCode : NotVanillaModule<NotMorseCodeConnector> {
+public class NotMorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 	private static readonly int[] possibleFrequencies = new[] {
 		502, 505, 512, 515,	522, 525, 532, 535,	542, 545, 552, 555,
 		562, 565, 572, 575,	582, 585, 592, 595,	600

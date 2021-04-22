@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using System;
 using System.Collections.ObjectModel;
 using KModkit;
@@ -7,7 +7,7 @@ using System.Linq;
 using Random = UnityEngine.Random;
 using UnityEngine;
 
-public class NotMemory : NotVanillaModule<NotMemoryConnector> {
+public class TranslatedMemory : TranslatedVanillaModule<TranslatedMemoryConnector> {
 	public int Display { get; private set; }
 	public int LightCount { get; private set; }
 	public ReadOnlyCollection<int> Labels { get; private set; }
@@ -153,8 +153,8 @@ public class NotMemory : NotVanillaModule<NotMemoryConnector> {
 		yield break;
 	}
 
-	private delegate bool Condition(NotMemory module, KMBombInfo bombInfo);
-	private delegate int ActionCheck(NotMemory module);
+	private delegate bool Condition(TranslatedMemory module, KMBombInfo bombInfo);
+	private delegate int ActionCheck(TranslatedMemory module);
 
 	private class Rule {
 		public Condition Condition { get; private set; }

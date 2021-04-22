@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using Random = UnityEngine.Random;
 
-public class NotSimaze : NotVanillaModule<NotSimonConnector> {
+public class NotSimaze : TranslatedVanillaModule<TranslatedSimonConnector> {
 	private int mazeIndex;
 	// In this module, the x axis points east and the y axis points north.
 	private int x;

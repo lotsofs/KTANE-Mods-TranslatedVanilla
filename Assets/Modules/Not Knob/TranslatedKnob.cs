@@ -5,13 +5,13 @@ using System.Linq;
 
 using KModkit;
 
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 
 using UnityEngine;
 
 using Random = UnityEngine.Random;
 
-public class NotKnob : NotVanillaModule<NotKnobConnector> {
+public class TranslatedKnob : TranslatedVanillaModule<TranslatedKnobConnector> {
 	private static readonly Dictionary<char, bool[]> braille = new Dictionary<char, bool[]>() {
 		{ 'A', new[] { true , false, false, false, false, false } },
 		{ 'B', new[] { true , true , false, false, false, false } },

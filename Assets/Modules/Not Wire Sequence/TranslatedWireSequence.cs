@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class NotWireSequence : NotVanillaModule<NotWireSequenceConnector> {
+public class NotWireSequence : TranslatedVanillaModule<TranslatedWireSequenceConnector> {
 	private static readonly string[][] paragraphs = new[] {
 		new[] { "The", "colour", "of", "each", "wire", "represents", "a", "paragraph",
 			"within", "this", "manual", "and", "each", "number", "on", "the", "right",

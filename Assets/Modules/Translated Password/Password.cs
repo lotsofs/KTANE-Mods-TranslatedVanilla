@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NotVanillaModulesLib;
+using TranslatedVanillaModulesLib;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class NotPassword : NotVanillaModule<NotPasswordConnector> {
+public class Password : TranslatedVanillaModule<TranslatedPasswordConnector> {
 	public int SolutionCount { get; private set; }
 	public int SolutionDelay { get; private set; }
 
@@ -16,8 +16,6 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	public bool WasPressed { get; private set; }
 	public int InteractionTickCount { get; private set; }
 	public bool PressedIncorrectly { get; private set; }
-
-	private bool twitchStruck;
 
 	TranslatedPassword _translation;
 
@@ -169,8 +167,6 @@ public class NotPassword : NotVanillaModule<NotPasswordConnector> {
 	public IEnumerator ProcessTwitchCommand(string command) {
 		var tokens = command.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
 		if (tokens.Length == 0) yield break;
-
-		this.twitchStruck = false;
 
 		var bombInfo = this.GetComponent<KMBombInfo>();
 
