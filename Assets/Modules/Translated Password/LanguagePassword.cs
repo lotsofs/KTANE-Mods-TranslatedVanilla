@@ -99,7 +99,7 @@ public class LanguagePassword : Language {
 		if (RightToLeft && !flipped && !Application.isEditor) {
 			Submit = ReverseReadingDirection(Submit);
 			for (int i = 0; i < PossibleWords.Length; i++) {
-				PossibleWords[i] = ReverseReadingDirection(PossibleWords[i]);
+				//PossibleWords[i] = ReverseReadingDirection(PossibleWords[i]);
 			}
 			flipped = true;
 		}
