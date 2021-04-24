@@ -57,9 +57,9 @@ public class Language : ScriptableObject {
 		if (!string.IsNullOrEmpty(ExtLang)) IetfBcp47 += "-" + ExtLang.ToLower();
 		if (Script != Ietf.Scripts.Default && Script.ToString() != Ietf.Languages[Iso639].SuppressScript ) IetfBcp47 += "-" + (Ietf.ScriptCodes)Script;
 		if (!string.IsNullOrEmpty(Iso3166)) IetfBcp47 += "-" + Iso3166.ToUpper();
-		else if (LanguageRegion != Ietf.Regions.Default) IetfBcp47 += "-" + LanguageRegion;
+		else if (LanguageRegion != Ietf.Regions.Default) IetfBcp47 += "-" + (int)LanguageRegion;
 		if (!string.IsNullOrEmpty(Variant)) IetfBcp47 += "-" + Variant.ToLower();
-		if (MachineTranslation) IetfBcp47 += "-t-t0-" + (string.IsNullOrEmpty(MachineUsed) ? MachineUsed : "und");
+		if (MachineTranslation) IetfBcp47 += "-t-t0-" + (!string.IsNullOrEmpty(MachineUsed) ? MachineUsed : "und");
 		foreach (string subtag in AdditionalExtendedSubtags) IetfBcp47 += "-" + subtag;
 		if (AdditionalPrivateSubtags.Length > 0 || ShowVersionSubtag) IetfBcp47 += "-x";
 		foreach (string subtag in AdditionalPrivateSubtags) IetfBcp47 += "-" + subtag;
