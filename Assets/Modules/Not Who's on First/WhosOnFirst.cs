@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using TranslatedVanillaModulesLib;
 using UnityEngine;
 
-public class TranslatedWhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
+public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 	private static readonly string[] displays = new[] {
 		"BLANK", "C", "CEE", "DISPLAY", "FIRST", "HOLD ON", "LEAD", "LED", "LEED", "NO", "NOTHING", "OK", "OKAY", "READ", "RED", "REED",
 		"SAY", "SAYS", "SEE", "THEIR", "THERE", "THEY ARE", "THEY’RE", "U", "UR", "YES", "YOU", "YOU ARE", "YOU’RE", "YOUR"

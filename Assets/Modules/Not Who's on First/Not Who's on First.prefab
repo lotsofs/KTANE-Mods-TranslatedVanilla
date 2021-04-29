@@ -1433,7 +1433,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1467,7 +1467,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1501,7 +1501,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1671,7 +1671,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1943,7 +1943,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 993e3b46ab0391a49970d5410597d227, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3115,7 +3115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1214283576622102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102913767338451274}
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106359077263528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102394176529321694}
@@ -3336,7 +3336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1991393006420868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102697986560833782}
@@ -3418,8 +3418,8 @@ MonoBehaviour:
   m_Script: {fileID: -119419473, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModuleType: NotWhosOnFirst
-  ModuleDisplayName: Not Who's on First
+  ModuleType: WhosOnFirstTranslated
+  ModuleDisplayName: Who's on First Translated
   RequiresTimerVisibility: 0
 --- !u!114 &114549237028857046
 MonoBehaviour:
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468384805007030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1703260893, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -1983762424, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TestModel: {fileID: 1081322712448730}
@@ -3620,7 +3620,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1918557592233708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2025944598, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: 687394335, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LightsOff:
@@ -3705,7 +3705,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515193206785090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102151140526819122}
@@ -3784,7 +3784,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1659635632049840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102869600591380306}
@@ -3837,7 +3837,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1436788422355428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 789574602, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
+  m_Script: {fileID: -46049439, guid: ca34bbc29bfcc3846bf3c44d37129e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TextMesh: {fileID: 102000809011872932}
