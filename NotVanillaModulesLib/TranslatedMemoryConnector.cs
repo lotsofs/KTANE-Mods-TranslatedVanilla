@@ -60,20 +60,21 @@ namespace TranslatedVanillaModulesLib {
 		protected override void AwakeLive() {
 #if (!DEBUG)
 			if (this.Module == ModuleType.Memory) {
-				using var wrapper = this.InstantiateComponent<MemoryComponent>();
+				//using var wrapper = this.InstantiateComponent<MemoryComponent>();
 
-				// Buttons need to be set before Awaking them.
-				this.buttons = wrapper.Component.Buttons;
-				foreach (var button in this.buttons) button.SetAnimationNoTween(KeypadButton.AnimationState.Sink);
+				//// Buttons need to be set before Awaking them.
+				//this.buttons = wrapper.Component.Buttons;
+				//foreach (var button in this.buttons) button.SetAnimationNoTween(KeypadButton.AnimationState.Sink);
 
-				var childrenToKeep = (from Transform child in wrapper.Component.transform
-									  where child.name != "StatusLightParent" && child.name != "Component_PuzzleBackground" && child.name != "Component_Highlight"
-									  select child).ToList();
-				foreach (var child in childrenToKeep) child.SetParent(this.transform, false);
-				this.displayText = wrapper.Component.DisplayText;
-				this.displayText.transform.localEulerAngles = new Vector3(90, 180, 0);
-				this.stageIndicator = wrapper.Component.StageIndicator;
-			} else {
+				//var childrenToKeep = (from Transform child in wrapper.Component.transform
+				//					  where child.name != "StatusLightParent" && child.name != "Component_PuzzleBackground" && child.name != "Component_Highlight"
+				//					  select child).ToList();
+				//foreach (var child in childrenToKeep) child.SetParent(this.transform, false);
+				//this.displayText = wrapper.Component.DisplayText;
+				//this.displayText.transform.localEulerAngles = new Vector3(90, 180, 0);
+				//this.stageIndicator = wrapper.Component.StageIndicator;
+			} 
+			else {
 				using var wrapper = this.InstantiateComponent<WhosOnFirstComponent>();
 
 				// Buttons need to be set before Awaking them.
@@ -85,13 +86,13 @@ namespace TranslatedVanillaModulesLib {
 				this.displayText.transform.SetParent(this.transform, false);
 				this.displayText.GetComponent<Renderer>().enabled = false;
 
-				var scale = this.displayText.transform.localScale;
-				scale.x = -scale.x;
-				this.displayText.transform.localScale = scale;
+				//var scale = this.displayText.transform.localScale;
+				//scale.x = -scale.x;
+				//this.displayText.transform.localScale = scale;
 
 				this.buttons = wrapper.Component.Buttons;
 				this.stageIndicator = wrapper.Component.StageIndicator;
-				this.stageIndicator.NumStages = 5;
+				//this.stageIndicator.NumStages = 5;
 				this.stageIndicator.transform.SetParent(this.transform, false);
 			}
 			this.displayText.GetComponent<Renderer>().enabled = false;
