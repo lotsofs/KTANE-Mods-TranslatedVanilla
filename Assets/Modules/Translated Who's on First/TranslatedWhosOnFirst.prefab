@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 114387380842097662}
   - component: {fileID: 114781276680156424}
   m_Layer: 0
-  m_Name: Not Who's on First
+  m_Name: Translated Who's on First
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
