@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
+  m_Name: CS
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Iso639: cs
+  Name: Czech
+  NativeName: "\u010Ce\u0161tina"
+  RightToLeft: 0
+  Version: 1
+  ManualAvailable: 1
+  ManualLinks: []
+  TwitchHelpMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the
+    phrase must match exactly | !{0} press MR - press the middle right button.'
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: cs
+  Displays:
+  - ANO
+  - "PRVN\xCD"
+  - OK
+  - JE
+  - OKA
+  - 
+  - NIC
+  - NE
+  - "PR\xC1ZDN\xDD"
+  - J
+  - BYLI
+  - "B\xCDL\xDD"
+  - BYLY
+  - "B\xCDL\xCD"
+  - "MN\u011A"
+  - "M\u011A"
+  - "JEMN\u011A"
+  - VRCH
+  - VRH
+  - "PO\u010CKEJ"
+  - PILY
+  - PILI
+  - "P\xCDL\xCD"
+  - ONI
+  - ONY
+  - "OHN\u011AM"
+  - "ON\u011AM"
+  - "O N\u011AM"
+  Labels:
+  - "M\u016E\u017DU"
+  - NE
+  - "PR\xC1ZDN\xC9"
+  - NIC
+  - ANO
+  - CO
+  - TEDA
+  - VLEVO
+  - VPRAVO
+  - "NAHO\u0158E"
+  - DOLE
+  - OK
+  - "PO\u010CKEJ"
+  - "ZM\xC1\u010CKNI"
+  - BYLI
+  - BYLY
+  - "B\xCDL\xCD"
+  - "B\xCDL\xDD"
+  - "O N\u011AM"
+  - "ON\u011AM"
+  - NO?
+  - NO
+  - CO?
+  - HOTOVO
+  - "D\xC1L"
+  - "DR\u017D"
+  - "JASN\u011A"
+  - JAKO
+  TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
+    must match exactly | !{0} press MR - press the middle right button.'
+  LogStage: Stage {0}
+  LogDisplay: Display is '{0}'
+  LogLabels: 'Labels are: ''{0}'', ''{1}'', ''{2}'', ''{3}'', ''{4}'', ''{5}'''
+  LogAnswer: 'Correct button to press: ''{0}'''
+  LogPressedCorrect: Pressed {0}. Correct!
+  LogPressedWrong: Pressed {0}. Strike!

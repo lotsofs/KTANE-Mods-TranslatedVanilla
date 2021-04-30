@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
+  m_Name: FY
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Iso639: fy
+  Name: Frisian
+  NativeName: Frysk
+  RightToLeft: 0
+  Version: 1
+  ManualAvailable: 0
+  ManualLinks: []
+  TwitchHelpMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the
+    phrase must match exactly | !{0} press MR - press the middle right button.'
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: fy
+  Displays:
+  - JA
+  - EARSTE
+  - SKERM
+  - OKEE
+  - SEIT
+  - NEAT
+  - 
+  - LEECH
+  - NEE
+  - WITE
+  - WIIDE
+  - WIETE
+  - WITTE
+  - SOAD
+  - SOART
+  - WACHT
+  - SYN
+  - SIN
+  - SINE
+  - SINNE
+  - SJEN
+  - WER
+  - "W\xCAR"
+  - WER'T
+  - WER T
+  - TEE
+  - T
+  - TE
+  Labels:
+  - KLEAR
+  - EARSTE
+  - NEE
+  - LEECH
+  - NEAT
+  - JA
+  - WAT
+  - UMM
+  - LINKS
+  - RJOCHTS
+  - MIDDEN
+  - OKEE
+  - WACHT
+  - DRUK
+  - SYN
+  - SIN
+  - SINE
+  - SINNE
+  - SJEN
+  - TSJIN
+  - EN
+  - N
+  - WAT?
+  - KLEAR
+  - FOLGENDE
+  - NOGRIS
+  - GOED
+  - AS
+  TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
+    must match exactly | !{0} press MR - press the middle right button.'
+  LogStage: Stage {0}
+  LogDisplay: Display is '{0}'
+  LogLabels: 'Labels are: ''{0}'', ''{1}'', ''{2}'', ''{3}'', ''{4}'', ''{5}'''
+  LogAnswer: 'Correct button to press: ''{0}'''
+  LogPressedCorrect: Pressed {0}. Correct!
+  LogPressedWrong: Pressed {0}. Strike!

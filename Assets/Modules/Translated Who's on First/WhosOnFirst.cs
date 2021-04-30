@@ -73,7 +73,20 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		this.Connector.KMBombModule.OnActivate = this.Connector.Activate;
 		this.Connector.ButtonPressed += this.Connector_ButtonPressed;
 		this.Connector.ButtonsSunk += this.Connector_ButtonsSunk;
-		this.NewStage();
+		StartCoroutine(CycleLabels());
+		//this.NewStage();
+	}
+
+	IEnumerator CycleLabels() {
+		int a = UnityEngine.Random.Range(0, 28);
+		while (true) {
+			a++;
+			this.Connector.DisplayText = displays[a % 28];
+			for (int i = 0; i < 6; i++) {
+				this.Connector.SetButtonLabel(i, labels[(a + i) % 28]);
+			}
+			yield return new WaitForSeconds(1f);
+		}
 	}
 
 	private void Connector_ButtonsSunk(object sender, EventArgs e) {
