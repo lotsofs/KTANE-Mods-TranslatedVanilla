@@ -13,8 +13,8 @@ public class EMSLanguagesPool : ScriptableObject {
 	}
 	public Statuses status;
 
-	public string[] FixedLanguages;
-	public string[] RandomLanguages;
+	public List<string> FixedLanguages;
+	public List<string> RandomLanguages;
 	public bool ShuffleFixedLanguages;
 	public bool AvoidDuplicates;
 }

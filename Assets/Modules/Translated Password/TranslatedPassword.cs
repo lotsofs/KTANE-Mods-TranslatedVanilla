@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TranslatedPassword : TranslatedModule<LanguagePassword, PasswordMissionSettings> {
+public class TranslatedPassword : TranslatedModule<LanguagePassword> {
 	[ContextMenu("Create Test Suite")]
 	public void CreateTestSuite() {
 		foreach (LanguagePassword lang in _languages) {

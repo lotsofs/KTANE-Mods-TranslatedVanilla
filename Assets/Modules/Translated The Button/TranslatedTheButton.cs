@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TranslatedTheButton : TranslatedModule<LanguageTheButton, TheButtonMissionSettings> {
+public class TranslatedTheButton : TranslatedModule<LanguageTheButton> {
 
 	[ContextMenu("Create Test Suite")]
 	public void CreateTestSuite() {

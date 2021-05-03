@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TranslatedVentingGas : TranslatedModule<LanguageVentingGas, VentingGasMissionSettings> {
+public class TranslatedVentingGas : TranslatedModule<LanguageVentingGas> {
 	[ContextMenu("Create Test Suite")]
 	public void CreateTestSuite() {
 		foreach (LanguageVentingGas lang in _languages) {

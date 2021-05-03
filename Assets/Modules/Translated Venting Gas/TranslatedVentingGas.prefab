@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 114156347099957522}
   - component: {fileID: 114249683731977524}
   - component: {fileID: 114093580802514782}
+  - component: {fileID: 114868205775054338}
   m_Layer: 0
   m_Name: TranslatedVentingGas
   m_TagString: Untagged
@@ -1847,12 +1848,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ab0e7f4c0bb62742a23bc4a7c580410, type: 2}
   _fallbackLanguage: {fileID: 11400000, guid: 0a8eeb62074779543b71c9e4733ffe89, type: 2}
   _sticker: {fileID: 114757791082701076}
-  _extendedMissionSettings: {fileID: 11400000, guid: 5f5890fcb8df04a438c268e9edef0b01,
-    type: 2}
+  _extendedMissionSettings: {fileID: 114868205775054338}
+  _languagePool: {fileID: 11400000, guid: 5f5890fcb8df04a438c268e9edef0b01, type: 2}
   _settingsFileName: Translated-NeedyVentGas-Settings
-  _oldSettingsFiles: []
   _languageOverride: {fileID: 0}
-  _editorExtendedMissionSettings: 
 --- !u!114 &114156347099957522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2199,6 +2198,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e503425dddea1d04e9eeab6e7f072eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114868205775054338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420682148411636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48470b89a5894a4389e451a4d34de2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EditorSettings: 
 --- !u!114 &114874140184003514
 MonoBehaviour:
   m_ObjectHideFlags: 1

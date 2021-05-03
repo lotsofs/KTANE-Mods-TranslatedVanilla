@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 114161330509457418}
   - component: {fileID: 114424529933858232}
   - component: {fileID: 114229659061671490}
+  - component: {fileID: 114324197472621502}
   m_Layer: 0
   m_Name: TranslatedTheButton
   m_TagString: Untagged
@@ -2013,6 +2014,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - Standard
+--- !u!114 &114324197472621502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758559113600360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48470b89a5894a4389e451a4d34de2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EditorSettings: 
 --- !u!114 &114347662546963058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2118,12 +2131,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1024d07b0ada4e1469530bd09bf8e3b8, type: 2}
   _fallbackLanguage: {fileID: 11400000, guid: df42a593649520c42964c1dec395e30f, type: 2}
   _sticker: {fileID: 114079161570188650}
-  _extendedMissionSettings: {fileID: 11400000, guid: 06f340119bbfa2949813f5e0263c181f,
-    type: 2}
+  _extendedMissionSettings: {fileID: 114324197472621502}
+  _languagePool: {fileID: 11400000, guid: 06f340119bbfa2949813f5e0263c181f, type: 2}
   _settingsFileName: Translated-TheButton-Settings
   _oldSettingsFiles: []
   _languageOverride: {fileID: 0}
-  _editorExtendedMissionSettings: 
 --- !u!114 &114444589732886140
 MonoBehaviour:
   m_ObjectHideFlags: 1
