@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
+  m_Name: TH
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Iso639: th
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
+  RightToLeft: 0
+  Version: 1
+  ManualAvailable: 0
+  ManualLinks: []
+  TwitchHelpMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the
+    phrase must match exactly | !{0} press MR - press the middle right button.'
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: th
+  Displays:
+  - "\u0E01\u0E14"
+  - "\u0E25\u0E14"
+  - "\u0E15\u0E31\u0E14"
+  - "\u0E21\u0E31\u0E14"
+  - "\u0E1C\u0E34\u0E14"
+  - "\u0E16\u0E39\u0E01"
+  - "\u0E44\u0E21\u0E48\u0E43\u0E0A\u0E48"
+  - "\u0E40\u0E02\u0E32"
+  - "\u0E40\u0E02\u0E48\u0E32"
+  - "\u0E40\u0E02\u0E49\u0E32"
+  - "\u0E40\u0E02\u0E25\u0E32"
+  - "\u0E40\u0E28\u0E23\u0E49\u0E32"
+  - "\u0E40\u0E2A\u0E32"
+  - "\u0E40\u0E2A\u0E32\u0E23\u0E4C"
+  - "\u0E2D\u0E32\u0E19"
+  - "\u0E2D\u0E48\u0E32\u0E19"
+  - "\u0E1C\u0E48\u0E32\u0E19"
+  - "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  - "\u0E44\u0E21\u0E48\u0E16\u0E39\u0E01"
+  - "\u0E01\u0E48\u0E2D\u0E07"
+  - "\u0E01\u0E25\u0E48\u0E2D\u0E07"
+  - "\u0E01\u0E25\u0E49\u0E2D\u0E07"
+  - "\u0E15\u0E49\u0E2D\u0E07"
+  - "\u0E25\u0E48\u0E2D\u0E07"
+  - "\u0E2A\u0E48\u0E2D\u0E07"
+  - "\u0E02\u0E22\u0E30"
+  - "\u0E15\u0E1A\u0E30"
+  - "\u0E23\u0E30\u0E22\u0E30"
+  Labels:
+  - "\u0E01\u0E14"
+  - "\u0E25\u0E14"
+  - "\u0E15\u0E31\u0E14"
+  - "\u0E21\u0E31\u0E14"
+  - "\u0E1C\u0E34\u0E14"
+  - "\u0E16\u0E39\u0E01"
+  - "\u0E44\u0E21\u0E48\u0E43\u0E0A\u0E48"
+  - "\u0E40\u0E02\u0E32"
+  - "\u0E40\u0E02\u0E48\u0E32"
+  - "\u0E40\u0E02\u0E49\u0E32"
+  - "\u0E40\u0E02\u0E25\u0E32"
+  - "\u0E40\u0E28\u0E23\u0E49\u0E32"
+  - "\u0E40\u0E2A\u0E32"
+  - "\u0E40\u0E2A\u0E32\u0E23\u0E4C"
+  - "\u0E2D\u0E32\u0E19"
+  - "\u0E2D\u0E48\u0E32\u0E19"
+  - "\u0E1C\u0E48\u0E32\u0E19"
+  - "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
+  - "\u0E44\u0E21\u0E48\u0E16\u0E39\u0E01"
+  - "\u0E01\u0E48\u0E2D\u0E07"
+  - "\u0E01\u0E25\u0E48\u0E2D\u0E07"
+  - "\u0E01\u0E25\u0E49\u0E2D\u0E07"
+  - "\u0E15\u0E49\u0E2D\u0E07"
+  - "\u0E25\u0E48\u0E2D\u0E07"
+  - "\u0E2A\u0E48\u0E2D\u0E07"
+  - "\u0E02\u0E22\u0E30"
+  - "\u0E15\u0E1A\u0E30"
+  - "\u0E23\u0E30\u0E22\u0E30"
+  TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
+    must match exactly | !{0} press MR - press the middle right button.'
+  LogStage: Stage {0}
+  LogDisplay: Display is '{0}'
+  LogLabels: 'Labels are: ''{0}'', ''{1}'', ''{2}'', ''{3}'', ''{4}'', ''{5}'''
+  LogAnswer: 'Correct button to press: ''{0}'''
+  LogPressedCorrect: Pressed {0}. Correct!
+  LogPressedWrong: Pressed {0}. Strike!

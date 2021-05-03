@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: ES
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: es
+  Name: Spanish
+  NativeName: "Espa\xF1ol"
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: es
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
-  - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - "PR\xD3XIMA"
+  - VOY
+  - PRIMERO
+  - HAYA
+  - VAYA
+  - VA
+  - ESPERA
+  - "R\xC1PIDO"
+  - DISPLAY
+  - "\xDALTIMA"
+  - SI
+  - DALE
+  - HAY
+  - OTRA
+  - BIEN
+  - PALABRA
+  - AYA
+  - BAYA
+  - LISTO
+  - OK
+  - BUENO
+  - NO
+  - "ALL\xC1"
+  - "EXPLOT\xD3"
+  - "AH\xCD"
+  - HALLA
+  - VALLA
+  - OTRO
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - ESPERA
+  - "\xBFQU\xC9?"
+  - NO
+  - OTRO
+  - "\xBFC\xD3MO?"
+  - LISTO
+  - "\xBF\xC9STA?"
+  - ESTA
+  - "NO EST\xC1"
+  - OKAY
+  - VALE
+  - VA
+  - "NO \xC9S"
+  - "\xBF\xC9SA?"
+  - OK
+  - "\xBFD\xD3NDE?"
+  - BUENO
+  - "\xC9STA"
+  - "EST\xC1"
+  - "NO S\xC9"
+  - "R\xC1PIDO"
+  - "\xBFCU\xC1L?"
+  - SI
+  - OTRA
+  - BIEN
+  - "YA EST\xC1"
+  - DALE
+  - "\xBFSEGURO?"
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

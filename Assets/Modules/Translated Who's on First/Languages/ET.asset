@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: ET
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: et
+  Name: Estonian
+  NativeName: Eesti
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: et
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - JAH
+  - ESIMENE
+  - EKRAAN
+  - OKEI
+  - "S\xD5NA"
+  - MIDAGI
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - "T\xDCHI"
+  - EI
+  - "J\xC4\xC4"
+  - "J\xC4\xC4R"
+  - "J\xC4\xC4\xC4\xC4R"
+  - "J\xC4\xC4 \xC4\xC4R"
+  - "V\xC4\xC4R"
+  - "S\xC4\xC4L"
+  - "\xDCKS HETK"
+  - SA
+  - SINA
+  - SINU
+  - SU
+  - SUU
+  - SEAL
+  - SEA ALL
+  - PEAL
+  - PEA ALL
+  - SEE
+  - TSEE
+  - C
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - VALMIS
+  - ESIMENE
+  - EI
+  - "T\xDCHI"
+  - MIDAGI
+  - JAH
+  - MIDA
+  - AHHH
+  - VASAK
+  - PAREM
+  - KESKEL
+  - OKEI
+  - OOTA
+  - VAJUTA
+  - SA
+  - SINA
+  - SINU
+  - SU
+  - SUU
+  - U
+  - AH HAH
+  - AH AH
+  - MIDA?
+  - OLEMAS
+  - EDASI
+  - OOT
+  - OK
+  - NAGU
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

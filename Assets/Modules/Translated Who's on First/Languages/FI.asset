@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: FI
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: fi
+  Name: Finnish
+  NativeName: Suomi
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: fi
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - "TYHJ\xC4"
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
+  - "MIT\xC4\xC4N"
+  - "N\xC4YTT\xD6"
+  - RUUTU
+  - RISUAITA
+  - '#'
+  - TEKSTI
+  - SANOO
+  - LUKEE
+  - "N\xC4KYY"
+  - ON
+  - KIRJAIN
+  - SANA
+  - VIIVA
+  - '-'
+  - Q
+  - KUU
+  - PUU
+  - 6
+  - KUUSI
   - T
-  - TE
+  - TEE
+  - TEHTY
+  - ENSIN
+  - SITTEN
+  - OIKEIN
+  - "V\xC4\xC4RIN"
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - T
+  - TEE
+  - TEHTY
+  - SITTEN
+  - PAINA
+  - VALMIS
+  - OIKEIN
+  - "V\xC4\xC4RIN"
+  - ODOTA
+  - HETKI
+  - "\xD6\xD6H"
+  - "\xD6"
+  - "MIT\xC4"
+  - "MIT\xC4?"
+  - "MIK\xC4"
+  - "MIK\xC4?"
+  - JUU
+  - JEP
+  - "KYLL\xC4"
+  - ON
+  - "L\xD6YTYY"
+  - EI
+  - EI OLE
+  - EI OO
+  - PIANO
+  - PIENO
+  - RUOAN
+  - RUUAN
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

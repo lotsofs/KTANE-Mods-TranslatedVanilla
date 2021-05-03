@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: NL
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: nl
+  Name: Dutch
+  NativeName: Nederlands
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: nl
   Displays:
+  - BAUD
+  - BOUD
+  - BOUT
+  - BOUWT
+  - H
+  - HA
+  - HAAI
+  - HEI
+  - HIJ
+  - HIGH
+  - IETS
   - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - MEID
+  - MIJD
+  - NEE
+  - NEEN
+  - NIETS
+  - NIKS
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
+  - OK
+  - TEKST
+  - VACHT
   - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
-  Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
+  - WAD
   - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
+  - WEIDE
+  - WIJ DE
+  - WIJDE
+  Labels:
+  - BOVEN
   - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
+  - ECHT
+  - EERSTE
+  - HAUSSE
+  - HAUWT
+  - HOU
+  - HOUD
+  - HOUSE
+  - HOUT
+  - HOUWT
+  - IK ZEG
+  - JA
+  - KLAAR
+  - LEEG
+  - LINKS
+  - MIDDEN
+  - NAAST
+  - NEE
+  - NIETS
+  - NU
+  - OK
+  - ONDER
+  - RECHTS
+  - EH
+  - WACHT
+  - WAT
   - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

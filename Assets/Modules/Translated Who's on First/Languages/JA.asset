@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: JA
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: ja
+  Name: Japanese
+  NativeName: "\u65E5\u672C\u8A9E"
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: ja
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - "\u7A7A\u767D"
+  - "\u753B\u9762"
+  - "\u5F85\u3063\u3066"
+  - "\u3044\u3084"
+  - "\u3046\u3093"
+  - "\u305D\u3046"
+  - OK
+  - "\u30AA\u30C3\u30B1\u30FC"
+  - "\u4F55\u3082\u306A\u3044"
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - "\u4EE5\u5916"
+  - "\u610F\u5916"
+  - "\u79FB\u52D5"
+  - "\u7570\u52D5"
+  - "\u7570\u540C"
+  - "\u89E3\u96C7"
+  - "\u56DE\u9867"
+  - "\u61D0\u53E4"
+  - "\u8695"
+  - "\u658E\u85E4"
+  - "\u6589\u85E4"
+  - "\u9F4B\u85E4"
+  - "\u9F4A\u85E4"
+  - 1
+  - "\u4F4D\u7F6E"
+  - "\u4E00"
+  - "\u58F1"
+  - "\u4F0A\u5730"
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - "\u7A7A\u767D"
+  - "\u7D42\u308F\u308A"
+  - "\u3046\u3093"
+  - "\u5F85\u3063\u3066"
+  - "\u5DE6"
+  - "\u4E0A"
+  - "\u771F\u3093\u4E2D"
+  - "\u4E0B"
+  - "\u53F3"
+  - "\u3044\u3084"
+  - "\u9055\u3046"
+  - "\u30AA\u30C3\u30B1\u30FC"
+  - "\u62BC\u3059"
+  - "\u308F\u304B\u3063\u305F"
+  - "\u7D75"
+  - "\u3042\u3041"
+  - "\u3042\uFF5E"
+  - "\u3042\u30FC\u3042"
+  - "\u3048"
+  - "\u4F55"
+  - "\u4F55?"
+  - "\u305D\u3046"
+  - "\u89E3\u96C7"
+  - "\u8695"
+  - 1
+  - "\u4F4D\u7F6E"
+  - "\u58F1"
+  - "\u4E00"
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

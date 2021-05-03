@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: FR
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: fr
+  Name: French
+  NativeName: "Fran\xE7ais"
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: fr
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - OUI
+  - PREMIER
+  - ECRAN
+  - OKAY
+  - DIT
+  - RIEN
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - C'EST
+  - VIDE
+  - NON
+  - DANS
+  - DENT
+  - DONT
+  - DONC
+  - DON
+  - D'EN
+  - TON
+  - HACHE
+  - T'ONT
+  - THON
+  - H
+  - SENT
+  - S'EN
+  - SANG
+  - CENT
+  - S'EST
+  - C
+  - SAIT
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - "PR\xCAT"
+  - PREMIER
+  - NON
+  - VIDE
+  - RIEN
+  - OUI
+  - QUOI
+  - EUHHH
+  - GAUCHE
+  - DROITE
+  - MILIEU
+  - OKAY
+  - ATTEND
+  - APPUIE
+  - TOI
+  - TON
+  - TAON
+  - THON
+  - T'ONT
+  - TOIT
+  - EUH
+  - E
+  - QUOI?
+  - FAIT
+  - SUIVANT
+  - CONTINUE
+  - "S\xDBR"
+  - COMME
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

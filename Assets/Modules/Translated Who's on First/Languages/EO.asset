@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: EO
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: eo
+  Name: Esperanto
+  NativeName: Esperanto
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: eo
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - JES
+  - UNUA
+  - EKRANO
+  - "AFI\u015CO"
+  - EN ORDO
+  - MONTRAS
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - NENIO
+  - SPACO
+  - NE
+  - NENIU
+  - D
+  - DO
+  - RARA
+  - ERARA
+  - ATENDU
+  - ATENTU
+  - LEGI
+  - LEGIS
+  - LEGU
+  - "LE\u011CO"
+  - "\u0108I TIU"
+  - "\u0108I TIO"
+  - NENIAN
+  - NENIAM
+  - NENIEN
+  - CERTE
+  - "\u011CUSTE"
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - PRETA
+  - UNUA
+  - NE
+  - NENIO
+  - NENION
+  - JES
+  - KIO
+  - EEE
+  - DEKSTRA
+  - MEZA
+  - EN ORDO
+  - ATENDU
+  - "PU\u015CU"
+  - NENIU
+  - NENIAN
+  - NENIAM
+  - "\u011CUSTE"
+  - D
+  - DD
+  - DO
+  - DO DO
+  - DU
+  - DUFOJE
+  - PRAVE
+  - KIO?
+  - FINITA
+  - SEKVA
+  - ATENTU
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

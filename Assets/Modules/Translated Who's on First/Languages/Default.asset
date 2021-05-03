@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Disabled: 1
+  Iso639: '-'
+  Name: Default
+  NativeName: English
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: '-'
   Displays:
   - YES
   - FIRST

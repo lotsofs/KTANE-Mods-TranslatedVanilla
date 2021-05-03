@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: ZH
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: zh
+  Name: Chinese
+  NativeName: 
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: zh
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - "\u663E\u793A"
+  - "\u7A7A\u7684"
+  - "\u4EC0\u4E48"
+  - "\u56DB\u6839\u7EBF"
+  - "\u6CA1\u6709"
+  - "\u597D\u5435"
+  - "\u542C\u4E0D\u5230"
+  - "\u6309\u4E86"
+  - "\u4E0D\u663E\u793A"
+  - "\u54EA\u4E00\u4E2A"
+  - "\u55EF"
+  - "\u4E0D\u73A9\u4E86"
+  - "\u63A5\u7535\u8BDD"
+  - "\u53C8\u9519\u4E86"
+  - "\u9519\u4E86"
+  - OK
+  - NOO~
+  - "\u4E00\u6837\u7684"
+  - "\u6CA1\u6709\u53D8"
+  - "\u4E0D\u8981\u5435"
+  - "\u5047\u7684"
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - "\u3002\u3002\u3002"
+  - . . .
+  - "\u7701\u7565\u53F7"
+  - "\u53E5\u53F7"
+  - "\u4E00\u5206\u949F"
+  - "\u7B49\u6211\u4E0B"
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - "\u6709"
+  - "\u6709\u6709"
+  - "\u6709\u6CA1\u6709"
+  - "\u6CA1\u6709"
+  - "\u9519\u4E86"
+  - "\u4E0B\u4E00\u4E2A"
+  - "\u8FC7\u4E86"
+  - "\u4EC0\u4E48"
+  - "\u7B2C\u4E8C\u4E2A"
+  - "\u7B2C\u56DB\u4E2A"
+  - "\u901F\u5EA6"
+  - "\u5FEB\u70B9"
+  - "\u8981\u70B8\u4E86"
+  - "\u70B8\u4E86"
+  - "\u6309\u4E86"
+  - "\u5730\u662F\u4E2A"
+  - "\u53F3\u8FB9"
+  - "\u53C8\u7F16"
+  - "\u771F\u7684\u5417"
+  - "\u9519\u4E00\u6B21"
+  - "\u65F6\u95F4"
+  - "\u5DE6\u8FB9"
+  - "\u5DE6\u4E0B\u89D2"
+  - "\u53F3\u4E0A\u89D2"
+  - "\u4E2D\u95F4"
+  - "\u4E2D\u95EE"
+  - "\u7B2C1\u4E2A"
+  - "\u7B2Cl\u4E2A"
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

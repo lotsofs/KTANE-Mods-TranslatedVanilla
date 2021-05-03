@@ -87,7 +87,7 @@ public class LanguageWhosOnFirst : Language {
 		words = new List<string>();
 		foreach (string word in Labels) {
 			if (words.Contains(word)) {
-				Debug.LogErrorFormat("WOF {0}: word {1} appears multiple times in labels", Name, word);
+				Debug.LogErrorFormat("WOF {0}: word {1} appears multiple times in labels, at positions {2} and {3}", Name, word, words.Count, words.IndexOf(w => w == word));
 			}
 			else {
 				words.Add(word);

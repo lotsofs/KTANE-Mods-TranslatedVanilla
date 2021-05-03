@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: PT
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: pt
+  Name: Portuguese
+  NativeName: "Portugu\xEAs"
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: pt
   Displays:
-  - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - ISSO
+  - PRIMEIRO
+  - VISOR
+  - BELEZA
+  - ESCRITO
+  - NADA
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - BRANCO
+  - "N\xC3O"
+  - ^
+  - ACENTO
+  - CELA
+  - "SEI L\xC1"
+  - SELA
+  - ASSENTO
+  - "PRA\xCD"
+  - "VOC\xCA"
+  - "VOC\xCA \xC9"
+  - C
+  - "C\xCA \xC9"
+  - C E
+  - S
+  - 2S
+  - SS
+  - ESSE
+  - ASSO
+  - "\xC7"
+  - "A\xC7O"
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
-  - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - PRONTO
+  - PRIMEIRO
+  - "N\xC3O"
+  - BRANCO
+  - NADA
+  - ISSO
+  - "QU\xCA"
+  - SEIS
+  - ESQUERDA
+  - DIREITA
+  - MEIO
+  - BELEZA
+  - ESPERA
+  - APERTA
+  - "VOC\xCA"
+  - "VOC\xCA \xC9"
+  - C
+  - "C\xCA \xC9"
+  - C E
+  - "C\xCA"
+  - CESTO
+  - SEXTO
+  - "QU\xCA?"
+  - FOI
+  - "PR\xD3XIMO"
+  - SEGURA
+  - SEI
+  - TIPO
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

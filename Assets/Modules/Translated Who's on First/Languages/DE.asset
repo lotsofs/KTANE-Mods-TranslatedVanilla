@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ebbc61c3d94da242b8cf0fc2167071c, type: 3}
-  m_Name: FY
+  m_Name: DE
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: fy
-  Name: Frisian
-  NativeName: Frysk
+  Iso639: de
+  Name: German
+  NativeName: Deutsch
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
@@ -31,65 +31,65 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: fy
+  IetfBcp47: de
   Displays:
   - JA
-  - EARSTE
-  - SKERM
-  - OKEE
-  - SEIT
-  - NEAT
+  - OBEN
+  - "DR\xDCCK"
+  - OKAY
+  - DA STEHT
+  - NEIN
+  - NICHTS
+  - LEER
   - 
-  - LEECH
-  - NEE
-  - WITE
-  - WIIDE
-  - WIETE
-  - WITTE
-  - SOAD
-  - SOART
-  - WACHT
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - WER
-  - "W\xCAR"
-  - WER'T
-  - WER T
-  - TEE
-  - T
-  - TE
+  - KUH
+  - Q
+  - COUP
+  - FERTIG
+  - NOCHMAL
+  - MOMENT
+  - WARTE
+  - SO EIN
+  - SO'N
+  - SOHN
+  - OH GOTT
+  - ZEHN
+  - 10
+  - ZEHEN
+  - CN
+  - "Z\xC4H"
+  - ZEH
+  - C
+  - CEE
   Labels:
-  - KLEAR
-  - EARSTE
-  - NEE
-  - LEECH
-  - NEAT
+  - OKAY
   - JA
-  - WAT
-  - UMM
-  - LINKS
-  - RJOCHTS
-  - MIDDEN
-  - OKEE
-  - WACHT
-  - DRUK
-  - SYN
-  - SIN
-  - SINE
-  - SINNE
-  - SJEN
-  - TSJIN
-  - EN
-  - N
-  - WAT?
-  - UHHH
-  - FOLGENDE
-  - NOGRIS
-  - GOED
-  - AS
+  - FERTIG
+  - KUH
+  - "DR\xDCCK"
+  - NEIN
+  - 
+  - DA STEHT
+  - OBEN
+  - Q
+  - COUP
+  - NICHTS
+  - LEER
+  - NOCHMAL
+  - SOHN
+  - "Z\xC4H"
+  - ZEHN
+  - CN
+  - CEE
+  - ZEH
+  - SO EIN
+  - C
+  - OH GOTT
+  - WARTE
+  - MOMENT
+  - 10
+  - SO'N
+  - ZEHEN
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}
