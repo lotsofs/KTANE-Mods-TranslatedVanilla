@@ -62,34 +62,34 @@ MonoBehaviour:
   - JORD
   - HJORD
   Labels:
-  - READY
-  - FIRST
-  - NO
-  - BLANK
-  - NOTHING
-  - YES
-  - WHAT
-  - UHHH
-  - LEFT
-  - RIGHT
-  - MIDDLE
-  - OKAY
-  - WAIT
-  - PRESS
-  - YOU
-  - YOU ARE
-  - YOUR
-  - YOU'RE
-  - UR
-  - U
-  - UH HUH
-  - UH UH
-  - WHAT?
-  - DONE
-  - NEXT
-  - HOLD
-  - SURE
-  - LIKE
+  - REDO
+  - "F\xD6RSTA"
+  - NEJ
+  - TOM
+  - INGET
+  - JA
+  - VAD
+  - "\xD6HHH"
+  - "V\xC4NSTER"
+  - "H\xD6GER"
+  - MITTEN
+  - OKEJ
+  - "V\xC4NTA"
+  - TRYCK
+  - ELLER
+  - HELLER
+  - SEJ
+  - "S\xC4G"
+  - "H\xC4LLER"
+  - LR
+  - "\xD6\xD6\xD6H"
+  - "\xD6"
+  - VAD?
+  - KLAR
+  - "N\xC4STA"
+  - STOPP
+  - VISST
+  - SOM
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

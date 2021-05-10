@@ -32,6 +32,8 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: de
+  ScreenDisplayMethod: 1
+  ButtonsDisplayMethod: 1
   Displays:
   - JA
   - OBEN

@@ -32,6 +32,8 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: zh
+  ScreenDisplayMethod: 1
+  ButtonsDisplayMethod: 1
   Displays:
   - "\u663E\u793A"
   - "\u7A7A\u7684"

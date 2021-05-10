@@ -9,21 +9,8 @@ using TranslatedVanillaModulesLib;
 using UnityEngine;
 
 public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
-	private static readonly string[] displays = new[] {
-		"YES", "FIRST", "DISPLAY", "OKAY", "SAYS", "NOTHING",
-		"", "BLANK", "NO", "LED", "LEAD", "READ", 
-		"RED", "REED", "LEED", "HOLD ON", "YOU", "YOU ARE",
-		"YOUR", "YOU'RE", "UR", "THERE", "THEY'RE", "THEIR", 
-				"THEY ARE", "SEE", "C", "CEE"
-	};
-
-	private static readonly string[] labels = new[] { 
-		"READY", "FIRST", "NO", "BLANK", "NOTHING", "YES", "WHAT",
-		"UHHH", "LEFT", "RIGHT", "MIDDLE", "OKAY", "WAIT", "PRESS",
-		"YOU", "YOU ARE", "YOUR", "YOU'RE", "UR", "U", "UH HUH",
-		"UH UH", "WHAT?", "DONE", "NEXT", "HOLD", "SURE", "LIKE"
-	};
-
+	TranslatedWhosOnFirst _translation;
+	
 	private static readonly int[] step1Solutions = new[] { 
 		2, 1, 5, 1, 5, 2,	// 0 - 5
 		4, 3, 5, 2, 5, 3,	// 6 - 11
@@ -73,17 +60,26 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		this.Connector.KMBombModule.OnActivate = this.Connector.Activate;
 		this.Connector.ButtonPressed += this.Connector_ButtonPressed;
 		this.Connector.ButtonsSunk += this.Connector_ButtonsSunk;
+
+		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
+		_translation = GetComponent<TranslatedWhosOnFirst>();
+		_translation.GenerateLanguage(name);
+
 		StartCoroutine(CycleLabels());
 		//this.NewStage();
+
+		if (_translation.Language.ButtonsDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
+			Connector.UseCustomButtonLabels(72, Vector3.zero);
+		}
 	}
 
 	IEnumerator CycleLabels() {
 		int a = UnityEngine.Random.Range(0, 28);
 		while (true) {
 			a++;
-			this.Connector.DisplayText = displays[a % 28];
+			this.Connector.DisplayText = a + " " + _translation.Language.Displays[a % 28];
 			for (int i = 0; i < 6; i++) {
-				this.Connector.SetButtonLabel(i, labels[(a + i) % 28]);
+				this.Connector.SetButtonLabel(i, _translation.Language.Labels[(a + i) % 28]);
 			}
 			yield return new WaitForSeconds(1f);
 		}
@@ -122,14 +118,14 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 
 	private void NewStage() {
 		// pick a display word
-		int displayIndex = UnityEngine.Random.Range(0, displays.Length);
-		this.Connector.DisplayText = displays[displayIndex];
-		_usedDisplays[_completedStages] = displays[displayIndex];
+		int displayIndex = UnityEngine.Random.Range(0, _translation.Language.Displays.Length);
+		this.Connector.DisplayText = _translation.Language.Displays[displayIndex];
+		_usedDisplays[_completedStages] = _translation.Language.Displays[displayIndex];
 
 		// pick whether to use the top or bottom list
 		int listIndex = UnityEngine.Random.Range(0, 2) * 14;
 		_buttonLabels = new string[14];
-		Array.Copy(labels, listIndex, _buttonLabels, 0, 14);
+		Array.Copy(_translation.Language.Labels, listIndex, _buttonLabels, 0, 14);
 		
 		// pick the 6 buttons
 		_buttonLabels.Shuffle();
@@ -141,12 +137,12 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		// figure out the reference button
 		int referenceButtonIndex = step1Solutions[displayIndex];
 		string referenceButtonLabel = _buttonLabels[referenceButtonIndex];
-		int referenceLabelIndex = labels.IndexOf(l => l == referenceButtonLabel);
+		int referenceLabelIndex = _translation.Language.Labels.IndexOf(l => l == referenceButtonLabel);
 
 		int s = int.MaxValue;
 		for (int i = 0; i < 14; i++) {
 			int labelIndex = step2Solutions[referenceLabelIndex, i];
-			string label = labels[labelIndex];
+			string label = _translation.Language.Labels[labelIndex];
 			s = _buttonLabels.IndexOf(l => l == label);
 			if (s < 6) {
 				_solution = s;
@@ -154,7 +150,7 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 			}
 		}
 		this.Log(string.Format("Stage {0}", _completedStages + 1));
-		this.Log(string.Format("Display is '{0}'", displays[displayIndex]));
+		this.Log(string.Format("Display is '{0}'", _translation.Language.Displays[displayIndex]));
 		this.Log(string.Format("Labels are: '{0}', '{1}', '{2}', '{3}', '{4}', '{5}'", _buttonLabels[0], _buttonLabels[1], _buttonLabels[2], _buttonLabels[3], _buttonLabels[4], _buttonLabels[5]));
 		this.Log(string.Format("Correct button to press: '{0}'", _buttonLabels[s]));
 	}
