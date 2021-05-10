@@ -6,10 +6,10 @@ public class EMSLanguagesPool : ScriptableObject {
 	public List<string> pool;
 
 	public enum Statuses {
+		Uninitialized,
 		FixedPool,
 		RandomPool,
 		ConfigFile,
-		Uninitialized
 	}
 	public Statuses status;
 
