@@ -30,6 +30,10 @@ namespace TranslatedVanillaModulesLib {
 		public bool Animating { get; private set; }
 		public bool InputValid { get; private set; }
 
+		bool _useCustomDisplay = false;
+		bool _useCustomButtonLabels = false;
+
+
 		public string DisplayText {
 			get {
 #if (!DEBUG)
@@ -127,6 +131,28 @@ namespace TranslatedVanillaModulesLib {
 		public void Activate() {
 			this.SetDisplayOn(true);
 			this.AnimateButtons();
+		}
+
+		public void UseCustomButtonLabels(int fontSize, Vector3 offset, Font font = null, Material fontMaterial = null) {
+			_useCustomButtonLabels = true;
+#if (!DEBUG)
+			foreach (var button in buttons) {
+				button.Text.gameObject.SetActive(false);
+			}
+#endif
+			for (int i = 0; i < TestModelButtons.Length; i++) {
+				TextMesh textMesh = TestModelButtons[i].TextMesh;
+				if (font != null) {
+					textMesh.font = font;
+					textMesh.GetComponent<MeshRenderer>().material = fontMaterial;
+				}
+				textMesh.transform.localPosition = offset;
+				textMesh.fontSize = fontSize;
+#if (!DEBUG)
+				textMesh.transform.SetParent(buttons[i].transform);
+#endif
+				textMesh.gameObject.SetActive(true);
+			}
 		}
 
 		public void SetButtonLabel(int index, string label) {
