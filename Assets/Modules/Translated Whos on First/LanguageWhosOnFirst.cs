@@ -17,6 +17,12 @@ public class LanguageWhosOnFirst : Language {
 	public DisplayMethods ScreenDisplayMethod = DisplayMethods.Default;
 	public DisplayMethods ButtonsDisplayMethod = DisplayMethods.Default;
 
+	[Header("Custom Text Meshes")]
+	public Font ButtonsFont;
+	public Material ButtonsFontMaterial;
+	public int ButtonsFontSize;
+	public Vector3 ButtonsOffset;
+
 	//[Header("Custom Text Meshes")]
 	//public Font DialsFont;
 	//public Material DialsFontMaterial;

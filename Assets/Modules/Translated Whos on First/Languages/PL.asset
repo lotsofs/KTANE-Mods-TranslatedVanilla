@@ -32,6 +32,12 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: pl
+  ScreenDisplayMethod: 0
+  ButtonsDisplayMethod: 0
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 0
+  ButtonsOffset: {x: 0, y: 0, z: 0}
   Displays:
   - PUSTY
   - 
@@ -62,34 +68,34 @@ MonoBehaviour:
   - CHWILA
   - TUTAJ
   Labels:
-  - READY
-  - FIRST
-  - NO
-  - BLANK
-  - NOTHING
-  - YES
-  - WHAT
-  - UHHH
-  - LEFT
-  - RIGHT
-  - MIDDLE
-  - OKAY
-  - WAIT
-  - PRESS
-  - YOU
-  - YOU ARE
-  - YOUR
-  - YOU'RE
-  - UR
-  - U
-  - UH HUH
-  - UH UH
-  - WHAT?
-  - DONE
-  - NEXT
-  - HOLD
-  - SURE
-  - LIKE
+  - LUD
+  - "L\xD3D"
+  - "B\xD3G"
+  - BUK
+  - "MO\u017BE"
+  - MORZE
+  - "POWT\xD3RZ"
+  - GUZIK
+  - CHWILA
+  - NIE WIEM
+  - CZYTAM
+  - "S\u0141O\u0143"
+  - "D\u0141O\u0143"
+  - "KO\u0143"
+  - "OKO\u0143"
+  - CHYBA
+  - "JESTE\u015A"
+  - HAHAHA
+  - HA HA
+  - HAHA
+  - HAH
+  - AHA
+  - PRAWO
+  - LEWO
+  - "D\xD3\u0141"
+  - "G\xD3RA"
+  - "\u015ARODEK"
+  - "S\u0141OWO"
   TPMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the phrase
     must match exactly | !{0} press MR - press the middle right button.'
   LogStage: Stage {0}

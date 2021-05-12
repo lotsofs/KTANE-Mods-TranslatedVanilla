@@ -146,10 +146,10 @@ namespace TranslatedVanillaModulesLib {
 					textMesh.font = font;
 					textMesh.GetComponent<MeshRenderer>().material = fontMaterial;
 				}
-				textMesh.transform.localPosition = offset;
-				textMesh.fontSize = fontSize;
+				//textMesh.transform.localPosition = offset;
+				//textMesh.fontSize = fontSize;
 #if (!DEBUG)
-				textMesh.transform.SetParent(buttons[i].transform);
+				textMesh.transform.SetParent(buttons[i].transform, true);
 #endif
 				textMesh.gameObject.SetActive(true);
 			}

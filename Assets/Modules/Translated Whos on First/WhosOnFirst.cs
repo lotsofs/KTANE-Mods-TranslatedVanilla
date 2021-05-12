@@ -69,7 +69,7 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		//this.NewStage();
 
 		if (_translation.Language.ButtonsDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
-			Connector.UseCustomButtonLabels(72, Vector3.zero);
+			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, Vector3.zero);
 		}
 	}
 

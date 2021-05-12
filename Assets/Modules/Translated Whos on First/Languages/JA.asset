@@ -32,6 +32,12 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: ja
+  ScreenDisplayMethod: 0
+  ButtonsDisplayMethod: 1
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 167
+  ButtonsOffset: {x: 0, y: 0, z: 0}
   Displays:
   - "\u7A7A\u767D"
   - "\u753B\u9762"
