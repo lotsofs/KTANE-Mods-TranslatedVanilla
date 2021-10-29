@@ -65,11 +65,15 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		_translation = GetComponent<TranslatedWhosOnFirst>();
 		_translation.GenerateLanguage(name);
 
+		// todo: verify that this only happens after the lights ocme on and the display isn't visible before then when using a custom text mesh.
 		StartCoroutine(CycleLabels());
 		//this.NewStage();
 
+		if (_translation.Language.ScreenDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
+			Connector.UseCustomDisplay(_translation.Language.DisplayFontSize, _translation.Language.DisplayOffset);
+		}
 		if (_translation.Language.ButtonsDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
-			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, Vector3.zero);
+			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, _translation.Language.ButtonsOffset);
 		}
 	}
 

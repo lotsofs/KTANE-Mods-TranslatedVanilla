@@ -32,11 +32,15 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: zh
-  ScreenDisplayMethod: 0
+  ScreenDisplayMethod: 1
   ButtonsDisplayMethod: 1
+  DisplayFont: {fileID: 0}
+  DisplayFontMaterial: {fileID: 0}
+  DisplayFontSize: 72
+  DisplayOffset: {x: 0, y: 0, z: -0.00114}
   ButtonsFont: {fileID: 0}
   ButtonsFontMaterial: {fileID: 0}
-  ButtonsFontSize: 288
+  ButtonsFontSize: 216
   ButtonsOffset: {x: 0, y: 0, z: 0}
   Displays:
   - "\u663E\u793A"
