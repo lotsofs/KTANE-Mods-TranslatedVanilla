@@ -32,6 +32,7 @@ namespace TranslatedVanillaModulesLib {
 
 		bool _useCustomDisplay = false;
 		bool _useCustomButtonLabels = false;
+		int _defaultCustomButtonFontSize = 0;
 
 
 		public string DisplayText {
@@ -80,6 +81,7 @@ namespace TranslatedVanillaModulesLib {
 			} 
 			else {
 				using var wrapper = this.InstantiateComponent<WhosOnFirstComponent>();
+
 
 				// Buttons need to be set before Awaking them.
 				this.buttons = wrapper.Component.Buttons;
@@ -145,7 +147,7 @@ namespace TranslatedVanillaModulesLib {
 				TestModelDisplayText.GetComponent<MeshRenderer>().material = fontMaterial;
 			}
 			TestModelDisplayText.transform.localPosition += offset;
-			TestModelDisplayText.fontSize = fontSize;
+			TestModelDisplayText.fontSize = fontSize > 0 ? fontSize : TestModelDisplayText.fontSize;
 #if (!DEBUG)
 			TestModelDisplayText.transform.SetParent(displayText.transform.parent, true);
 #endif
@@ -153,6 +155,7 @@ namespace TranslatedVanillaModulesLib {
 
 		public void UseCustomButtonLabels(int fontSize, Vector3 offset, Font font = null, Material fontMaterial = null) {
 			_useCustomButtonLabels = true;
+			_defaultCustomButtonFontSize = fontSize;
 #if (!DEBUG)
 			foreach (var button in buttons) {
 				button.Text.gameObject.SetActive(false);
@@ -165,7 +168,7 @@ namespace TranslatedVanillaModulesLib {
 					textMesh.GetComponent<MeshRenderer>().material = fontMaterial;
 				}
                 textMesh.transform.localPosition += offset;
-                textMesh.fontSize = fontSize;
+                textMesh.fontSize = fontSize > 0 ? fontSize : textMesh.fontSize;
 #if (!DEBUG)
 				textMesh.transform.SetParent(buttons[i].transform, true);
 #endif
@@ -173,8 +176,11 @@ namespace TranslatedVanillaModulesLib {
 			}
 		}
 
-		public void SetButtonLabel(int index, string label) {
-			if (this.TestMode || _useCustomButtonLabels) this.TestModelButtons[index].TextMesh.text = label;
+		public void SetButtonLabel(int index, string label, int size = 0) {
+			if (this.TestMode || _useCustomButtonLabels) {
+				this.TestModelButtons[index].TextMesh.text = label;
+				this.TestModelButtons[index].TextMesh.fontSize = size != 0 ? size : _defaultCustomButtonFontSize;
+			}
 #if (!DEBUG)
 			else this.buttons[index].Text.text = label;
 #endif

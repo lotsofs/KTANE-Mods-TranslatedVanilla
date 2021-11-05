@@ -8,7 +8,7 @@ public class LanguagePassword : Language {
 		Default,
 		//FallbackFont,
 		CustomTextMesh,
-		Sprite
+		//Sprite
 	}
 
 	[Header("Display")]

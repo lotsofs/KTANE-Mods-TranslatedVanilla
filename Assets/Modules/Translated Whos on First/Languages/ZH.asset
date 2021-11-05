@@ -37,7 +37,7 @@ MonoBehaviour:
   DisplayFont: {fileID: 0}
   DisplayFontMaterial: {fileID: 0}
   DisplayFontSize: 72
-  DisplayOffset: {x: 0, y: 0, z: -0.00114}
+  DisplayOffset: {x: 0, y: 0, z: 0}
   ButtonsFont: {fileID: 0}
   ButtonsFontMaterial: {fileID: 0}
   ButtonsFontSize: 216

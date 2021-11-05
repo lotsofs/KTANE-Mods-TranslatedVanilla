@@ -32,12 +32,17 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: ja
-  ScreenDisplayMethod: 0
+  ScreenDisplayMethod: 1
   ButtonsDisplayMethod: 1
+  DisplayFont: {fileID: 0}
+  DisplayFontMaterial: {fileID: 0}
+  DisplayFontSize: 72
+  DisplayOffset: {x: 0, y: 0, z: 0}
   ButtonsFont: {fileID: 0}
   ButtonsFontMaterial: {fileID: 0}
-  ButtonsFontSize: 167
+  ButtonsFontSize: 198
   ButtonsOffset: {x: 0, y: 0, z: 0}
+  PerLabelButtonFontSizes: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ac00000000000000ac00000000000000000000000000000000000000000000000000000000000000000000000000000000000000f2000000000000000000000000000000
   Displays:
   - "\u7A7A\u767D"
   - "\u753B\u9762"
