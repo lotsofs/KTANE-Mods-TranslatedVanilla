@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: VentGas-CabinBoldMaterial
+  m_Name: CabinBoldMaterial
   m_Shader: {fileID: 4800000, guid: 42ee79da8e61af4408c7b6f2827b87e9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

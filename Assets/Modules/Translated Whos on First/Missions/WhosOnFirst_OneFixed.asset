@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: WhosOnFirst_OneFixed
   m_EditorClassIdentifier: 
   DisplayName: One Fixed
-  Description: One of these will always be German. The other ones are all up to you!
+  Description: One of these will always be Esperanto. The other ones are all up to
+    you!
   GeneratorSetting:
     TimeLimit: 8760
     NumStrikes: 3
@@ -31,5 +32,5 @@ MonoBehaviour:
       ComponentTypes: 
       SpecialComponentType: 0
       ModTypes:
-      - 'Extended Settings {"WhosOnFirstTranslated_FixedLanguages": ["de"]}'
+      - 'Extended Settings {"WhosOnFirstTranslated_FixedLanguages": ["eo"]}'
   PacingEventsEnabled: 1

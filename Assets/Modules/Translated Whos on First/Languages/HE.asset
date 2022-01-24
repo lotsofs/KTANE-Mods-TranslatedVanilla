@@ -32,6 +32,16 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: he
+  ScreenDisplayMethod: 1
+  ButtonsDisplayMethod: 0
+  DisplayFont: {fileID: 0}
+  DisplayFontMaterial: {fileID: 0}
+  DisplayFontSize: 72
+  DisplayOffset: {x: 0, y: 0, z: 0.0016}
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 0
+  ButtonsOffset: {x: 0, y: 0, z: 0}
   Displays:
   - "\u05DB\u05DF"
   - "\u05DC\u05D0"

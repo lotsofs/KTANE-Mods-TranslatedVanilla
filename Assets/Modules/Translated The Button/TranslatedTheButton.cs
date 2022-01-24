@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TranslatedTheButton : TranslatedModule<LanguageTheButton> {
-
 	[ContextMenu("Create Test Suite")]
 	public void CreateTestSuite() {
 		foreach (LanguageTheButton lang in _languages) {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,7 +10,7 @@ public class LanguageWhosOnFirst : Language {
 		Default,
 		//FallbackFont,
 		CustomTextMesh,
-		Sprite
+		//Sprite
 	}
 
 	[Header("Display")]
@@ -18,10 +19,16 @@ public class LanguageWhosOnFirst : Language {
 	public DisplayMethods ButtonsDisplayMethod = DisplayMethods.Default;
 
 	[Header("Custom Text Meshes")]
+	public Font DisplayFont;
+	public Material DisplayFontMaterial;
+	public int DisplayFontSize;
+	public Vector3 DisplayOffset;
+	[Space]
 	public Font ButtonsFont;
 	public Material ButtonsFontMaterial;
 	public int ButtonsFontSize;
 	public Vector3 ButtonsOffset;
+	public int[] PerLabelButtonFontSizes = new int[28];
 
 	//[Header("Custom Text Meshes")]
 	//public Font DialsFont;
@@ -66,12 +73,15 @@ public class LanguageWhosOnFirst : Language {
 	public string LogPressedCorrect = "Pressed {0}. Correct!";
 	public string LogPressedWrong = "Pressed {0}. Strike!";
 
+	[NonSerialized]
+	public Dictionary<string, int> ButtonLabelSizes = new Dictionary<string, int>();
+
 	[ContextMenu("Generate Twitch Help Message")]
 	void GenerateTwitchHelpMessage() {
 		TwitchHelpMessage = TPMessage;
 	}
 
-	void OnEnable() {
+		void OnEnable() {
 
 		if (Displays.Length != 28) {
 			Debug.LogErrorFormat("WOF {0}: Expected 28 display words, only got {1}", Name, Displays.Length);
@@ -101,6 +111,13 @@ public class LanguageWhosOnFirst : Language {
 		}
 
 		FixRightToLeft();
+		MakeLabelScaleDictionary();
+	}
+
+	void MakeLabelScaleDictionary() {
+		for (int i = 0; i < Labels.Length; i++) {
+			ButtonLabelSizes.Add(Labels[i], PerLabelButtonFontSizes[i]);
+		}
 	}
 
 	void FixRightToLeft() {

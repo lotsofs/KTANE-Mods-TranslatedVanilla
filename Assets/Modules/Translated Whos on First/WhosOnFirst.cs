@@ -57,19 +57,25 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 
 	public override void Start() {
 		base.Start();
-		this.Connector.KMBombModule.OnActivate = this.Connector.Activate;
-		this.Connector.ButtonPressed += this.Connector_ButtonPressed;
-		this.Connector.ButtonsSunk += this.Connector_ButtonsSunk;
-
 		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
+		Connector.KMBombModule.OnActivate = Connector.Activate;
+		Connector.ButtonPressed += Connector_ButtonPressed;
+		Connector.ButtonsSunk += Connector_ButtonsSunk;
+
+		Log("AA");
 		_translation = GetComponent<TranslatedWhosOnFirst>();
 		_translation.GenerateLanguage(name);
+		Log("BB");
 
+		// todo: verify that this only happens after the lights ocme on and the display isn't visible before then when using a custom text mesh.
 		StartCoroutine(CycleLabels());
-		//this.NewStage();
+		//NewStage();
 
+		if (_translation.Language.ScreenDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
+			Connector.UseCustomDisplay(_translation.Language.DisplayFontSize, _translation.Language.DisplayOffset);
+		}
 		if (_translation.Language.ButtonsDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
-			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, Vector3.zero);
+			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, _translation.Language.ButtonsOffset);
 		}
 	}
 
@@ -77,49 +83,50 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		int a = UnityEngine.Random.Range(0, 28);
 		while (true) {
 			a++;
-			this.Connector.DisplayText = a + " " + _translation.Language.Displays[a % 28];
+			//Connector.DisplayText = a + " " + _translation.Language.Displays[a % 28];
+			Connector.DisplayText = _translation.Language.Displays[a % 28];
 			for (int i = 0; i < 6; i++) {
-				this.Connector.SetButtonLabel(i, _translation.Language.Labels[(a + i) % 28]);
+				Connector.SetButtonLabel(i, _translation.Language.Labels[(a + i) % 28], _translation.Language.PerLabelButtonFontSizes[(a + i) % 28]);
 			}
 			yield return new WaitForSeconds(1f);
 		}
 	}
 
 	private void Connector_ButtonsSunk(object sender, EventArgs e) {
-		this.NewStage();
+		NewStage();
 	}
 
 	private void Connector_ButtonPressed(object sender, KeypadButtonEventArgs e) {
-		if (this._completedStages >= 3) {
+		if (_completedStages >= 3) {
 			// strike when pressing a button after a solve, like in vanilla. Even the correct button strikes.
-			this.Connector.KMBombModule.HandleStrike();
-			this.Log("Strike!");
+			Connector.KMBombModule.HandleStrike();
+			Log("Strike!");
 			return;
 		}
-		if (this._solution == e.ButtonIndex) { 
+		if (_solution == e.ButtonIndex) { 
 			// correct
-			this.Log("Pressed {0}. Correct!", this._buttonLabels[e.ButtonIndex]);
+			Log("Pressed {0}. Correct!", _buttonLabels[e.ButtonIndex]);
 			_completedStages++;
-			this.Connector.Stage = _completedStages;
-			if (this._completedStages >= 3) {
-				this.Disarm();
+			Connector.Stage = _completedStages;
+			if (_completedStages >= 3) {
+				Disarm();
 			}
 			else {
-				this.Connector.AnimateButtons();
+				Connector.AnimateButtons();
 			}
 		} 
 		else {
 			// wrong
-			this.Log("Pressed {0}. Strike!", this._buttonLabels[e.ButtonIndex]);
-			this.Connector.KMBombModule.HandleStrike();
-			this.Connector.AnimateButtons();
+			Log("Pressed {0}. Strike!", _buttonLabels[e.ButtonIndex]);
+			Connector.KMBombModule.HandleStrike();
+			Connector.AnimateButtons();
 		}
 	}
 
 	private void NewStage() {
 		// pick a display word
 		int displayIndex = UnityEngine.Random.Range(0, _translation.Language.Displays.Length);
-		this.Connector.DisplayText = _translation.Language.Displays[displayIndex];
+		Connector.DisplayText = _translation.Language.Displays[displayIndex];
 		_usedDisplays[_completedStages] = _translation.Language.Displays[displayIndex];
 
 		// pick whether to use the top or bottom list
@@ -131,7 +138,7 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		_buttonLabels.Shuffle();
 		Array.Copy(_buttonLabels, _buttonLabels, 6);
 		for (int i = 0; i < 6; ++i) {
-			this.Connector.SetButtonLabel(i, _buttonLabels[i]);
+			Connector.SetButtonLabel(i, _buttonLabels[i], _translation.Language.ButtonLabelSizes[_buttonLabels[i]]);
 		}
 
 		// figure out the reference button
@@ -149,10 +156,10 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 				break;
 			}
 		}
-		this.Log(string.Format("Stage {0}", _completedStages + 1));
-		this.Log(string.Format("Display is '{0}'", _translation.Language.Displays[displayIndex]));
-		this.Log(string.Format("Labels are: '{0}', '{1}', '{2}', '{3}', '{4}', '{5}'", _buttonLabels[0], _buttonLabels[1], _buttonLabels[2], _buttonLabels[3], _buttonLabels[4], _buttonLabels[5]));
-		this.Log(string.Format("Correct button to press: '{0}'", _buttonLabels[s]));
+		Log(string.Format("Stage {0}", _completedStages + 1));
+		Log(string.Format("Display is '{0}'", _translation.Language.Displays[displayIndex]));
+		Log(string.Format("Labels are: '{0}', '{1}', '{2}', '{3}', '{4}', '{5}'", _buttonLabels[0], _buttonLabels[1], _buttonLabels[2], _buttonLabels[3], _buttonLabels[4], _buttonLabels[5]));
+		Log(string.Format("Correct button to press: '{0}'", _buttonLabels[s]));
 	}
 
 	// Twitch Plays support
@@ -164,26 +171,26 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		if (command.StartsWith("press ", StringComparison.InvariantCultureIgnoreCase)) {
 			if (!int.TryParse(command.Substring(6).TrimStart(), out n) || n < 1 || n > 6) yield break;
 			yield return null;
-			this.Connector.TwitchPress(n - 1);
+			Connector.TwitchPress(n - 1);
 		} else {
 			//command = Regex.Replace(command, @"\s+", " ").Trim('\'', '"').ToUpperInvariant();
-			//n = Array.IndexOf(this.buttonLabels, command);
+			//n = Array.IndexOf(buttonLabels, command);
 			//if (n < 0) {
 			//	yield return string.Format("sendtochaterror The label '{0}' is not present on the module.", command);
 			//} else {
 			//	yield return null;
-			//	this.Connector.TwitchPress(n);
+			//	Connector.TwitchPress(n);
 			//}
 		}
 	}
 
 	public IEnumerator TwitchHandleForcedSolve() {
-		while (!this.Solved) {
-			if (this.Connector.Animating || !this.Connector.InputValid) {
+		while (!Solved) {
+			if (Connector.Animating || !Connector.InputValid) {
 				yield return true;
 				continue;
 			}
-			this.Connector.TwitchPress(this._solution);
+			Connector.TwitchPress(_solution);
 		}
 		yield break;
 	}

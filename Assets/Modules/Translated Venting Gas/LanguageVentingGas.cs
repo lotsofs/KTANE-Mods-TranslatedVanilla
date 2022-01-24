@@ -7,7 +7,7 @@ public class LanguageVentingGas : Language {
 		Default,
 		//FallbackFont,
 		CustomTextMesh,
-		Sprite
+		//Sprite
 	}
 
 	[Header("Display")]

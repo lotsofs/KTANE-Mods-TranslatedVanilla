@@ -32,6 +32,17 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: ru
+  ScreenDisplayMethod: 1
+  ButtonsDisplayMethod: 1
+  DisplayFont: {fileID: 0}
+  DisplayFontMaterial: {fileID: 0}
+  DisplayFontSize: 52
+  DisplayOffset: {x: 0, y: 0, z: 0}
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 148
+  ButtonsOffset: {x: 0, y: 0, z: 0}
+  PerLabelButtonFontSizes: 0000000000000000a8000000a800000000000000a800000000000000a8000000a80000000000000084000000a800000000000000a8000000000000000000000000000000a8000000a8000000a8000000a8000000a8000000000000008400000000000000000000008400000000000000
   Displays:
   - "\u0414\u0410"
   - "\u041F\u0415\u0420\u0412\u041E\u0415"

@@ -38,6 +38,7 @@ public class TheButton : TranslatedVanillaModule<TranslatedButtonConnector> {
 		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
 		_gameInfo = GetComponent<KMGameInfo>();
 		_bombInfo = GetComponent<KMBombInfo>();
+		
 		_translation = GetComponent<TranslatedTheButton> ();
 		_translation.GenerateLanguage(name);
 		LanguageTheButton language = _translation.Language;
