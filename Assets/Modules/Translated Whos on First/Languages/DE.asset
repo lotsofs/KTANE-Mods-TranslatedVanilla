@@ -32,8 +32,12 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: de
-  ScreenDisplayMethod: 1
-  ButtonsDisplayMethod: 1
+  ScreenDisplayMethod: 0
+  ButtonsDisplayMethod: 0
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 0
+  ButtonsOffset: {x: 0, y: 0, z: 0}
   Displays:
   - JA
   - OBEN
