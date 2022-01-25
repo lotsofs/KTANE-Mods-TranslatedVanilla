@@ -54,22 +54,19 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 	int _completedStages = 0;
 	int _solution;
 	string[] _buttonLabels;
+	bool _activated = false;
 
 	public override void Start() {
 		base.Start();
 		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
-		Connector.KMBombModule.OnActivate = Connector.Activate;
+		Connector.KMBombModule.OnActivate += () => { Connector.Activate(); _activated = true; };
 		Connector.ButtonPressed += Connector_ButtonPressed;
 		Connector.ButtonsSunk += Connector_ButtonsSunk;
 
-		Log("AA");
 		_translation = GetComponent<TranslatedWhosOnFirst>();
 		_translation.GenerateLanguage(name);
-		Log("BB");
 
-		// todo: verify that this only happens after the lights ocme on and the display isn't visible before then when using a custom text mesh.
-		StartCoroutine(CycleLabels());
-		//NewStage();
+		Connector.Stage = 0;
 
 		if (_translation.Language.ScreenDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
 			Connector.UseCustomDisplay(_translation.Language.DisplayFontSize, _translation.Language.DisplayOffset);
@@ -77,6 +74,10 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 		if (_translation.Language.ButtonsDisplayMethod == LanguageWhosOnFirst.DisplayMethods.CustomTextMesh) {
 			Connector.UseCustomButtonLabels(_translation.Language.ButtonsFontSize, _translation.Language.ButtonsOffset);
 		}
+
+		// todo: verify that this only happens after the lights ocme on and the display isn't visible before then when using a custom text mesh.
+		//StartCoroutine(CycleLabels());
+		NewStage();
 	}
 
 	IEnumerator CycleLabels() {
@@ -103,6 +104,9 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 			Log("Strike!");
 			return;
 		}
+		if (!_activated) {
+			return;
+		}
 		if (_solution == e.ButtonIndex) { 
 			// correct
 			Log("Pressed {0}. Correct!", _buttonLabels[e.ButtonIndex]);
@@ -124,6 +128,8 @@ public class WhosOnFirst : TranslatedVanillaModule<TranslatedMemoryConnector> {
 	}
 
 	private void NewStage() {
+		Connector.Stage = _completedStages;
+
 		// pick a display word
 		int displayIndex = UnityEngine.Random.Range(0, _translation.Language.Displays.Length);
 		Connector.DisplayText = _translation.Language.Displays[displayIndex];

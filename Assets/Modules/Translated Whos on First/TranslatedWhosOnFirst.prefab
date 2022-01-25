@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 114387380842097662}
   - component: {fileID: 114904025477217836}
   - component: {fileID: 114361992542798076}
+  - component: {fileID: 114184176356171156}
   m_Layer: 0
   m_Name: TranslatedWhosOnFirst
   m_TagString: Untagged
@@ -556,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1659635632049840
 GameObject:
   m_ObjectHideFlags: 1
@@ -2678,7 +2679,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 216
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -2699,7 +2700,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 276
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -2741,7 +2742,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 276
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -2762,7 +2763,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 276
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -2804,7 +2805,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 276
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -2846,7 +2847,7 @@ TextMesh:
   m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 276
-  m_FontStyle: 0
+  m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: eddae9585030b494f84162599f0adda9, type: 3}
   m_Color:
@@ -3059,6 +3060,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02f548e551ca81242bbdf39987e70c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114184176356171156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468384805007030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2144496390, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114198043659988234
@@ -3741,7 +3753,7 @@ MonoBehaviour:
   _extendedMissionSettings: {fileID: 114361992542798076}
   _languagePool: {fileID: 11400000, guid: b2f3406d584cc174293f5f124401df94, type: 2}
   _settingsFileName: Translated-NeedyWhosOnFirst-Settings
-  _languageOverride: {fileID: 11400000, guid: 54dd34a0342d63a4db9b6072982fa732, type: 2}
+  _languageOverride: {fileID: 0}
 --- !u!114 &114928085618695770
 MonoBehaviour:
   m_ObjectHideFlags: 1

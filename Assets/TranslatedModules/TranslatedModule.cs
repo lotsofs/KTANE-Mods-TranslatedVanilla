@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using KModkit;
 
 public class TranslatedModule<TLanguage> : MonoBehaviour
 	where TLanguage : Language
@@ -50,12 +51,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 	}
 
 	void OnDestroy() {
-		_languagePool.pool = null;
-		_languagePool.FixedLanguages = null;
-		_languagePool.RandomLanguages = null;
-		_languagePool.AvoidDuplicates = false;
-		_languagePool.ShuffleFixedLanguages = false;
-		_languagePool.status = EMSLanguagesPool.Statuses.Uninitialized;
+		_languagePool.Purge();
 	}
 
 	void Log(string message) {
@@ -123,8 +119,8 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 		_languagePool.RandomLanguages = _extendedMissionSettings.GetStringListSetting(_moduleType + "_RandomLanguages");
 		_languagePool.ShuffleFixedLanguages = _extendedMissionSettings.GetBoolSetting(_moduleType + "_ShuffleFixedLanguages");
 		_languagePool.AvoidDuplicates = _extendedMissionSettings.GetBoolSetting(_moduleType + "_AvoidDuplicates");
-		_languagePool.pool = _languagePool.FixedLanguages != null ? _languagePool.FixedLanguages.ToList() : null;
-		return (_languagePool.FixedLanguages == null || _languagePool.FixedLanguages.Count > 0 || _languagePool.RandomLanguages == null || _languagePool.RandomLanguages.Count > 0);
+		_languagePool.Pool = _languagePool.FixedLanguages != null ? _languagePool.FixedLanguages.ToList() : new List<string>();
+		return ((_languagePool.FixedLanguages != null && _languagePool.FixedLanguages.Count > 0) || (_languagePool.RandomLanguages != null && _languagePool.RandomLanguages.Count > 0));
 	}
 
 	/// <summary>
@@ -175,7 +171,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			return;
 		}
 
-		TLanguage lang = CheckLanguagePool(_languagePool);
+		TLanguage lang = CheckLanguagePool();
 
 		if (lang != null) {
 			UseLanguage(lang);
@@ -190,45 +186,46 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 		UseLanguage(_fallbackLanguage);
 	}
 	
-	TLanguage CheckLanguagePool(EMSLanguagesPool langPool) {
+	TLanguage CheckLanguagePool() {
 		TLanguage lang;
 		// First check from the extended mission settings
-		switch (langPool.status) {
-			case EMSLanguagesPool.Statuses.Uninitialized:
-				// Only one module per mission needs to record these settings. A null pool indicates no other module has processed it yet, otherwise it would be empty instead.
-				// Status Uninitialized does the same. In either of these cases, establish a new one. Otherwise, a pool has already been established for this mission.
-				bool emsUsed = ReadExtendedMissionSettings();
-				if (!emsUsed) {
-					lang = null;
-					break;
-				}
 
-				langPool.status = EMSLanguagesPool.Statuses.FixedPool;
+		// first we will check if a language pool has been generated for this bomb, by comparing the serial number of the current bomb with
+		// the stored serial number in the pool. If they don't match, we need to get the pool. If they match, it's already been done by another module.
+		string serial = GetComponent<KMBombInfo>().GetSerialNumber();
+		if (serial != _languagePool.BombSerial) {
+			// not read yet. Do it now.
+			_languagePool.Purge();
+			_languagePool.BombSerial = serial;
+			if (ReadExtendedMissionSettings()) {
+				_languagePool.status = EMSLanguagesPool.Statuses.FixedPool;
+			}
+			else {
+				// nothing read. Use config file.
+				_languagePool.status = EMSLanguagesPool.Statuses.ConfigFile;
+			}
+		}
 
-				goto case EMSLanguagesPool.Statuses.FixedPool;
+		switch (_languagePool.status) {
 			case EMSLanguagesPool.Statuses.FixedPool:
-				Log("Checking fixed pool from extended mission settings.");
 				lang = PickLanguageFromFixedPool();
 				if (lang == null) {
-					langPool.status = EMSLanguagesPool.Statuses.RandomPool;
+					_languagePool.status = EMSLanguagesPool.Statuses.RandomPool;
 					goto case EMSLanguagesPool.Statuses.RandomPool;
 				}
 				else {
 					break;
 				}
 			case EMSLanguagesPool.Statuses.RandomPool:
-				Log("Checking random pool from extended mission settings.");
 				lang = PickLanguageFromRandomPool();
 				if (lang == null) {
-					langPool.status = EMSLanguagesPool.Statuses.ConfigFile;
+					_languagePool.status = EMSLanguagesPool.Statuses.ConfigFile;
 					goto case EMSLanguagesPool.Statuses.ConfigFile;
 				}
 				else {
 					break;
 				}
 			case EMSLanguagesPool.Statuses.ConfigFile:
-				Log("Resorting to player's personal config file to determine the remaining modules' languages.");
-				Log("--------------------------");
 				lang = PickLanguageFromConfigFile();
 				break;
 			default:
@@ -243,7 +240,10 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 		/// </summary>
 		/// <returns></returns>
 	TLanguage PickLanguageFromFixedPool() {
-		while (true) {
+		Log("Checking fixed pool from extended mission settings.");
+		int retry = 0;
+		while (retry < 100) {
+			retry++;
 			// check if pool even was provided
 			if (_languagePool.FixedLanguages == null || _languagePool.FixedLanguages.Count == 0) {
 				Log("No fixed pool provided.");
@@ -251,21 +251,23 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			}
 
 			// check if pool's depleted
-			if (_languagePool.pool.Count == 0) {
+			if (_languagePool.Pool.Count == 0) {
 				Log("Fixed pool depleted.");
 				return null;
 			}
 
 			// pick from pool
-			int index = _languagePool.ShuffleFixedLanguages ? UnityEngine.Random.Range(0, _languagePool.pool.Count) : 0;
-			string isoCode = _languagePool.pool[index];
+			int index = _languagePool.ShuffleFixedLanguages ? UnityEngine.Random.Range(0, _languagePool.Pool.Count) : 0;
+			string isoCode = _languagePool.Pool[index];
 			TLanguage chosenLanguage = FindLanguage(isoCode);
-			_languagePool.pool.RemoveAt(index);
+			_languagePool.Pool.RemoveAt(index);
 			if (chosenLanguage != null) {
-				Log("Succesfully picked module from extended mission settings fixed pool.");
+				Log("Succesfully picked language from extended mission settings fixed pool.");
 				return chosenLanguage;
 			}
 		}
+		Log("Picking language from fixed pool failed (tried " + retry + " times).");
+		return null;
 	}
 
 	/// <summary>
@@ -273,8 +275,11 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 	/// </summary>
 	/// <returns></returns>
 	TLanguage PickLanguageFromRandomPool() {
+		Log("Checking random pool from extended mission settings.");
 		List<string> invalidRandomPoolEntries = new List<string>();
-		while (true) {
+		int retry = 0;
+		while (retry < 100) {
+			retry++;
 			// check if pool even was provided
 			if (_languagePool.RandomLanguages == null || _languagePool.RandomLanguages.Count == 0) {
 				Log("No random pool provided.");
@@ -288,29 +293,31 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			}
 
 			// check if working pool has been depleted
-			if (_languagePool.pool == null || _languagePool.pool.Count == 0) {
+			if (_languagePool.Pool == null || _languagePool.Pool.Count == 0) {
 				Log("Random pool depleted. Refilling.");
-				_languagePool.pool = _languagePool.RandomLanguages.ToList();
+				_languagePool.Pool = _languagePool.RandomLanguages.ToList();
 				invalidRandomPoolEntries.Clear();
 				continue;
 			}
 
 			// pick from pool
-			int index = UnityEngine.Random.Range(0, _languagePool.pool.Count);
-			string isoCode = _languagePool.pool[index];
+			int index = UnityEngine.Random.Range(0, _languagePool.Pool.Count);
+			string isoCode = _languagePool.Pool[index];
 			TLanguage chosenLanguage = FindLanguage(isoCode);
 			if (_languagePool.AvoidDuplicates) {
-				_languagePool.pool.RemoveAt(index);
+				_languagePool.Pool.RemoveAt(index);
 			}
 			if (chosenLanguage != null) {
 				Log("Succesfully picked module from extended mission settings random pool.");
 				return chosenLanguage;
 			}
 			else {
-				_languagePool.pool.RemoveAt(index);
+				_languagePool.Pool.RemoveAt(index);
 				invalidRandomPoolEntries.Add(isoCode);
 			}
 		}
+		Log("Picking language from random pool failed (tried " + retry + " times).");
+		return null;
 	}
 
 	/// <summary>
@@ -318,6 +325,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 	/// </summary>
 	/// <returns></returns>
 	TLanguage PickLanguageFromConfigFile() {
+		Log("Using player's personal config file to determine the module' language.");
 		_settings = ReadConfig();
 
 		string excludedNotInPool = "Languages ignored because the configuration file does not include them: ";
@@ -375,12 +383,10 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 				foreach (string subtag in transl.IetfBcp47.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries)) {
 					if (subtag == "untc") {
 						hasUnfinishedLanguages = true;
+						excludedUntranslated += string.Format("{0}, ", transl.IetfBcp47);
 					}
 					if (_settings.IgnoredPrivateSubtags.Contains(subtag, StringComparer.OrdinalIgnoreCase)) {
 						LogFormat("Ignoring language {0} because its ietf bcp 47 tag contains illegal private use subtag '{1}'", transl.IetfBcp47, subtag);
-						if (subtag == "untc") {
-							excludedUntranslated += string.Format("{0}, ", transl.IetfBcp47);
-						}
 						cont = true; 
 					}
 				}
@@ -397,18 +403,26 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			}
 		}
 
-		if (!_settings.UseAllLanguages && excludedNotInPool.Trim().Last() != ':') Log(excludedNotInPool);
-		else Log("Configuration file dictates using any available language.");
+		if (!_settings.UseAllLanguages && excludedNotInPool.Trim().Last() != ':') 
+			Log(excludedNotInPool);
+		else 
+			Log("Configuration file dictates using any available language.");
 
-		if (_settings.DisabledLanguages != null && excludedIgnored.Trim().Last() != ':') Log(excludedIgnored);
+		if (_settings.DisabledLanguages != null && excludedIgnored.Trim().Last() != ':') 
+			Log(excludedIgnored);
 
-		if (_settings.IgnoreWithoutManual && excludedNoManual.Trim().Last() != ':') Log(excludedNoManual);
-		else Log("Configuration file allows for the use of translations without a dedicated manual.");
+		if (_settings.IgnoreWithoutManual && excludedNoManual.Trim().Last() != ':') 
+			Log(excludedNoManual);
+		else 
+			Log("Configuration file allows for the use of translations without a dedicated manual.");
 
-		if (_settings.IgnoreMachineTranslations && excludedMachine.Trim().Last() != ':') Log(excludedMachine);
+		if (_settings.IgnoreMachineTranslations && excludedMachine.Trim().Last() != ':') 
+			Log(excludedMachine);
 
-		if (_settings.IgnoredPrivateSubtags.Contains("untc", StringComparer.OrdinalIgnoreCase) && excludedUntranslated.Trim().Last() != ':') Log(excludedUntranslated);
-		else if (hasUnfinishedLanguages) Log("Configuration file allows for the use of translations that didn't bother to translate the main content of the module.");
+		if (_settings.IgnoredPrivateSubtags.Contains("untc", StringComparer.OrdinalIgnoreCase) && excludedUntranslated.Trim().Last() != ':') 
+			Log(excludedUntranslated);
+		else if (hasUnfinishedLanguages) 
+			Log("Configuration file allows for the use of translations that didn't bother to translate the main content of the module.");
 
 
 		if (availableTranslations.Count == 0) {

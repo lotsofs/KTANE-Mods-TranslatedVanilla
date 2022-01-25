@@ -92,13 +92,9 @@ namespace TranslatedVanillaModulesLib {
 				this.displayText.transform.SetParent(this.transform, false);
 				this.displayText.GetComponent<Renderer>().enabled = false;
 
-				//var scale = this.displayText.transform.localScale;
-				//scale.x = -scale.x;
-				//this.displayText.transform.localScale = scale;
-
 				this.buttons = wrapper.Component.Buttons;
 				this.stageIndicator = wrapper.Component.StageIndicator;
-				//this.stageIndicator.NumStages = 5;
+				this.stageIndicator.NumStages = 5;
 				this.stageIndicator.transform.SetParent(this.transform, false);
 			}
 			this.displayText.GetComponent<Renderer>().enabled = false;
