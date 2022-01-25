@@ -32,6 +32,17 @@ MonoBehaviour:
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
   IetfBcp47: fy
+  ScreenDisplayMethod: 0
+  ButtonsDisplayMethod: 0
+  DisplayFont: {fileID: 0}
+  DisplayFontMaterial: {fileID: 0}
+  DisplayFontSize: 0
+  DisplayOffset: {x: 0, y: 0, z: 0}
+  ButtonsFont: {fileID: 0}
+  ButtonsFontMaterial: {fileID: 0}
+  ButtonsFontSize: 0
+  ButtonsOffset: {x: 0, y: 0, z: 0}
+  PerLabelButtonFontSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   Displays:
   - JA
   - EARSTE
@@ -86,7 +97,7 @@ MonoBehaviour:
   - N
   - WAT?
   - UHHH
-  - FOLGENDE
+  - FOLGJENDE
   - NOGRIS
   - GOED
   - AS

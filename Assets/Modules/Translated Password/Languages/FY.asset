@@ -45,6 +45,7 @@ MonoBehaviour:
   - ALTYD
   - AMPER
   - "BR\xDBKE"
+  - "D\xCAROM"
   - "F\xCASTE"
   - FUORT
   - GRIEN
@@ -59,7 +60,6 @@ MonoBehaviour:
   - JISKE
   - KREKT
   - "L\xCASTE"
-  - NOAIT
   - PIPER
   - PRIUW
   - PROAI
@@ -73,10 +73,11 @@ MonoBehaviour:
   - TROAN
   - TRIJE
   - TRYST
-  - ÚTIEN
+  - "\xDATIEN"
   - WIIST
   - "WR\xC2LD"
   - WURCH
+  WordsManual: []
   TPCycle: cycle
   TPToggle: toggle
   TPSubmit: submit
