@@ -169,18 +169,23 @@ public class VentingGas : TranslatedVanillaModule<TranslatedVentingGasConnector>
 	#region TP
 
 	// Twitch Plays support
-	public static string TwitchHelpMessage = "Endonym, Anglonym - !{0} NativeY | !{0} NativeN";
+	public static string TwitchHelpMessage = "!{0} left [press the left button] | !{0} right [press the right button]";
 
 	public IEnumerator ProcessTwitchCommand(string command) {
 		command = command.Trim().ToUpperInvariant();
 		// todo: right to left languages get messed up with this?
 		VentingGasButton button;
-		if (command == _translation.Language.Y) {
+		if (command == _translation.Language.Y || command == _translation.Language.Yes) {
 			button = _translation.Language.RightToLeft ? VentingGasButton.N : VentingGasButton.Y;
 		}
-		else if (command == _translation.Language.N) {
+		else if (command == _translation.Language.N || command == _translation.Language.No) {
 			button = _translation.Language.RightToLeft ? VentingGasButton.Y : VentingGasButton.N;
-			Connector.TwitchPress(VentingGasButton.N);
+		}
+		else if (command == "LEFT") {
+			button = VentingGasButton.Y;
+		}
+		else if (command == "RIGHT") {
+			button = VentingGasButton.N;
 		}
 		else {
 			yield break;

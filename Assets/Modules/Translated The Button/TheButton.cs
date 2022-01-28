@@ -177,7 +177,7 @@ public class TheButton : TranslatedVanillaModule<TranslatedButtonConnector> {
 
 	#region twitch plays
 
-	public static string TwitchHelpMessage = "Endonym, Anglonym - !{0} tap | !{0} hold | !{0} release 7 (releases when there's a 7 in the timer)";
+	public static string TwitchHelpMessage = "!{0} tap | !{0} hold | !{0} release 7 (releases when there's a 7 in the timer)";
 	[NonSerialized]
 	public bool TwitchShouldCancelCommand;
 

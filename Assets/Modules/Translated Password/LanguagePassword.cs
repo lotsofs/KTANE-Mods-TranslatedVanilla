@@ -45,7 +45,7 @@ public class LanguagePassword : Language {
 	public string TPToggle = "toggle";
 	public string TPSubmit = "submit";
 	[TextArea]
-	public string TPMessage = "!{0} {1} 1 3 5 [cycle through the letters in columns 1, 3, and 5] | !{0} {1} [cycle through all columns] | !{0} {2} [move all columns down one letter] | !{0} {3} {4} [try to submit a word]";
+	public string TPMessage = "!{0} {1} 1 3 5 [cycle through the letters in columns 1, 3, and 5] | !{0} {2} [move all columns down one letter] | !{0} {3} {4} [try to submit a word]";
 
 	[Header("Log File Text")]
 	public string LogAnswer = "Correct answer: {0}";

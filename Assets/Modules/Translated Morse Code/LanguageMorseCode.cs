@@ -58,7 +58,7 @@ public class LanguageMorseCode : Language {
 	public string[] TPTx = new string[] { "transmit", "trans", "tx" };
 	
 	[TextArea]
-	public string TPMessage = "!{0} {1} 3.573, !{0} {2} 573, !{0} {3} 3.573 {5}, !{0} {4} 573 [transmit frequency 3.573]";
+	public string TPMessage = "!{0} {1} 3.575, !{0} {2} 575, !{0} {3} 3.575 {5}, !{0} {4} 575 [transmit frequency 3.575]";
 
 	[Header("Log File Text")]
 	public string LogAnswer = "Chosen word is: {0}; Signal is: {1}; Correct frequency is {2} MHz";

@@ -7,16 +7,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Password : TranslatedVanillaModule<TranslatedPasswordConnector> {
-	public int SolutionCount { get; private set; }
-	public int SolutionDelay { get; private set; }
-
-	public bool Down { get; private set; }
-	public bool Holding { get; private set; }
-	public int MashCount { get; private set; }
-	public bool WasPressed { get; private set; }
-	public int InteractionTickCount { get; private set; }
-	public bool PressedIncorrectly { get; private set; }
-
 	TranslatedPassword _translation;
 
 	string _letters;
@@ -157,8 +147,10 @@ public class Password : TranslatedVanillaModule<TranslatedPasswordConnector> {
 
 	// Twitch Plays support
 	public static readonly string TwitchHelpMessage
-		= "!{0} cycle 1 3 5 - cycle the letters in columns 1, 3 and 5 | !{0} toggle - move all columns down one letter | " +
-		"!{0} submit ABCDE - submit ABCDE as the solution | !submit - press the submit button with the current display as is";
+		= "!{0} cycle 1 3 5 [cycle through the letters in columns 1, 3, and 5] | " +
+		"!{0} toggle [move all columns down one letter] | !{0} submit ABCDE [try to submit a word]";
+
+
 	// `!{0} cycle` is deliberately excluded because it takes too long and its use is generally frowned on.
 	[NonSerialized]
 	public bool TwitchPlaysActive;
@@ -216,8 +208,8 @@ public class Password : TranslatedVanillaModule<TranslatedPasswordConnector> {
 			} 
 			else if (tokens[0].EqualsIgnoreCase("submit")) {
 				if (tokens.Length == 1) {
-					this.Connector.TwitchPressSubmit();
-					yield return null;
+					//this.Connector.TwitchPressSubmit();
+					//yield return null;
 					yield break;
 				}
 				string password;

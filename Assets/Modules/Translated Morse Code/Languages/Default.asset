@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code
+  m_Name: Default
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Iso639: '-'
+  Name: Default
+  NativeName: English
   RightToLeft: 0
   Version: 1
   ManualAvailable: 0
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.573, !{0} trans 573, !{0} tx 3.573 MHz, !{0}
+    transmit 573 [transmit frequency 3.573]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: '-'
   DialsDisplayMethod: 0
   ButtonDisplayMethod: 0
   TxFont: {fileID: 0}
@@ -38,7 +39,36 @@ MonoBehaviour:
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: TX
-  PossibleLetters: 41004200
+  MegaHerz: MHz
+  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
+  Digits: 0123456789
+  MorseSymbols:
+  - .-
+  - -...
+  - -.-.
+  - -..
+  - .
+  - ..-.
+  - --.
+  - '....'
+  - ..
+  - .---
+  - -.-
+  - .-..
+  - --
+  - -.
+  - '---'
+  - .--.
+  - --.-
+  - .-.
+  - '...'
+  - '-'
+  - ..-
+  - '...-'
+  - .--
+  - -..-
+  - -.--
+  - --..
   PossibleWords:
   - SHELL
   - HALLS
@@ -57,13 +87,12 @@ MonoBehaviour:
   - VECTOR
   - BEATS
   WordsManual: []
-  TPCycle: cycle
-  TPToggle: toggle
-  TPSubmit: submit
-  TPMessage: '!{0} {1} 1 3 5 [cycle through the letters in columns 1, 3, and 5] |
-    !{0} {1} [cycle through all columns] | !{0} {2} [move all columns down one letter]
-    | !{0} {3} {4} [try to submit a word]'
-  LogAnswer: 'Correct answer: {0}'
-  LogSubmitCorrect: Correctly submitted {0}
-  LogSubmitWrong: 'Strike: Submitted {0}'
-  LogDial: 'Dial {0}: {1}'
+  TPTx:
+  - transmit
+  - trans
+  - tx
+  TPMessage: '!{0} {1} 3.573, !{0} {2} 573, !{0} {3} 3.573 {5}, !{0} {4} 573 [transmit
+    frequency 3.573]'
+  LogAnswer: 'Chosen word is: {0}; Signal is: {1}; Correct frequency is {2} MHz'
+  LogSubmitCorrect: Transmit button pressed when selected frequency is {0}. Correct!
+  LogSubmitWrong: Transmit button pressed when selected frequency is {0}. Strike!

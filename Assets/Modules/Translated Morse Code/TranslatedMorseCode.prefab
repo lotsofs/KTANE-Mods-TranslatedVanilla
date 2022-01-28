@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 114451747319159730}
   - component: {fileID: 114401525253181852}
   - component: {fileID: 114722843249734602}
+  - component: {fileID: 114584656670357602}
   m_Layer: 0
   m_Name: TranslatedMorseCode
   m_TagString: Untagged
@@ -1873,6 +1874,25 @@ MonoBehaviour:
   TextMesh: {fileID: 102618960837290978}
   Index: 0
   KMAudio: {fileID: 114451747319159730}
+--- !u!114 &114584656670357602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233924168082550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f827b3f7cc0c73a459054812c0de2ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _languages:
+  - {fileID: 11400000, guid: 2e35c3aa23e3db743972d525c4296041, type: 2}
+  _fallbackLanguage: {fileID: 11400000, guid: df0098fad409d5a40bd174fac4557890, type: 2}
+  _sticker: {fileID: 0}
+  _extendedMissionSettings: {fileID: 0}
+  _languagePool: {fileID: 0}
+  _settingsFileName: 
+  _languageOverride: {fileID: 0}
 --- !u!114 &114649564660002430
 MonoBehaviour:
   m_ObjectHideFlags: 1
