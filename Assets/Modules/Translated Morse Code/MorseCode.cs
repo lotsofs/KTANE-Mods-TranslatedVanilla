@@ -65,8 +65,23 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 
 		// select a word
 		_correctChannelIndex = Random.Range(0, _translation.Language.PossibleWords.Length);
-		string correctWord = _translation.Language.PossibleWords[_correctChannelIndex];
-		Log(_translation.Language.LogAnswer, correctWord);
+		string correctWord;
+		if (_translation.Language.WordsManual.Length > 0) {
+			correctWord = _translation.Language.WordsManual[_correctChannelIndex];
+		}
+		else {
+			correctWord = _translation.Language.PossibleWords[_correctChannelIndex];
+		}
+		string signal = "";
+		string solution = frequencies[_correctChannelIndex].ToString();
+		foreach (char c in correctWord) {
+			foreach (Symbol s in _codeTable[c]) {
+				if (s == Symbol.Dash) signal += '-';
+				else signal += '.';
+			}
+			signal += ' ';
+		}
+		Log(_translation.Language.LogAnswer, correctWord, signal, solution);
 
 		this.ChangeChannel();
 	}

@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
+  m_Name: Language for Morse Code 7
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Iso639: 
+  Name: 
+  NativeName: 
+  RightToLeft: 0
+  Version: 1
+  ManualAvailable: 0
+  ManualLinks: []
+  TwitchHelpMessage: '!{0} twitch help message'
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: 
+  DialsDisplayMethod: 0
+  ButtonDisplayMethod: 0
+  TxFont: {fileID: 0}
+  TxFontMaterial: {fileID: 0}
+  TxFontSize: 0
+  TxOffset: {x: 0, y: 0, z: 0}
+  Transmit: TX
+  MegaHerz: MHz
+  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
+  Digits: 0123456789
+  MorseSymbols:
+  - .-
+  - -...
+  - -.-.
+  - -..
+  - .
+  - ..-.
+  - --.
+  - '....'
+  - ..
+  - .---
+  - -.-
+  - .-..
+  - --
+  - -.
+  - '---'
+  - .--.
+  - --.-
+  - .-.
+  - '...'
+  - '-'
+  - ..-
+  - '...-'
+  - .--
+  - -..-
+  - -.--
+  - --..
+  PossibleWords:
+  - SHELL
+  - HALLS
+  - SLICK
+  - TRICK
+  - BOXES
+  - LEAKS
+  - STROBE
+  - BISTRO
+  - FLICK
+  - BOMBS
+  - BREAK
+  - BRICK
+  - STEAK
+  - STING
+  - VECTOR
+  - BEATS
+  WordsManual: []
+  TPTx:
+  - transmit
+  - trans
+  - tx
+  TPMessage: '!{0} {1} 3.575, !{0} {2} 575, !{0} {3} 3.575 {5}, !{0} {4} 575 [transmit
+    frequency 3.575]'
+  LogAnswer: 'Chosen word is: {0}; Signal is: {1}; Correct frequency is {2} MHz'
+  LogSubmitCorrect: Transmit button pressed when selected frequency is {0}. Correct!
+  LogSubmitWrong: Transmit button pressed when selected frequency is {0}. Strike!

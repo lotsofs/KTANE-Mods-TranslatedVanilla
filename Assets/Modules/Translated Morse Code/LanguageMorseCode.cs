@@ -30,6 +30,7 @@ public class LanguageMorseCode : Language {
 	[Header("Module Text")]
 	public string Transmit = "TX";
 	public string MegaHerz = "MHz";
+	public string Digits = "0123456789";
 
 	public char[] Characters = new char[] { 
 			'A', 'B', 'C', 'D', 'E', 'F', 'G', 
@@ -37,7 +38,6 @@ public class LanguageMorseCode : Language {
 			'Q', 'R', 'S', 'T', 'U', 'V', 
 			'W', 'X', 'Y', 'Z' };
 
-	public string Digits = "0123456789";
 
 	public string[] MorseSymbols = new string[] {
 			".-", "-...", "-.-.", "-..", ".", "..-.", "--.",

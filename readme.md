@@ -23,3 +23,19 @@ Building this mod is a little more involved than with most mods, but works the s
 6. Set the build configuration to Release and rebuild the helper plugin. The library will automatically be copied to the installed mod directory.
 
 See [the helper plugin readme file](NotVanillaModulesLib/readme.md) for more information.
+
+
+## Documentation
+language tags are based on https://tools.ietf.org/rfc/bcp/bcp47.txt
+
+### Machine Translation platforms ###
+und - *und*etermined
+wkp - *w*i*k*i*p*edia - Simple terms such as color names etc. were taken from the titles of their wikipedia articles in their respective languages (or similar websites), but not checked against declensions etc. 
+gtr - *g*oogle *tr*anslate - Simply Google Translation (or some other robot translation service). Likely very wrong.
+
+### Private Language Subtags ###
+orig - *Orig*inal translations from Tharagon's mod in use and unchanged since 2018.
+nvml - Translations provided in this remake using AndrioCelos's *N*ot *V*anilla *M*odules *l*ibrary.
+offc - *Off*i*c*ial translations as provided by Steel Crate Games in their 2020 localization update.
+
+untc - *Unt*ranslated *c*ontent - Use when some provided translation did not actually translate the content, eg. various of the Asian morse codes which use latin words like shell, halls, etc. anyway.
