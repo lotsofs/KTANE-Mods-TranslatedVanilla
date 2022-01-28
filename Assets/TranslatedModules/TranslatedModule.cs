@@ -177,11 +177,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			UseLanguage(lang);
 			return;
 		}
-		//lang = CheckLanguagePool(_languagePoolGlobal);
-		//if (lang != null) {
-		//	UseLanguage(lang);
-		//	return;
-		//}
+
 		LogFormat("WARNING: Could not find a language to be used. Using a fallback language.");
 		UseLanguage(_fallbackLanguage);
 	}

@@ -93,8 +93,10 @@ namespace TranslatedVanillaModulesLib {
 				this.displayText.GetComponent<Renderer>().enabled = false;
 
 				this.buttons = wrapper.Component.Buttons;
+
+				// Note: If this doesn't work, make sure the prefab size is set correctly to 1 1 1.
 				this.stageIndicator = wrapper.Component.StageIndicator;
-				this.stageIndicator.NumStages = 5;
+				this.stageIndicator.NumStages = 3;
 				this.stageIndicator.transform.SetParent(this.transform, false);
 			}
 			this.displayText.GetComponent<Renderer>().enabled = false;

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68768987c3414114c9287191ba11d404, type: 3}
+  m_Name: HY
+  m_EditorClassIdentifier: 
+  Disabled: 0
+  Iso639: hy
+  Name: Armenian
+  NativeName: "\u0540\u0561\u0575\u0565\u0580\u0565\u0576"
+  RightToLeft: 0
+  Version: 1
+  ManualAvailable: 0
+  ManualLinks: []
+  TwitchHelpMessage: '!{0} tap [tap the button] | !{0} hold [hold the button] | !{0}
+    release 7 [release when the digit shows 7]'
+  ExtLang: 
+  Script: 900
+  LanguageRegion: 0
+  Iso3166: 
+  Variant: 
+  MachineTranslation: 0
+  MachineUsed: 
+  AdditionalExtendedSubtags: []
+  ShowVersionSubtag: 0
+  AdditionalPrivateSubtags: []
+  IetfBcp47: hy
+  DisplayMethod: 1
+  Press: "\u054D\u0535\u0542\u0544\u0535\u053C"
+  Hold: "\u054A\u0531\u0540\u0535\u053C"
+  Abort: "\u0541\u0533\u0535\u053C"
+  Detonate: "\u054A\u0531\u0545\u0539\u0535\u053C"
+  LogPress: "\u054D\u0565\u0572\u0574\u0565\u056C"
+  LogHold: "\u054A\u0561\u0570\u0565\u056C"
+  LogAbort: "\u0541\u0563\u0565\u056C"
+  LogDetonate: "\u054A\u0561\u0575\u0569\u0565\u056C"
+  Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
+  FontMaterial: {fileID: 2100000, guid: 6a3424f37a23f764294d857c3a204bfe, type: 2}
+  VerticalOffset: 0
+  SizePress: 266
+  SizeHold: 300
+  SizeAbort: 300
+  SizeDetonate: 256
+  SpritePress: {fileID: 0}
+  SpriteHold: {fileID: 0}
+  SpriteAbort: {fileID: 0}
+  SpriteDetonate: {fileID: 0}
+  TPTap: tap
+  TPHold: hold
+  TPRelease: release
+  TPMessage: '!{0} {1} [tap the button] | !{0} {2} [hold the button] | !{0} {3} 7
+    [release when the digit shows 7]'
+  LogRed: Red
+  LogYellow: Yellow
+  LogBlue: Blue
+  LogWhite: White
+  RuleColorIs: Color is {0}.
+  RuleLabelIs: Label is {0}.
+  RuleButtonShouldBe: The button should be {0}.
+  RuleHeld: held
+  RulePressed: pressed and immediately released
+  LogHeldCorrect: The button was held and released at {0}. That was correct.
+  LogHeldIncorrect: 'The button was held and released at {0}. That was incorrect:
+    It should have been pressed and immediately released.'
+  LogHeldIncorrectRelease: The button was held and released at {0}. That was incorrect,
+    as {0} does not contain a {1}.
+  LogPressedCorrect: The button was pressed and immediately released. That was correct.
+  LogPressedIncorrect: 'The button was pressed and immediately released. That was
+    incorrect: It should have been held.'
+  LogHoldingCorrect: The button is being held. That is correct. The light is {0}.
+  LogHoldingIncorrect: The button is being held. That is incorrect. The light is {0}.

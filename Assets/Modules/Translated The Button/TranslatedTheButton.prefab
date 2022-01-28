@@ -696,8 +696,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758559113600360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.8, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523273335697124}
   - {fileID: 4252481504400166}
@@ -1642,14 +1642,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042407006430264}
-  m_Text: "\u0E08\u0E38\u0E14\u0E0A\u0E19\u0E27\u0E19"
+  m_Text: "\u054A\u0531\u0540\u0535\u053C"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 360
+  m_FontSize: 300
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 08f5121ba760eac43a33dc29d63bd1a5, type: 3}
@@ -2117,6 +2117,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 136d95729b7d94042b7ef89dbba63f30, type: 2}
   - {fileID: 11400000, guid: 2971fbf0e687d9042abe876c82960a4a, type: 2}
   - {fileID: 11400000, guid: e0854a59f054b7749b04a9f510f2d5b3, type: 2}
+  - {fileID: 11400000, guid: 6ac4c27e48b502c4ba260c52ae8e2d4b, type: 2}
   - {fileID: 11400000, guid: 03daa87781b6dd442a02d78a5440644d, type: 2}
   - {fileID: 11400000, guid: 6952acf468ce2f94aa319c78a9e8c126, type: 2}
   - {fileID: 11400000, guid: 61afed4f10a3c7542834e7c1a6e3b306, type: 2}
@@ -2134,8 +2135,7 @@ MonoBehaviour:
   _extendedMissionSettings: {fileID: 114324197472621502}
   _languagePool: {fileID: 11400000, guid: 06f340119bbfa2949813f5e0263c181f, type: 2}
   _settingsFileName: Translated-TheButton-Settings
-  _oldSettingsFiles: []
-  _languageOverride: {fileID: 0}
+  _languageOverride: {fileID: 11400000, guid: 6ac4c27e48b502c4ba260c52ae8e2d4b, type: 2}
 --- !u!114 &114444589732886140
 MonoBehaviour:
   m_ObjectHideFlags: 1
