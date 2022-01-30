@@ -5,6 +5,7 @@ using TranslatedVanillaModulesLib;
 using Random = UnityEngine.Random;
 using System;
 using System.Linq;
+using System.Globalization;
 
 public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 	TranslatedMorseCode _translation;
@@ -24,9 +25,9 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 	public int WordsCorrectlySubmitted { get; private set; }
 
 	private Coroutine playWordCoroutine;
-	private bool activated;
+	private bool _activated;
 
-	private const float DotLength = 0.25f;
+	private const float DotLength = 0.27f;	// It's set to 0.45 in vanilla, but that's way too long when I set it here. Done by feeling. .25 in NVM. Timing isn't perfect anyway because framerate.
 
 	private float holdTime;
 
@@ -40,6 +41,11 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 		string name = string.Format("{0} #{1}", Connector.KMBombModule.ModuleDisplayName, Connector.ModuleID);
 		_translation = GetComponent<TranslatedMorseCode>();
 		_translation.GenerateLanguage(name);
+
+		if (_translation.Language.TxDisplayMethod == LanguageMorseCode.DisplayMethods.CustomTextMesh) {
+			this.Connector.UseCustomButtonLabel();
+		}
+		this.Connector.SetLabels(_translation.Language.Transmit);
 
 		//if (_translation.Language.ButtonDisplayMethod == TranslatedMorseCode.DisplayMethods.CustomTextMesh) {
 			//this.Connector.UseCustomButtonLabel();
@@ -65,13 +71,7 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 
 		// select a word
 		_correctChannelIndex = Random.Range(0, _translation.Language.PossibleWords.Length);
-		string correctWord;
-		if (_translation.Language.WordsManual.Length > 0) {
-			correctWord = _translation.Language.WordsManual[_correctChannelIndex];
-		}
-		else {
-			correctWord = _translation.Language.PossibleWords[_correctChannelIndex];
-		}
+		string correctWord = _translation.Language.PossibleWords[_correctChannelIndex];
 		string signal = "";
 		string solution = frequencies[_correctChannelIndex].ToString();
 		foreach (char c in correctWord) {
@@ -81,9 +81,14 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 			}
 			signal += ' ';
 		}
-		Log(_translation.Language.LogAnswer, correctWord, signal, solution);
 
 		this.ChangeChannel();
+
+		// log
+		if (_translation.Language.WordsManual.Length > 0) {
+			correctWord = _translation.Language.WordsManual[_correctChannelIndex];
+		}
+		Log(_translation.Language.LogAnswer, correctWord, signal, solution);
 	}
 
 	public override void Disarm() {
@@ -110,7 +115,7 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 
 	private void KMBombModule_OnActivate() {
 		this.Connector.Activate();
-		this.activated = true;
+		this._activated = true;
 		if (!this.Solved) this.playWordCoroutine = this.StartCoroutine(this.PlayWord(_translation.Language.PossibleWords[_correctChannelIndex]));
 	}
 
@@ -143,9 +148,9 @@ public class MorseCode : TranslatedVanillaModule<TranslatedMorseCodeConnector> {
 					this.Connector.SetLight(false);
 					yield return new WaitForSeconds(DotLength);
 				}
-				yield return new WaitForSeconds(DotLength * 3);  // 4 dots total
+				yield return new WaitForSeconds(DotLength * 2);  // 3 dots total
 			}
-			yield return new WaitForSeconds(DotLength * 6);  // 10 dots total
+			yield return new WaitForSeconds(DotLength * 7);  // 10 dots total
 		}
 	}
 
