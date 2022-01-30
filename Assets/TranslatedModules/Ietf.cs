@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public static class Ietf {
 	public class Language {
 		public string Anglonym;
-		public string Endonym;
+		public string Autonym;
 		public string SuppressScript;
 		public bool RightToLeft;
+		public bool IsMacroLanguage;
 	}
 
 	public enum Scripts {
@@ -119,218 +121,221 @@ public static class Ietf {
 		Other = 900,
 	}
 
+
+	// from https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes ad 2022-01-29
 	public static Dictionary<string, Language> Languages = new Dictionary<string, Language> {
-		{ "-", new Language { Anglonym = "Default",         Endonym = "English",            SuppressScript = "Latn" } },
-		{ "af", new Language { Anglonym = "Afrikaans",		Endonym = "Afrikaans",			SuppressScript = "Latn" } },
-		{ "ar", new Language { Anglonym = "Arabic",			Endonym = "العربية",			SuppressScript = "Arab", RightToLeft = true } },
-		{ "az", new Language { Anglonym = "Azerbaijani",	Endonym = "Azərbaycanca",		SuppressScript = null } },
-		{ "be", new Language { Anglonym = "Belarusian",		Endonym = "Беларуская",			SuppressScript = "Cyrl" } },
-		{ "bg", new Language { Anglonym = "Bulgarian",		Endonym = "Български",			SuppressScript = "Cyrl" } },
-		{ "bn", new Language { Anglonym = "Bengali",		Endonym = "বাংলা",				SuppressScript = "Beng" } },
-		{ "br", new Language { Anglonym = "Breton",			Endonym = "Brezhoneg",			SuppressScript = null } },
-		{ "ca", new Language { Anglonym = "Catalan",		Endonym = "Català",				SuppressScript = "Latn" } },
-		{ "cs", new Language { Anglonym = "Czech",			Endonym = "Čeština",			SuppressScript = "Latn" } },
-		{ "de", new Language { Anglonym = "German",			Endonym = "Deutsch",			SuppressScript = "Latn" } },
-		{ "el", new Language { Anglonym = "Greek",			Endonym = "Ελληνικά",			SuppressScript = "Grek" } },
-		{ "en", new Language { Anglonym = "English", 		Endonym = "English",			SuppressScript = "Latn" } },
-		{ "eo", new Language { Anglonym = "Esperanto", 		Endonym = "Esperanto",			SuppressScript = "Latn" } },
-		{ "es", new Language { Anglonym = "Spanish", 		Endonym = "Español",			SuppressScript = "Latn" } },
-		{ "eu", new Language { Anglonym = "Basque", 		Endonym = "Euskara",			SuppressScript = "Latn" } },
-		{ "fi", new Language { Anglonym = "Finnish", 		Endonym = "Suomi",				SuppressScript = "Latn" } },
-		{ "fr", new Language { Anglonym = "French", 		Endonym = "Français",			SuppressScript = "Latn" } },
-		{ "fy", new Language { Anglonym = "Frisian", 		Endonym = "Frysk",				SuppressScript = "Latn" } },
-		{ "ga", new Language { Anglonym = "Irish", 			Endonym = "Gaeilge",			SuppressScript = "Latn" } },
-		{ "gl", new Language { Anglonym = "Galician", 		Endonym = "Galego",				SuppressScript = "Latn" } },
-		{ "he", new Language { Anglonym = "Hebrew", 		Endonym = "עברית",				SuppressScript = "Hebr", RightToLeft = true } },
-		{ "hi", new Language { Anglonym = "Hindi", 			Endonym = "हिन्दी",				SuppressScript = "Deva" } },
-		{ "hr", new Language { Anglonym = "Croatian", 		Endonym = "Hrvatski",			SuppressScript = "Latn" } },
-		{ "hu", new Language { Anglonym = "Hungarian", 		Endonym = "Magyar",				SuppressScript = "Latn" } },
-		{ "hy", new Language { Anglonym = "Armenian",		Endonym = "Հայերեն",			SuppressScript = "Armn" } },
-		{ "it", new Language { Anglonym = "Italian", 		Endonym = "Italiano",			SuppressScript = "Latn" } },
-		{ "ja", new Language { Anglonym = "Japanese", 		Endonym = "日本語",				SuppressScript = "Jpan" } },
-		{ "jv", new Language { Anglonym = "Javanese", 		Endonym = "Jawa",				SuppressScript = null } },
-		{ "ko", new Language { Anglonym = "Korean", 		Endonym = "한국어",				SuppressScript = "Kore" } },
-		{ "la", new Language { Anglonym = "Latin", 			Endonym = "Latina",				SuppressScript = "Latn" } },
-		{ "lb", new Language { Anglonym = "Luxembourgish",	Endonym = "Lëtzebuergesch",		SuppressScript = "Latn" } },
-		{ "mk", new Language { Anglonym = "Macedonian", 	Endonym = "Македонски",			SuppressScript = "Cyrl" } },
-		{ "ml", new Language { Anglonym = "Malayalam", 		Endonym = "മലയാളം",			SuppressScript = "Mlym" } },
-		{ "nl", new Language { Anglonym = "Dutch", 			Endonym = "Nederlands",			SuppressScript = "Latn" } },
-		{ "oc", new Language { Anglonym = "Occitan", 		Endonym = "Occitan",			SuppressScript = null } },
-		{ "pl", new Language { Anglonym = "Polish", 		Endonym = "Polski",				SuppressScript = "Latn" } },
-		{ "pt", new Language { Anglonym = "Portuguese", 	Endonym = "Português",			SuppressScript = "Latn" } },
-		{ "ro", new Language { Anglonym = "Romanian", 		Endonym = "Română",				SuppressScript = "Latn" } },
-		{ "ru", new Language { Anglonym = "Russian", 		Endonym = "Русский",			SuppressScript = "Cyrl" } },
-		{ "so", new Language { Anglonym = "Somali", 		Endonym = "Soomaaliga",			SuppressScript = "Latn" } },
-		{ "sv", new Language { Anglonym = "Swedish", 		Endonym = "Svenska",			SuppressScript = "Latn" } },
-		{ "tl", new Language { Anglonym = "Tagalog", 		Endonym = "Tagalog",			SuppressScript = "Latn" } },
-		{ "tr", new Language { Anglonym = "Turkish", 		Endonym = "Türkçe",				SuppressScript = "Latn" } },
-		{ "tt", new Language { Anglonym = "Tatar", 			Endonym = "Татарча",			SuppressScript = null } },
-		{ "uk", new Language { Anglonym = "Ukrainian", 		Endonym = "Українська",			SuppressScript = "Cyrl" } },
-		{ "vi", new Language { Anglonym = "Vietnamese", 	Endonym = "Tiếng Việt",			SuppressScript = "Latn" } },
+		{ "-", new Language { Anglonym = "Default",         Autonym = "English",            SuppressScript = "Latn" } },
+
+		{ "aa", new Language { Anglonym = "Afar", 			Autonym = "Afaraf",				SuppressScript = null } },
+		{ "ab", new Language { Anglonym = "Abkhazian", 		Autonym = "аҧсуа бызшәа",		SuppressScript = "Cyrl" } },
+		{ "ae", new Language { Anglonym = "Avestan", 		Autonym = "avesta",				SuppressScript = null } },
+		{ "af", new Language { Anglonym = "Afrikaans",		Autonym = "Afrikaans",			SuppressScript = "Latn" } },
+		//{ "ak", new Language { Anglonym = "Akan", 			Autonym = "Akan",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "am", new Language { Anglonym = "Amharic", 		Autonym = "አማርኛ",				SuppressScript = "Ethi" } },
+		{ "an", new Language { Anglonym = "Aragonese", 		Autonym = "aragonés",			SuppressScript = null } },
+		{ "ar", new Language { Anglonym = "Arabic",			Autonym = "العربية",			SuppressScript = "Arab", RightToLeft = true} }, // Macro Language, but needed for legacy reasons
+		{ "as", new Language { Anglonym = "Assamese", 		Autonym = "অসমীয়া",				SuppressScript = "Beng" } },
+		{ "av", new Language { Anglonym = "Avaric", 		Autonym = "авар мацӀ",			SuppressScript = null } },
+		//{ "ay", new Language { Anglonym = "Aymara", 		Autonym = "aymar aru",			SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		{ "az", new Language { Anglonym = "Azerbaijani",	Autonym = "azərbaycan dili",	SuppressScript = null} }, // Macro Language, but needed for legacy reasons
+
+		{ "ba", new Language { Anglonym = "Bashkir", 		Autonym = "башҡорт теле",		SuppressScript = null } },
+		{ "be", new Language { Anglonym = "Belarusian",		Autonym = "беларуская мова",	SuppressScript = "Cyrl" } },
+		{ "bg", new Language { Anglonym = "Bulgarian",		Autonym = "български език",		SuppressScript = "Cyrl" } },
+		{ "bi", new Language { Anglonym = "Bislama", 		Autonym = "Bislama",			SuppressScript = null } },
+		{ "bm", new Language { Anglonym = "Bambara", 		Autonym = "bamanankan",			SuppressScript = null } },
+		{ "bn", new Language { Anglonym = "Bengali",		Autonym = "বাংলা",				SuppressScript = "Beng" } },
+		{ "bo", new Language { Anglonym = "Tibetan", 		Autonym = "བོད་ཡིག",				SuppressScript = null } },
+		{ "br", new Language { Anglonym = "Breton",			Autonym = "brezhoneg",			SuppressScript = null } },
+		{ "bs", new Language { Anglonym = "Bosnian", 		Autonym = "bosanski jezik",		SuppressScript = null } },
+
+		{ "ca", new Language { Anglonym = "Catalan",		Autonym = "català",				SuppressScript = "Latn" } },
+		{ "ce", new Language { Anglonym = "Chechen", 		Autonym = "нохчийн мотт",		SuppressScript = null } },
+		{ "ch", new Language { Anglonym = "Chamorro", 		Autonym = "Chamoru",			SuppressScript = "Latn" } },
+		{ "co", new Language { Anglonym = "Corsican", 		Autonym = "corsu",				SuppressScript = null } },
+		//{ "cr", new Language { Anglonym = "Cree", 			Autonym = "ᓀᐦᐃᔭᐍᐏᐣ",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "cs", new Language { Anglonym = "Czech",			Autonym = "čeština",			SuppressScript = "Latn" } },
+		{ "cu", new Language { Anglonym = "Church Slavic",	Autonym = "ѩзыкъ словѣньскъ",	SuppressScript = null } },
+		{ "cv", new Language { Anglonym = "Chuvash", 		Autonym = "чӑваш чӗлхи",		SuppressScript = null } },
+		{ "cy", new Language { Anglonym = "Welsh", 			Autonym = "Cymraeg",			SuppressScript = "Latn" } },
+
+		{ "da", new Language { Anglonym = "Danish", 		Autonym = "dansk",				SuppressScript = "Latn" } },
+		{ "de", new Language { Anglonym = "German",			Autonym = "Deutsch",			SuppressScript = "Latn" } },
+		{ "dv", new Language { Anglonym = "Divehi", 		Autonym = "ދިވެހި",					SuppressScript = "Thaa", RightToLeft = true } },
+		{ "dz", new Language { Anglonym = "Dzongkha", 		Autonym = "རྫོང་ཁ",					SuppressScript = "Tibt" } },
+
+		{ "ee", new Language { Anglonym = "Ewe", 			Autonym = "Eʋegbe",				SuppressScript = null } },
+		{ "el", new Language { Anglonym = "Greek",			Autonym = "Ελληνικά",			SuppressScript = "Grek" } },
+		{ "en", new Language { Anglonym = "English", 		Autonym = "English",			SuppressScript = "Latn" } },
+		{ "eo", new Language { Anglonym = "Esperanto", 		Autonym = "Esperanto",			SuppressScript = "Latn" } },
+		{ "es", new Language { Anglonym = "Spanish", 		Autonym = "Español",			SuppressScript = "Latn" } },
+		{ "et", new Language { Anglonym = "Estonian", 		Autonym = "eesti",				SuppressScript = "Latn"} }, // Macro Language, but needed for legacy reasons
+		{ "eu", new Language { Anglonym = "Basque", 		Autonym = "euskara",			SuppressScript = "Latn" } },
+
+		//{ "fa", new Language { Anglonym = "Persian", 		Autonym = "فارسی",				SuppressScript = "Arab", RightToLeft = true} }, // Macro Language, use more specific primary language subtag instead
+		//{ "ff", new Language { Anglonym = "Fulah", 			Autonym = "Fulfulde",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "fi", new Language { Anglonym = "Finnish", 		Autonym = "suomi",				SuppressScript = "Latn" } },
+		{ "fj", new Language { Anglonym = "Fijian", 		Autonym = "vosa Vakaviti",		SuppressScript = "Latn" } },
+		{ "fo", new Language { Anglonym = "Faroese", 		Autonym = "føroyskt",			SuppressScript = "Latn" } },
+		{ "fr", new Language { Anglonym = "French", 		Autonym = "français",			SuppressScript = "Latn" } },
+		{ "fy", new Language { Anglonym = "Western Frisian",Autonym = "Frysk",				SuppressScript = "Latn" } },
+
+		{ "ga", new Language { Anglonym = "Irish", 			Autonym = "Gaeilge",			SuppressScript = "Latn" } },
+		{ "gd", new Language { Anglonym = "Gaelic", 		Autonym = "Gàidhlig",			SuppressScript = null } },
+		{ "gl", new Language { Anglonym = "Galician", 		Autonym = "Galego",				SuppressScript = "Latn" } },
+		//{ "gn", new Language { Anglonym = "Guarani", 		Autonym = "Avañe'ẽ",			SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		{ "gu", new Language { Anglonym = "Gujarati", 		Autonym = "ગુજરાતી",				SuppressScript = "Gujr" } },
+		{ "gv", new Language { Anglonym = "Manx", 			Autonym = "Gaelg",				SuppressScript = "Latn" } },
+
+		{ "ha", new Language { Anglonym = "Hausa", 			Autonym = "هَوُسَ",				SuppressScript = null, RightToLeft = true } },
+		{ "he", new Language { Anglonym = "Hebrew", 		Autonym = "עברית",				SuppressScript = "Hebr", RightToLeft = true } },
+		{ "hi", new Language { Anglonym = "Hindi", 			Autonym = "हिन्दी",				SuppressScript = "Deva" } },
+		{ "ho", new Language { Anglonym = "Hiri Motu", 		Autonym = "Hiri Motu",			SuppressScript = null } },
+		{ "hr", new Language { Anglonym = "Croatian", 		Autonym = "hrvatski jezik",		SuppressScript = "Latn" } },
+		{ "ht", new Language { Anglonym = "Haitian Creole", Autonym = "Kreyòl ayisyen",		SuppressScript = "Latn" } },
+		{ "hu", new Language { Anglonym = "Hungarian", 		Autonym = "magyar",				SuppressScript = "Latn" } },
+		{ "hy", new Language { Anglonym = "Armenian",		Autonym = "Հայերեն",			SuppressScript = "Armn" } },
+		{ "hz", new Language { Anglonym = "Herero", 		Autonym = "Otjiherero",			SuppressScript = null } },
+
+		{ "ia", new Language { Anglonym = "Interlingua",	Autonym = "Interlingia",		SuppressScript = null } },
+		{ "id", new Language { Anglonym = "Indonesian",		Autonym = "Bahasa Indonesia",	SuppressScript = "Latn" } },
+		{ "ie", new Language { Anglonym = "Interlingue", 	Autonym = "Interlingue",		SuppressScript = null } },
+		{ "ig", new Language { Anglonym = "Igbo", 			Autonym = "Asụsụ Igbo",			SuppressScript = null } },
+		{ "ii", new Language { Anglonym = "Sichuan Yi", 	Autonym = "ꆈꌠ꒿",				SuppressScript = null } },
+		//{ "ik", new Language { Anglonym = "Inupiaq", 		Autonym = "Iñupiaq",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "io", new Language { Anglonym = "Ido", 			Autonym = "Ido",				SuppressScript = null } },
+		{ "is", new Language { Anglonym = "Icelandic", 		Autonym = "Íslenska",			SuppressScript = "Latn" } },
+		{ "it", new Language { Anglonym = "Italian", 		Autonym = "Italiano",			SuppressScript = "Latn" } },
+		//{ "iu", new Language { Anglonym = "Inuktitut", 		Autonym = "ᐃᓄᒃᑎᑐᑦ",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+
+		{ "ja", new Language { Anglonym = "Japanese", 		Autonym = "日本語",				SuppressScript = "Jpan" } },
+		{ "jv", new Language { Anglonym = "Javanese", 		Autonym = "ꦧꦱꦗꦮ",			SuppressScript = null } },
+
+		{ "ka", new Language { Anglonym = "Georgian", 		Autonym = "ქართული",			SuppressScript = "Geor" } },
+		//{ "kg", new Language { Anglonym = "Kongo", 			Autonym = "Kikongo",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "ki", new Language { Anglonym = "Kikuyu", 		Autonym = "Gĩkũyũ",				SuppressScript = null } },
+		{ "kj", new Language { Anglonym = "Kuanyama", 		Autonym = "Kuanyama",			SuppressScript = null } },
+		{ "kk", new Language { Anglonym = "Kazakh", 		Autonym = "қазақ тілі",			SuppressScript = "Cyrl" } },
+		{ "kl", new Language { Anglonym = "Kalaallisut", 	Autonym = "kalaallisut",		SuppressScript = "Latn" } },
+		{ "km", new Language { Anglonym = "Central Khmer", 	Autonym = "ខ្មែរ",					SuppressScript = "Khmr" } },
+		{ "kn", new Language { Anglonym = "Kannada", 		Autonym = "ಕನ್ನಡ",				SuppressScript = "Knda" } },
+		{ "ko", new Language { Anglonym = "Korean", 		Autonym = "한국어",				SuppressScript = "Kore" } },
+		//{ "kr", new Language { Anglonym = "Kanuri", 		Autonym = "Kanuri",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "ks", new Language { Anglonym = "Kashmiri", 		Autonym = "कॉशुर",				SuppressScript = null } },
+		//{ "ku", new Language { Anglonym = "Kurdish", 		Autonym = "Kurdî",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		//{ "kv", new Language { Anglonym = "Komi", 			Autonym = "коми кыв",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "kw", new Language { Anglonym = "Cornish", 		Autonym = "Kernewek",			SuppressScript = null } },
+		{ "ky", new Language { Anglonym = "Kirghiz", 		Autonym = "Кыргызча",			SuppressScript = null } },
+
+		{ "la", new Language { Anglonym = "Latin", 			Autonym = "latine",				SuppressScript = "Latn" } },
+		{ "lb", new Language { Anglonym = "Luxembourgish",	Autonym = "Lëtzebuergesch",		SuppressScript = "Latn" } },
+		{ "lg", new Language { Anglonym = "Ganda", 			Autonym = "Luganda",			SuppressScript = null } },
+		{ "li", new Language { Anglonym = "Limburgan", 		Autonym = "Limburgs",			SuppressScript = null } },
+		{ "ln", new Language { Anglonym = "Lingala", 		Autonym = "Lingála",			SuppressScript = "Latn" } },
+		{ "lo", new Language { Anglonym = "Lao", 			Autonym = "ພາສາລາວ",			SuppressScript = "Laoo" } },
+		{ "lt", new Language { Anglonym = "Lithuanian", 	Autonym = "lietuvių kalba",		SuppressScript = "Latn" } },
+		{ "lu", new Language { Anglonym = "Luba-Katanga", 	Autonym = "Kiluba",				SuppressScript = null } },
+		//{ "lv", new Language { Anglonym = "Latvian", 		Autonym = "latviešu valoda",	SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+
+
+		//{ "mg", new Language { Anglonym = "Malagasy", 		Autonym = "fiteny malagasy",	SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		{ "mh", new Language { Anglonym = "Marshallese", 	Autonym = "Kajin M̧ajeļ",		SuppressScript = "Latn" } },
+		{ "mi", new Language { Anglonym = "Maori", 			Autonym = "te reo Māori",		SuppressScript = null } },
+		{ "mk", new Language { Anglonym = "Macedonian", 	Autonym = "Македонски",			SuppressScript = "Cyrl" } },
+		{ "ml", new Language { Anglonym = "Malayalam", 		Autonym = "മലയാളം",			SuppressScript = "Mlym" } },
+		//{ "mn", new Language { Anglonym = "Mongolian", 		Autonym = "Монгол хэл",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "mr", new Language { Anglonym = "Marathi", 		Autonym = "मराठी",				SuppressScript = "Deva" } },
+		//{ "ms", new Language { Anglonym = "Malay", 			Autonym = "Bahasa Melayu",		SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		{ "mt", new Language { Anglonym = "Maltese", 		Autonym = "Malti",				SuppressScript = "Latn" } },
+		{ "my", new Language { Anglonym = "Burmese", 		Autonym = "ဗမာစာ",				SuppressScript = "Mymr" } },
+
+		{ "na", new Language { Anglonym = "Nauru", 			Autonym = "Dorerin Naoero",		SuppressScript = "Latn" } },
+		{ "nb", new Language { Anglonym = "Norwegian Bokmål",Autonym = "Norsk Bokmål",		SuppressScript = "Latn" } },
+		{ "nd", new Language { Anglonym = "North Ndebele",	Autonym = "isiNdebele",			SuppressScript = "Latn" } },
+		//{ "ne", new Language { Anglonym = "Nepali", 		Autonym = "नेपाली",				SuppressScript = "Deva"} }, // Macro Language, use more specific primary language subtag instead
+		{ "ng", new Language { Anglonym = "Ndonga", 		Autonym = "Owambo",				SuppressScript = null } },
+		{ "nl", new Language { Anglonym = "Dutch", 			Autonym = "Nederlands",			SuppressScript = "Latn" } },
+		{ "nn", new Language { Anglonym = "Norwegian Nynorsk",Autonym = "Norsk Nynorsk",	SuppressScript = "Latn" } },
+		{ "no", new Language { Anglonym = "Norwegian", 		Autonym = "Norsk",				SuppressScript = "Latn"} }, // Macro Language, but needed for legacy reasons
+		{ "nr", new Language { Anglonym = "South Ndebele",	Autonym = "isiNdebele",			SuppressScript = "Latn" } },
+		{ "nv", new Language { Anglonym = "Navajo", 		Autonym = "Diné bizaad",		SuppressScript = null } },
+		{ "ny", new Language { Anglonym = "Chichewa", 		Autonym = "chiCheŵa",			SuppressScript = "Latn" } },
+
+		{ "oc", new Language { Anglonym = "Occitan", 		Autonym = "Occitan",			SuppressScript = null } },
+		//{ "oj", new Language { Anglonym = "Ojibwa", 		Autonym = "ᐊᓂᔑᓈᐯᒧᐎᓐ",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		//{ "om", new Language { Anglonym = "Oromo", 			Autonym = "Afaan Oromoo",		SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		//{ "or", new Language { Anglonym = "Oriya", 			Autonym = "ଓଡ଼ିଆ",				SuppressScript = "Orya"} }, // Macro Language, use more specific primary language subtag instead
+		{ "os", new Language { Anglonym = "Ossetian", 		Autonym = "ирон ӕвзаг",			SuppressScript = null } },
+
+		{ "pa", new Language { Anglonym = "Punjabi", 		Autonym = "ਪੰਜਾਬੀ",				SuppressScript = "Guru" } },
+		{ "pi", new Language { Anglonym = "Pali", 			Autonym = "पालि",				SuppressScript = null } },
+		{ "pl", new Language { Anglonym = "Polish", 		Autonym = "język polski",		SuppressScript = "Latn" } },
+		{ "ps", new Language { Anglonym = "Pashto", 		Autonym = "پښتو",				SuppressScript = "Arab", RightToLeft = true} }, // Macro Language, use more specific primary language subtag instead
+		{ "pt", new Language { Anglonym = "Portuguese", 	Autonym = "Português",			SuppressScript = "Latn" } },
+
+		//{ "qu", new Language { Anglonym = "Quechua",        Autonym = "Runa Simi",			SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+
+		{ "rm", new Language { Anglonym = "Romansh", 		Autonym = "Rumantsch Grischun", SuppressScript = "Latn" } },
+		{ "rn", new Language { Anglonym = "Rundi", 			Autonym = "Ikirundi",			SuppressScript = "Latn" } },
+		{ "ro", new Language { Anglonym = "Romanian", 		Autonym = "Română",				SuppressScript = "Latn" } },
+		{ "ru", new Language { Anglonym = "Russian", 		Autonym = "русский",			SuppressScript = "Cyrl" } },
+		{ "rw", new Language { Anglonym = "Kinyarwanda", 	Autonym = "Ikinyarwanda",		SuppressScript = "Latn" } },
+
+		{ "sa", new Language { Anglonym = "Sanskrit", 		Autonym = "संस्कृतम्",				SuppressScript = null } },
+		//{ "sc", new Language { Anglonym = "Sardinian", 		Autonym = "sardu",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "sd", new Language { Anglonym = "Sindhi", 		Autonym = "सिंधी",				SuppressScript = null } },
+		{ "se", new Language { Anglonym = "Northern Sami", 	Autonym = "Davvisámegiella",	SuppressScript = null } },
+		{ "sg", new Language { Anglonym = "Sango", 			Autonym = "yângâ tî sängö",		SuppressScript = "Latn" } },
+		{ "si", new Language { Anglonym = "Sinhala", 		Autonym = "සිංහල",				SuppressScript = "Sinh" } },
+		{ "sk", new Language { Anglonym = "Slovak", 		Autonym = "slovenčina",			SuppressScript = "Latn" } },
+		{ "sl", new Language { Anglonym = "Slovenian", 		Autonym = "Slovenski jezik",	SuppressScript = "Latn" } },
+		{ "sm", new Language { Anglonym = "Samoan", 		Autonym = "gagana fa'a Samoa",	SuppressScript = "Latn" } },
+		{ "sn", new Language { Anglonym = "Shona", 			Autonym = "chiShona",			SuppressScript = null } },
+		{ "so", new Language { Anglonym = "Somali", 		Autonym = "Soomaaliga",			SuppressScript = "Latn" } },
+		//{ "sq", new Language { Anglonym = "Albanian", 		Autonym = "Shqip",				SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+		{ "sr", new Language { Anglonym = "Serbian", 		Autonym = "српски језик",		SuppressScript = null } },
+		{ "ss", new Language { Anglonym = "Swati", 			Autonym = "SiSwati",			SuppressScript = "Latn" } },
+		{ "st", new Language { Anglonym = "Southern Sotho", Autonym = "Sesotho",			SuppressScript = "Latn" } },
+		{ "su", new Language { Anglonym = "Sundanese", 		Autonym = "Basa Sunda",			SuppressScript = null } },
+		{ "sv", new Language { Anglonym = "Swedish", 		Autonym = "Svenska",			SuppressScript = "Latn" } },
+		//{ "sw", new Language { Anglonym = "Swahili", 		Autonym = "Kiswahili",			SuppressScript = "Latn"} }, // Macro Language, use more specific primary language subtag instead
+
+		{ "ta", new Language { Anglonym = "Tamil", 			Autonym = "தமிழ்",				SuppressScript = "Taml" } },
+		{ "te", new Language { Anglonym = "Telugu", 		Autonym = "తెలుగు",				SuppressScript = "Telu" } },
+		{ "tg", new Language { Anglonym = "Tajik", 			Autonym = "тоҷикӣ",				SuppressScript = null } },
+		{ "th", new Language { Anglonym = "Thai", 			Autonym = "ไทย",					SuppressScript = "Thai" } },
+		{ "ti", new Language { Anglonym = "Tigrinya", 		Autonym = "ትግርኛ",				SuppressScript = "Ethi" } },
+		{ "tk", new Language { Anglonym = "Turkmen", 		Autonym = "Türkmençe",			SuppressScript = null } },
+		{ "tl", new Language { Anglonym = "Tagalog", 		Autonym = "Wikang Tagalog",		SuppressScript = "Latn" } },
+		{ "tn", new Language { Anglonym = "Tswana", 		Autonym = "Setswana",			SuppressScript = "Latn" } },
+		{ "to", new Language { Anglonym = "Tonga", 			Autonym = "Faka Tonga",			SuppressScript = "Latn" } },
+		{ "tr", new Language { Anglonym = "Turkish", 		Autonym = "Türkçe",				SuppressScript = "Latn" } },
+		{ "ts", new Language { Anglonym = "Tsonga", 		Autonym = "Xitsonga",			SuppressScript = null } },
+		{ "tt", new Language { Anglonym = "Tatar", 			Autonym = "татар теле",			SuppressScript = null } },
+		{ "tw", new Language { Anglonym = "Twi", 			Autonym = "Twi",				SuppressScript = null } },
+		{ "ty", new Language { Anglonym = "Tahitian", 		Autonym = "Reo Tahiti",			SuppressScript = null } },
+
+		{ "ug", new Language { Anglonym = "Uighur", 		Autonym = "ئۇيغۇرچە",			SuppressScript = null, RightToLeft = true } },
+		{ "uk", new Language { Anglonym = "Ukrainian", 		Autonym = "Українська",			SuppressScript = "Cyrl" } },
+		{ "ur", new Language { Anglonym = "Urdu", 			Autonym = "اردو",				SuppressScript = "Arab", RightToLeft = true } },
+		//{ "uz", new Language { Anglonym = "Uzbek", 			Autonym = "Oʻzbek",				SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+
+
+		{ "ve", new Language { Anglonym = "Venda",          Autonym = "Tshivenḓa",			SuppressScript = "Latn" } },
+		{ "vi", new Language { Anglonym = "Vietnamese", 	Autonym = "Tiếng Việt",			SuppressScript = "Latn" } },
+		{ "vo", new Language { Anglonym = "Volapük",        Autonym = "Volapük",			SuppressScript = null } },
 		
-		
-		{ "aa", new Language { Anglonym = "Afar", 			Endonym = "", SuppressScript = "" } },
-		{ "ab", new Language { Anglonym = "Abkhazian", 		Endonym = "", SuppressScript = "" } },
-		{ "ae", new Language { Anglonym = "Avestan", 		Endonym = "", SuppressScript = "" } },
-		{ "ak", new Language { Anglonym = "Akan", 			Endonym = "", SuppressScript = "" } },
-		{ "am", new Language { Anglonym = "Amharic", 		Endonym = "", SuppressScript = "" } },
-		{ "an", new Language { Anglonym = "Aragonese", 		Endonym = "", SuppressScript = "" } },
-		{ "as", new Language { Anglonym = "Assamese", 		Endonym = "", SuppressScript = "" } },
-		{ "av", new Language { Anglonym = "Avaric", 		Endonym = "", SuppressScript = "" } },
-		{ "ay", new Language { Anglonym = "Aymara", 		Endonym = "", SuppressScript = "" } },
+		{ "wa", new Language { Anglonym = "Walloon", 		Autonym = "Walon",				SuppressScript = null } },
+		{ "wo", new Language { Anglonym = "Wolof", 			Autonym = "Wollof",				SuppressScript = null } },
 
-		{ "ba", new Language { Anglonym = "Bashkir", 		Endonym = "", SuppressScript = "" } },
-		{ "bh", new Language { Anglonym = "Bihari", 		Endonym = "", SuppressScript = "" } },
-		{ "bi", new Language { Anglonym = "Bislama", 		Endonym = "", SuppressScript = "" } },
-		{ "bm", new Language { Anglonym = "Bambara", 		Endonym = "", SuppressScript = "" } },
-		{ "bo", new Language { Anglonym = "Tibetan", 		Endonym = "", SuppressScript = "" } },
-		{ "bs", new Language { Anglonym = "Bosnian", 		Endonym = "", SuppressScript = "" } },
+		{ "xh", new Language { Anglonym = "Xhosa", 			Autonym = "isiXhosa",			SuppressScript = "Latn" } },
 
-		{ "ce", new Language { Anglonym = "Chechen", 		Endonym = "", SuppressScript = "" } },
-		{ "ch", new Language { Anglonym = "Chamorro", 		Endonym = "", SuppressScript = "" } },
-		{ "co", new Language { Anglonym = "Corsican", 		Endonym = "", SuppressScript = "" } },
-		{ "cr", new Language { Anglonym = "Cree", 			Endonym = "", SuppressScript = "" } },
-		{ "cu", new Language { Anglonym = "Church Slavonic",Endonym = "", SuppressScript = "" } },
-		{ "cv", new Language { Anglonym = "Chuvash", 		Endonym = "", SuppressScript = "" } },
-		{ "cy", new Language { Anglonym = "Welsh", 			Endonym = "", SuppressScript = "" } },
+		//{ "yi", new Language { Anglonym = "Yiddish", 		Autonym = "ייִדיש",				SuppressScript = "Hebr", RightToLeft = true} }, // Macro Language, use more specific primary language subtag instead
+		{ "yo", new Language { Anglonym = "Yoruba", 		Autonym = "Yorùbá",				SuppressScript = null } },
 
-		{ "da", new Language { Anglonym = "Danish", 		Endonym = "", SuppressScript = "" } },
-		{ "dv", new Language { Anglonym = "Maldivian", 		Endonym = "", SuppressScript = "" } },
-		{ "dz", new Language { Anglonym = "Dzongkha", 		Endonym = "", SuppressScript = "" } },
-
-		{ "ee", new Language { Anglonym = "Ewe", 			Endonym = "", SuppressScript = "" } },
-		{ "et", new Language { Anglonym = "Estonian", 		Endonym = "", SuppressScript = "" } },
-
-		{ "fa", new Language { Anglonym = "Persian", 		Endonym = "", SuppressScript = "" } },
-		{ "ff", new Language { Anglonym = "Fulah", 			Endonym = "", SuppressScript = "" } },
-		{ "fj", new Language { Anglonym = "Fijian", 		Endonym = "", SuppressScript = "" } },
-		{ "fo", new Language { Anglonym = "Faroese", 		Endonym = "", SuppressScript = "" } },
-
-		{ "gd", new Language { Anglonym = "Gaelic", 		Endonym = "", SuppressScript = "" } },
-		{ "gn", new Language { Anglonym = "Guarani", 		Endonym = "", SuppressScript = "" } },
-		{ "gu", new Language { Anglonym = "Gujarati", 		Endonym = "", SuppressScript = "" } },
-		{ "gv", new Language { Anglonym = "Manx", 			Endonym = "", SuppressScript = "" } },
-
-		{ "ha", new Language { Anglonym = "Hausa", 			Endonym = "", SuppressScript = "" } },
-		{ "ho", new Language { Anglonym = "Hiri Motu", 		Endonym = "", SuppressScript = "" } },
-		{ "ht", new Language { Anglonym = "Haitian Creole", Endonym = "", SuppressScript = "" } },
-		{ "hz", new Language { Anglonym = "Herero", 		Endonym = "", SuppressScript = "" } },
-
-		{ "ia", new Language { Anglonym = "Interlingua",	Endonym = "", SuppressScript = "" } },
-		{ "id", new Language { Anglonym = "Indonesian",		Endonym = "", SuppressScript = "" } },
-		{ "ie", new Language { Anglonym = "Interlingue", 	Endonym = "", SuppressScript = "" } },
-		{ "ig", new Language { Anglonym = "Igbo", 			Endonym = "", SuppressScript = "" } },
-		{ "ii", new Language { Anglonym = "Nuosu", 			Endonym = "", SuppressScript = "" } },
-		{ "ik", new Language { Anglonym = "Inupiaq", 		Endonym = "", SuppressScript = "" } },
-		{ "io", new Language { Anglonym = "Ido", 			Endonym = "", SuppressScript = "" } },
-		{ "is", new Language { Anglonym = "Icelandic", 		Endonym = "", SuppressScript = "" } },
-		{ "iu", new Language { Anglonym = "Inuktitut", 		Endonym = "", SuppressScript = "" } },
-
-		{ "ka", new Language { Anglonym = "Georgian", 		Endonym = "", SuppressScript = "" } },
-		{ "kg", new Language { Anglonym = "Kongo", 			Endonym = "", SuppressScript = "" } },
-		{ "ki", new Language { Anglonym = "Kikuyu", 		Endonym = "", SuppressScript = "" } },
-		{ "kj", new Language { Anglonym = "Kwanyama", 		Endonym = "", SuppressScript = "" } },
-		{ "kk", new Language { Anglonym = "Kazakh", 		Endonym = "", SuppressScript = "" } },
-		{ "kl", new Language { Anglonym = "Greenlandic", 	Endonym = "", SuppressScript = "" } },
-		{ "km", new Language { Anglonym = "Khmer", 			Endonym = "", SuppressScript = "" } },
-		{ "kn", new Language { Anglonym = "Kannada", 		Endonym = "", SuppressScript = "" } },
-		{ "kr", new Language { Anglonym = "Kanuri", 		Endonym = "", SuppressScript = "" } },
-		{ "ks", new Language { Anglonym = "Kashmiri", 		Endonym = "", SuppressScript = "" } },
-		{ "ku", new Language { Anglonym = "Kurdish", 		Endonym = "", SuppressScript = "" } },
-		{ "kv", new Language { Anglonym = "Komi", 			Endonym = "", SuppressScript = "" } },
-		{ "kw", new Language { Anglonym = "Cornish", 		Endonym = "", SuppressScript = "" } },
-		{ "ky", new Language { Anglonym = "Kyrgyz", 		Endonym = "", SuppressScript = "" } },
-
-		{ "lg", new Language { Anglonym = "Ganda", 			Endonym = "", SuppressScript = "" } },
-		{ "li", new Language { Anglonym = "Limburgish", 	Endonym = "", SuppressScript = "" } },
-		{ "ln", new Language { Anglonym = "Lingala", 		Endonym = "", SuppressScript = "" } },
-		{ "lo", new Language { Anglonym = "Lao", 			Endonym = "", SuppressScript = "" } },
-		{ "lt", new Language { Anglonym = "Lithuanian", 	Endonym = "", SuppressScript = "" } },
-		{ "lu", new Language { Anglonym = "Luba-Katanga", 	Endonym = "", SuppressScript = "" } },
-		{ "lv", new Language { Anglonym = "Latvian", 		Endonym = "", SuppressScript = "" } },
-
-		{ "mg", new Language { Anglonym = "Malagasy", 		Endonym = "", SuppressScript = "" } },
-		{ "mh", new Language { Anglonym = "Marshallese", 	Endonym = "", SuppressScript = "" } },
-		{ "mi", new Language { Anglonym = "Maori", 			Endonym = "", SuppressScript = "" } },
-		{ "mn", new Language { Anglonym = "Mongolian", 		Endonym = "", SuppressScript = "" } },
-		{ "mr", new Language { Anglonym = "Marathi", 		Endonym = "", SuppressScript = "" } },
-		{ "ms", new Language { Anglonym = "Malay", 			Endonym = "", SuppressScript = "" } },
-		{ "mt", new Language { Anglonym = "Maltese", 		Endonym = "", SuppressScript = "" } },
-		{ "my", new Language { Anglonym = "Burmese", 		Endonym = "", SuppressScript = "" } },
-
-		{ "na", new Language { Anglonym = "Nauru", 			Endonym = "", SuppressScript = "" } },
-		{ "nb", new Language { Anglonym = "Bokmål", 		Endonym = "", SuppressScript = "" } },
-		{ "nd", new Language { Anglonym = "Northern Ndebele",Endonym = "", SuppressScript = "" } },
-		{ "ne", new Language { Anglonym = "Nepali", 		Endonym = "", SuppressScript = "" } },
-		{ "ng", new Language { Anglonym = "Ndonga", 		Endonym = "", SuppressScript = "" } },
-		{ "nn", new Language { Anglonym = "Nynorsk", 		Endonym = "", SuppressScript = "" } },
-		{ "no", new Language { Anglonym = "Norwegian", 		Endonym = "", SuppressScript = "" } },
-		{ "nr", new Language { Anglonym = "Southern Ndebele",Endonym = "", SuppressScript = "" } },
-		{ "nv", new Language { Anglonym = "Navajo", 		Endonym = "", SuppressScript = "" } },
-		{ "ny", new Language { Anglonym = "Chewa", 			Endonym = "", SuppressScript = "" } },
-
-		{ "oj", new Language { Anglonym = "Ojibwa", 		Endonym = "", SuppressScript = "" } },
-		{ "om", new Language { Anglonym = "Oromo", 			Endonym = "", SuppressScript = "" } },
-		{ "or", new Language { Anglonym = "Oriya", 			Endonym = "", SuppressScript = "" } },
-		{ "os", new Language { Anglonym = "Ossetic", 		Endonym = "", SuppressScript = "" } },
-
-		{ "pa", new Language { Anglonym = "Punjabi", 		Endonym = "", SuppressScript = "" } },
-		{ "pi", new Language { Anglonym = "Pali", 			Endonym = "", SuppressScript = "" } },
-		{ "ps", new Language { Anglonym = "Pashto", 		Endonym = "", SuppressScript = "" } },
-
-		{ "qu", new Language { Anglonym = "Quechua", 		Endonym = "", SuppressScript = "" } },
-
-		{ "rm", new Language { Anglonym = "Romansh", 		Endonym = "", SuppressScript = "" } },
-		{ "rn", new Language { Anglonym = "Rundi", 			Endonym = "", SuppressScript = "" } },
-		{ "rw", new Language { Anglonym = "Kinyarwanda", 	Endonym = "", SuppressScript = "" } },
-
-		{ "sa", new Language { Anglonym = "Sanskrit", 		Endonym = "", SuppressScript = "" } },
-		{ "sc", new Language { Anglonym = "Sardinian", 		Endonym = "", SuppressScript = "" } },
-		{ "sd", new Language { Anglonym = "Sindhi", 		Endonym = "", SuppressScript = "" } },
-		{ "se", new Language { Anglonym = "Sami", 			Endonym = "", SuppressScript = "" } },
-		{ "sg", new Language { Anglonym = "Sango", 			Endonym = "", SuppressScript = "" } },
-		{ "si", new Language { Anglonym = "Sinhala", 		Endonym = "", SuppressScript = "" } },
-		{ "sk", new Language { Anglonym = "Slovak", 		Endonym = "", SuppressScript = "" } },
-		{ "sl", new Language { Anglonym = "Slovenian", 		Endonym = "", SuppressScript = "" } },
-		{ "sm", new Language { Anglonym = "Samoan", 		Endonym = "", SuppressScript = "" } },
-		{ "sn", new Language { Anglonym = "Shona", 			Endonym = "", SuppressScript = "" } },
-		{ "sq", new Language { Anglonym = "Albanian", 		Endonym = "", SuppressScript = "" } },
-		{ "sr", new Language { Anglonym = "Serbian", 		Endonym = "", SuppressScript = "" } },
-		{ "ss", new Language { Anglonym = "Swati", 			Endonym = "", SuppressScript = "" } },
-		{ "st", new Language { Anglonym = "Sotho", 			Endonym = "", SuppressScript = "" } },
-		{ "su", new Language { Anglonym = "Sundanese", 		Endonym = "", SuppressScript = "" } },
-		{ "sw", new Language { Anglonym = "Swahili", 		Endonym = "", SuppressScript = "" } },
-
-		{ "ta", new Language { Anglonym = "Tamil", 			Endonym = "", SuppressScript = "" } },
-		{ "te", new Language { Anglonym = "Telugu", 		Endonym = "", SuppressScript = "" } },
-		{ "tg", new Language { Anglonym = "Tajik", 			Endonym = "", SuppressScript = "" } },
-		{ "th", new Language { Anglonym = "Thai", 			Endonym = "", SuppressScript = "" } },
-		{ "ti", new Language { Anglonym = "Tigrinya", 		Endonym = "", SuppressScript = "" } },
-		{ "tk", new Language { Anglonym = "Turkmen", 		Endonym = "", SuppressScript = "" } },
-		{ "tn", new Language { Anglonym = "Tswana", 		Endonym = "", SuppressScript = "" } },
-		{ "to", new Language { Anglonym = "Tonga", 			Endonym = "", SuppressScript = "" } },
-		{ "ts", new Language { Anglonym = "Tsonga", 		Endonym = "", SuppressScript = "" } },
-		{ "tw", new Language { Anglonym = "Twi", 			Endonym = "", SuppressScript = "" } },
-		{ "ty", new Language { Anglonym = "Tahitian", 		Endonym = "", SuppressScript = "" } },
-
-		{ "ug", new Language { Anglonym = "Uyghur", 		Endonym = "", SuppressScript = "" } },
-		{ "ur", new Language { Anglonym = "Urdu", 			Endonym = "", SuppressScript = "" } },
-		{ "uz", new Language { Anglonym = "Uzbek", 			Endonym = "", SuppressScript = "" } },
-
-		{ "ve", new Language { Anglonym = "Venda", 			Endonym = "", SuppressScript = "" } },
-		{ "vo", new Language { Anglonym = "Volapük", 		Endonym = "", SuppressScript = "" } },
-
-		{ "wa", new Language { Anglonym = "Walloon", 		Endonym = "", SuppressScript = "" } },
-		{ "wo", new Language { Anglonym = "Wolof", 			Endonym = "", SuppressScript = "" } },
-
-		{ "xh", new Language { Anglonym = "Xhosa", 			Endonym = "", SuppressScript = "" } },
-
-		{ "yi", new Language { Anglonym = "Yiddish", 		Endonym = "", SuppressScript = "" } },
-		{ "yo", new Language { Anglonym = "Yoruba", 		Endonym = "", SuppressScript = "" } },
-
-		{ "za", new Language { Anglonym = "Zhuang; Chuang", Endonym = "", SuppressScript = "" } },
-		{ "zh", new Language { Anglonym = "Chinese", 		Endonym = "", SuppressScript = "" } },
-		{ "zu", new Language { Anglonym = "Zulu", 			Endonym = "", SuppressScript = "" } },
+		//{ "za", new Language { Anglonym = "Zhuang",			Autonym = "Saɯ cueŋƅ",			SuppressScript = null} }, // Macro Language, use more specific primary language subtag instead
+		{ "zh", new Language { Anglonym = "Chinese", 		Autonym = "中文",				SuppressScript = null} }, // Macro Language, but needed for legacy reasons
+		{ "zu", new Language { Anglonym = "Zulu", 			Autonym = "isiZulu",			SuppressScript = "Latn" } },
 
 	};
 }

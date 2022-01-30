@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code 8
+  m_Name: HE
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
-  RightToLeft: 0
+  Iso639: he
+  Name: Hebrew
+  NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
+  RightToLeft: 1
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
+    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,61 +31,62 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: he
   DialsDisplayMethod: 0
   ButtonDisplayMethod: 0
   TxFont: {fileID: 0}
   TxFontMaterial: {fileID: 0}
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
-  Transmit: TX
+  Transmit: "\u05E9\u05DC\u05D7"
   MegaHerz: MHz
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
   Digits: 0123456789
+  Characters: d005d105d205d305d405d505d605d705d805d905db05dc05de05e005e105e205e405e605e705e805e905ea05da05dd05df05e305e505
   MorseSymbols:
   - .-
   - -...
-  - -.-.
-  - -..
-  - .
-  - ..-.
   - --.
+  - -..
+  - '---'
+  - .
+  - --..
   - '....'
+  - ..-
   - ..
-  - .---
   - -.-
   - .-..
   - --
   - -.
-  - '---'
+  - -.-.
+  - .---
   - .--.
+  - .--
   - --.-
   - .-.
   - '...'
   - '-'
-  - ..-
-  - '...-'
+  - -.-
+  - --
+  - -.
+  - .--.
   - .--
-  - -..-
-  - -.--
-  - --..
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
+  - "\u05E1\u05D9\u05E1\u05DE\u05D4"
+  - "\u05DE\u05D4\u05D9\u05E8\u05D5\u05EA"
+  - "\u05D0\u05D5\u05E8\u05D5\u05EA"
+  - "\u05EA\u05D9\u05D0\u05D5\u05E8"
+  - "\u05E8\u05DE\u05D6\u05D5\u05E8"
+  - "\u05E8\u05DE\u05D0\u05D5\u05EA"
+  - "\u05D0\u05D5\u05EA\u05D9\u05D5\u05EA"
+  - "\u05D4\u05E4\u05DC\u05DE\u05D7"
+  - "\u05D4\u05D4\u05D2\u05E0\u05D4"
+  - "\u05E2\u05DB\u05D1\u05D9\u05E9"
+  - "\u05D9\u05E9\u05E8\u05D0\u05DC"
+  - "\u05D0\u05DC\u05E4\u05D9\u05DD"
+  - "\u05E7\u05D5\u05E4\u05D9\u05DD"
+  - "\u05E4\u05D9\u05E6\u05D5\u05E5"
+  - "\u05D2\u05D5\u05DC\u05E0\u05D9"
+  - "\u05D2\u05D1\u05E2\u05EA\u05D9"
   WordsManual: []
   TPTx:
   - transmit

@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code 16
+  m_Name: RU
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Iso639: ru
+  Name: Russian
+  NativeName: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   RightToLeft: 0
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
+    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: ru
   DialsDisplayMethod: 0
   ButtonDisplayMethod: 0
   TxFont: {fileID: 0}
@@ -38,18 +39,18 @@ MonoBehaviour:
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: TX
-  MegaHerz: MHz
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
+  MegaHerz: "\u041C\u0413\u0446"
   Digits: 0123456789
+  Characters: 10041104120413041404150416041704180419041a041b041c041d041e041f0420042104220423042404250426042704280429042a042b042c042d042e042f04
   MorseSymbols:
   - .-
   - -...
-  - -.-.
+  - .--
+  - --.
   - -..
   - .
-  - ..-.
-  - --.
-  - '....'
+  - '...-'
+  - --..
   - ..
   - .---
   - -.-
@@ -58,33 +59,39 @@ MonoBehaviour:
   - -.
   - '---'
   - .--.
-  - --.-
   - .-.
   - '...'
   - '-'
   - ..-
-  - '...-'
-  - .--
-  - -..-
+  - ..-.
+  - '....'
+  - -.-.
+  - '---.'
+  - '----'
+  - --.-
+  - --.--
   - -.--
-  - --..
+  - -..-
+  - ..-..
+  - ..--
+  - .-.-
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
+  - "\u0411\u0420\u0410\u0422\u042C"
+  - "\u0411\u0420\u0410\u041B\u0410"
+  - "\u0411\u041E\u0420\u0418\u0421"
+  - "\u041A\u0420\u0410\u041B\u0410"
+  - "\u041A\u041B\u0410\u0420\u0410"
+  - "\u041F\u041E\u0422\u041E\u041A"
+  - "\u041F\u041E\u0420\u041E\u0413"
+  - "\u041F\u041E\u0420\u041E\u041A"
+  - "\u041F\u041E\u041A\u041E\u0419"
+  - "\u041F\u041E\u041C\u041E\u0419"
+  - "\u041F\u041E\u041F\u0415\u0419"
+  - "\u0420\u041E\u041A\u0415\u0420"
+  - "\u041A\u041E\u0419\u041A\u0410"
+  - "\u0420\u041E\u0421\u0422\u041E\u041A"
+  - "\u041C\u041E\u0421\u0422\u0418\u041A"
+  - "\u0422\u041E\u041A\u0410\u0420\u042C"
   WordsManual: []
   TPTx:
   - transmit

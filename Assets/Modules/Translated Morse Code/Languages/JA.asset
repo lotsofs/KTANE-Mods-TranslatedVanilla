@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code 10
+  m_Name: JA
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Iso639: ja
+  Name: Japanese
+  NativeName: "\u65E5\u672C\u8A9E"
   RightToLeft: 0
-  Version: 1
+  Version: 2
   ManualAvailable: 0
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
+    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,62 +31,100 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: ja
   DialsDisplayMethod: 0
   ButtonDisplayMethod: 0
   TxFont: {fileID: 0}
   TxFontMaterial: {fileID: 0}
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
-  Transmit: TX
+  Transmit: "\u9001\u4FE1"
   MegaHerz: MHz
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
   Digits: 0123456789
+  Characters: 42304430463048304a304b304d304f30513053305530573059305b305d305f3061306430663068306a306b306c306d306e306f307230753078307b307e307f3080308130823084308630883089308a308b308c308d308f30933092309b309c30
   MorseSymbols:
+  - --.--
   - .-
-  - -...
-  - -.-.
-  - -..
-  - .
-  - ..-.
-  - --.
-  - '....'
-  - ..
-  - .---
-  - -.-
-  - .-..
-  - --
-  - -.
-  - '---'
-  - .--.
-  - --.-
-  - .-.
-  - '...'
-  - '-'
   - ..-
+  - -.---
+  - .-...
+  - .-..
+  - -.-..
   - '...-'
-  - .--
-  - -..-
   - -.--
+  - '----'
+  - -.-.-
+  - --.-.
+  - '---.-'
+  - .---.
+  - '---.'
+  - -.
+  - ..-.
+  - .--.
+  - .-.--
+  - ..-..
+  - .-.
+  - -.-.
+  - '....'
+  - --.-
+  - ..--
+  - -...
+  - --..-
   - --..
+  - .
+  - -..
+  - -..-
+  - ..-.-
+  - '-'
+  - -...-
+  - -..-.
+  - .--
+  - -..--
+  - --
+  - '...'
+  - --.
+  - -.--.
+  - '---'
+  - .-.-
+  - -.-
+  - .-.-.
+  - .---
+  - ..
+  - ..--.
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
-  WordsManual: []
+  - "\u3057\u305D\u3046\u304B"
+  - "\u304B\u3093\u305D\u3046"
+  - "\u3057\u309B\u3066\u3093"
+  - "\u3042\u304B\u3066\u3093"
+  - "\u304B\u305F\u3044\u308C"
+  - "\u3048\u3057\u3084\u304F"
+  - "\u3068\u3046\u3055\u309B\u3044"
+  - "\u304B\u309B\u3044\u3068\u3046"
+  - "\u305D\u3046\u3066\u3093"
+  - "\u304B\u304A\u3044\u308D"
+  - "\u304B\u3064\u3057\u3084"
+  - "\u304B\u3044\u3066\u3093"
+  - "\u3057\u3093\u3057\u3084"
+  - "\u3057\u3064\u304B\u3093"
+  - "\u3075\u309B\u3093\u304B\u3044"
+  - "\u304B\u304F\u3055\u3093"
+  WordsManual:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   TPTx:
   - transmit
   - trans

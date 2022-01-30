@@ -16,8 +16,8 @@ MonoBehaviour:
   Name: Korean
   NativeName: "\uD55C\uAD6D\uC5B4"
   RightToLeft: 0
-  Version: 1
-  ManualAvailable: 0
+  Version: 2
+  ManualAvailable: 1
   ManualLinks: []
   TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
     transmit 575 [transmit frequency 3.575]'
@@ -40,8 +40,8 @@ MonoBehaviour:
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: "\uC804\uC1A1"
   MegaHerz: MHz
-  Characters: 3131343137313931413142314531473148314a314b314c314d314e314f3151315331553157315b315c3160316131633150315431
   Digits: 0123456789
+  Characters: 3131343137313931413142314531473148314a314b314c314d314e314f3151315331553157315b315c3160316131633150315431
   MorseSymbols:
   - .-..
   - ..-.

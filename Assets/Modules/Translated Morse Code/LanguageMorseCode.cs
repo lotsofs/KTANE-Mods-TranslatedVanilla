@@ -14,8 +14,8 @@ public class LanguageMorseCode : Language {
 
 	[Header("Display")]
 	[Tooltip("Set to NonLatin if TMP_SubMesh throws a log stating a FallBackMaterial is being used. Set to CustomTextMesh if the text requires a custom font below. Set to sprite to use sprites.")]
-	public DisplayMethods DialsDisplayMethod = DisplayMethods.Default;
-	public DisplayMethods ButtonDisplayMethod = DisplayMethods.Default;
+	//public DisplayMethods MhzDisplayMethod = DisplayMethods.Default;
+	public DisplayMethods TxDisplayMethod = DisplayMethods.Default;
 
 	[Header("Custom Text Meshes")]
 	public Font TxFont;

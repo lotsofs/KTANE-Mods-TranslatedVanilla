@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code 14
+  m_Name: PT
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Iso639: pt
+  Name: Portuguese
+  NativeName: "Portugu\xEAs"
   RightToLeft: 0
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
+    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
+  IetfBcp47: pt
   DialsDisplayMethod: 0
   ButtonDisplayMethod: 0
   TxFont: {fileID: 0}
@@ -39,8 +40,8 @@ MonoBehaviour:
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: TX
   MegaHerz: MHz
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
   Digits: 0123456789
+  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00ca00d300
   MorseSymbols:
   - .-
   - -...
@@ -68,23 +69,25 @@ MonoBehaviour:
   - -..-
   - -.--
   - --..
+  - .
+  - '---'
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
+  - BOSSA
+  - BOMBA
+  - BATOM
+  - BOMBOM
+  - BURRO
+  - DADOS
+  - "DOSSI\xCA"
+  - DOIDO
+  - MORSE
+  - "M\xD3DULO"
+  - SENHA
+  - SERIAL
+  - SAMBA
+  - CHAVO
+  - "C\xD3DIGO"
+  - CONTA
   WordsManual: []
   TPTx:
   - transmit

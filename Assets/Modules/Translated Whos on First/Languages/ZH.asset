@@ -14,15 +14,15 @@ MonoBehaviour:
   Disabled: 0
   Iso639: zh
   Name: Chinese
-  NativeName: 
+  NativeName: "\u4E2D\u6587"
   RightToLeft: 0
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
   ManualLinks: []
   TwitchHelpMessage: '!{0} submit WHAT? -press the button that says ''WHAT?''; the
     phrase must match exactly | !{0} press MR - press the middle right button.'
   ExtLang: 
-  Script: 900
+  Script: 501
   LanguageRegion: 0
   Iso3166: 
   Variant: 
@@ -31,7 +31,7 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: zh
+  IetfBcp47: zh-Hans
   ScreenDisplayMethod: 1
   ButtonsDisplayMethod: 1
   DisplayFont: {fileID: 0}
@@ -42,6 +42,7 @@ MonoBehaviour:
   ButtonsFontMaterial: {fileID: 0}
   ButtonsFontSize: 216
   ButtonsOffset: {x: 0, y: 0, z: 0}
+  PerLabelButtonFontSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   Displays:
   - "\u663E\u793A"
   - "\u7A7A\u7684"

@@ -9,17 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: Language for Morse Code 17
+  m_Name: TH
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: 
-  Name: 
-  NativeName: 
+  Iso639: th
+  Name: Thai
+  NativeName: "\u0E44\u0E17\u0E22"
   RightToLeft: 0
   Version: 1
-  ManualAvailable: 0
+  ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} twitch help message'
+  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
+    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -30,61 +31,102 @@ MonoBehaviour:
   AdditionalExtendedSubtags: []
   ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: 
-  DialsDisplayMethod: 0
-  ButtonDisplayMethod: 0
-  TxFont: {fileID: 0}
-  TxFontMaterial: {fileID: 0}
-  TxFontSize: 0
-  TxOffset: {x: 0, y: 0, z: 0}
-  Transmit: TX
+  IetfBcp47: th
+  TxDisplayMethod: 1
+  TxFont: {fileID: 12800000, guid: d21bb4c6bf7514a45bb62b3389912fed, type: 3}
+  TxFontMaterial: {fileID: 2100000, guid: 8a352fa0dc9919f41a4a86faba90271f, type: 2}
+  TxFontSize: 238
+  TxOffset: {x: 0, y: 0, z: -0.0011}
+  Transmit: "\u0E2A\u0E48\u0E07"
   MegaHerz: MHz
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
   Digits: 0123456789
+  Characters: 010e020e030e040e050e060e070e080e090e0a0e0b0e0d0e140e0e0e150e0f0e160e100e170e180e110e120e190e130e1a0e1b0e1c0e1d0e1e0e200e1f0e210e220e230e250e2c0e270e280e290e2a0e2b0e2d0e2e0e240e450e300e320e340e350e360e370e380e390e400e410e440e430e420e330e480e490e4a0e4b0e310e470e4c0e460e2f0e
   MorseSymbols:
-  - .-
-  - -...
-  - -.-.
-  - -..
-  - .
-  - ..-.
   - --.
-  - '....'
-  - ..
-  - .---
+  - -.-.
+  - -.-.
   - -.-
-  - .-..
-  - --
+  - -.-
+  - -.-
+  - -.--.
+  - -..-.
+  - '----'
+  - -..-
+  - --..
+  - .---
+  - -..
+  - -..
+  - '-'
+  - '-'
+  - -.-..
+  - -.-..
+  - -..--
+  - -..--
+  - -..--
+  - -..--
   - -.
-  - '---'
+  - -.
+  - -...
   - .--.
   - --.-
+  - -.-.-
+  - .--..
+  - .--..
+  - ..-.
+  - --
+  - -.--
   - .-.
+  - .-..
+  - .-..
+  - .--
   - '...'
-  - '-'
+  - '...'
+  - '...'
+  - '....'
+  - -...-
+  - --.--
+  - .-.--
+  - .-.--
+  - .-...
+  - .-
+  - ..-..
+  - ..
+  - ..--.
+  - ..--
+  - ..-.-
+  - '---.'
+  - .
+  - .-.-
+  - .-..-
+  - .-..-
+  - '---'
+  - '...-.'
   - ..-
   - '...-'
-  - .--
-  - -..-
-  - -.--
-  - --..
+  - --...
+  - .-.-.
+  - .--.-
+  - '---..'
+  - --..-
+  - -.---
+  - --.-.
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
+  - "\u0E23\u0E30\u0E40\u0E1A\u0E34\u0E14"
+  - "\u0E23\u0E30\u0E40\u0E2B\u0E34\u0E14"
+  - "\u0E44\u0E02\u0E48\u0E44\u0E01\u0E48"
+  - "\u0E44\u0E01\u0E48\u0E44\u0E02\u0E48"
+  - "\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23"
+  - "\u0E1A\u0E23\u0E34\u0E1A\u0E32\u0E25"
+  - "\u0E1A\u0E23\u0E34\u0E2B\u0E32\u0E23"
+  - "\u0E1A\u0E23\u0E34\u0E1A\u0E17"
+  - "\u0E2A\u0E30\u0E2A\u0E32\u0E07"
+  - "\u0E40\u0E1E\u0E34\u0E48\u0E21\u0E1E\u0E39\u0E19"
+  - "\u0E20\u0E32\u0E04\u0E20\u0E39\u0E21\u0E34"
+  - "\u0E42\u0E2D\u0E01\u0E32\u0E2A"
+  - "\u0E2D\u0E32\u0E01\u0E32\u0E28"
+  - "\u0E2A\u0E31\u0E0D\u0E0D\u0E32"
+  - "\u0E2A\u0E31\u0E0D\u0E0D\u0E32\u0E13"
+  - "\u0E2A\u0E07\u0E2A\u0E32\u0E23"
   WordsManual: []
   TPTx:
   - transmit

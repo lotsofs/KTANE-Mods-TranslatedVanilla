@@ -46,7 +46,7 @@ public class Language : ScriptableObject {
 	public void AutoComplete() {
 		if (Ietf.Languages.ContainsKey(Iso639)) {
 			if (string.IsNullOrEmpty(Name)) Name = Ietf.Languages[Iso639].Anglonym;
-			if (string.IsNullOrEmpty(NativeName)) NativeName = Ietf.Languages[Iso639].Endonym;
+			if (string.IsNullOrEmpty(NativeName)) NativeName = Ietf.Languages[Iso639].Autonym;
 			if (Ietf.Languages[Iso639].RightToLeft) RightToLeft = true; // only set to true if definitely true since false could be 'varies' as well
 		}
 
