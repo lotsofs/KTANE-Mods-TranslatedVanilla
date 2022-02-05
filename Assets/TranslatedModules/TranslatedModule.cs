@@ -377,7 +377,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 			if (_settings.IgnoredPrivateSubtags != null && _settings.IgnoredPrivateSubtags.Length > 0) {
 				bool cont = false;
 				foreach (string subtag in transl.IetfBcp47.Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries)) {
-					if (subtag == "untc") {
+					if (subtag == "untrc") {
 						hasUnfinishedLanguages = true;
 						excludedUntranslated += string.Format("{0}, ", transl.IetfBcp47);
 					}
@@ -415,7 +415,7 @@ public class TranslatedModule<TLanguage> : MonoBehaviour
 		if (_settings.IgnoreMachineTranslations && excludedMachine.Trim().Last() != ':') 
 			Log(excludedMachine);
 
-		if (_settings.IgnoredPrivateSubtags.Contains("untc", StringComparer.OrdinalIgnoreCase) && excludedUntranslated.Trim().Last() != ':') 
+		if (_settings.IgnoredPrivateSubtags.Contains("untrc", StringComparer.OrdinalIgnoreCase) && excludedUntranslated.Trim().Last() != ':') 
 			Log(excludedUntranslated);
 		else if (hasUnfinishedLanguages) 
 			Log("Configuration file allows for the use of translations that didn't bother to translate the main content of the module.");

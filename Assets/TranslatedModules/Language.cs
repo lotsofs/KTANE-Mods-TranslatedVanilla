@@ -11,18 +11,16 @@ public class Language : ScriptableObject {
 
 	[Header("Language Information")]
 	public string Iso639;
-	public string Name;         // todo: this should be obsolete
-	public string NativeName;   // todo: this should be obsolete
-	[Tooltip("The unity editor does not properly show right to left languages, showing them as left to right instead. If this happens on the actual text mesh too, the letters must be manually switched around 'siht ekil'. Tick this to make the mod do that for you. This will not change anything in the editor and it will maintain the incorrect left-to-right look. It is recommended to copy paste the texts into a text editor and edit them there. This does not do anything in the editor.")]
-	public bool RightToLeft = false;
+
 	[Space]
 	public int Version = 1;
+	public bool ReportVersion = false;
 	public bool ManualAvailable = false;
 	public string[] ManualLinks;
 	[Space]
-	public string TwitchHelpMessage = "!{0} twitch help message";
+	//public string TwitchHelpMessage = "!{0} twitch help message";
 
-	[Header("Optional IETF BCP 47 Language Tag Information")]
+	[Header("Advanced IETF BCP 47 Language Tag Information")]
 	public string ExtLang = "";
 	public Ietf.Scripts Script = Ietf.Scripts.Default;
 	public Ietf.Regions LanguageRegion = Ietf.Regions.Default;
@@ -31,10 +29,17 @@ public class Language : ScriptableObject {
 	public string Variant = "";
 	public bool MachineTranslation = false;
 	public string MachineUsed = "";
+	public bool UntranslatedMainContent = false;
 	public string[] AdditionalExtendedSubtags;
-	public bool ShowVersionSubtag = false;
 	public string[] AdditionalPrivateSubtags;
 	[Space]
+
+	[Header("Automatically Generated Information")]
+	public bool ManualOverride = false;
+	public string Name;         // todo: this should be obsolete
+	public string NativeName;   // todo: this should be obsolete
+	[Tooltip("The unity editor does not properly show right to left languages, showing them as left to right instead. If this happens on the actual text mesh too, the letters must be manually switched around 'siht ekil'. Tick this to make the mod do that for you. This will not change anything in the editor and it will maintain the incorrect left-to-right look. It is recommended to copy paste the texts into a text editor and edit them there. This does not do anything in the editor.")]
+	public bool RightToLeft = false;
 	public string IetfBcp47 = "";
 
 	/// <summary>
@@ -42,12 +47,12 @@ public class Language : ScriptableObject {
 	/// </summary>
 	internal bool flipped = false;
 
-	[ContextMenu("Auto Complete")]
+	//[ContextMenu("Generate Ietf BCP 47")]
 	public void AutoComplete() {
-		if (Ietf.Languages.ContainsKey(Iso639)) {
-			if (string.IsNullOrEmpty(Name)) Name = Ietf.Languages[Iso639].Anglonym;
-			if (string.IsNullOrEmpty(NativeName)) NativeName = Ietf.Languages[Iso639].Autonym;
-			if (Ietf.Languages[Iso639].RightToLeft) RightToLeft = true; // only set to true if definitely true since false could be 'varies' as well
+		if (Ietf.Languages.ContainsKey(Iso639) && !ManualOverride) {
+			Name = Ietf.Languages[Iso639].Anglonym;
+			NativeName = Ietf.Languages[Iso639].Autonym;
+			RightToLeft = Ietf.Languages[Iso639].RightToLeft; // only set to true if definitely true since false could be 'varies' as well
 		}
 
 		IetfBcp47 = Iso639;
@@ -61,9 +66,14 @@ public class Language : ScriptableObject {
 		if (!string.IsNullOrEmpty(Variant)) IetfBcp47 += "-" + Variant.ToLower();
 		if (MachineTranslation) IetfBcp47 += "-t-t0-" + (!string.IsNullOrEmpty(MachineUsed) ? MachineUsed : "und");
 		foreach (string subtag in AdditionalExtendedSubtags) IetfBcp47 += "-" + subtag;
-		if (AdditionalPrivateSubtags.Length > 0 || ShowVersionSubtag) IetfBcp47 += "-x";
+		IetfBcp47 += "-x";
+		if (UntranslatedMainContent) IetfBcp47 += "-untrc";
 		foreach (string subtag in AdditionalPrivateSubtags) IetfBcp47 += "-" + subtag;
-		if (ShowVersionSubtag) IetfBcp47 += "-v" + Version;
+		IetfBcp47 += "-v" + Version;
+	}
+
+	public void OnValidate() {
+		AutoComplete();
 	}
 
 	//public abstract string GetLabelFromEnglishName(string str);

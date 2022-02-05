@@ -76,12 +76,12 @@ public class LanguageWhosOnFirst : Language {
 	[NonSerialized]
 	public Dictionary<string, int> ButtonLabelSizes = new Dictionary<string, int>();
 
-	[ContextMenu("Generate Twitch Help Message")]
-	void GenerateTwitchHelpMessage() {
-		TwitchHelpMessage = TPMessage;
-	}
+	//[ContextMenu("Generate Twitch Help Message")]
+	//void GenerateTwitchHelpMessage() {
+	//	TwitchHelpMessage = TPMessage;
+	//}
 
-		void OnEnable() {
+	void OnEnable() {
 
 		if (Displays.Length != 28) {
 			Debug.LogErrorFormat("WOF {0}: Expected 28 display words, only got {1}", Name, Displays.Length);

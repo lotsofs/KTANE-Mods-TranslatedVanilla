@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -29,7 +30,7 @@ public class LanguageMorseCode : Language {
 
 	[Header("Module Text")]
 	public string Transmit = "TX";
-	public string MegaHerz = "MHz";
+	//public string MegaHerz = "MHz";
 	public string Digits = "0123456789";
 
 	public char[] Characters = new char[] { 
@@ -65,17 +66,17 @@ public class LanguageMorseCode : Language {
 	public string LogSubmitCorrect = "Transmit button pressed when selected frequency is {0}. Correct!";
 	public string LogSubmitWrong = "Transmit button pressed when selected frequency is {0}. Strike!";
 
-	[ContextMenu("Generate Twitch Help Message")]
-	void GenerateTwitchHelpMessage() {
-		TwitchHelpMessage = string.Format(TPMessage,
-			"{0}",
-			TPTx[0 % TPTx.Length],
-			TPTx[1 % TPTx.Length],
-			TPTx[2 % TPTx.Length],
-			TPTx[3 % TPTx.Length],
-			MegaHerz
-		);
-	}
+	//[ContextMenu("Generate Twitch Help Message")]
+	//void GenerateTwitchHelpMessage() {
+	//	TwitchHelpMessage = string.Format(TPMessage,
+	//		"{0}",
+	//		TPTx[0 % TPTx.Length],
+	//		TPTx[1 % TPTx.Length],
+	//		TPTx[2 % TPTx.Length],
+	//		TPTx[3 % TPTx.Length],
+	//		MegaHerz
+	//	);
+	//}
 
 	void OnEnable() {
 

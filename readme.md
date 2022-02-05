@@ -34,8 +34,12 @@ wkp - *w*i*k*i*p*edia - Simple terms such as color names etc. were taken from th
 gtr - *g*oogle *tr*anslate - Simply Google Translation (or some other robot translation service). Likely very wrong.
 
 ### Private Language Subtags ###
+Private versions: 4 alpha characters. Currently in-use:
 orig - *Orig*inal translations from Tharagon's mod in use and unchanged since 2018.
 nvml - Translations provided in this remake using AndrioCelos's *N*ot *V*anilla *M*odules *l*ibrary.
 offc - *Off*i*c*ial translations as provided by Steel Crate Games in their 2020 localization update.
 
-untc - *Unt*ranslated *c*ontent - Use when some provided translation did not actually translate the content, eg. various of the Asian morse codes which use latin words like shell, halls, etc. anyway.
+Other information: 5 alpha characters. Currently in-use:
+untrc - *Unt*ranslated *c*ontent - Use when some provided translation did not actually translate the content, eg. various of the Asian morse codes which use latin words like shell, halls, etc. anyway.
+
+v# - *V*ersion *#* (where # is a number)

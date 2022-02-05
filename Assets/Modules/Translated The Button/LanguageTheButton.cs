@@ -87,15 +87,15 @@ public class LanguageTheButton : Language {
 	private Dictionary<string, Sprite> _spriteLabels;
 	private Dictionary<string, int> _sizeLabels;
 
-	[ContextMenu("Generate Twitch Help Message")]
-	void GenerateTwitchHelpMessage() {
-		TwitchHelpMessage = string.Format(TPMessage,
-			"{0}",
-			TPTap,
-			TPHold,
-			TPRelease
-		);
-	}
+	//[ContextMenu("Generate Twitch Help Message")]
+	//void GenerateTwitchHelpMessage() {
+	//	TwitchHelpMessage = string.Format(TPMessage,
+	//		"{0}",
+	//		TPTap,
+	//		TPHold,
+	//		TPRelease
+	//	);
+	//}
 
 	void OnEnable() {
 		FixRightToLeft();

@@ -12,7 +12,7 @@
 	//public bool IgnoreUntranslatedContent = true;
 
 	public bool TreatMultipleVariantsAsOne = true;
-	public string[] IgnoredPrivateSubtags = { "untc", "orig", "ofcl", "rmak" };
+	public string[] IgnoredPrivateSubtags = { "untrc", "orig", "offc", "nvml" };
 
 	public bool DisableSticker = false;
 

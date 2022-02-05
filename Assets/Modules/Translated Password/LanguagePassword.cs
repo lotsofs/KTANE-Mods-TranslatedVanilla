@@ -53,16 +53,16 @@ public class LanguagePassword : Language {
 	public string LogSubmitWrong = "Strike: Submitted {0}";
 	public string LogDial = "Dial {0}: {1}";
 
-	[ContextMenu("Generate Twitch Help Message")]
-	void GenerateTwitchHelpMessage() {
-		TwitchHelpMessage = string.Format(TPMessage,
-			"{0}",
-			TPCycle,
-			TPToggle,
-			TPSubmit,
-			PossibleWords[PossibleWords.Length - 3]
-		);
-	}
+	//[ContextMenu("Generate Twitch Help Message")]
+	//void GenerateTwitchHelpMessage() {
+	//	TwitchHelpMessage = string.Format(TPMessage,
+	//		"{0}",
+	//		TPCycle,
+	//		TPToggle,
+	//		TPSubmit,
+	//		PossibleWords[PossibleWords.Length - 3]
+	//	);
+	//}
 
 	void OnEnable() {
 

@@ -42,16 +42,16 @@ public class LanguageVentingGas : Language {
 	public string LogNoCorrect = "Pressed No. Disarmed!";
 	public string LogNoIncorrect = "Pressed No. Venting prevents explosions. Prompting again.";
 
-	[ContextMenu("Generate Twitch Help Message")]
-	void GenerateTwitchHelpMessage() {
-		TwitchHelpMessage = string.Format(TPMessage,
-			"{0}",
-			Yes.ToLower(),
-			Y.ToLower(),
-			No.ToLower(),
-			N.ToLower()
-		);
-	}
+	//[ContextMenu("Generate Twitch Help Message")]
+	//void GenerateTwitchHelpMessage() {
+	//	TwitchHelpMessage = string.Format(TPMessage,
+	//		"{0}",
+	//		Yes.ToLower(),
+	//		Y.ToLower(),
+	//		No.ToLower(),
+	//		N.ToLower()
+	//	);
+	//}
 
 	void OnEnable() {
 
