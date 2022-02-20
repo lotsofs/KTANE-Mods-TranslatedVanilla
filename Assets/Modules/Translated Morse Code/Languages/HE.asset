@@ -13,33 +13,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Disabled: 0
   Iso639: he
-  Name: Hebrew
-  NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
-  RightToLeft: 1
   Version: 1
+  ReportVersion: 0
   ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
-    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
   Iso3166: 
   Variant: 
-  MachineTranslation: 0
-  MachineUsed: 
+  MachineTranslation: 1
+  MachineUsed: wkp
+  UntranslatedMainContent: 0
   AdditionalExtendedSubtags: []
-  ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: he
-  DialsDisplayMethod: 0
-  ButtonDisplayMethod: 0
+  ManualOverride: 0
+  Name: Hebrew
+  NativeName: "\u05E2\u05D1\u05E8\u05D9\u05EA"
+  RightToLeft: 1
+  IetfBcp47: he-t-t0-wkp-x-v1
+  TxDisplayMethod: 0
   TxFont: {fileID: 0}
   TxFontMaterial: {fileID: 0}
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: "\u05E9\u05DC\u05D7"
-  MegaHerz: MHz
   Digits: 0123456789
   Characters: d005d105d205d305d405d505d605d705d805d905db05dc05de05e005e105e205e405e605e705e805e905ea05da05dd05df05e305e505
   MorseSymbols:

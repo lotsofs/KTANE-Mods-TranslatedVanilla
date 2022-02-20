@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - GUI/Text Shader
+  - GUI/KT 3D Text Diffuse
 --- !u!114 &114106614079554852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2271,6 +2271,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af35c1bd1d09f6845bdbe5373398ef4c, type: 2}
   - {fileID: 11400000, guid: 2ab3051710e300545b6530a965da1cb2, type: 2}
   - {fileID: 11400000, guid: 1fa6c533f3143ef4a853f4293d388359, type: 2}
+  - {fileID: 11400000, guid: d0c099ba995555c43a567f11572a7634, type: 2}
   - {fileID: 11400000, guid: 5f1bf30839fc43a4782cb24e0bdf033c, type: 2}
   - {fileID: 11400000, guid: 65e0289b70001a74a900ef254862e033, type: 2}
   - {fileID: 11400000, guid: 6b815b8b354ddc044914188679323bec, type: 2}

@@ -9,18 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17092d63ed7f22644bf4bfc7c579ffd1, type: 3}
-  m_Name: EN
+  m_Name: FY
   m_EditorClassIdentifier: 
   Disabled: 0
-  Iso639: en
-  Name: English
-  NativeName: English
-  RightToLeft: 0
+  Iso639: fy
   Version: 1
+  ReportVersion: 0
   ManualAvailable: 1
   ManualLinks: []
-  TwitchHelpMessage: '!{0} transmit 3.575, !{0} trans 575, !{0} tx 3.575 MHz, !{0}
-    transmit 575 [transmit frequency 3.575]'
   ExtLang: 
   Script: 900
   LanguageRegion: 0
@@ -28,20 +24,22 @@ MonoBehaviour:
   Variant: 
   MachineTranslation: 0
   MachineUsed: 
+  UntranslatedMainContent: 0
   AdditionalExtendedSubtags: []
-  ShowVersionSubtag: 0
   AdditionalPrivateSubtags: []
-  IetfBcp47: en
-  DialsDisplayMethod: 0
-  ButtonDisplayMethod: 0
+  ManualOverride: 0
+  Name: Western Frisian
+  NativeName: Frysk
+  RightToLeft: 0
+  IetfBcp47: fy-x-v1
+  TxDisplayMethod: 0
   TxFont: {fileID: 0}
   TxFontMaterial: {fileID: 0}
   TxFontSize: 0
   TxOffset: {x: 0, y: 0, z: 0}
   Transmit: TX
-  MegaHerz: MHz
   Digits: 0123456789
-  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
+  Characters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00c200
   MorseSymbols:
   - .-
   - -...
@@ -69,23 +67,24 @@ MonoBehaviour:
   - -..-
   - -.--
   - --..
+  - .-
   PossibleWords:
-  - SHELL
-  - HALLS
-  - SLICK
-  - TRICK
-  - BOXES
-  - LEAKS
-  - STROBE
-  - BISTRO
-  - FLICK
-  - BOMBS
-  - BREAK
-  - BRICK
-  - STEAK
-  - STING
-  - VECTOR
-  - BEATS
+  - SKAAD
+  - "K\xC2NS"
+  - STEKTE
+  - TREKTE
+  - SITROEN
+  - LYKJE
+  - KEAMER
+  - AMMERKE
+  - KREKTE
+  - SINTRUM
+  - BRYK
+  - BREKTE
+  - UNYK
+  - UNTWIKE
+  - BEFRIES
+  - SWYN
   WordsManual: []
   TPTx:
   - transmit
